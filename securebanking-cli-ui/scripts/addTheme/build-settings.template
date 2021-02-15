@@ -1,0 +1,47 @@
+module.exports = {
+  defaultSettings: {
+    html: {
+      head: [
+        {
+          id: 'title',
+          tag: '<title><%= metadata.title %></title>',
+          order: 1
+        },
+        {
+          id: 'description',
+          tag: '<meta name="description" content="<%= metadata.description %>">',
+          order: 2
+        },
+        {
+          id: 'og:title',
+          tag: '<meta name="og:title" property="og:title" content="<%= metadata.title %>">',
+          order: 3
+        },
+        {
+          id: 'og:description',
+          tag: '<meta name="og:description" property="og:description" content="<%= metadata.description %>">',
+          order: 4
+        },
+        {
+          id: "splashscreen",
+          tag: '<link href="./assets/splashscreen.css" rel="stylesheet" />',
+        },
+        {
+          id: "icons",
+          tag:
+            '<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />',
+        },
+        {
+          id: "fonts",
+          tag:
+            '<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet" />',
+        }<% if (favicons) { %>,
+        {
+          id: 'favicons',
+          tag: '<%- favicons %>',
+        }<% } %>
+      ],
+      body: []
+    }
+  }
+};
