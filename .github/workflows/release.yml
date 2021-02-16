@@ -1,0 +1,33 @@
+name: Publish npm packages
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  publish-securebanking-cli-ui:
+    name: Publish securebanking cli UI
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v2
+        working-directory: ./securebanking-cli-ui
+      - name: Create .npmrc file
+        working-directory: ./securebanking-cli-ui
+        run: echo "//maven.forgerock.org/repo/api/npm/npm-local/:_auth=${{ secrets.FR_NPM_ACCESS_TOKEN }}" > .npmrc
+      - name: Publish
+        working-directory: ./securebanking-cli-ui
+        run: npm publish
+  publish-securebanking-common-ui:
+    name: Publish securebanking common UI
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v2
+        working-directory: ./securebanking-common-ui
+      - name: Create .npmrc file
+        working-directory: ./securebanking-common-ui
+        run: echo "//maven.forgerock.org/repo/api/npm/npm-local/:_auth=${{ secrets.FR_NPM_ACCESS_TOKEN }}" > .npmrc
+      - name: Publish
+        working-directory: ./securebanking-common-ui
+        run: npm publish
