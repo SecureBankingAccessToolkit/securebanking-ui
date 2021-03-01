@@ -1,19 +1,20 @@
 ## Running app via CLI
 ```shell
-cd securebanking-auth-ui
+cd securebanking-swagger-ui
 ```
 ```shell
 npm ci
 ```
 ```shell
-npm run build.auth.themes
+npm run build.swagger.themes
 ```
 ```shell
-npm run serve.auth
+npm run serve.swagger
 ```
+
 ## Running docker image manually
 
-**auth-ui** is a build of the Auth app with only the Forgerock theme.
+**auth-ui** & **swagger-ui** are builds of the Auth & Swagger app with only the Forgerock theme.
 
 It is convenient to start the app in no time.
 
@@ -22,7 +23,7 @@ It is convenient to start the app in no time.
 - `<TEMPLATE_NAME>`: Default value: `forgerock`.
 
 ```bash
-docker run -it -p <PORT>:80 -e TEMPLATE=<TEMPLATE_NAME> -e DOMAIN=<DOMAIN> securebanking/securebanking-auth-ui
+docker run -it -p <PORT>:80 -e TEMPLATE=<TEMPLATE_NAME> -e DOMAIN=<DOMAIN> securebanking/securebanking-swagger-ui
 ```
 
 ## Run Docker compose
@@ -33,7 +34,7 @@ The UI apps depend on services:
     
 > Run first the reference implementation spring boot apps
 
-Working Directory: ./securebanking-auth-ui
+Working Directory: ./securebanking-swagger-ui
 ```bash
 docker-compose up
 ```
@@ -49,5 +50,5 @@ Then build the docker image
 ## Building your own docker image
 ```bash
 # Build
-docker build -t <IMAGE_NAME> -f projects/auth/docker/Dockerfile .
+docker build -t <IMAGE_NAME> -f projects/swagger/docker/Dockerfile .
 ```

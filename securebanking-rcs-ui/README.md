@@ -23,8 +23,7 @@ It is convenient to start the app in no time.
 - `<TEMPLATE_NAME>`: Default value: `forgerock`.
 
 ```bash
-docker run -it -p <PORT>:80 -e TEMPLATE=<TEMPLATE_NAME> -e DOMAIN=<DOMAIN> openbankingtoolkit/openbanking-bank-ui
-docker run -it -p <PORT>:80 -e TEMPLATE=<TEMPLATE_NAME> -e DOMAIN=<DOMAIN> openbankingtoolkit/openbanking-register-ui
+docker run -it -p <PORT>:80 -e TEMPLATE=<TEMPLATE_NAME> -e DOMAIN=<DOMAIN> securebanking/securebanking-rcs-ui
 ```
 
 ## Building the app with your theme
@@ -36,8 +35,5 @@ Then build the docker image
 ## Building your own docker image
 
 ```bash
-# Build Analytics
-docker build -t <IMAGE_NAME> -f projects/analytics/docker/Dockerfile .
-# Build Analytics Server
-docker build -t <IMAGE_NAME> -f projects/analytics/docker/Dockerfile-server .
+docker build -t <IMAGE_NAME> -f projects/rsc/docker/Dockerfile .
 ```
