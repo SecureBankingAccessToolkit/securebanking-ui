@@ -1,0 +1,6 @@
+<app-key-value-item
+  *ngIf="payload.account"
+  [key]="payload.label | translate"
+  [value]="payload.account | AccountNumberFormat"
+  [cssClass]="payload.cssClass"
+></app-key-value-item>
