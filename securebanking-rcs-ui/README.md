@@ -1,4 +1,4 @@
-## Run local
+## Run app via CLI
 ```shell
 cd securebanking-rcs-ui
 ```
