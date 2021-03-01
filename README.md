@@ -1,7 +1,7 @@
 # securebanking-ui
 Secure banking User interfaces
 
-## Modules
+## Subprojects
 ### Secure Banking cli UI
 [securebanking-cli-ui readme](securebanking-cli-ui/README.md)
 
@@ -17,3 +17,8 @@ Secure banking User interfaces
 - OIDC Login/Register pages
 
 [securebanking-auth-ui readme](securebanking-auth-ui/README.md)
+
+### Secure Banking Swagger UI
+- API documentation
+
+[securebanking-swagger-ui readme](securebanking-swagger-ui/README.md)

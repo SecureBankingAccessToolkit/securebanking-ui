@@ -1,18 +1,18 @@
 {
-  "name": "securebanking-auth-ui",
+  "name": "securebanking-swagger-ui",
   "version": "1.0.0",
-  "description": "OIDC Login/Register pages",
+  "description": "API documentation",
   "author": "forgerock.com",
   "license": "Apache-2.0",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/SecureBankingAcceleratorToolkit/securebanking-ui.git",
-    "directory": "securebanking-auth-ui"
+    "directory": "securebanking-swagger-ui"
   },
   "bugs": {
     "url": "https://github.com/SecureBankingAcceleratorToolkit/securebanking-ui/issues"
   },
-  "homepage": "https://github.com/SecureBankingAcceleratorToolkit/securebanking-ui/securebanking-auth-ui#readme",
+  "homepage": "https://github.com/SecureBankingAcceleratorToolkit/securebanking-ui/securebanking-swagger-ui#readme",
   "scripts": {
     "ng": "ng",
     "test": "ng test --passWithNoTests",
@@ -21,12 +21,12 @@
     "format:fix": "pretty-quick --staged",
     "precommit": "run-s format:fix",
     "lint": "ng lint",
-    "=================AUTH APP=================": "",
-    "bundleSize.auth": "openbanking-ui-cli appSize --theme forgerock --project auth",
-    "serve.auth": "ng serve auth",
-    "report.auth": "npm run build.auth.forgerock && webpack-bundle-analyzer dist/forgerock/stats.json",
-    "build.auth.forgerock": "ng build --project=auth --prod --configuration=forgerock --output-path dist/forgerock --statsJson --extra-webpack-config webpack.extra.js",
-    "build.auth.themes": "openbanking-ui-cli buildThemes --project auth"
+    "=================SWAGGER APP=================": "",
+    "bundleSize.swagger": "openbanking-ui-cli appSize --theme forgerock --project swagger",
+    "serve.swagger": "ng serve swagger",
+    "report.swagger": "npm run build.swagger.forgerock && webpack-bundle-analyzer dist/forgerock/stats.json",
+    "build.swagger.forgerock": "ng build --project=swagger --prod --configuration=forgerock --output-path dist/forgerock --statsJson --extra-webpack-config webpack.extra.js",
+    "build.swagger.themes": "openbanking-ui-cli buildThemes --project swagger"
   },
   "private": true,
   "dependencies": {
