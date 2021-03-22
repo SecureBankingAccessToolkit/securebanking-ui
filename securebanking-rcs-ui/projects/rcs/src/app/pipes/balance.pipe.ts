@@ -12,9 +12,9 @@ export class BalanceFormatPipe implements PipeTransform {
 
   transform(balance: OBCashBalance1): string {
     return (
-      this.translateService.instant('BALANCE_TYPE.' + balance.Type) +
+      this.translateService.instant('BALANCE_TYPE.' + balance.type) +
       ' : ' +
-      this.amountFormatPipe.transform(balance.Amount)
+      this.amountFormatPipe.transform(balance.amount)
     );
   }
 }

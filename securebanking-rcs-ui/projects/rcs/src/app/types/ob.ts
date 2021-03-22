@@ -1,26 +1,26 @@
 import { OBBalanceType1Code, OBCreditDebitCode } from '../../../src/app/types/ob.enum';
 
 export interface OBAccount2 {
-  AccountId: string;
-  Currency: string;
-  Nickname: string;
-  Account: OBCashAccount3[];
+  accountId: string;
+  currency: string;
+  nickname: string;
+  account: OBCashAccount3[];
 }
 
 export interface OBCashAccount3 {
-  SchemeName: string;
-  Identification: string;
-  Name: string;
-  SecondaryIdentification: string;
+  schemeName: string;
+  identification: string;
+  name: string;
+  secondaryIdentification: string;
 }
 
 export class OBActiveOrHistoricCurrencyAndAmount {
-  Amount: number;
-  Currency: string;
+  amount: number;
+  currency: string;
 }
 
 export interface OBCashBalance1 {
-  CreditDebitIndicator: OBCreditDebitCode;
-  Type: OBBalanceType1Code;
-  Amount: OBActiveOrHistoricCurrencyAndAmount;
+  creditDebitIndicator: OBCreditDebitCode;
+  type: OBBalanceType1Code;
+  amount: OBActiveOrHistoricCurrencyAndAmount;
 }

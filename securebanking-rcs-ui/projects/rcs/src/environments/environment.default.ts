@@ -3,9 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 export const environment = {
   production: false,
-  authorizationServer: 'https://as.aspsp.ui-dev.forgerock.financial',
-  authenticationServer: 'https://am.dev-ob.forgerock.financial:8074',
-  remoteConsentServer: 'https://rcs.aspsp.dev-ob.forgerock.financial:8074',
+  authorizationServer: 'http://localhost:9080/am',
+  authenticationServer: 'http://localhost:9080/am',
+  remoteConsentServer: 'http://localhost:8080',
   defaultRealm: 'openbanking',
   realmRedirections: {
     default: '/profile'
