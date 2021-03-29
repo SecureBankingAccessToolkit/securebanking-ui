@@ -46,7 +46,7 @@ export class FundsConfirmationComponent implements OnInit {
         type: ItemType.STRING,
         payload: {
           label: 'CONSENT.FUNDS-CONFIRMATION.ACCOUNT_TITLE',
-          value: this.response.accounts[0].account.Nickname,
+          value: this.response.accounts[0].account.nickname,
           cssClass: 'cof-account-title'
         }
       });
@@ -57,7 +57,7 @@ export class FundsConfirmationComponent implements OnInit {
         type: ItemType.ACCOUNT_NUMBER,
         payload: {
           label: 'CONSENT.FUNDS-CONFIRMATION.ACCOUNT_ID',
-          account: this.response.accounts[0].account.Account[0],
+          account: this.response.accounts[0].account.account[0],
           cssClass: 'cof-account-id'
         }
       });
