@@ -1,0 +1,53 @@
+apiVersion: {{ .Values.apiVersion.deployment }}
+kind: Deployment
+metadata:
+  name: {{ .Chart.Name }}
+  labels:
+    app: {{ .Chart.Name }}
+spec:
+  replicas: {{ .Values.auth.deployment.replicas }}
+  strategy:
+    rollingUpdate:
+      maxSurge: {{ .Values.auth.deployment.rollingUpdate.maxSurge }}
+      maxUnavailable: {{ .Values.auth.deployment.rollingUpdate.maxUnavailable }}
+    type: RollingUpdate
+  selector:
+    matchLabels:
+      app: {{ .Chart.Name }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Chart.Name }}
+        appVersion: {{ .Chart.AppVersion }}
+        helmVersion: {{ .Chart.Version }}
+    spec:
+      containers:
+        - name: {{ .Chart.Name }}
+          {{- if .Values.auth.deployment.imageOverride.enabled }}
+          image: "{{ .Values.auth.deployment.imageOverride.repo }}:{{ .Values.auth.deployment.imageOverride.tag }}"
+          {{- else }}
+          image: "eu.gcr.io/sbat-gcr-release/securebanking/${ .Chart.Name }:{{ .Chart.AppVersion }}"
+          {{- end }}
+          imagePullPolicy: {{ .Values.auth.deployment.imagePullPolicy }}
+          ports:
+            - name: http-server
+              containerPort: {{ .Values.auth.deployment.port }}
+          readinessProbe:
+            httpGet:
+              path: /actuator/health
+              port: {{ .Values.auth.deployment.port }}
+            periodSeconds: 5
+            failureThreshold: 3
+            successThreshold: 1
+            timeoutSeconds: 5
+          livenessProbe:
+            httpGet:
+              path: /actuator/health
+              port: {{ .Values.auth.deployment.port }}
+            initialDelaySeconds: 5
+            periodSeconds: 5
+            failureThreshold: 5
+            successThreshold: 1
+            timeoutSeconds: 5
+          resources:
+            {{- toYaml .Values.auth.deployment.resources | nindent 12 }}

@@ -1,0 +1,57 @@
+auth:
+  deployment:
+    port: 8080
+    replicas: 1
+
+    rollingUpdate:
+      maxSurge: 50%
+      maxUnavailable: 25%
+
+    imagePullPolicy: Always
+
+    imageOverride:
+      enabled: true
+      repo: eu.gcr.io/sbat-gcr-develop/securebanking/securebanking-ui/auth
+      tag: latest
+
+    resources: {}
+
+rcs:
+  deployment:
+    port: 8080
+    replicas: 1
+
+    rollingUpdate:
+      maxSurge: 50%
+      maxUnavailable: 25%
+
+    imagePullPolicy: Always
+
+    imageOverride:
+      enabled: true
+      repo: eu.gcr.io/sbat-gcr-develop/securebanking/securebanking-ui/rcs
+      tag: latest
+
+    resources: {}
+
+swagger:
+  deployment:
+    port: 8080
+    replicas: 1
+
+    rollingUpdate:
+      maxSurge: 50%
+      maxUnavailable: 25%
+
+    imagePullPolicy: Always
+
+    imageOverride:
+      enabled: true
+      repo: eu.gcr.io/sbat-gcr-develop/securebanking/securebanking-ui/swagger
+      tag: latest
+
+    resources: {}
+
+apiVersion:
+  service: v1
+  deployment: apps/v1
