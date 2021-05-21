@@ -1,3 +1,7 @@
+domain: dev.forgerock.financial
+authenticationUrl: https://auth.dev.forgerock.financial
+directoryBackendUrl: https://service.directory.dev.forgerock.financial/directory-services
+
 auth:
   deployment:
     port: 8080
