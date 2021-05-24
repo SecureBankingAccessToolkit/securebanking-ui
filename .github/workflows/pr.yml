@@ -16,7 +16,7 @@ jobs:
     runs-on: ubuntu-latest
     name: Create pr docker tag
     outputs:
-      prTag: ${{ needs.pr.outputs.prTag }}
+      prTag: ${{ steps.pr.outputs.prTag }}
     steps:
       - uses: actions/checkout@v2
 
@@ -41,7 +41,7 @@ jobs:
 
       - name: lint
         run: |
-          cd securebaking-auth-ui
+          cd securebanking-auth-ui
           npm run lint
 
       - name: test
@@ -77,7 +77,7 @@ jobs:
 
       - name: lint
         run: |
-          cd securebaking-rcs-ui
+          cd securebanking-rcs-ui
           npm run lint
 
       - name: test
