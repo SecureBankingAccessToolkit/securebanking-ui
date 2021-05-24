@@ -13,6 +13,18 @@ Secure banking User interfaces
 
 [securebanking-rcs-ui readme](securebanking-rcs-ui/README.md)
 
+### Requirements
+Several requirements are required to install secure banking rcs ui:
+
+- cairo
+- pango
+- pixman
+- jpeg
+
+```
+brew install pkg-config pixman cairo pango libpng jpeg giflib
+```
+
 ### Secure Banking Auth UI
 - OIDC Login/Register pages
 

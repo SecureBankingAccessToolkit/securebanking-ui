@@ -25,6 +25,9 @@ rcs:
     port: 8080
     replicas: 1
 
+    templateName: forgerock
+    
+
     rollingUpdate:
       maxSurge: 50%
       maxUnavailable: 25%
