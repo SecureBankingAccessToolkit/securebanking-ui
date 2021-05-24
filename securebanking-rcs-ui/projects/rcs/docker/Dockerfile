@@ -1,5 +1,5 @@
 # Stage 1 - the build process
-FROM node:10 as build-ui
+FROM node:14 as build-ui
 
 WORKDIR /src
 ADD package.json package-lock.json /src/
@@ -8,7 +8,7 @@ RUN NG_CLI_ANALYTICS=ci npm ci
 
 ADD . /src
 
-RUN npm run build.bank.themes
+RUN npm run build.rcs.themes
 
 # Stage 2 - the production environment
 FROM nginx:1.13.9-alpine
