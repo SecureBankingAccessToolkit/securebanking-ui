@@ -1,41 +1,41 @@
 apiVersion: {{ .Values.apiVersion.deployment }}
 kind: Deployment
 metadata:
-  name: {{ .Chart.Name }}-rcs
+  name: {{ .Chart.Name }}-swagger
   labels:
-    app: {{ .Chart.Name }}-rcs
+    app: {{ .Chart.Name }}-swagger
 spec:
-  replicas: {{ .Values.rcs.deployment.replicas }}
+  replicas: {{ .Values.swagger.deployment.replicas }}
   strategy:
     rollingUpdate:
-      maxSurge: {{ .Values.rcs.deployment.rollingUpdate.maxSurge }}
-      maxUnavailable: {{ .Values.rcs.deployment.rollingUpdate.maxUnavailable }}
+      maxSurge: {{ .Values.swagger.deployment.rollingUpdate.maxSurge }}
+      maxUnavailable: {{ .Values.swagger.deployment.rollingUpdate.maxUnavailable }}
     type: RollingUpdate
   selector:
     matchLabels:
-      app: {{ .Chart.Name }}-rcs
+      app: {{ .Chart.Name }}-swagger
   template:
     metadata:
       labels:
-        app: {{ .Chart.Name }}-rcs
+        app: {{ .Chart.Name }}-swagger
         appVersion: {{ .Chart.AppVersion }}
         helmVersion: {{ .Chart.Version }}
     spec:
       containers:
-        - name: {{ .Chart.Name }}-rcs
-          {{- if .Values.rcs.deployment.imageOverride.enabled }}
-          image: "{{ .Values.rcs.deployment.imageOverride.repo }}:{{ .Values.rcs.deployment.imageOverride.tag }}"
+        - name: swagger
+          {{- if .Values.swagger.deployment.imageOverride.enabled }}
+          image: "{{ .Values.swagger.deployment.imageOverride.repo }}:{{ .Values.swagger.deployment.imageOverride.tag }}"
           {{- else }}
           image: "eu.gcr.io/sbat-gcr-release/securebanking/${ .Chart.Name }:{{ .Chart.AppVersion }}"
           {{- end }}
-          imagePullPolicy: {{ .Values.rcs.deployment.imagePullPolicy }}
+          imagePullPolicy: {{ .Values.swagger.deployment.imagePullPolicy }}
           ports:
             - name: http-server
-              containerPort: {{ .Values.rcs.deployment.port }}
+              containerPort: {{ .Values.swagger.deployment.port }}
           readinessProbe:
             httpGet:
               path: /dev/info
-              port: {{ .Values.rcs.deployment.port }}
+              port: {{ .Values.swagger.deployment.port }}
             periodSeconds: 5
             failureThreshold: 3
             successThreshold: 1
@@ -43,7 +43,7 @@ spec:
           livenessProbe:
             httpGet:
               path: /dev/info
-              port: {{ .Values.rcs.deployment.port }}
+              port: {{ .Values.swagger.deployment.port }}
             initialDelaySeconds: 5
             periodSeconds: 5
             failureThreshold: 5
@@ -53,8 +53,8 @@ spec:
             - name: DOMAIN
               values: {{ .Values.domain }}
             - name: PORT
-              values: {{ .Values.rcs.deployment.port }}
+              values: {{ .Values.swagger.deployment.port }}
             - name: TEMPLATE_NAME
               value: {{ .Values.rcs.deployment.templateName }}
           resources:
-            {{- toYaml .Values.rcs.deployment.resources | nindent 12 }}
+            {{- toYaml .Values.swagger.deployment.resources | nindent 12 }}
