@@ -42,6 +42,7 @@ jobs:
       - name: lint
         run: |
           cd securebanking-auth-ui
+          npm ci
           npm run lint
 
       - name: test
@@ -74,10 +75,11 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: 14.x
-
+        
       - name: lint
         run: |
           cd securebanking-rcs-ui
+          npm ci
           npm run lint
 
       - name: test
