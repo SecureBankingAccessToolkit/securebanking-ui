@@ -16,7 +16,7 @@ jobs:
     runs-on: ubuntu-latest
     name: Create pr docker tag
     outputs:
-      prTag: ${{ steps.pr.outputs.prTag }}
+      prTag: ${{ steps.tag.outputs.prTag }}
     steps:
       - uses: actions/checkout@v2
 
