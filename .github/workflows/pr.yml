@@ -14,10 +14,12 @@ env:
 jobs:
   pr:
     runs-on: ubuntu-latest
-    name: Check auth ui integrity
+    name: Create pr docker tag
     outputs:
       prTag: ${{ needs.pr.outputs.prTag }}
     steps:
+      - uses: actions/checkout@v2
+
       - name: pr docker tag
         id: tag
         run: |
@@ -27,9 +29,16 @@ jobs:
 
   auth:
     runs-on: ubuntu-latest
-    name: Check auth ui integrity
+    name: Test and package auth ui
     needs: [pr]
     steps:
+      - uses: actions/checkout@v2
+      
+      - name: Configure Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 14.x
+
       - name: lint
         run: |
           cd securebaking-auth-ui
@@ -37,7 +46,7 @@ jobs:
 
       - name: test
         run: |
-          cd securebaking-auth-ui
+          cd securebanking-auth-ui
           npm run test
       
       - uses: google-github-actions/setup-gcloud@master
@@ -56,9 +65,16 @@ jobs:
 
   rcs:
     runs-on: ubuntu-latest
-    name: Check auth ui integrity
+    name: test and package rcs ui
     needs: [pr]
     steps:
+      - uses: actions/checkout@v2
+
+      - name: Configure Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 14.x
+
       - name: lint
         run: |
           cd securebaking-rcs-ui
@@ -66,7 +82,7 @@ jobs:
 
       - name: test
         run: |
-          cd securebaking-rcs-ui
+          cd securebanking-rcs-ui
           npm run test
       
       - uses: google-github-actions/setup-gcloud@master
@@ -84,9 +100,16 @@ jobs:
 
   swagger:
     runs-on: ubuntu-latest
-    name: Check auth ui integrity
+    name: package swagger ui
     needs: [pr]
     steps:
+      - uses: actions/checkout@v2
+
+      - name: Configure Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 14.x
+
       - uses: google-github-actions/setup-gcloud@master
         with:
           service_account_key: ${{ secrets.GCR_KEY }}
