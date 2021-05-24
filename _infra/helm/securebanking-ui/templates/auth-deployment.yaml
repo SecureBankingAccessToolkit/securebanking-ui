@@ -1,9 +1,9 @@
 apiVersion: {{ .Values.apiVersion.deployment }}
 kind: Deployment
 metadata:
-  name: {{ .Chart.Name }}
+  name: {{ .Chart.Name }}-auth
   labels:
-    app: {{ .Chart.Name }}
+    app: {{ .Chart.Name }}-auth
 spec:
   replicas: {{ .Values.auth.deployment.replicas }}
   strategy:
@@ -13,16 +13,16 @@ spec:
     type: RollingUpdate
   selector:
     matchLabels:
-      app: {{ .Chart.Name }}
+      app: {{ .Chart.Name }}-auth
   template:
     metadata:
       labels:
-        app: {{ .Chart.Name }}
+        app: {{ .Chart.Name }}-auth
         appVersion: {{ .Chart.AppVersion }}
         helmVersion: {{ .Chart.Version }}
     spec:
       containers:
-        - name: {{ .Chart.Name }}
+        - name: {{ .Chart.Name }}-auth
           {{- if .Values.auth.deployment.imageOverride.enabled }}
           image: "{{ .Values.auth.deployment.imageOverride.repo }}:{{ .Values.auth.deployment.imageOverride.tag }}"
           {{- else }}
@@ -52,6 +52,10 @@ spec:
           env:
             - name: DOMAIN
               values: {{ .Values.domain }}
+            - name: PORT
+              values: {{ .Values.auth.deployment.port }}
+            - name: TEMPLATE_NAME
+              value: {{ .Values.auth.deployment.templateName }}
             - name: AUTHENTICATION_URL
               value: {{ .Values.authenticationUrl }}
             - name: DIRECTORY_BACKEND_URL
