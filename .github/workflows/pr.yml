@@ -38,11 +38,18 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: 14.x
+      
+      - uses: actions/cache@v2
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
 
       - name: lint
         run: |
           cd securebanking-auth-ui
-          npm ci
+          npm i
           npm run lint
 
       - name: test
@@ -70,16 +77,25 @@ jobs:
     needs: [pr]
     steps:
       - uses: actions/checkout@v2
+        with: 
+          fetch-depth: 0
 
       - name: Configure Node.js
         uses: actions/setup-node@v2
         with:
           node-version: 14.x
+      
+      - uses: actions/cache@v2
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
         
       - name: lint
         run: |
           cd securebanking-rcs-ui
-          npm ci
+          npm i
           npm run lint
 
       - name: test
