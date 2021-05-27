@@ -1,7 +1,7 @@
 version: '3.7'
 services:
   bank-ui:
-    image: eu.gcr.io/openbanking-214714/securebanking/rcs-ui:latest
+    image: eu.gcr.io/sbat-gcr-develop/securebanking/ui/rcs:latest
     ports:
       - "4201:443"
     environment:
