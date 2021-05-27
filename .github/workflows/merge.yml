@@ -1,0 +1,39 @@
+name: merge-master
+
+on:
+  push:
+    branches:
+      - master
+    paths-ignore:
+      - README.md
+
+jobs:
+  buildAuth:
+    runs-on: ubuntu-latest
+    name: Build auth image
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: test
+        run: |
+          make docker service=auth release-repo=${{ secrets.RELEASE_REPO}}
+
+  buildRcs:
+    runs-on: ubuntu-latest
+    name: Build rcs image
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: test
+        run: |
+          make docker service=rcs release-repo=${{ secrets.RELEASE_REPO}}
+  
+  buildSwagger:
+    runs-on: ubuntu-latest
+    name: Build swagger image
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: test
+        run: |
+          make docker service=swagger release-repo=${{ secrets.RELEASE_REPO}}

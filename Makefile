@@ -1,5 +1,5 @@
 name := securebanking-ui
-dev-repo := sbat-gcr-develop
+gcr-repo := sbat-gcr-develop
 
 helm:
 ifndef version
@@ -19,4 +19,24 @@ ifndef tag
 	$(eval tag=latest)
 endif
 	cd securebanking-${service}-ui && \
-	docker build -t eu.gcr.io/${dev-repo}/securebanking-ui/${service}:${tag} -f projects/${service}/docker/Dockerfile .
+	docker build -t eu.gcr.io/${gcr-repo}/securebanking-ui/${service}:${tag} -f projects/${service}/docker/Dockerfile .
+	docker push eu.gcr.io/${gcr-repo}/securebanking-ui/${service}:${tag}
+ifdef release-repo
+	docker tag eu.gcr.io/${gcr-repo}/securebanking-ui/${service}:${tag} eu.gcr.io/${release-repo}/securebanking-ui/${service}:${tag}
+	docker push eu.gcr.io/${release-repo}/securebanking-ui/${service}:${tag}
+endif
+
+test:
+ifndef service
+	$(error A service must be supplied, one of auth, swagger or rcs, Eg. make docker service=auth)
+endif
+	cd securebanking-${service}-ui && \
+	npm ci
+	npm run test
+
+version:
+ifndef service
+	$(error A service must be supplied, one of auth, swagger or rcs, Eg. make docker service=auth)
+endif
+	cd securebanking-${service}-ui && \
+	npm -s run env echo '$$npm_package_version'
