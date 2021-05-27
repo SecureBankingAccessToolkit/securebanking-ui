@@ -17,7 +17,7 @@ auth:
 
     imageOverride:
       enabled: true
-      repo: eu.gcr.io/sbat-gcr-develop/securebanking/securebanking-ui/auth
+      repo: eu.gcr.io/sbat-gcr-develop/securebanking/ui/auth
       tag: latest
 
     resources: {}
@@ -37,7 +37,7 @@ rcs:
 
     imageOverride:
       enabled: true
-      repo: eu.gcr.io/sbat-gcr-develop/securebanking/securebanking-ui/rcs
+      repo: eu.gcr.io/sbat-gcr-develop/securebanking/ui/rcs
       tag: latest
 
     resources: {}
@@ -57,7 +57,7 @@ swagger:
 
     imageOverride:
       enabled: true
-      repo: eu.gcr.io/sbat-gcr-develop/securebanking/securebanking-ui/swagger
+      repo: eu.gcr.io/sbat-gcr-develop/securebanking/ui/swagger
       tag: latest
 
     resources: {}

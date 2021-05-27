@@ -19,11 +19,11 @@ ifndef tag
 	$(eval tag=latest)
 endif
 	cd securebanking-${service}-ui && \
-	docker build -t eu.gcr.io/${gcr-repo}/securebanking-ui/${service}:${tag} -f projects/${service}/docker/Dockerfile .
-	docker push eu.gcr.io/${gcr-repo}/securebanking-ui/${service}:${tag}
+	docker build -t eu.gcr.io/${gcr-repo}/securebanking/ui/${service}:${tag} -f projects/${service}/docker/Dockerfile .
+	docker push eu.gcr.io/${gcr-repo}/securebanking/ui/${service}:${tag}
 ifdef release-repo
-	docker tag eu.gcr.io/${gcr-repo}/securebanking-ui/${service}:${tag} eu.gcr.io/${release-repo}/securebanking-ui/${service}:${tag}
-	docker push eu.gcr.io/${release-repo}/securebanking-ui/${service}:${tag}
+	docker tag eu.gcr.io/${gcr-repo}/securebanking/ui/${service}:${tag} eu.gcr.io/${release-repo}/securebanking/ui/${service}:${tag}
+	docker push eu.gcr.io/${release-repo}/securebanking/ui/${service}:${tag}
 endif
 
 test:

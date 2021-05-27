@@ -1,7 +1,7 @@
 version: '3.7'
 services:
   auth:
-    image: eu.gcr.io/openbanking-214714/obri/auth-ui:latest
+    image: eu.gcr.io/sbat-gcr-develop/securebanking/ui/auth:latest
     ports:
       - "4203:443"
     environment:

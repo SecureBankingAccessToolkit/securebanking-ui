@@ -1,7 +1,7 @@
 version: '3.7'
 services:
   swagger-ui:
-    image: eu.gcr.io/openbanking-214714/obri/bank-ui:latest
+    image: eu.gcr.io/sbat-gcr-develop/securebanking/ui/swagger:latest
     ports:
       - "4205:443"
     environment:
