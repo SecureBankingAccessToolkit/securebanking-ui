@@ -51,9 +51,9 @@ spec:
             timeoutSeconds: 5
           env:
             - name: DOMAIN
-              values: {{ .Values.domain }}
+              value: {{ .Values.domain }}
             - name: PORT
-              values: {{ .Values.swagger.deployment.port }}
+              value: {{ .Values.swagger.deployment.port }}
             - name: TEMPLATE_NAME
               value: {{ .Values.rcs.deployment.templateName }}
           resources:

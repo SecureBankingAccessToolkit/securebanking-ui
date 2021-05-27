@@ -51,9 +51,9 @@ spec:
             timeoutSeconds: 5
           env:
             - name: DOMAIN
-              values: {{ .Values.domain }}
+              value: {{ .Values.domain }}
             - name: PORT
-              values: {{ .Values.auth.deployment.port }}
+              value: {{ .Values.auth.deployment.port }}
             - name: TEMPLATE_NAME
               value: {{ .Values.auth.deployment.templateName }}
             - name: AUTHENTICATION_URL
