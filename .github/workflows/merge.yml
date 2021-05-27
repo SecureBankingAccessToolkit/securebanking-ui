@@ -7,9 +7,6 @@ on:
     paths-ignore:
       - README.md
 
-env:
-  SERVICE_NAME: securebanking-ui
-
 jobs:
   buildAuth:
     runs-on: ubuntu-latest
