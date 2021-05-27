@@ -53,7 +53,7 @@ spec:
             - name: DOMAIN
               value: {{ .Values.domain }}
             - name: PORT
-              value: {{ .Values.auth.deployment.port }}
+              value: {{ .Values.auth.deployment.port | quote }}
             - name: TEMPLATE_NAME
               value: {{ .Values.auth.deployment.templateName }}
             - name: AUTHENTICATION_URL

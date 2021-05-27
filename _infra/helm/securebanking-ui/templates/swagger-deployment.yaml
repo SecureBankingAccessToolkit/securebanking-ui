@@ -53,7 +53,7 @@ spec:
             - name: DOMAIN
               value: {{ .Values.domain }}
             - name: PORT
-              value: {{ .Values.swagger.deployment.port }}
+              value: {{ .Values.swagger.deployment.port | quote }}
             - name: TEMPLATE_NAME
               value: {{ .Values.rcs.deployment.templateName }}
           resources:
