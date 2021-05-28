@@ -3,6 +3,7 @@ authenticationUrl: https://auth.dev.forgerock.financial
 directoryBackendUrl: https://service.directory.dev.forgerock.financial/directory-services
 
 auth:
+  subdomain: auth
   deployment:
     port: 8080
     replicas: 1
@@ -23,6 +24,7 @@ auth:
     resources: {}
 
 rcs:
+  subdomain: rcs
   deployment:
     port: 8080
     replicas: 1
@@ -43,6 +45,7 @@ rcs:
     resources: {}
 
 swagger:
+  subdomain: swagger
   deployment:
     port: 8080
     replicas: 1
@@ -61,6 +64,12 @@ swagger:
       tag: latest
 
     resources: {}
+
+ingress:
+  tls:
+    subdomain: "*"
+    domain: localhost
+    secretName: sslcert
 
 apiVersion:
   service: v1

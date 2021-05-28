@@ -1,0 +1,40 @@
+apiVersion: {{ .Values.ingress.apiVersion }}
+kind: Ingress
+metadata:
+  annotations:
+    kubernetes.io/ingress.class: {{ .Values.ingress.class }}
+    {{- with .Values.ingress.additionalAnnotations }}
+      {{- toYaml . | nindent 4 }}
+    {{- end }}
+  labels:
+    app: {{ .Chart.Name }}
+    appVersion: {{ .Chart.AppVersion }}
+    helmVersion: {{ .Chart.Version }}
+  name: {{ .Chart.Name }}
+spec:
+  rules:
+  - host: {{ .Values.auth.subdomain }}.{{ .Values.ingress.domain }}
+    http:
+      paths:
+      - backend:
+          serviceName: {{ .Chart.Name }}-{{ .Values.auth.subdomain }}
+          servicePort: 8080
+        path: /
+  - host: {{ .Values.rcs.subdomain }}.{{ .Values.ingress.domain }}
+    http:
+      paths:
+      - backend:
+          serviceName: {{ .Chart.Name }}-{{ .Values.rcs.subdomain }}
+          servicePort: 8080
+        path: /
+  - host: {{ .Values.swagger.subdomain }}.{{ .Values.ingress.domain }}
+    http:
+      paths:
+      - backend:
+          serviceName: {{ .Chart.Name }}-{{ .Values.swagger.subdomain }}
+          servicePort: 8080
+        path: /
+  tls:
+  - hosts:
+    - "{{ .Values.ingress.tls.subdomain }}.{{ .Values.ingress.domain }}"
+    secretName: {{ .Values.ingress.tls.secretName }}

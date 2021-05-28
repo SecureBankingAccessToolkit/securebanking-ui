@@ -1,9 +1,9 @@
 apiVersion: {{ .Values.apiVersion.deployment }}
 kind: Deployment
 metadata:
-  name: {{ .Chart.Name }}-swagger
+  name: {{ .Chart.Name }}-{{ .Values.swagger.subdomain }}
   labels:
-    app: {{ .Chart.Name }}-swagger
+    app: {{ .Chart.Name }}-{{ .Values.swagger.subdomain }}
 spec:
   replicas: {{ .Values.swagger.deployment.replicas }}
   strategy:
@@ -13,11 +13,11 @@ spec:
     type: RollingUpdate
   selector:
     matchLabels:
-      app: {{ .Chart.Name }}-swagger
+      app: {{ .Chart.Name }}-{{ .Values.swagger.subdomain }}
   template:
     metadata:
       labels:
-        app: {{ .Chart.Name }}-swagger
+        app: {{ .Chart.Name }}-{{ .Values.swagger.subdomain }}
         appVersion: {{ .Chart.AppVersion }}
         helmVersion: {{ .Chart.Version }}
     spec:
