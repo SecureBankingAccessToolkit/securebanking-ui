@@ -24,7 +24,7 @@ auth:
     resources: {}
 
 rcs:
-  subdomain: rcs
+  subdomain: rcs-ui
   deployment:
     port: 80
     replicas: 1
