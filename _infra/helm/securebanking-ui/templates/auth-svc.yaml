@@ -1,7 +1,7 @@
 apiVersion: {{ .Values.apiVersion.service }}
 kind: Service
 metadata:
-  name: {{ .Chart.Name }}-auth
+  name: {{ .Chart.Name }}-{{ .Values.auth.subdomain }}
 spec:
   type: ClusterIP
   ports:
@@ -9,4 +9,4 @@ spec:
     targetPort: {{ .Values.auth.deployment.port }}
     protocol: TCP
   selector:
-    app: {{ .Chart.Name }}-auth
+    app: {{ .Chart.Name }}-{{ .Values.auth.subdomain }}

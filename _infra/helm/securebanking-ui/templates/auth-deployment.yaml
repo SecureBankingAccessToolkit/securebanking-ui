@@ -1,9 +1,9 @@
 apiVersion: {{ .Values.apiVersion.deployment }}
 kind: Deployment
 metadata:
-  name: {{ .Chart.Name }}-auth
+  name: {{ .Chart.Name }}-{{ .Values.auth.subdomain }}
   labels:
-    app: {{ .Chart.Name }}-auth
+    app: {{ .Chart.Name }}-{{ .Values.auth.subdomain }}
 spec:
   replicas: {{ .Values.auth.deployment.replicas }}
   strategy:
@@ -13,16 +13,16 @@ spec:
     type: RollingUpdate
   selector:
     matchLabels:
-      app: {{ .Chart.Name }}-auth
+      app: {{ .Chart.Name }}-{{ .Values.auth.subdomain }}
   template:
     metadata:
       labels:
-        app: {{ .Chart.Name }}-auth
+        app: {{ .Chart.Name }}-{{ .Values.auth.subdomain }}
         appVersion: {{ .Chart.AppVersion }}
         helmVersion: {{ .Chart.Version }}
     spec:
       containers:
-        - name: {{ .Chart.Name }}-auth
+        - name: {{ .Chart.Name }}-{{ .Values.auth.subdomain }}
           {{- if .Values.auth.deployment.imageOverride.enabled }}
           image: "{{ .Values.auth.deployment.imageOverride.repo }}:{{ .Values.auth.deployment.imageOverride.tag }}"
           {{- else }}
