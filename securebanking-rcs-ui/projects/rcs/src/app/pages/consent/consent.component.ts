@@ -4,10 +4,9 @@ import { catchError, retry } from 'rxjs/operators';
 import { Observable, throwError } from 'rxjs';
 import { HttpErrorResponse } from '@angular/common/http';
 import _get from 'lodash-es/get';
-
 import { ApiService } from '../../../../src/app/services/api.service';
 import { ApiResponses } from '../../../../src/app/types/api';
-import { ForgerockMessagesService } from '@forgerock/openbanking-ngx-common/services/forgerock-messages';
+import { ForgerockMessagesService } from '@securebanking/securebanking-common-ui/services/forgerock-messages';
 import { IConsentEventEmitter } from '../../types/consentItem';
 
 @Component({
@@ -29,7 +28,13 @@ export class ConsentComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    const { consent_request: consentRequest } = this.route.snapshot.queryParams;
+    this.route.queryParams.subscribe(
+      params => {
+        console.log((params))
+      }
+    )
+
+    const consentRequest = this.route.snapshot.queryParamMap.get('consent_request');
 
     if (!consentRequest) {
       this.error = new Error('Missing consent request');
@@ -111,7 +116,14 @@ function withErrorHandlingForRCSBadRequest(obs: Observable<any>) {
       if (redirectUri) {
         window.location.href = redirectUri;
       }
-      return throwError(apiError || anyError);
+      /*
+      if(er.error.Errors && er.error.Errors.length > 0){
+        console.log(er.error.Errors.length >0)
+      }
+      Bad Request: Undefined error yet. Generic error message: Error verifying the consent request JWT. Expired JWT
+      */
+      const specificError = _get(er, 'error.Errors[0].Message', 'Undefined')
+      return throwError(apiError + ": " + specificError || anyError + ": " + specificError);
     })
   );
 }

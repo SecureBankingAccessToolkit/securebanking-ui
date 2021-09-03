@@ -12,11 +12,11 @@ import { environment } from '../../src/environments/environment';
 import rootReducer from '../../src/store';
 import { AppRoutingModule } from '../../src/app/app-routing.module';
 
-import { ForgerockConfigService } from '@forgerock/openbanking-ngx-common/services/forgerock-config';
-import { ForgerockConfigModule } from '@forgerock/openbanking-ngx-common/services/forgerock-config';
-import { ForgerockAuthenticationModule } from '@forgerock/openbanking-ngx-common/authentication';
-import { ForgerockNativeModule } from '@forgerock/openbanking-ngx-common/native';
-import { ForgerockSharedModule } from '@forgerock/openbanking-ngx-common/shared';
+import { ForgerockConfigService } from '@securebanking/securebanking-common-ui/services/forgerock-config';
+import { ForgerockConfigModule } from '@securebanking/securebanking-common-ui/services/forgerock-config';
+//import { ForgerockAuthenticationModule } from '@securebanking/securebanking-common-ui/authentication';
+import { ForgerockNativeModule } from '@securebanking/securebanking-common-ui/native';
+import { ForgerockSharedModule } from '@securebanking/securebanking-common-ui/shared';
 
 export const REDUCER_TOKEN = new InjectionToken<ActionReducerMap<{}>>('Registered Reducers');
 
@@ -48,7 +48,7 @@ export function init_app(appConfig: ForgerockConfigService) {
     }),
     ForgerockSharedModule,
     ForgerockNativeModule,
-    ForgerockAuthenticationModule,
+    //ForgerockAuthenticationModule,
     // Store
     StoreModule.forRoot(REDUCER_TOKEN),
     environment.devModules || [],

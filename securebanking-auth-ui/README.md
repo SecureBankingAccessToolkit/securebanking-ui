@@ -11,6 +11,10 @@ npm run build.auth.themes
 ```shell
 npm run serve.auth
 ```
+**dev.forgerock.financial environment**
+```shell
+npm run serve.auth.dev
+```
 ## Running docker image manually
 
 **auth-ui** is a build of the Auth app with only the Forgerock theme.
@@ -18,7 +22,7 @@ npm run serve.auth
 It is convenient to start the app in no time.
 
 - `<PORT>`: **REQUIRED** Port to use on your machine
-- `<DOMAIN>`: **REQUIRED** Domain to use. Will replace `DOMAIN` in the frontend [config](./forgerock-openbanking-ui/projects/auth/docker/deployment-settings.js) e.g: `https://analytics.DOMAIN`
+- `<DOMAIN>`: **REQUIRED** Domain to use. Will replace `DOMAIN` in the frontend [config](./securebanking-auth-ui/projects/auth/docker/deployment-settings.js) e.g: `https://analytics.DOMAIN`
 - `<TEMPLATE_NAME>`: Default value: `forgerock`.
 
 ```bash

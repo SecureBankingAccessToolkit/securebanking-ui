@@ -1,25 +1,28 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import {NgModule} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
 
-import { ForgerockSimpleLayoutModule } from '@forgerock/openbanking-ngx-common/layouts/simple';
-import { SimpleLayoutComponent } from '@forgerock/openbanking-ngx-common/layouts/simple';
-import { ForegerockGDPRConsentGuard } from '@forgerock/openbanking-ngx-common/gdpr';
-import { ForgerockGDPRService } from '@forgerock/openbanking-ngx-common/gdpr';
-import { ForgerockMainLayoutModule } from '@forgerock/openbanking-ngx-common/layouts/main-layout';
-import { ForgerockMainLayoutComponent } from '@forgerock/openbanking-ngx-common/layouts/main-layout';
 import {
+  ForgerockSimpleLayoutModule,
+  SimpleLayoutComponent
+} from '@securebanking/securebanking-common-ui/layouts/simple';
+//import { ForegerockGDPRConsentGuard } from '@securebanking/securebanking-common-ui/gdpr';
+//import { ForgerockGDPRService } from '@securebanking/securebanking-common-ui/gdpr';
+import {
+  ForgerockMainLayoutModule,
   IForgerockMainLayoutConfig,
   IForgerockMainLayoutNavigations
-} from '@forgerock/openbanking-ngx-common/layouts/main-layout';
+} from '@securebanking/securebanking-common-ui/layouts/main-layout';
+/*
 import {
   ForgerockToolbarMenuComponentModule,
   ForgerockToolbarMenuContainer,
   IsConnectedPrivateGuard,
   IsConnectedPublicGuard
-} from '@forgerock/openbanking-ngx-common/authentication';
-import { ForgerockCustomerCanAccessGuard } from '@forgerock/openbanking-ngx-common/guards';
-
+} from '@securebanking/securebanking-common-ui/authentication';
+import { ForgerockCustomerCanAccessGuard } from '@securebanking/securebanking-common-ui/guards';
+*/
 export const routes: Routes = [
+  /*
   {
     path: '',
     pathMatch: 'full',
@@ -120,6 +123,29 @@ export const routes: Routes = [
     pathMatch: 'full',
     redirectTo: '404'
   }
+   */
+  {
+    path: '',
+    pathMatch: 'full',
+    redirectTo: 'consent'
+  },
+  {
+    path: '',
+    component: SimpleLayoutComponent,
+    //canActivate: [ForegerockGDPRConsentGuard],
+    children: [
+      {
+        path: 'consent',
+        //canActivate: [IsConnectedPrivateGuard],
+        loadChildren: 'bank/src/app/pages/consent/consent.module#ConsentModule'
+      }
+    ]
+  },
+  {
+    path: '**',
+    pathMatch: 'full',
+    redirectTo: '404'
+  }
 ];
 
 const mainLayoutConfig: IForgerockMainLayoutConfig = {
@@ -160,16 +186,17 @@ export const navigations: IForgerockMainLayoutNavigations = {
 @NgModule({
   imports: [
     ForgerockSimpleLayoutModule,
-    ForgerockToolbarMenuComponentModule,
+    //ForgerockToolbarMenuComponentModule,
     RouterModule.forRoot(routes),
     ForgerockMainLayoutModule.forRoot({
       layout: mainLayoutConfig,
-      navigations,
-      components: {
-        toolbar: ForgerockToolbarMenuContainer
-      }
+      navigations//,
+      //components: {
+      //toolbar: ForgerockToolbarMenuContainer
+      //}
     })
   ],
   exports: [ForgerockSimpleLayoutModule, RouterModule]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule {
+}

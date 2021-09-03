@@ -62,22 +62,30 @@
               "statsJson": true,
               "es5BrowserSupport": true
             },
-            "ui-integ-native": {
+            "ui-native-local": {
               "options": {
                 "main": "projects/rcs/src/main-native.ts"
               },
               "fileReplacements": [
                 {
                   "replace": "projects/rcs/src/environments/environment.ts",
-                  "with": "projects/rcs/src/environments/environment.ui-integ.ts"
+                  "with": "projects/rcs/src/environments/environment.local.ts"
                 }
               ]
             },
-            "ui-integ": {
+            "ui-local": {
               "fileReplacements": [
                 {
                   "replace": "projects/rcs/src/environments/environment.ts",
-                  "with": "projects/rcs/src/environments/environment.ui-integ.ts"
+                  "with": "projects/rcs/src/environments/environment.local.ts"
+                }
+              ]
+            },
+            "ui-dev": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/rcs/src/environments/environment.ts",
+                  "with": "projects/rcs/src/environments/environment.dev.ts"
                 }
               ]
             }
@@ -91,11 +99,21 @@
             "ssl": true,
             "port": 4201,
             "sslCert": "ssl/all.dev-ob.forgerock.financial.crt",
-            "sslKey": "ssl/k-all.dev-ob.forgerock.financial.key"
+            "sslKey": "ssl/k-all.dev-ob.forgerock.financial.key",
+            "sourceMap": true
           },
           "configurations": {
             "production": {
               "browserTarget": "rcs:build:production"
+            },
+            "ui-dev": {
+              "browserTarget": "rcs:build:ui-dev"
+            },
+            "ui-local": {
+              "browserTarget": "rcs:build:ui-local"
+            },
+            "ui-native-local": {
+              "browserTarget": "rcs:build:ui-native-local"
             }
           }
         },

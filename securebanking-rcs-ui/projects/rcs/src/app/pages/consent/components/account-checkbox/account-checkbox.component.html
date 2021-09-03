@@ -8,9 +8,9 @@
           <div fxFlex>
             <div class="account Aligner">
               <div>
-                <div>{{ account.account?.Nickname }}</div>
-                <div class="secondary-text account-number" *ngIf="account.account?.Account">
-                  {{ (account.account?.Account)[0] | AccountNumberFormat }}
+                <div>{{ account.account?.nickname }}</div>
+                <div class="secondary-text account-number" *ngIf="account.account?.accounts">
+                  {{ (account.account?.accounts)[0] | AccountNumberFormat }}
                 </div>
               </div>
 

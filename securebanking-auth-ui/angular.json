@@ -69,6 +69,14 @@
                   "with": "projects/auth/src/environments/environment.ui-integ.ts"
                 }
               ]
+            },
+            "ui-dev": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/auth/src/environments/environment.ts",
+                  "with": "projects/auth/src/environments/environment.dev.ts"
+                }
+              ]
             }
           }
         },
@@ -80,11 +88,15 @@
             "port": 4203,
             "ssl": true,
             "sslCert": "ssl/all.dev-ob.forgerock.financial.crt",
-            "sslKey": "ssl/k-all.dev-ob.forgerock.financial.key"
+            "sslKey": "ssl/k-all.dev-ob.forgerock.financial.key",
+            "sourceMap": true
           },
           "configurations": {
             "production": {
               "browserTarget": "auth:build:production"
+            },
+            "ui-dev": {
+              "browserTarget": "auth:build:ui-dev"
             }
           }
         },
@@ -121,5 +133,5 @@
       }
     }
   },
-  "defaultProject": "forgerock-openbanking-ui"
+  "defaultProject": "securebanking-auth-ui"
 }
