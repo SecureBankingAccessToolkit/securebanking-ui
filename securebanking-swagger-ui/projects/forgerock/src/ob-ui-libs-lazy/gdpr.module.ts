@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { ForgerockGDPRPageModule } from '@forgerock/openbanking-ngx-common/gdpr';
+import { ForgerockGDPRPageModule } from '@securebanking/securebanking-common-ui/gdpr';
 
 @NgModule({
   imports: [ForgerockGDPRPageModule]
