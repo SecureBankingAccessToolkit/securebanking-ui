@@ -1,5 +1,6 @@
 # Tools
-- https://github.com/nvm-sh/nvm
+- https://github.com/nvm-sh/nvm (.nvmrc) Node Version Manager
+
 # securebanking-ui
 
 Secure banking User interfaces
@@ -81,3 +82,12 @@ We need publish only those packages that we need use like as dependencies in oth
   ```
   > check the published package: [Forgerock npm](https://maven.forgerock.org/repo/webapp/#/artifacts/browse/tree/General/npm-local/@securebanking/securebanking-common-ui/-/@securebanking)
 
+### Release shared npm packages
+#### Shared npm packages
+- Securebanking-common-ui [more info](securebanking-common-ui/README.md)
+- Securebanking-cli-ui [more info](securebanking-cli-ui/README.md)
+
+Release the shared packages is the process to delivery a new version of shared packages and this process is delegate to a github action (release.yml)
+- Create a new tag with the new version: github UI
+- Publish the release: github UI
+  - The release action will be triggered and will create the new tarball pack version and publish the tarball to forgerock npm repository.
