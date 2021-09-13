@@ -2,12 +2,12 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
 
-import { CanDeactivateGuard } from '@forgerock/openbanking-ngx-common/guards';
+import { CanDeactivateGuard } from '@securebanking/securebanking-common-ui/guards';
 
 import {
   ForgerockAuthRegisterModule,
   ForgerockAuthRegisterComponent
-} from '@forgerock/openbanking-ngx-common/authentication';
+} from '@securebanking/securebanking-common-ui/authentication';
 
 const routes: Routes = [
   {

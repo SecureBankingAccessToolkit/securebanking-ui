@@ -28,6 +28,9 @@ jobs:
       - name: Create .npmrc file
         working-directory: ./securebanking-common-ui
         run: echo "//maven.forgerock.org/repo/api/npm/npm-local/:_auth=${{ secrets.FR_NPM_ACCESS_TOKEN }}" > .npmrc
+      - name: build
+        working-directory: ./securebanking-common-ui
+        run: npm run build
       - name: Publish
         working-directory: ./securebanking-common-ui
-        run: npm publish
+        run: npm publish ./dist

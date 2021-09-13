@@ -11,11 +11,11 @@ import { environment } from '../../src/environments/environment';
 import rootReducer from '../../src/store';
 
 import { AppRoutingModule } from './app-routing.module';
-import { ForgerockConfigService } from '@forgerock/openbanking-ngx-common/services/forgerock-config';
-import { ForgerockConfigModule } from '@forgerock/openbanking-ngx-common/services/forgerock-config';
-import { ForgerockAuthenticationModule } from '@forgerock/openbanking-ngx-common/authentication';
-import { ForgerockSharedModule } from '@forgerock/openbanking-ngx-common/shared';
-
+import { ForgerockConfigService } from '@securebanking/securebanking-common-ui/services/forgerock-config';
+import { ForgerockConfigModule } from '@securebanking/securebanking-common-ui/services/forgerock-config';
+//import { ForgerockAuthenticationModule } from '@securebanking/securebanking-common-ui/authentication';
+import { ForgerockSharedModule } from '@securebanking/securebanking-common-ui/shared';
+import {CookieModule} from "ngx-cookie";
 export const REDUCER_TOKEN = new InjectionToken<ActionReducerMap<{}>>('Registered Reducers');
 
 export function getReducers() {
@@ -34,6 +34,7 @@ export function init_app(appConfig: ForgerockConfigService) {
   declarations: [AppComponent],
   imports: [
     BrowserModule,
+    CookieModule.forRoot(),
     BrowserAnimationsModule,
     HttpClientModule,
     AppRoutingModule,
@@ -45,7 +46,7 @@ export function init_app(appConfig: ForgerockConfigService) {
       }
     }),
     ForgerockSharedModule,
-    ForgerockAuthenticationModule,
+    //ForgerockAuthenticationModule,
     // Store
     StoreModule.forRoot(REDUCER_TOKEN),
     environment.devModules || [],

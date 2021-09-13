@@ -1,0 +1,9 @@
+{
+  "files.autoSave": "afterDelay",
+  "editor.formatOnSave": true,
+  "html.format.wrapAttributes": "force-aligned",
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.lightbulb.enabled": true,
+  "workbench.list.openMode": "doubleClick",
+  "workbench.editor.enablePreview": false
+}

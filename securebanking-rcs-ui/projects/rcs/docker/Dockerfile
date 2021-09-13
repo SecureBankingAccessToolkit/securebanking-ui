@@ -2,7 +2,7 @@
 FROM node:14 as build-ui
 
 WORKDIR /src
-ADD package.json package-lock.json /src/
+ADD package.json package-lock.json .npmrc /src/
 
 RUN NG_CLI_ANALYTICS=ci npm ci
 

@@ -4,7 +4,7 @@ import { catchError, map } from 'rxjs/operators';
 import { Observable, of } from 'rxjs';
 
 import { encodeQueryData } from '@utils/url';
-import { ForgerockConfigService } from '@forgerock/openbanking-ngx-common/services/forgerock-config';
+import { ForgerockConfigService } from '@securebanking/securebanking-common-ui/services/forgerock-config';
 
 @Injectable({
   providedIn: 'root'

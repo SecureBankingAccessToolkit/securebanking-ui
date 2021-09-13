@@ -3,12 +3,12 @@ import { DOCUMENT } from '@angular/common';
 import { Platform } from '@angular/cdk/platform';
 import { TranslateService } from '@ngx-translate/core';
 
-import { ForgerockSplashscreenService } from '@forgerock/openbanking-ngx-common/services/forgerock-splashscreen';
-import { ForgerockGDPRService } from '@forgerock/openbanking-ngx-common/gdpr';
+import { ForgerockSplashscreenService } from '@securebanking/securebanking-common-ui/services/forgerock-splashscreen';
+//import { ForgerockGDPRService } from '@securebanking/securebanking-common-ui/gdpr';
 import {
   ForgerockNativeSplashscreenService,
   ForgerockNativeDeepLinkService
-} from '@forgerock/openbanking-ngx-common/native';
+} from '@securebanking/securebanking-common-ui/native';
 
 @Component({
   selector: 'app-root',
@@ -23,13 +23,13 @@ export class AppNativeComponent {
     private splashscreenService: ForgerockSplashscreenService,
     private translateService: TranslateService,
     private platform: Platform,
-    private gdprService: ForgerockGDPRService,
+    //private gdprService: ForgerockGDPRService,
     private nativeSplashscreen: ForgerockNativeSplashscreenService,
     private nativeDeeplink: ForgerockNativeDeepLinkService
   ) {
     this.nativeDeeplink.init();
     this.splashscreenService.init();
-    this.gdprService.init();
+    //this.gdprService.init();
     this.nativeSplashscreen.hide();
 
     this.translateService.addLangs(['en', 'fr']);

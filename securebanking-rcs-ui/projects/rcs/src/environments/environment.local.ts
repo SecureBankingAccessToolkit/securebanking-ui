@@ -3,9 +3,10 @@ import { environment as devDefaultEnv } from './environment.dev.default';
 export const environment = {
   ...devDefaultEnv,
   production: false,
-  authorizationServer: 'https://as.aspsp.ui-integ.forgerock.financial',
-  authenticationServer: 'https://am.ui-integ.forgerock.financial',
-  remoteConsentServer: 'https://rcs.aspsp.ui-integ.forgerock.financial'
+  authorizationServer: 'https://iam.dev.forgerock.financial/am',
+  authenticationServer: 'https://iam.dev.forgerock.financial/am',
+  remoteConsentServer: 'http://localhost:8080',
+  defaultRealm: 'alpha',
   // featureFlags: {
   //   disableProfileForm: false,
   //   disablePasswordForm: false

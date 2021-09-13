@@ -5,7 +5,7 @@ import { Routes, RouterModule } from '@angular/router';
 import {
   ForgerockAuthLoginModule,
   ForgerockAuthLoginComponent
-} from '@forgerock/openbanking-ngx-common/authentication';
+} from '@securebanking/securebanking-common-ui/authentication';
 
 const routes: Routes = [
   {

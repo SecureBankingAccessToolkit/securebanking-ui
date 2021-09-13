@@ -1,0 +1,6 @@
+<app-key-value-item
+  *ngIf="payload.date"
+  [key]="payload.label | translate"
+  [value]="payload.date | date"
+  [cssClass]="payload.cssClass"
+></app-key-value-item>

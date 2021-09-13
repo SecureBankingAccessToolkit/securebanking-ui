@@ -1,10 +1,11 @@
-import { Component, Inject } from '@angular/core';
+import {Component, Inject, OnInit} from '@angular/core';
 import { DOCUMENT } from '@angular/common';
 import { Platform } from '@angular/cdk/platform';
 import { TranslateService } from '@ngx-translate/core';
 
-import { ForgerockSplashscreenService } from '@forgerock/openbanking-ngx-common/services/forgerock-splashscreen';
-import { ForgerockGDPRService } from '@forgerock/openbanking-ngx-common/gdpr';
+import { ForgerockSplashscreenService } from '@securebanking/securebanking-common-ui/services/forgerock-splashscreen';
+import { ForgerockGDPRService } from '@securebanking/securebanking-common-ui/gdpr';
+import {CookieService} from "ngx-cookie";
 
 @Component({
   selector: 'app-root',
@@ -12,13 +13,20 @@ import { ForgerockGDPRService } from '@forgerock/openbanking-ngx-common/gdpr';
     <router-outlet></router-outlet>
   `
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
+  private cookieKey = "iPlanetDirectoryPro"
+    ngOnInit(): void {
+    const cookieContent: string = this.getCookie(this.cookieKey)
+      this.cookieService.put(this.cookieKey,cookieContent)
+        console.log(`cookie value: "${cookieContent}"`)
+    }
   constructor(
     @Inject(DOCUMENT) private document: any,
     private splashscreenService: ForgerockSplashscreenService,
     private translateService: TranslateService,
     private platform: Platform,
-    private gdprService: ForgerockGDPRService
+    private gdprService: ForgerockGDPRService,
+    private cookieService: CookieService
   ) {
     this.splashscreenService.init();
     this.gdprService.init();
@@ -31,5 +39,9 @@ export class AppComponent {
     if (this.platform.ANDROID || this.platform.IOS) {
       this.document.body.classList.add('is-mobile');
     }
+  }
+
+  getCookie(key: string) {
+    return this.cookieService.get(key)
   }
 }

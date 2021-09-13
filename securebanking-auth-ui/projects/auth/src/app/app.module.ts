@@ -11,11 +11,11 @@ import { ForgerockSharedModule } from 'auth/src/app/forgerock-shared.module';
 import { AppComponent } from 'auth/src/app/app.component';
 import rootReducer from 'auth/src/store';
 import { environment } from 'auth/src/environments/environment';
-import { ForgerockConfigService } from '@forgerock/openbanking-ngx-common/services/forgerock-config';
-import { ForgerockConfigModule } from '@forgerock/openbanking-ngx-common/services/forgerock-config';
+import { ForgerockConfigService } from '@securebanking/securebanking-common-ui/services/forgerock-config';
+import { ForgerockConfigModule } from '@securebanking/securebanking-common-ui/services/forgerock-config';
 import { ApiService } from 'auth/src/app/services/api.service';
-import { ForgerockSharedComponentsModule } from '@forgerock/openbanking-ngx-common/shared';
-import { ForgerockAuthenticationModule } from '@forgerock/openbanking-ngx-common/authentication';
+import { ForgerockSharedComponentsModule } from '@securebanking/securebanking-common-ui/shared';
+import { ForgerockAuthenticationModule } from '@securebanking/securebanking-common-ui/authentication';
 import { AppRoutingModule } from 'auth/src/app/app-routing.module';
 
 export function createTranslateLoader(http: HttpClient) {
