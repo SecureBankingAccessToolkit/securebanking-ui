@@ -56,7 +56,6 @@ jobs:
   rcs:
     runs-on: ubuntu-latest
     name: test and package rcs ui
-    needs: [pr]
     steps:
       - uses: actions/checkout@v2
         with:
@@ -99,7 +98,6 @@ jobs:
   swagger:
     runs-on: ubuntu-latest
     name: package swagger ui
-    needs: [pr]
     steps:
       - uses: actions/checkout@v2
 
