@@ -6,6 +6,8 @@ on:
       - master
     paths-ignore:
       - README.md
+env:
+  GIT_SHA_SHORT: $(echo ${{ github.sha }} | cut -c1-7)
 
 jobs:
   buildAuth:
@@ -25,6 +27,8 @@ jobs:
       - name: test
         run: |
           make docker service=auth
+          docker tag eu.gcr.io/${{ secrets.DEV_REPO }}/securebanking/ui/auth:latest eu.gcr.io/${{ secrets.DEV_REPO }}/securebanking/ui/auth:${{ env.GIT_SHA_SHORT }}
+          docker push eu.gcr.io/${{ secrets.DEV_REPO }}/securebanking/ui/auth:${{ env.GIT_SHA_SHORT }}
 
   buildRcs:
     runs-on: ubuntu-latest
@@ -43,6 +47,8 @@ jobs:
       - name: test
         run: |
           make docker service=rcs
+          docker tag eu.gcr.io/${{ secrets.DEV_REPO }}/securebanking/ui/rcs:latest eu.gcr.io/${{ secrets.DEV_REPO }}/securebanking/ui/rcs:${{ env.GIT_SHA_SHORT }}
+          docker push eu.gcr.io/${{ secrets.DEV_REPO }}/securebanking/ui/rcs:${{ env.GIT_SHA_SHORT }}
   
   buildSwagger:
     runs-on: ubuntu-latest
@@ -61,6 +67,8 @@ jobs:
       - name: test
         run: |
           make docker service=swagger
+          docker tag eu.gcr.io/${{ secrets.DEV_REPO }}/securebanking/ui/swagger:latest eu.gcr.io/${{ secrets.DEV_REPO }}/securebanking/ui/swagger:${{ env.GIT_SHA_SHORT }}
+          docker push eu.gcr.io/${{ secrets.DEV_REPO }}/securebanking/ui/swagger:${{ env.GIT_SHA_SHORT }}
   
   deploy:
     runs-on: ubuntu-latest
