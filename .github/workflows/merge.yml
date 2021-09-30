@@ -24,7 +24,7 @@ jobs:
 
       - name: test
         run: |
-          make docker service=auth release-repo=${{ secrets.RELEASE_REPO}}
+          make docker service=auth
 
   buildRcs:
     runs-on: ubuntu-latest
@@ -42,7 +42,7 @@ jobs:
 
       - name: test
         run: |
-          make docker service=rcs release-repo=${{ secrets.RELEASE_REPO}}
+          make docker service=rcs
   
   buildSwagger:
     runs-on: ubuntu-latest
@@ -60,4 +60,20 @@ jobs:
 
       - name: test
         run: |
-          make docker service=swagger release-repo=${{ secrets.RELEASE_REPO}}
+          make docker service=swagger
+  
+  deploy:
+    runs-on: ubuntu-latest
+    name: Syncronise dev cluster.
+    needs: [buildSwagger, buildRcs, buildAuth]
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: 'Deploy Service'
+        uses: codefresh-io/codefresh-pipeline-runner@master
+        with:
+          args: '-v SERVICE_NAME=ui'
+        env:
+          PIPELINE_NAME: 'ForgeCloud/sbat-infra/service-build'
+          CF_API_KEY: ${{ secrets.CF_API_KEY }}
+        id: run-pipeline
