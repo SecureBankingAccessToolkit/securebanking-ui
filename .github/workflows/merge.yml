@@ -6,6 +6,8 @@ on:
       - master
     paths-ignore:
       - README.md
+env:
+  GIT_SHA_SHORT: $(echo ${{ github.sha }} | cut -c1-7)
 
 jobs:
   buildRcs:
@@ -24,8 +26,10 @@ jobs:
 
       - name: test
         run: |
-          make docker service=rcs release-repo=${{ secrets.RELEASE_REPO}}
-
+          make docker service=rcs
+          docker tag eu.gcr.io/${{ secrets.DEV_REPO }}/securebanking/ui/rcs:latest eu.gcr.io/${{ secrets.DEV_REPO }}/securebanking/ui/rcs:${{ env.GIT_SHA_SHORT }}
+          docker push eu.gcr.io/${{ secrets.DEV_REPO }}/securebanking/ui/rcs:${{ env.GIT_SHA_SHORT }}
+          
   buildSwagger:
     runs-on: ubuntu-latest
     name: Build swagger image
@@ -42,4 +46,22 @@ jobs:
 
       - name: test
         run: |
-          make docker service=swagger release-repo=${{ secrets.RELEASE_REPO}}
+          make docker service=swagger
+          docker tag eu.gcr.io/${{ secrets.DEV_REPO }}/securebanking/ui/swagger:latest eu.gcr.io/${{ secrets.DEV_REPO }}/securebanking/ui/swagger:${{ env.GIT_SHA_SHORT }}
+          docker push eu.gcr.io/${{ secrets.DEV_REPO }}/securebanking/ui/swagger:${{ env.GIT_SHA_SHORT }}
+  
+  deploy:
+    runs-on: ubuntu-latest
+    name: Syncronise dev cluster.
+    needs: [buildSwagger, buildRcs, buildAuth]
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: 'Deploy Service'
+        uses: codefresh-io/codefresh-pipeline-runner@master
+        with:
+          args: '-v SERVICE_NAME=ui'
+        env:
+          PIPELINE_NAME: 'ForgeCloud/sbat-infra/service-build'
+          CF_API_KEY: ${{ secrets.CF_API_KEY }}
+        id: run-pipeline
