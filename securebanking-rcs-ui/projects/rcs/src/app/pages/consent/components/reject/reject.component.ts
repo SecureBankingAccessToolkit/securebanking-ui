@@ -9,7 +9,7 @@ import {
   ViewChild
 } from '@angular/core';
 import {FormGroup} from "@angular/forms";
-import {ApiResponses} from "bank/src/app/types/api";
+import {ApiResponses} from "../../../../../../src/app/types/api";
 import {ForgerockMessagesService} from "@securebanking/securebanking-common-ui/services/forgerock-messages";
 
 @Component({

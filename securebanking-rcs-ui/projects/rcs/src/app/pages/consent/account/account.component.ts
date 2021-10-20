@@ -84,7 +84,7 @@ export class AccountComponent implements OnInit {
 
   submit(allowing = false) {
     this.formSubmit.emit({
-      decision: allowing ? ConsentDecision.APPROVE : ConsentDecision.DENY,
+      decision: allowing ? ConsentDecision.APPROVED : ConsentDecision.DENY,
       sharedAccounts: Object.keys(this.form.value).filter(k => this.form.value[k])
     });
   }

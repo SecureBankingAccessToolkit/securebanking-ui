@@ -84,7 +84,7 @@ export class FilePaymentComponent implements OnInit {
 
   submit(allowing = false) {
     this.formSubmit.emit({
-      decision: allowing ? ConsentDecision.APPROVE : ConsentDecision.DENY,
+      decision: allowing ? ConsentDecision.APPROVED : ConsentDecision.DENY,
       accountId: this.form.value.selectedAccount
     });
   }

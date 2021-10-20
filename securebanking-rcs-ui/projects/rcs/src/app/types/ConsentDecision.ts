@@ -1,4 +1,4 @@
 export enum ConsentDecision {
-  APPROVE = 'Approved',
+  APPROVED = 'Approved',
   DENY = 'Rejected'
 }

@@ -19,8 +19,8 @@ export class ApiService {
     });
   }
 
-  postConsentDecision(decisionAPIUri: string, body: any) {
-    return this.http.post(`${this.configService.get('remoteConsentServer')}${decisionAPIUri}`, body, {
+  postConsentDecision(decisionApiUri: string, body: any) {
+    return this.http.post(`${this.configService.get('remoteConsentServer')}${decisionApiUri}`, body, {
       withCredentials: true,
       headers: new HttpHeaders({
         'Content-Type': 'application/json'

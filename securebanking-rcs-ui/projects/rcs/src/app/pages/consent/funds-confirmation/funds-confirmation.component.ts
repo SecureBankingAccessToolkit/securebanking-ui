@@ -78,7 +78,7 @@ export class FundsConfirmationComponent implements OnInit {
 
   submit(allowing = false) {
     this.formSubmit.emit({
-      decision: allowing ? ConsentDecision.APPROVE : ConsentDecision.DENY,
+      decision: allowing ? ConsentDecision.APPROVED : ConsentDecision.DENY,
       accountId: _get(this.response, 'accounts[0].id', '')
     });
   }

@@ -9,7 +9,7 @@ import {ApiResponses} from '../../../../src/app/types/api';
 import {ForgerockMessagesService} from '@securebanking/securebanking-common-ui/services/forgerock-messages';
 import {IConsentEventEmitter} from '../../types/consentItem';
 import jwtDecode from "jwt-decode";
-import {ConsentDecision} from "bank/src/app/types/ConsentDecision";
+import {ConsentDecision} from "../../../../src/app/types/ConsentDecision";
 
 @Component({
   selector: 'app-consent',
@@ -21,6 +21,7 @@ export class ConsentComponent implements OnInit {
   loading: boolean;
   error: Error;
   response: ApiResponses.ConsentDetailsResponse;
+  consentRequest: string;
 
   constructor(
     private route: ActivatedRoute,
@@ -41,22 +42,22 @@ export class ConsentComponent implements OnInit {
       }
     )
 
-    const consentRequest = this.route.snapshot.queryParamMap.get('consent_request');
-    const consentApprovalRedirectUri = jwtDecode(consentRequest)["consentApprovalRedirectUri"];
-    const m = consentApprovalRedirectUri.match("redirect_uri=([^&]+).*$");
-    if (m.length > 0) {
-      redirect_uri = m[1];
-      console.log("redirect_uri = " + redirect_uri);
-    }
-
-    if (!consentRequest) {
+    this.consentRequest = this.route.snapshot.queryParamMap.get('consent_request');
+    if (!this.consentRequest) {
       this.error = new Error('Missing consent request');
       this.cdr.detectChanges();
       return;
+    } else {
+      const consentApprovalRedirectUri = jwtDecode(this.consentRequest)["consentApprovalRedirectUri"];
+      const m = consentApprovalRedirectUri.match("redirect_uri=([^&]+).*$");
+      if (m.length > 0) {
+        redirect_uri = m[1];
+        console.log("redirect_uri = " + redirect_uri);
+      }
     }
 
     this.api
-      .getConsentDetails(consentRequest)
+      .getConsentDetails(this.consentRequest)
       .pipe(withErrorHandlingForRCSBadRequest)
       .subscribe(
         (data: ApiResponses.ConsentDetailsResponse) => {
@@ -92,8 +93,6 @@ export class ConsentComponent implements OnInit {
   onFormSubmit(values: IConsentEventEmitter) {
     const {consent_request: consentJwt} = this.route.snapshot.queryParams;
     console.log("onsubmmit from submit-box");
-    console.log("response" + this.response.intentType);
-    console.log("response" + this.response.decisionApiUri);
     const requestBody = {
       consentJwt,
       ...values
@@ -102,15 +101,13 @@ export class ConsentComponent implements OnInit {
     if (!this.response || !this.response.decisionApiUri) {
       return;
     }
+
     this.loading = true;
+
     if (requestBody.decision === ConsentDecision.DENY) {
-      // console.log(`User cancels intentType: ${this.response.intentType}`)
-      // updateUserActions(false, false, true);
-      this.loading = true;
       console.log(`User rejects intentType: ${this.response.intentType}`)
       this.updateUserActions(false, true);
     } else {
-      this.loading = true;
       console.log(`User accepts intentType: ${this.response.intentType}`)
       this.updateUserActions(true);
     }
@@ -135,8 +132,8 @@ export class ConsentComponent implements OnInit {
 
   }
 
-  updateUserActions(accept: boolean = false, reject: boolean = false, cancel: boolean = false, redirectUri: string = null){
-    if(!this.response.userActions){
+  updateUserActions(accept: boolean = false, reject: boolean = false, cancel: boolean = false, redirectUri: string = null) {
+    if (!this.response.userActions) {
       this.response.userActions = {};
     }
     this.response.userActions.acceptedByUser = accept;

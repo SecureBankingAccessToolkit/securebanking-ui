@@ -27,9 +27,9 @@ import {InternationalSchedulePaymentComponent} from '../../../../../src/app/page
 import {InternationalStandingOrderComponent} from '../../../../../src/app/pages/consent/international-standing-order/international-standing-order.component';
 import {FundsConfirmationComponent} from '../../../../../src/app/pages/consent/funds-confirmation/funds-confirmation.component';
 import {FilePaymentComponent} from '../../../../../src/app/pages/consent/file-payment/file-payment.component';
-import {CancelComponent} from "bank/src/app/pages/consent/components/cancel/cancel.component";
-import {AcceptComponent} from "bank/src/app/pages/consent/components/accept/accept.component";
-import {RejectComponent} from "bank/src/app/pages/consent/components/reject/reject.component";
+import {CancelComponent} from "../../../../../src/app/pages/consent/components/cancel/cancel.component";
+import {AcceptComponent} from "../../../../../src/app/pages/consent/components/accept/accept.component";
+import {RejectComponent} from "../../../../../src/app/pages/consent/components/reject/reject.component";
 
 const log = debug('consent:DynamicComponent');
 
@@ -56,11 +56,11 @@ export class DynamicComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges(changes: any) {
-    if (this.response.userActions.acceptedByUser) {
+    if (this.response.userActions?.acceptedByUser) {
       this.createComponent(AcceptComponent);
-    } else if (this.response.userActions.canceledByUser && this.response.userActions.cancelRedirectUri) {
+    } else if (this.response.userActions?.canceledByUser && this.response.userActions?.cancelRedirectUri) {
       this.createComponent(CancelComponent);
-    } else if (this.response.userActions.rejectedByUser) {
+    } else if (this.response.userActions?.rejectedByUser) {
       this.createComponent(RejectComponent);
     }
     if (changes.loading && !changes.loading.firstChange) {
