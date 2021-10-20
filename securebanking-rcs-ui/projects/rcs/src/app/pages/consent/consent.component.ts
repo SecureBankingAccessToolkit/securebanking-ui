@@ -146,13 +146,6 @@ export class ConsentComponent implements OnInit {
   }
 }
 
-function updateUserActions(accept: boolean = false, reject: boolean = false, cancel: boolean = false, redirectUri: string = null){
-  this.response.userActions.acceptedByUser = accept;
-  this.response.userActions.rejectedByUser = reject;
-  this.response.userActions.canceledByUser = cancel;
-  this.response.userActions.cancelRedirectUri = redirectUri;
-}
-
 function withErrorHandling(obs: Observable<any>) {
   return obs.pipe(
     retry(2),
