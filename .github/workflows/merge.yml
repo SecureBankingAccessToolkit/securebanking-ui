@@ -8,24 +8,6 @@ on:
       - README.md
 
 jobs:
-  buildAuth:
-    runs-on: ubuntu-latest
-    name: Build auth image
-    steps:
-      - uses: actions/checkout@v2
-
-      - uses: google-github-actions/setup-gcloud@master
-        with:
-          service_account_key: ${{ secrets.GCR_KEY }}
-          export_default_credentials: true
-        # Configure docker to use the gcloud command-line tool as a credential helper
-      - run: |
-          gcloud auth configure-docker
-
-      - name: test
-        run: |
-          make docker service=auth release-repo=${{ secrets.RELEASE_REPO}}
-
   buildRcs:
     runs-on: ubuntu-latest
     name: Build rcs image
@@ -43,7 +25,7 @@ jobs:
       - name: test
         run: |
           make docker service=rcs release-repo=${{ secrets.RELEASE_REPO}}
-  
+
   buildSwagger:
     runs-on: ubuntu-latest
     name: Build swagger image

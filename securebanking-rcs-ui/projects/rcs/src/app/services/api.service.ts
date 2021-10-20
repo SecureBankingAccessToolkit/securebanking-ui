@@ -1,13 +1,14 @@
-import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import {Injectable} from '@angular/core';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 
-import { ForgerockConfigService } from '@securebanking/securebanking-common-ui/services/forgerock-config';
+import {ForgerockConfigService} from '@securebanking/securebanking-common-ui/services/forgerock-config';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApiService {
-  constructor(private http: HttpClient, private configService: ForgerockConfigService) {}
+  constructor(private http: HttpClient, private configService: ForgerockConfigService) {
+  }
 
   getConsentDetails(consentRequest: string) {
     return this.http.post(`${this.configService.get('remoteConsentServer')}/api/rcs/consent/details/`, consentRequest, {
@@ -27,14 +28,14 @@ export class ApiService {
     });
   }
 
-  postConsentAuthorization(redirectUri: string, consent_response: string) {
-    const body = new URLSearchParams();
-    body.set('consent_response', consent_response);
-    return this.http.post(redirectUri, body.toString(), {
+
+  logout() {
+    return this.http.post(`${this.configService.get('authorizationServer')}/json/realms/root/sessions/?_action=logout`, null, {
       withCredentials: true,
       headers: new HttpHeaders({
-        'Content-Type': 'application/x-www-form-urlencoded'
+        'Accept-API-Version': 'resource=3.1, protocol=1.0'
       })
     });
   }
+
 }

@@ -1,45 +1,54 @@
 # Tools
 - https://github.com/nvm-sh/nvm (.nvmrc) Node Version Manager
 
+# Stack tech versions
+| tech | version |
+|---|---|
+| Angular CLI | 9.0.1 |
+| Node | 10.24.1 |
+| Angular | 9.0.0 |
+
+|Package|Version|
+|---|---|
+|@angular-devkit/architect       |  0.900.1       |
+|@angular-devkit/build-angular   |  0.900.1       |
+|@angular-devkit/build-optimizer |  0.900.1       |
+|@angular-devkit/build-webpack   |  0.900.1       |
+|@angular-devkit/core            |  8.0.0         |
+|@angular-devkit/schematics      |  8.0.0         |
+|@angular/cli                    |  9.0.1         |
+|@angular/flex-layout            |  7.0.0-beta.19 |
+|@ngtools/webpack                |  9.0.1         |
+|@nguniversal/common             |  9.0.0         |
+|@nguniversal/express-engine     |  9.0.0         |
+|@schematics/angular             |  8.0.0         |
+|@schematics/update              |  0.900.1       |
+|ng-packagr                      |  9.0.0         |
+|rxjs                            |  6.5.4         |
+|typescript                      |  3.7.5         |
+|webpack                         |  4.41.2        |
+
 # securebanking-ui
 
 Secure banking User interfaces
 
 ## Subprojects
 
-### Secure Banking cli UI
+### Secure Banking cli UI package
 
 [securebanking-cli-ui readme](securebanking-cli-ui/README.md)
 
-### Secure Banking common UI
+### Secure Banking common UI package
 
 [securebanking-common-ui readme](securebanking-common-ui/README.md)
 
-### Secure Banking RCS UI
+### Secure Banking RCS UI application
 
 - Bank simulation (Resource Consent Service)
 
 [securebanking-rcs-ui readme](securebanking-rcs-ui/README.md)
 
-### Requirements
-Several requirements are required to install secure banking rcs ui:
-
-- cairo
-- pango
-- pixman
-- jpeg
-
-```
-brew install pkg-config pixman cairo pango libpng jpeg giflib
-```
-
-### Secure Banking Auth UI
-
-- OIDC Login/Register pages
-
-[securebanking-auth-ui readme](securebanking-auth-ui/README.md)
-
-### Secure Banking Swagger UI
+### Secure Banking Swagger UI application
 
 - API documentation
 

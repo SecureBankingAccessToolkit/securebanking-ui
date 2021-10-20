@@ -3,6 +3,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 import { ApiResponses } from '../../../../../src/app/types/api';
 import { Item, ItemType, IConsentEventEmitter } from '../../../../../src/app/types/consentItem';
+import { ConsentDecision } from '../../../../../src/app/types/ConsentDecision';
 
 @Component({
   selector: 'app-consent-file-payment',
@@ -83,7 +84,7 @@ export class FilePaymentComponent implements OnInit {
 
   submit(allowing = false) {
     this.formSubmit.emit({
-      decision: allowing ? 'allow' : 'deny',
+      decision: allowing ? ConsentDecision.APPROVE : ConsentDecision.DENY,
       accountId: this.form.value.selectedAccount
     });
   }

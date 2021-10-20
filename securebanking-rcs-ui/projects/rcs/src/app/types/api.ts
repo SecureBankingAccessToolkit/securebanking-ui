@@ -1,6 +1,6 @@
-import { OBAccount2, OBActiveOrHistoricCurrencyAndAmount, OBCashBalance1 } from './ob';
-import { IntentType } from '../../../src/app/types/IntentType';
-import { OBAccountPermissions } from '../../../src/app/types/OBAccountPermissions';
+import {OBAccount2, OBActiveOrHistoricCurrencyAndAmount, OBCashBalance1} from './ob';
+import {IntentType} from '../../../src/app/types/IntentType';
+import {OBAccountPermissions} from '../../../src/app/types/OBAccountPermissions';
 
 export interface FRAccountWithBalance {
   id: string;
@@ -13,7 +13,7 @@ export interface FRAccountWithBalance {
 export module ApiResponses {
   export interface ConsentDetailsResponse {
     redirectUri: string;
-    decisionAPIUri: string;
+    decisionApiUri: string;
     intentType: IntentType;
     accounts: FRAccountWithBalance[];
     username: string;
@@ -29,7 +29,6 @@ export module ApiResponses {
     toTransaction?: string;
     instructedAmount?: OBActiveOrHistoricCurrencyAndAmount;
     account: OBAccount2;
-
     standingOrder?: {
       Frequency: string;
       Reference: string;
@@ -53,6 +52,22 @@ export module ApiResponses {
     requestedExecutionDateTime?: string;
     currencyOfTransfer?: string;
     expirationDateTime?: string;
+    // special ui treatment
+    userActions?: UserActions
+    decisionResponse?: ConsentDecisionResponse
+  }
+
+  export interface ConsentDecisionResponse {
+    consentJwt: string;
+    requestMethod: string;
+    redirectUri: string
+  }
+
+  export interface UserActions {
+    acceptedByUser?: boolean;
+    rejectedByUser?: boolean;
+    canceledByUser?: boolean;
+    cancelRedirectUri?: string;
   }
 }
 
@@ -61,4 +76,8 @@ export class Rate {
   UnitCurrency: string;
   ExchangeRate: number;
   ContractIdentification: string;
+}
+
+export interface Logout {
+  result: string;
 }

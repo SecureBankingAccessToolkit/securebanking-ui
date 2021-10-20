@@ -24,6 +24,9 @@ import { ConsentBoxComponentModule } from './components/consent-box/consent-box.
 import { SubmitBoxComponentModule } from './components/submit-box/submit-box.module';
 import { AccountSelectionComponentModule } from './components/account-selection/account-selection.module';
 import { AccountCheckboxModule } from './components/account-checkbox/account-checkbox.module';
+import { CancelComponent } from './components/cancel/cancel.component';
+import { AcceptComponent } from './components/accept/accept.component';
+import { RejectComponent } from './components/reject/reject.component';
 
 @NgModule({
   imports: [
@@ -51,7 +54,10 @@ import { AccountCheckboxModule } from './components/account-checkbox/account-che
     FundsConfirmationComponent,
     FilePaymentComponent,
     DynamicComponent,
-    PermissionsComponent
+    PermissionsComponent,
+    CancelComponent,
+    AcceptComponent,
+    RejectComponent
   ],
   entryComponents: [
     SinglePaymentComponent,
@@ -63,7 +69,10 @@ import { AccountCheckboxModule } from './components/account-checkbox/account-che
     InternationalSchedulePaymentComponent,
     InternationalStandingOrderComponent,
     FundsConfirmationComponent,
-    FilePaymentComponent
+    FilePaymentComponent,
+    CancelComponent,
+    AcceptComponent,
+    RejectComponent
   ],
   exports: [
     ConsentComponent,
@@ -78,7 +87,10 @@ import { AccountCheckboxModule } from './components/account-checkbox/account-che
     FundsConfirmationComponent,
     FilePaymentComponent,
     DynamicComponent,
-    PermissionsComponent
+    PermissionsComponent,
+    CancelComponent,
+    AcceptComponent,
+    RejectComponent
   ]
 })
 export class ConsentModule {}

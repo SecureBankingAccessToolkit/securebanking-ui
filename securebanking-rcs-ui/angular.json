@@ -62,17 +62,6 @@
               "statsJson": true,
               "es5BrowserSupport": true
             },
-            "ui-native-local": {
-              "options": {
-                "main": "projects/rcs/src/main-native.ts"
-              },
-              "fileReplacements": [
-                {
-                  "replace": "projects/rcs/src/environments/environment.ts",
-                  "with": "projects/rcs/src/environments/environment.local.ts"
-                }
-              ]
-            },
             "ui-local": {
               "fileReplacements": [
                 {
@@ -98,8 +87,8 @@
             "host": "localhost",
             "ssl": true,
             "port": 4201,
-            "sslCert": "ssl/all.dev-ob.forgerock.financial.crt",
-            "sslKey": "ssl/k-all.dev-ob.forgerock.financial.key",
+            "sslCert": "ssl/wildcard.dev.forgerock.financial.crt",
+            "sslKey": "ssl/k-wildcard.dev.forgerock.financial.key",
             "sourceMap": true
           },
           "configurations": {
@@ -111,9 +100,6 @@
             },
             "ui-local": {
               "browserTarget": "rcs:build:ui-local"
-            },
-            "ui-native-local": {
-              "browserTarget": "rcs:build:ui-native-local"
             }
           }
         },
