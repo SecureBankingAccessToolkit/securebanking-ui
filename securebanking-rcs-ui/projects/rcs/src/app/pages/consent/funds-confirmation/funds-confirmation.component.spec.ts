@@ -63,7 +63,9 @@ describe('app:bank FundsConfirmationComponent', () => {
   it('should emit formSubmit decision deny', () => {
     const testValue = 'test';
     spyOn(component.formSubmit, 'emit');
+
     component.response = {
+      // @ts-ignore
       accounts: [{ id: testValue }]
     };
 
@@ -79,7 +81,9 @@ describe('app:bank FundsConfirmationComponent', () => {
   it('should emit formSubmit decision allow', () => {
     const testValue = 'test';
     spyOn(component.formSubmit, 'emit');
+    // @ts-ignore
     component.response = {
+      // @ts-ignore
       accounts: [{ id: testValue }]
     };
 
