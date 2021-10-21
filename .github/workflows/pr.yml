@@ -91,23 +91,24 @@ jobs:
       - name: Build Docker Image
         run: |
           make docker tag=${{ env.PR_NUMBER }} service=swagger
-
-  tests:
-    runs-on: ubuntu-latest
-    name: Check PR integrity
-    needs: [swagger, rcs]
-    steps:
-      - uses: actions/checkout@v2
-
-      - name: template helm
-        run: |
-          helm template $HELM_DIRECTORY/$SERVICE_NAME
-
-      - name: 'Deploy Service'
-        uses: codefresh-io/codefresh-pipeline-runner@master
-        with:
-          args: '-v TAG=${{ env.PR_NUMBER }} -v SERVICE_NAME=ui -v ENVIRONMENT=${{ github.actor }} -v BRANCH=${{ github.head_ref }}'
-        env:
-          PIPELINE_NAME: 'ForgeCloud/sbat-infra/service-build'
-          CF_API_KEY: ${{ secrets.CF_API_KEY }}
-        id: run-pipeline
+# disabled until fix the pipeline to avoid auth-ui deployment
+# @See the issue: https://github.com/SecureBankingAccessToolkit/SecureBankingAccessToolkit/issues/94
+#  tests:
+#    runs-on: ubuntu-latest
+#    name: Check PR integrity
+#    needs: [swagger, rcs]
+#    steps:
+#      - uses: actions/checkout@v2
+#
+#      - name: template helm
+#        run: |
+#          helm template $HELM_DIRECTORY/$SERVICE_NAME
+#
+#      - name: 'Deploy Service'
+#        uses: codefresh-io/codefresh-pipeline-runner@master
+#        with:
+#          args: '-v TAG=${{ env.PR_NUMBER }} -v SERVICE_NAME=ui -v ENVIRONMENT=${{ github.actor }} -v BRANCH=${{ github.head_ref }}'
+#        env:
+#          PIPELINE_NAME: 'ForgeCloud/sbat-infra/service-build'
+#          CF_API_KEY: ${{ secrets.CF_API_KEY }}
+#        id: run-pipeline

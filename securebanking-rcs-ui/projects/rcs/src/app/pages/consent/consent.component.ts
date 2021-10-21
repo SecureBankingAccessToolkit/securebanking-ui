@@ -119,8 +119,8 @@ export class ConsentComponent implements OnInit {
           console.table(data);
           if (data.consentJwt && data.redirectUri) {
             this.response.decisionResponse = data;
-            this.cdr.detectChanges();
             this.loading = false;
+            this.cdr.detectChanges();
           } else if (data.redirectUri) {
             window.location.href = data.redirectUri;
           }
@@ -140,6 +140,10 @@ export class ConsentComponent implements OnInit {
     this.response.userActions.rejectedByUser = reject;
     this.response.userActions.canceledByUser = cancel;
     this.response.userActions.cancelRedirectUri = redirectUri;
+    // to avoid reload the view each time that we push data on userActions when accept, cancel or reject happens
+    if(accept || reject || cancel) {
+      this.cdr.detach();
+    }
   }
 }
 

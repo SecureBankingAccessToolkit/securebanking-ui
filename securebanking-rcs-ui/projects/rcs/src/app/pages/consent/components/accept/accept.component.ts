@@ -41,12 +41,11 @@ export class AcceptComponent implements OnInit, AfterViewChecked {
     console.table(this.response.decisionResponse)
     if (!this.response.decisionResponse) {
       return;
-      // this.displayError("Decision response is empty or undefined")
     }
   }
 
   ngAfterViewChecked(): void {
-    console.log("submit form")
+    console.log("submit accept form")
     this.acceptFormPost.nativeElement.submit();
   }
 

@@ -9,8 +9,8 @@
             <div class="account Aligner">
               <div>
                 <div>{{ account.account?.nickname }}</div>
-                <div class="secondary-text account-number" *ngIf="account.account?.accounts">
-                  {{ (account.account?.accounts)[0] | AccountNumberFormat }}
+                <div class="secondary-text account-number" *ngIf="account.account?.account">
+                  {{ (account.account?.account)[0] | AccountNumberFormat }}
                 </div>
               </div>
 

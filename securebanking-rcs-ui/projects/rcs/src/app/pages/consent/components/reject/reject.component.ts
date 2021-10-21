@@ -37,16 +37,18 @@ export class RejectComponent implements OnInit, AfterViewChecked {
 
   ngOnInit() {
     console.log("reject component")
-    console.table(this.response.decisionResponse)
+    console.table(`reject: ${this.response.decisionResponse}`);
     if (!this.response.decisionResponse) {
       return;
-      // this.displayError("Decision response is empty or undefined")
     }
   }
 
   ngAfterViewChecked(): void {
-    console.log("submit reject form")
-    this.rejectFormPost.nativeElement.submit();
+    console.log("ngAfterViewChecked");
+    if(this.response.decisionResponse) {
+      console.log("submit reject form")
+      this.rejectFormPost.nativeElement.submit();
+    }
   }
 
   displayError(er: string) {
