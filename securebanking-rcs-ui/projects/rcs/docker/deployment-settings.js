@@ -6,5 +6,5 @@ module.exports = {
   cookieDomain: '.DOMAIN',
   authorizationServer: 'AUTHORIZATION_URL',
   authenticationServer: 'AUTHENTICATION_URL',
-  remoteConsentServer: 'REMOVE_CONSENT_URL'
+  remoteConsentServer: 'REMOTE_CONSENT_URL'
 };

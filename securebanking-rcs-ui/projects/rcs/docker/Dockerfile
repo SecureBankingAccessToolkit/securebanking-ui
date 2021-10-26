@@ -22,7 +22,7 @@ ENV TEMPLATE "forgerock"
 ENV DOMAIN "dev.forgerock.financial"
 ENV AUTHORIZATION_URL "https://iam.DOMAIN"
 ENV AUTHENTICATION_URL "https://iam.DOMAIN"
-ENV REMOVE_CONSENT_URL "https://rcs.DOMAIN"
+ENV REMOTE_CONSENT_URL "https://rcs.DOMAIN"
 # apps
 ENV ANDROID_PKG_NAME "secure.banking.forgerock.financial"
 ENV IOS_APP_ID "secure.banking.forgerock.financial"
