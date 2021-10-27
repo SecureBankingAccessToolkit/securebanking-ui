@@ -13,13 +13,6 @@ metadata:
   name: {{ .Chart.Name }}
 spec:
   rules:
-  - host: {{ .Values.auth.subdomain }}.{{ .Values.ingress.domain }}
-    http:
-      paths:
-      - backend:
-          serviceName: {{ .Chart.Name }}-{{ .Values.auth.subdomain }}
-          servicePort: 8080
-        path: /
   - host: {{ .Values.rcs.subdomain }}.{{ .Values.ingress.domain }}
     http:
       paths:

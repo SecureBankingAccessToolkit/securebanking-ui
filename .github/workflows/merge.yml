@@ -29,7 +29,7 @@ jobs:
           make docker service=rcs
           docker tag eu.gcr.io/${{ secrets.DEV_REPO }}/securebanking/ui/rcs:latest eu.gcr.io/${{ secrets.DEV_REPO }}/securebanking/ui/rcs:${{ env.GIT_SHA_SHORT }}
           docker push eu.gcr.io/${{ secrets.DEV_REPO }}/securebanking/ui/rcs:${{ env.GIT_SHA_SHORT }}
-          
+
   buildSwagger:
     runs-on: ubuntu-latest
     name: Build swagger image
@@ -49,11 +49,11 @@ jobs:
           make docker service=swagger
           docker tag eu.gcr.io/${{ secrets.DEV_REPO }}/securebanking/ui/swagger:latest eu.gcr.io/${{ secrets.DEV_REPO }}/securebanking/ui/swagger:${{ env.GIT_SHA_SHORT }}
           docker push eu.gcr.io/${{ secrets.DEV_REPO }}/securebanking/ui/swagger:${{ env.GIT_SHA_SHORT }}
-  
+
   deploy:
     runs-on: ubuntu-latest
     name: Syncronise dev cluster.
-    needs: [buildSwagger, buildRcs, buildAuth]
+    needs: [buildSwagger, buildRcs]
     steps:
       - uses: actions/checkout@v2
 
