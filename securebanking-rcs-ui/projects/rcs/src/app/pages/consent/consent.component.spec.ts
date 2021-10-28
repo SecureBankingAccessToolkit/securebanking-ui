@@ -64,30 +64,44 @@ describe('app:bank ConsentComponent', () => {
   });
 
   it('should call postConsentDecision on the service', () => {
-    const decisionAPIUri = 'https://test.com';
+    const decisionApiUri = 'https://test.com';
+    component.consentRequest = "eyJhbGciOiJIUzI1NiJ9.ewoiY2xpZW50SWQiOiJhMTJjOTA3Ni02MTM2LTQzOTAtOTEwZS02MDNkZjAxN2JmMzIiLCJpc3MiOiJodHRwczovL2lhbS5kZXYuZm9yZ2Vyb2NrLmZpbmFuY2lhbDo0NDMvYW0vb2F1dGgyL3JlYWxtcy9yb290L3JlYWxtcy9hbHBoYSIsImNzcmYiOiJUamdqM0hUelJsMnZuK1RtSWxQaGl6YjlncWRmUjdabjJhL3I1aUgrc3lBPSIsImNsaWVudF9kZXNjcmlwdGlvbiI6IiIsImF1ZCI6ImZvcmdlcm9jay1yY3MiLCJzYXZlX2NvbnNlbnRfZW5hYmxlZCI6dHJ1ZSwiY2xhaW1zIjp7ImlkX3Rva2VuIjp7ImFjciI6eyJ2YWx1ZSI6InVybjpvcGVuYmFua2luZzpwc2QyOnNjYSIsImVzc2VudGlhbCI6dHJ1ZX0sIm9wZW5iYW5raW5nX2ludGVudF9pZCI6eyJ2YWx1ZSI6IkFBQ19kNzk5ZWUyYi00NTZmLTQ1OTAtYTZhYS0xN2IxZWYxYzE3ZDQiLCJlc3NlbnRpYWwiOnRydWV9fSwidXNlcmluZm8iOnsib3BlbmJhbmtpbmdfaW50ZW50X2lkIjp7InZhbHVlIjoiQUFDX2Q3OTllZTJiLTQ1NmYtNDU5MC1hNmFhLTE3YjFlZjFjMTdkNCIsImVzc2VudGlhbCI6dHJ1ZX19fSwic2NvcGVzIjp7ImFjY291bnRzIjoiYWNjb3VudHMiLCJvcGVuaWQiOiJvcGVuaWQiLCJwYXltZW50cyI6InBheW1lbnRzIn0sImV4cCI6MTYxNDk1NDA1NCwiaWF0IjoxNjE0OTUzODc0LCJjbGllbnRfbmFtZSI6ImJkZGRiNDMwLTMxNjAtNGFlYi04NWI5LWRkZWJjYjBiOGJhMiIsImNvbnNlbnRBcHByb3ZhbFJlZGlyZWN0VXJpIjoiaHR0cHM6Ly9pYW0uZGV2LmZvcmdlcm9jay5maW5hbmNpYWw6NDQzL2FtL29hdXRoMi9yZWFsbXMvcm9vdC9yZWFsbXMvYWxwaGE_cmVzcG9uc2VfdHlwZT1jb2RlJTIwaWRfdG9rZW4mY2xpZW50X2lkPWExMmM5MDc2LTYxMzYtNDM5MC05MTBlLTYwM2RmMDE3YmYzMiZyZWRpcmVjdF91cmk9aHR0cHM6Ly9wb3N0bWFuLWVjaG8uY29tL2dldCIsInVzZXJuYW1lIjoiNTlkOGE2M2MtN2JkZC00YTc2LWE3MzgtNTllNWI4ZGQxYzM5In0.dgdCpC_ljerdJt_oJ_Icyt-Dr6bBCzwnnWAVQi-4Dc0";
     component.response = {
-      decisionAPIUri
+      account: undefined,
+      accounts: [],
+      aispName: "",
+      clientId: "",
+      clientName: "",
+      intentType: undefined,
+      logo: "",
+      merchantName: "",
+      redirectUri: "",
+      username: "",
+      decisionApiUri
     };
+
     fixture.detectChanges();
 
     expect(component.loading).toBeFalsy();
 
+    // @ts-ignore
     component.onFormSubmit();
 
     expect(component.loading).toBeTruthy();
 
-    expect(postConsentDecisionSpy).toHaveBeenCalledWith(decisionAPIUri, {});
+    expect(postConsentDecisionSpy).toHaveBeenCalledWith(decisionApiUri, {});
 
     component.onFormSubmit({
-      test: 'test'
+      decision: ""
     });
 
-    expect(postConsentDecisionSpy).toHaveBeenCalledWith(decisionAPIUri, {
-      test: 'test'
+    expect(postConsentDecisionSpy).toHaveBeenCalledWith(decisionApiUri, {
+      decision: ""
     });
   });
 
-  it('should not call postConsentDecision if no decisionAPIUri specified', () => {
+  it('should not call postConsentDecision if no decisionApiUri specified', () => {
+    // @ts-ignore
     component.onFormSubmit();
 
     expect(postConsentDecisionSpy).not.toHaveBeenCalled();

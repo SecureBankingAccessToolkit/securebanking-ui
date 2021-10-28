@@ -5,125 +5,13 @@ import {
   ForgerockSimpleLayoutModule,
   SimpleLayoutComponent
 } from '@securebanking/securebanking-common-ui/layouts/simple';
-//import { ForegerockGDPRConsentGuard } from '@securebanking/securebanking-common-ui/gdpr';
-//import { ForgerockGDPRService } from '@securebanking/securebanking-common-ui/gdpr';
 import {
   ForgerockMainLayoutModule,
   IForgerockMainLayoutConfig,
   IForgerockMainLayoutNavigations
 } from '@securebanking/securebanking-common-ui/layouts/main-layout';
-/*
-import {
-  ForgerockToolbarMenuComponentModule,
-  ForgerockToolbarMenuContainer,
-  IsConnectedPrivateGuard,
-  IsConnectedPublicGuard
-} from '@securebanking/securebanking-common-ui/authentication';
-import { ForgerockCustomerCanAccessGuard } from '@securebanking/securebanking-common-ui/guards';
-*/
-export const routes: Routes = [
-  /*
-  {
-    path: '',
-    pathMatch: 'full',
-    redirectTo: 'profile'
-  },
-  {
-    path: ForgerockGDPRService.gdprDeniedPage,
-    component: SimpleLayoutComponent,
-    loadChildren: () => import('forgerock/src/ob-ui-libs-lazy/gdpr.module').then(m => m.OBUILibsLazyGDPRPage)
-  },
-  {
-    path: '',
-    component: ForgerockMainLayoutComponent,
-    canActivate: [ForegerockGDPRConsentGuard],
-    children: [
-      {
-        path: 'profile',
-        pathMatch: 'full',
-        redirectTo: 'profile/details'
-      },
-      {
-        path: 'profile/details',
-        canLoad: [ForgerockCustomerCanAccessGuard],
-        canActivate: [IsConnectedPrivateGuard],
-        loadChildren: () =>
-          import('forgerock/src/ob-ui-libs-lazy/authentication/details.module').then(
-            m => m.OBUILibsLazyAuthProfileDetailsPage
-          )
-      },
-      {
-        path: 'profile/password',
-        canLoad: [ForgerockCustomerCanAccessGuard],
-        canActivate: [IsConnectedPrivateGuard],
-        loadChildren: () =>
-          import('forgerock/src/ob-ui-libs-lazy/authentication/password.module').then(
-            m => m.OBUILibsLazyAuthProfilePasswordPage
-          )
-      }
-    ]
-  },
-  {
-    path: '',
-    component: SimpleLayoutComponent,
-    canActivate: [ForegerockGDPRConsentGuard],
-    children: [
-      {
-        path: 'login',
-        canActivate: [IsConnectedPublicGuard],
-        canLoad: [ForgerockCustomerCanAccessGuard],
-        loadChildren: 'bank/src/app/pages/login/login.module#LoginModule',
-        data: {
-          private: true
-        }
-      },
-      {
-        path: 'register',
-        canActivate: [IsConnectedPublicGuard],
-        canLoad: [ForgerockCustomerCanAccessGuard],
-        loadChildren: 'bank/src/app/pages/register/register.module#RegisterModule'
-      },
-      {
-        path: 'consent',
-        canActivate: [IsConnectedPrivateGuard],
-        loadChildren: 'bank/src/app/pages/consent/consent.module#ConsentModule'
-      },
-      {
-        path: 'logged-out',
-        loadChildren: 'bank/src/app/pages/logout/logout.module#LogoutModule'
-      },
-      {
-        path: 'dev/consent',
-        canLoad: [ForgerockCustomerCanAccessGuard],
-        loadChildren: 'bank/src/app/pages/consent-dev/consent-dev.module#ConsentDevModule'
-      },
-      {
-        path: 'oauth2/authorize',
-        loadChildren: () =>
-          import('forgerock/src/ob-ui-libs-lazy/authentication/oauth2-authorize.module').then(
-            m => m.OBUILibsLazyAuthOauth2AuthorizePage
-          )
-      },
-      {
-        path: '404',
-        pathMatch: 'full',
-        loadChildren: () =>
-          import('forgerock/src/ob-ui-libs-lazy/not-found.module').then(m => m.OBUILibsLazyNotFoundPage)
-      },
-      {
-        path: 'dev/info',
-        pathMatch: 'full',
-        loadChildren: () => import('forgerock/src/ob-ui-libs-lazy/dev-info.module').then(m => m.OBUILibsLazyDevInfoPage)
-      }
-    ]
-  },
 
-  {
-    path: '**',
-    pathMatch: 'full',
-    redirectTo: '404'
-  }
-   */
+export const routes: Routes = [
   {
     path: '',
     pathMatch: 'full',
@@ -132,11 +20,9 @@ export const routes: Routes = [
   {
     path: '',
     component: SimpleLayoutComponent,
-    //canActivate: [ForegerockGDPRConsentGuard],
     children: [
       {
         path: 'consent',
-        //canActivate: [IsConnectedPrivateGuard],
         loadChildren: 'bank/src/app/pages/consent/consent.module#ConsentModule'
       }
     ]
@@ -186,14 +72,10 @@ export const navigations: IForgerockMainLayoutNavigations = {
 @NgModule({
   imports: [
     ForgerockSimpleLayoutModule,
-    //ForgerockToolbarMenuComponentModule,
     RouterModule.forRoot(routes),
     ForgerockMainLayoutModule.forRoot({
       layout: mainLayoutConfig,
-      navigations//,
-      //components: {
-      //toolbar: ForgerockToolbarMenuContainer
-      //}
+      navigations
     })
   ],
   exports: [ForgerockSimpleLayoutModule, RouterModule]

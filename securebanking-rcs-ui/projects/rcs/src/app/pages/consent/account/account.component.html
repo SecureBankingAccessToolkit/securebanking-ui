@@ -1,7 +1,7 @@
 <mat-card *ngIf="response">
   <forgerock-customer-logo></forgerock-customer-logo>
 
-  {{ loading | json }}
+  {{ _loading | json }}
 
   <form [formGroup]="form">
     <h1 [translate]="'CONSENT.ACCOUNT.TITLE'" [translateParams]="{ merchantName: response.aispName }"></h1>

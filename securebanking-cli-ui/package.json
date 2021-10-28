@@ -10,13 +10,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/SecureBankingAcceleratorToolkit/securebanking-ui.git",
+    "url": "git+https://github.com/SecureBankingAccessToolkit/securebanking-ui.git",
     "directory": "securebanking-cli-ui"
   },
   "bugs": {
-    "url": "https://github.com/SecureBankingAcceleratorToolkit/securebanking-ui/issues"
+    "url": "https://github.com/SecureBankingAccessToolkit/securebanking-ui/issues"
   },
-  "homepage": "https://github.com/SecureBankingAcceleratorToolkit/securebanking-ui/securebanking-cli-ui#readme",
+  "homepage": "https://github.com/SecureBankingAccessToolkit/securebanking-ui/securebanking-cli-ui#readme",
   "scripts": {
     "newTheme": "bin/securebanking-cli-ui addTheme"
   },

@@ -1,11 +1,11 @@
-import {Component, Inject, OnInit} from '@angular/core';
+import {ChangeDetectorRef, Component, Inject, OnInit} from '@angular/core';
 import { DOCUMENT } from '@angular/common';
 import { Platform } from '@angular/cdk/platform';
 import { TranslateService } from '@ngx-translate/core';
 
 import { ForgerockSplashscreenService } from '@securebanking/securebanking-common-ui/services/forgerock-splashscreen';
-import { ForgerockGDPRService } from '@securebanking/securebanking-common-ui/gdpr';
-import {CookieService} from "ngx-cookie";
+import {ActivatedRoute} from "@angular/router";
+import {ForgerockMessagesService} from "@securebanking/securebanking-common-ui/services/forgerock-messages";
 
 @Component({
   selector: 'app-root',
@@ -14,24 +14,43 @@ import {CookieService} from "ngx-cookie";
   `
 })
 export class AppComponent implements OnInit {
-  private cookieKey = "iPlanetDirectoryPro"
+  loading: boolean;
+  error: Error;
     ngOnInit(): void {
-    const cookieContent: string = this.getCookie(this.cookieKey)
-      this.cookieService.put(this.cookieKey,cookieContent)
-        console.log(`cookie value: "${cookieContent}"`)
+      console.log("APP")
+      this.route.fragment.subscribe((fragment: string) => {
+        if(fragment && fragment.includes("error_description")){
+          const urlSearchParams = new URLSearchParams(fragment)
+          const error = {
+            message: urlSearchParams.get("error_description"),
+            error: urlSearchParams.get("error")
+          };
+          console.log(`segments: ${fragment}`);
+          this.messages.error(error.message, null, {duration: 0});
+          this.error = new Error(error.error);
+          this.loading = false;
+          this.cdr.detectChanges();
+        }
+      })
+      this.route.queryParams.subscribe(
+        params => {
+          console.log((params))
+        }
+      );
+
     }
   constructor(
     @Inject(DOCUMENT) private document: any,
     private splashscreenService: ForgerockSplashscreenService,
     private translateService: TranslateService,
     private platform: Platform,
-    private gdprService: ForgerockGDPRService,
-    private cookieService: CookieService
+    private route: ActivatedRoute,
+    private messages: ForgerockMessagesService,
+    private cdr: ChangeDetectorRef,
   ) {
     this.splashscreenService.init();
-    this.gdprService.init();
 
-    this.translateService.addLangs(['en', 'fr']);
+    this.translateService.addLangs(['en', 'es']);
     this.translateService.setDefaultLang('en');
     this.translateService.use(this.translateService.getBrowserLang() || 'en');
 
@@ -40,8 +59,5 @@ export class AppComponent implements OnInit {
       this.document.body.classList.add('is-mobile');
     }
   }
-
-  getCookie(key: string) {
-    return this.cookieService.get(key)
-  }
 }
+

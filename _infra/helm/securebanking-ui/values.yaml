@@ -1,27 +1,4 @@
 domain: dev.forgerock.financial
-authenticationUrl: https://auth.dev.forgerock.financial
-directoryBackendUrl: https://service.directory.dev.forgerock.financial/directory-services
-
-auth:
-  subdomain: auth
-  deployment:
-    port: 80
-    replicas: 1
-
-    templateName: forgerock
-
-    rollingUpdate:
-      maxSurge: 50%
-      maxUnavailable: 25%
-
-    imagePullPolicy: Always
-
-    imageOverride:
-      enabled: true
-      repo: eu.gcr.io/sbat-gcr-develop/securebanking/ui/auth
-      tag: latest
-
-    resources: {}
 
 rcs:
   subdomain: rcs-ui

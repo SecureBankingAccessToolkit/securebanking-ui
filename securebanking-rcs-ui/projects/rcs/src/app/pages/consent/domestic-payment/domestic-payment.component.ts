@@ -3,6 +3,7 @@ import { FormGroup, Validators, FormControl } from '@angular/forms';
 
 import { ApiResponses } from '../../../../../src/app/types/api';
 import { Item, ItemType, IConsentEventEmitter } from '../../../../../src/app/types/consentItem';
+import {ConsentDecision} from "../../../../../src/app/types/ConsentDecision";
 
 @Component({
   selector: 'app-consent-domestic-payment',
@@ -67,7 +68,7 @@ export class DomesticPaymentComponent implements OnInit {
 
   submit(allowing = false) {
     this.formSubmit.emit({
-      decision: allowing ? 'allow' : 'deny',
+      decision: allowing ? ConsentDecision.APPROVED : ConsentDecision.DENY,
       accountId: this.form.value.selectedAccount
     });
   }

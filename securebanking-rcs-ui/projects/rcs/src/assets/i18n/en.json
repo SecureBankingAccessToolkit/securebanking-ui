@@ -1,35 +1,28 @@
 {
   "404": "Page not found",
-  "HELLO": "Hello",
-  "SIGNIN": "Sign in",
-  "SIGNUP": "Sign up",
-  "SIGNOUT": "Sign out",
-  "SIGNED_OUT": "You have been signed out",
-  "CREATE_ACCOUNT": "Create Account",
-  "GDPR": {
-    "TITLE": "Access denied",
-    "TEXT": "In order to use this application, you must comply with our cookie policy."
-  },
-  "REGISTER": {
-    "ALREADY_HAVE_ACCOUNT": "Already have an account?",
-    "FORM_CONFIRM": "Your changes have not been saved yet. Are you sure you want to leave?",
-    "SUCCESS": "Your account has been successfully registered."
-  },
-  "NAV": {
-    "PROFILE": "Profile",
-    "SECURITY": "Security"
-  },
-  "PROFILE": {
-    "DETAILS": {
-      "TITLE": "Profile"
+  "COMPONENT": {
+    "CANCEL": {
+      "OK": "Accept",
+      "REDIRECT_MESSAGE": "You will sign off and redirected to {{aispName}}",
+      "APPLICATION": "Application requesting access",
+      "CONFIRM": "Are you sure you want to cancel and reject the consent?",
+      "CANCEL_CONFIRMATION": "Canceled by user {{username}}",
+      "CONSENTS": {
+        "ACCOUNT_ACCESS_CONSENT": "Account sharing",
+        "PAYMENT_SINGLE_REQUEST": "Single payment",
+        "PAYMENT_DOMESTIC_CONSENT": "Domestic payment",
+        "PAYMENT_DOMESTIC_SCHEDULED_CONSENT": "Domestic scheduled payment",
+        "PAYMENT_DOMESTIC_STANDING_ORDERS_CONSENT": "Domestic standing orders",
+        "PAYMENT_INTERNATIONAL_CONSENT": "International payment",
+        "PAYMENT_INTERNATIONAL_SCHEDULED_CONSENT": "International scheduled payment",
+        "PAYMENT_INTERNATIONAL_STANDING_ORDERS_CONSENT": "International standing orders",
+        "PAYMENT_FILE_CONSENT": "File payment",
+        "FUNDS_CONFIRMATION_CONSENT": "Funds confirmation"
+      }
     },
-    "PASSWORD": {
-      "TITLE": "Security"
-    },
-    "UPDATE_SUCCESS": "Your profile has been updated.",
-    "UPDATE_ERROR": "Could not save profile information",
-    "PASSWORD_UPDATE_SUCCESS": "Your password has been updated.",
-    "PASSWORD_UPDATE_ERROR": "Could not update password"
+    "ACCEPT": {
+      "CONFIRM": "Are you sure you want to accept the consent?"
+    }
   },
   "CONSENT": {
     "PAYMENT": {
@@ -66,7 +59,6 @@
       "PROCEED_ACCOUNT": "Press Proceed to start sharing your account(s)",
       "REVIEW_DATA": "Review the data you will be sharing",
       "ACCESS.PERIOD": "The application has requested access to your transactions from {{from}} to {{to}}",
-
       "PERMISSIONS": {
         "TITLE": "Requested Permissions",
         "ReadAccountsBasic": "View Account Basic",
@@ -126,15 +118,12 @@
       "PAY_CONSENT": "By clicking 'Pay from' you consent to proceed with payment",
       "CANCEL": "Cancel and return to {{client}}",
       "REFERENCE": "Reference",
-
       "FIRST_PAYMENT": "First Payment",
       "FIRST_PAYMENT_DATE": "Date",
       "FIRST_PAYMENT_AMOUNT": "Amount",
-
       "FINAL_PAYMENT": "Final Payment",
       "FINAL_PAYMENT_DATE": "Date",
       "FINAL_PAYMENT_AMOUNT": "Amount",
-
       "RECURRING_PAYMENT": "Regular payment",
       "RECURRING_PAYMENT_AMOUNT": "Amount",
       "FREQ": "Frequency"
@@ -209,36 +198,6 @@
       "DISCLAIMER": "Please note that the card issuer will never see your account balance. We will only provide a 'yes' or 'no' answer to the card issuer when you use your card.",
       "ALLOW": "Confirm",
       "CANCEL": "Cancel and return to {{client}}"
-    }
-  },
-  "DONT_HAVE_ACCOUNT": "New here?",
-  "STAGES": {
-    "DataStore1": {
-      "TITLE": "Sign in",
-      "DONT_HAVE_ACCOUNT": "New here?"
-    },
-    "AuthenticatorPushRegistration2": {
-      "TITLE": "Set up 2-step verification",
-      "SUBTITLE": "Secure your account by setting up 2-step authentication with your mobile device."
-    },
-    "AuthenticatorPushRegistration3": {
-      "TITLE": "Get the {{clientName}} app",
-      "SUBTITLE": "To continue you need to first install the {{clientName}} app.",
-      "SUBMIT": "Continue"
-    },
-    "AuthenticatorPushRegistration4": {
-      "TITLE": "Register a device",
-      "LOADING": "Waiting for you to scan"
-    },
-    "AuthenticatorPush3": {
-      "TITLE": "P2-step verification",
-      "SUBTITLE": "Open the {{clientName}} app on your mobile device and tap ‘authorise’ to continue.",
-      "LOADING": "Waiting for your mobile..."
-    },
-    "AuthenticatorPush4": {
-      "TITLE": "Push authentication - Recovery code",
-      "DONT_HAVE_CODE": "Don’t have a code?",
-      "CONTACT": "Contact your administrator"
     }
   },
   "FREQUENCY": {

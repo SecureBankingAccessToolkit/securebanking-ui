@@ -10,26 +10,6 @@ env:
   GIT_SHA_SHORT: $(echo ${{ github.sha }} | cut -c1-7)
 
 jobs:
-  buildAuth:
-    runs-on: ubuntu-latest
-    name: Build auth image
-    steps:
-      - uses: actions/checkout@v2
-
-      - uses: google-github-actions/setup-gcloud@master
-        with:
-          service_account_key: ${{ secrets.GCR_KEY }}
-          export_default_credentials: true
-        # Configure docker to use the gcloud command-line tool as a credential helper
-      - run: |
-          gcloud auth configure-docker
-
-      - name: test
-        run: |
-          make docker service=auth
-          docker tag eu.gcr.io/${{ secrets.DEV_REPO }}/securebanking/ui/auth:latest eu.gcr.io/${{ secrets.DEV_REPO }}/securebanking/ui/auth:${{ env.GIT_SHA_SHORT }}
-          docker push eu.gcr.io/${{ secrets.DEV_REPO }}/securebanking/ui/auth:${{ env.GIT_SHA_SHORT }}
-
   buildRcs:
     runs-on: ubuntu-latest
     name: Build rcs image
@@ -49,7 +29,7 @@ jobs:
           make docker service=rcs
           docker tag eu.gcr.io/${{ secrets.DEV_REPO }}/securebanking/ui/rcs:latest eu.gcr.io/${{ secrets.DEV_REPO }}/securebanking/ui/rcs:${{ env.GIT_SHA_SHORT }}
           docker push eu.gcr.io/${{ secrets.DEV_REPO }}/securebanking/ui/rcs:${{ env.GIT_SHA_SHORT }}
-  
+
   buildSwagger:
     runs-on: ubuntu-latest
     name: Build swagger image
@@ -69,11 +49,11 @@ jobs:
           make docker service=swagger
           docker tag eu.gcr.io/${{ secrets.DEV_REPO }}/securebanking/ui/swagger:latest eu.gcr.io/${{ secrets.DEV_REPO }}/securebanking/ui/swagger:${{ env.GIT_SHA_SHORT }}
           docker push eu.gcr.io/${{ secrets.DEV_REPO }}/securebanking/ui/swagger:${{ env.GIT_SHA_SHORT }}
-  
+
   deploy:
     runs-on: ubuntu-latest
     name: Syncronise dev cluster.
-    needs: [buildSwagger, buildRcs, buildAuth]
+    needs: [buildSwagger, buildRcs]
     steps:
       - uses: actions/checkout@v2
 

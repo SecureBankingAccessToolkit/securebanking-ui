@@ -13,45 +13,20 @@ env:
   PR_NUMBER: pr-${{ github.event.number }}
 
 jobs:
-  auth:
+  pr:
     runs-on: ubuntu-latest
-    name: Test and package auth ui
+    name: Create pr docker tag
+    outputs:
+      prTag: ${{ steps.tag.outputs.pr_number }}
     steps:
       - uses: actions/checkout@v2
 
-      - name: Configure Node.js
-        uses: actions/setup-node@v2
-        with:
-          node-version: 14.x
-
-      - uses: actions/cache@v2
-        with:
-          path: ~/.npm
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node-
-
-      - name: lint
+      - name: pr docker tag
+        id: tag
         run: |
-          cd securebanking-auth-ui
-          npm ci
-          npm run lint
-
-      - name: test
-        run: |
-          cd securebanking-auth-ui
-          npm run test
-
-      - uses: google-github-actions/setup-gcloud@master
-        with:
-          service_account_key: ${{ secrets.GCR_KEY }}
-
-      - run: |
-          gcloud auth configure-docker
-
-      - name: Build Docker Image
-        run: |
-          make docker tag=${{ env.PR_NUMBER }} service=auth
+          PR=$(echo "$GITHUB_REF" | awk -F / '{print $3}')
+          echo "$PR"
+          echo ::set-output name=pr_number::pr-"$PR"
 
   rcs:
     runs-on: ubuntu-latest
@@ -116,11 +91,10 @@ jobs:
       - name: Build Docker Image
         run: |
           make docker tag=${{ env.PR_NUMBER }} service=swagger
-
   tests:
     runs-on: ubuntu-latest
     name: Check PR integrity
-    needs: [swagger, auth, rcs]
+    needs: [swagger, rcs]
     steps:
       - uses: actions/checkout@v2
 

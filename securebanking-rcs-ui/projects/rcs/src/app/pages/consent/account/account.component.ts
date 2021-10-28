@@ -2,6 +2,7 @@ import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output
 import { FormControl, FormGroup } from '@angular/forms';
 import { ApiResponses } from '../../../../../src/app/types/api';
 import { Item, ItemType, IConsentEventEmitter } from '../../../../../src/app/types/consentItem';
+import { ConsentDecision } from '../../../../../src/app/types/ConsentDecision';
 
 function validateCheckboxRequired(c: FormControl) {
   return Object.values(c.value).filter(v => v === true).length
@@ -34,6 +35,7 @@ export class AccountComponent implements OnInit {
   items: Item[] = [];
 
   ngOnInit() {
+    console.log("accounts!!")
     if (!this.response) {
       return;
     }
@@ -82,7 +84,7 @@ export class AccountComponent implements OnInit {
 
   submit(allowing = false) {
     this.formSubmit.emit({
-      decision: allowing ? 'allow' : 'deny',
+      decision: allowing ? ConsentDecision.APPROVED : ConsentDecision.DENY,
       sharedAccounts: Object.keys(this.form.value).filter(k => this.form.value[k])
     });
   }

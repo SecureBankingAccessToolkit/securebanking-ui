@@ -1,6 +1,6 @@
 import { NgModule, InjectionToken, APP_INITIALIZER } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule, HttpClient } from '@angular/common/http';
+import {HttpClientModule, HttpClient} from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
@@ -13,7 +13,9 @@ import rootReducer from '../../src/store';
 import { AppRoutingModule } from './app-routing.module';
 import { ForgerockConfigService } from '@securebanking/securebanking-common-ui/services/forgerock-config';
 import { ForgerockConfigModule } from '@securebanking/securebanking-common-ui/services/forgerock-config';
-//import { ForgerockAuthenticationModule } from '@securebanking/securebanking-common-ui/authentication';
+
+import {MatDialogModule} from "@angular/material/dialog";
+
 import { ForgerockSharedModule } from '@securebanking/securebanking-common-ui/shared';
 import {CookieModule} from "ngx-cookie";
 export const REDUCER_TOKEN = new InjectionToken<ActionReducerMap<{}>>('Registered Reducers');
@@ -46,12 +48,10 @@ export function init_app(appConfig: ForgerockConfigService) {
       }
     }),
     ForgerockSharedModule,
-    //ForgerockAuthenticationModule,
+    MatDialogModule,
     // Store
     StoreModule.forRoot(REDUCER_TOKEN),
     environment.devModules || [],
-    // Theme
-    // FuseSharedModule,
     ForgerockConfigModule.forRoot()
   ],
   providers: [
