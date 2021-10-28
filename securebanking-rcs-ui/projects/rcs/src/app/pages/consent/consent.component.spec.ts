@@ -44,7 +44,7 @@ describe('app:bank ConsentComponent', () => {
         ConsentBoxComponentModule,
         SubmitBoxComponentModule,
         AccountSelectionComponentModule,
-        AccountCheckboxModule,
+        AccountCheckboxModule
       ],
       providers: [ApiService]
     }).compileComponents();

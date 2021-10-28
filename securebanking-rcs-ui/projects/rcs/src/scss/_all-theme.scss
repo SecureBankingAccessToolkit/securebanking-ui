@@ -6,7 +6,6 @@
 
 @import 'projects/rcs/src/app/pages/consent/dynamic/dynamic.component';
 @import 'projects/rcs/src/app/pages/consent/permissions/permissions.component';
-//@import '~@securebanking/securebanking-common-ui/gdpr/main.scss';
 @import '~@securebanking/securebanking-common-ui/layouts/main.scss';
 @import '~@securebanking/securebanking-common-ui/components/main.scss';
 
@@ -50,7 +49,6 @@
   // FORGEROCK
   @include forgerock-main-layout-theme($theme);
   @include forgerock-utils-theme($theme);
-  //@include forgerock-gdpr-theme($theme);
   @include forgerock-alert-component-theme($theme);
   @include bank-consent-dynamic-theme($theme);
   @include bank-consent-permission-theme($theme);
