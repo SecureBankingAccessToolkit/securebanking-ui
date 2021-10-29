@@ -18,11 +18,6 @@ EXPOSE 80
 ARG BUILD_VERSION
 ENV BUILD_VERSION ${BUILD_VERSION}
 
-ENV TEMPLATE "forgerock"
-ENV DOMAIN "dev.forgerock.financial"
-ENV AUTHORIZATION_URL "https://iam.DOMAIN"
-ENV AUTHENTICATION_URL "https://iam.DOMAIN"
-ENV REMOTE_CONSENT_URL "https://rcs.DOMAIN"
 # apps
 ENV ANDROID_PKG_NAME "secure.banking.forgerock.financial"
 ENV IOS_APP_ID "secure.banking.forgerock.financial"

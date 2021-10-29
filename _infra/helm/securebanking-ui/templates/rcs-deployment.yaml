@@ -39,5 +39,9 @@ spec:
               value: {{ .Values.rcs.deployment.port | quote }}
             - name: TEMPLATE_NAME
               value: {{ .Values.rcs.deployment.templateName }}
+            - name: AUTHORIZATION_SERVER
+              value: {{ .Values.rcs.deployment.authorizationServer }}
+            - name: REMOTE_CONSENT_SERVER
+              value: {{ .Values.rcs.deployment.remoteConsentServer }}
           resources:
             {{- toYaml .Values.rcs.deployment.resources | nindent 12 }}

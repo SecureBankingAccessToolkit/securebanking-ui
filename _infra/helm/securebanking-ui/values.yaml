@@ -1,3 +1,13 @@
+overrides:
+  domain:
+    enabled: true
+    value: dev.forgerock.financial
+  environment:
+    enabled: true
+    template: forgerock
+    authorizationServer: https://iam.dev.forgerock.financial
+    remoteConsentServer: https://rcs.dev.forgerock.financial
+
 domain: dev.forgerock.financial
 
 rcs:
@@ -7,6 +17,8 @@ rcs:
     replicas: 1
 
     templateName: forgerock
+    authorizationServer: https://iam.dev.forgerock.financial
+    remoteConsentServer: https://rcs.dev.forgerock.financial
 
     rollingUpdate:
       maxSurge: 50%

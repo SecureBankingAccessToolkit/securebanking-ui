@@ -30,7 +30,7 @@ export class ApiService {
 
 
   logout() {
-    return this.http.post(`${this.configService.get('authorizationServer')}/json/realms/root/sessions/?_action=logout`, null, {
+    return this.http.post(`${this.configService.get('authorizationServer')}/am/json/realms/root/sessions/?_action=logout`, null, {
       withCredentials: true,
       headers: new HttpHeaders({
         'Accept-API-Version': 'resource=3.1, protocol=1.0'

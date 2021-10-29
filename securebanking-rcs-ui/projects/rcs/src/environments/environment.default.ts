@@ -3,8 +3,7 @@
 // The list of file replacements can be found in `angular.json`.
 export const environment = {
   production: false,
-  authorizationServer: 'http://localhost:9080/am',
-  authenticationServer: 'http://localhost:9080/am',
+  authorizationServer: 'http://localhost:9080',
   remoteConsentServer: 'http://localhost:8080',
   defaultRealm: 'openbanking',
   realmRedirections: {
@@ -25,11 +24,3 @@ export const environment = {
   routeDenyList: [],
   devModules: []
 };
-
-/*
- * In development mode, to ignore zone related error stack frames such as
- * `zone.run`, `zoneDelegate.invokeTask` for easier debugging, you can
- * import the following file, but please comment it out in production mode
- * because it will have performance impact when throw error
- */
-// import 'zone.js/dist/zone-error';  // Included with Angular CLI.

@@ -38,6 +38,6 @@ spec:
             - name: PORT
               value: {{ .Values.swagger.deployment.port | quote }}
             - name: TEMPLATE_NAME
-              value: {{ .Values.rcs.deployment.templateName }}
+              value: {{ .Values.swagger.deployment.templateName }}
           resources:
             {{- toYaml .Values.swagger.deployment.resources | nindent 12 }}
