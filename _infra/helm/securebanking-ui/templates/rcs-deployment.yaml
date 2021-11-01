@@ -34,10 +34,10 @@ spec:
               containerPort: {{ .Values.rcs.deployment.port }}
           env:
             - name: DOMAIN
-              value: {{ .Values.domain }}
+              value: {{ .Values.ingress.domain }}
             - name: PORT
               value: {{ .Values.rcs.deployment.port | quote }}
-            - name: TEMPLATE_NAME
+            - name: TEMPLATE
               value: {{ .Values.rcs.deployment.templateName }}
             - name: AUTHORIZATION_SERVER
               value: {{ .Values.rcs.deployment.authorizationServer }}
