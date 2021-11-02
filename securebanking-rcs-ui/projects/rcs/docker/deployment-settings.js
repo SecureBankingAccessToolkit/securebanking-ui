@@ -3,8 +3,6 @@ module.exports = {
     version: 'BUILD_VERSION',
     template: 'TEMPLATE'
   },
-  cookieDomain: '.DOMAIN',
-  authorizationServer: 'AUTHORIZATION_URL',
-  authenticationServer: 'AUTHENTICATION_URL',
-  remoteConsentServer: 'REMOTE_CONSENT_URL'
+  authorizationServer: 'AUTHORIZATION_SERVER',
+  remoteConsentServer: 'REMOTE_CONSENT_SERVER'
 };

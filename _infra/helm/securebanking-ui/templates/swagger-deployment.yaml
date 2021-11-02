@@ -34,10 +34,10 @@ spec:
               containerPort: {{ .Values.swagger.deployment.port }}
           env:
             - name: DOMAIN
-              value: {{ .Values.domain }}
+              value: {{ .Values.ingress.domain }}
             - name: PORT
               value: {{ .Values.swagger.deployment.port | quote }}
-            - name: TEMPLATE_NAME
-              value: {{ .Values.rcs.deployment.templateName }}
+            - name: TEMPLATE
+              value: {{ .Values.swagger.deployment.templateName }}
           resources:
             {{- toYaml .Values.swagger.deployment.resources | nindent 12 }}
