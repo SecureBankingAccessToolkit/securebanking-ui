@@ -1,43 +1,49 @@
 apiVersion: {{ .Values.apiVersion.deployment }}
 kind: Deployment
 metadata:
-  name: {{ .Chart.Name }}-{{ .Values.swagger.subdomain }}
+  name: {{ .Chart.Name }}-{{ .Values.swaggerUI.subdomain }}
   labels:
-    app: {{ .Chart.Name }}-{{ .Values.swagger.subdomain }}
+    app: {{ .Chart.Name }}-{{ .Values.swaggerUI.subdomain }}
 spec:
-  replicas: {{ .Values.swagger.deployment.replicas }}
+  replicas: {{ .Values.swaggerUI.deployment.replicas }}
   strategy:
     rollingUpdate:
-      maxSurge: {{ .Values.swagger.deployment.rollingUpdate.maxSurge }}
-      maxUnavailable: {{ .Values.swagger.deployment.rollingUpdate.maxUnavailable }}
+      maxSurge: {{ .Values.swaggerUI.deployment.rollingUpdate.maxSurge }}
+      maxUnavailable: {{ .Values.swaggerUI.deployment.rollingUpdate.maxUnavailable }}
     type: RollingUpdate
   selector:
     matchLabels:
-      app: {{ .Chart.Name }}-{{ .Values.swagger.subdomain }}
+      app: {{ .Chart.Name }}-{{ .Values.swaggerUI.subdomain }}
   template:
     metadata:
       labels:
-        app: {{ .Chart.Name }}-{{ .Values.swagger.subdomain }}
+        app: {{ .Chart.Name }}-{{ .Values.swaggerUI.subdomain }}
         appVersion: {{ .Chart.AppVersion }}
         helmVersion: {{ .Chart.Version }}
     spec:
       containers:
         - name: swagger
-          {{- if .Values.swagger.deployment.imageOverride.enabled }}
-          image: "{{ .Values.swagger.deployment.imageOverride.repo }}:{{ .Values.swagger.deployment.imageOverride.tag }}"
+          {{- if .Values.swaggerUI.deployment.imageOverride.enabled }}
+          image: "{{ .Values.swaggerUI.deployment.imageOverride.repo }}:{{ .Values.swaggerUI.deployment.imageOverride.tag }}"
           {{- else }}
           image: "eu.gcr.io/sbat-gcr-release/securebanking/${ .Chart.Name }:{{ .Chart.AppVersion }}"
           {{- end }}
-          imagePullPolicy: {{ .Values.swagger.deployment.imagePullPolicy }}
+          imagePullPolicy: {{ .Values.swaggerUI.deployment.imagePullPolicy }}
           ports:
             - name: http-server
-              containerPort: {{ .Values.swagger.deployment.port }}
+              containerPort: {{ .Values.swaggerUI.deployment.port }}
           env:
             - name: DOMAIN
               value: {{ .Values.ingress.domain }}
             - name: PORT
-              value: {{ .Values.swagger.deployment.port | quote }}
+              value: {{ .Values.swaggerUI.deployment.port | quote }}
             - name: TEMPLATE
-              value: {{ .Values.swagger.deployment.templateName }}
+              value: {{ .Values.swaggerUI.deployment.templateName }}
+            - name: AUTHORIZATION_SERVER
+              value: {{ .Values.deployment.urls.authorization.server }}
+            - name: IG_SERVER
+              value: {{ .Values.deployment.urls.ig.server }}
+            - name: SWAGGER_JSON_URL
+              value: {{ .Values.swaggerUI.deployment.urls.swagger.json }}
           resources:
-            {{- toYaml .Values.swagger.deployment.resources | nindent 12 }}
+            {{- toYaml .Values.swaggerUI.deployment.resources | nindent 12 }}

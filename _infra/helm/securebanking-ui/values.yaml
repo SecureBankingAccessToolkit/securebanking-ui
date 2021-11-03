@@ -1,12 +1,21 @@
-rcs:
+deployment:
+  urls:
+    ig:
+      server: localhost
+    authorization:
+      server: localhost
+    rcs:
+      server: localhost
+    rs:
+      server: localhost
+
+rcsUI:
   subdomain: rcs-ui
   deployment:
     port: 80
     replicas: 1
 
     templateName: forgerock
-    authorizationServer: https://iam.dev.forgerock.financial
-    remoteConsentServer: https://rcs.dev.forgerock.financial
 
     rollingUpdate:
       maxSurge: 50%
@@ -21,13 +30,16 @@ rcs:
 
     resources: {}
 
-swagger:
+swaggerUI:
   subdomain: swagger
   deployment:
     port: 80
     replicas: 1
 
     templateName: forgerock
+    urls:
+      swagger:
+        json: localhost
 
     rollingUpdate:
       maxSurge: 50%
