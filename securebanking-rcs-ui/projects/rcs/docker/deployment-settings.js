@@ -4,5 +4,6 @@ module.exports = {
     template: 'TEMPLATE'
   },
   authorizationServer: 'AUTHORIZATION_SERVER',
-  remoteConsentServer: 'REMOTE_CONSENT_SERVER'
+  remoteConsentServer: 'REMOTE_CONSENT_SERVER',
+  igServer: 'IG_SERVER'
 };

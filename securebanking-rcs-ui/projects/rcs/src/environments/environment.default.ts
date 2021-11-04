@@ -3,8 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 export const environment = {
   production: false,
-  authorizationServer: 'http://localhost:9080',
+  authorizationServer: 'https://iam.dev.forgerock.financial',
   remoteConsentServer: 'http://localhost:8080',
+  igServer: 'https://obdemo.dev.forgerock.financial',
   defaultRealm: 'openbanking',
   realmRedirections: {
     default: '/profile'

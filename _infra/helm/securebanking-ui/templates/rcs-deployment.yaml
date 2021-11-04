@@ -1,47 +1,49 @@
 apiVersion: {{ .Values.apiVersion.deployment }}
 kind: Deployment
 metadata:
-  name: {{ .Chart.Name }}-{{ .Values.rcs.subdomain }}
+  name: {{ .Chart.Name }}-{{ .Values.rcsUI.subdomain }}
   labels:
-    app: {{ .Chart.Name }}-{{ .Values.rcs.subdomain }}
+    app: {{ .Chart.Name }}-{{ .Values.rcsUI.subdomain }}
 spec:
-  replicas: {{ .Values.rcs.deployment.replicas }}
+  replicas: {{ .Values.rcsUI.deployment.replicas }}
   strategy:
     rollingUpdate:
-      maxSurge: {{ .Values.rcs.deployment.rollingUpdate.maxSurge }}
-      maxUnavailable: {{ .Values.rcs.deployment.rollingUpdate.maxUnavailable }}
+      maxSurge: {{ .Values.rcsUI.deployment.rollingUpdate.maxSurge }}
+      maxUnavailable: {{ .Values.rcsUI.deployment.rollingUpdate.maxUnavailable }}
     type: RollingUpdate
   selector:
     matchLabels:
-      app: {{ .Chart.Name }}-{{ .Values.rcs.subdomain }}
+      app: {{ .Chart.Name }}-{{ .Values.rcsUI.subdomain }}
   template:
     metadata:
       labels:
-        app: {{ .Chart.Name }}-{{ .Values.rcs.subdomain }}
+        app: {{ .Chart.Name }}-{{ .Values.rcsUI.subdomain }}
         appVersion: {{ .Chart.AppVersion }}
         helmVersion: {{ .Chart.Version }}
     spec:
       containers:
-        - name: {{ .Chart.Name }}-{{ .Values.rcs.subdomain }}
-          {{- if .Values.rcs.deployment.imageOverride.enabled }}
-          image: "{{ .Values.rcs.deployment.imageOverride.repo }}:{{ .Values.rcs.deployment.imageOverride.tag }}"
+        - name: {{ .Chart.Name }}-{{ .Values.rcsUI.subdomain }}
+          {{- if .Values.rcsUI.deployment.imageOverride.enabled }}
+          image: "{{ .Values.rcsUI.deployment.imageOverride.repo }}:{{ .Values.rcsUI.deployment.imageOverride.tag }}"
           {{- else }}
           image: "eu.gcr.io/sbat-gcr-release/securebanking/${ .Chart.Name }:{{ .Chart.AppVersion }}"
           {{- end }}
-          imagePullPolicy: {{ .Values.rcs.deployment.imagePullPolicy }}
+          imagePullPolicy: {{ .Values.rcsUI.deployment.imagePullPolicy }}
           ports:
             - name: http-server
-              containerPort: {{ .Values.rcs.deployment.port }}
+              containerPort: {{ .Values.rcsUI.deployment.port }}
           env:
             - name: DOMAIN
               value: {{ .Values.ingress.domain }}
             - name: PORT
-              value: {{ .Values.rcs.deployment.port | quote }}
+              value: {{ .Values.rcsUI.deployment.port | quote }}
             - name: TEMPLATE
-              value: {{ .Values.rcs.deployment.templateName }}
+              value: {{ .Values.rcsUI.deployment.templateName }}
             - name: AUTHORIZATION_SERVER
-              value: {{ .Values.rcs.deployment.authorizationServer }}
+              value: {{ .Values.deployment.urls.authorization.server }}
             - name: REMOTE_CONSENT_SERVER
-              value: {{ .Values.rcs.deployment.remoteConsentServer }}
+              value: {{ .Values.deployment.urls.rcs.server }}
+            - name: IG_SERVER
+              value: {{ .Values.deployment.urls.ig.server }}
           resources:
-            {{- toYaml .Values.rcs.deployment.resources | nindent 12 }}
+            {{- toYaml .Values.rcsUI.deployment.resources | nindent 12 }}
