@@ -13,18 +13,18 @@ metadata:
   name: {{ .Chart.Name }}
 spec:
   rules:
-  - host: {{ .Values.rcs.subdomain }}.{{ .Values.ingress.domain }}
+  - host: {{ .Values.rcsUI.subdomain }}.{{ .Values.ingress.domain }}
     http:
       paths:
       - backend:
-          serviceName: {{ .Chart.Name }}-{{ .Values.rcs.subdomain }}
+          serviceName: {{ .Chart.Name }}-{{ .Values.rcsUI.subdomain }}
           servicePort: 8080
         path: /
-  - host: {{ .Values.swagger.subdomain }}.{{ .Values.ingress.domain }}
+  - host: {{ .Values.swaggerUI.subdomain }}.{{ .Values.ingress.domain }}
     http:
       paths:
       - backend:
-          serviceName: {{ .Chart.Name }}-{{ .Values.swagger.subdomain }}
+          serviceName: {{ .Chart.Name }}-{{ .Values.swaggerUI.subdomain }}
           servicePort: 8080
         path: /
   tls:
