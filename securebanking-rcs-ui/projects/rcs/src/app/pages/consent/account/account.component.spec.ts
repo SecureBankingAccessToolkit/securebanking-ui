@@ -56,7 +56,7 @@ describe('app:bank AccountComponent', () => {
     fixture.detectChanges();
 
     expect(component.formSubmit.emit).toHaveBeenCalledWith({
-      decision: ConsentDecision.DENY,
+      decision: ConsentDecision.REJECTED,
       sharedAccounts: []
     });
   });
@@ -68,7 +68,7 @@ describe('app:bank AccountComponent', () => {
     fixture.detectChanges();
 
     expect(component.formSubmit.emit).toHaveBeenCalledWith({
-      decision: ConsentDecision.DENY,
+      decision: ConsentDecision.REJECTED,
       sharedAccounts: []
     });
   });
@@ -80,7 +80,7 @@ describe('app:bank AccountComponent', () => {
     fixture.detectChanges();
 
     expect(component.formSubmit.emit).toHaveBeenCalledWith({
-      decision: ConsentDecision.APPROVED,
+      decision: ConsentDecision.AUTHORISED,
       sharedAccounts: []
     });
   });
