@@ -68,7 +68,7 @@ export class SinglePaymentComponent implements OnInit {
 
   submit(allowing = false) {
     this.formSubmit.emit({
-      decision: allowing ? ConsentDecision.APPROVED : ConsentDecision.DENY,
+      decision: allowing ? ConsentDecision.AUTHORISED : ConsentDecision.REJECTED,
       accountId: this.form.value.selectedAccount
     });
   }

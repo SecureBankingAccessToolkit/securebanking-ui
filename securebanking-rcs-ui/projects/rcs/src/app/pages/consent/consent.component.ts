@@ -104,7 +104,7 @@ export class ConsentComponent implements OnInit {
 
     this.loading = true;
 
-    if (requestBody.decision === ConsentDecision.DENY) {
+    if (requestBody.decision === ConsentDecision.REJECTED) {
       console.log(`User rejects intentType: ${this.response.intentType}`)
       this.updateUserActions(false, true);
     } else {

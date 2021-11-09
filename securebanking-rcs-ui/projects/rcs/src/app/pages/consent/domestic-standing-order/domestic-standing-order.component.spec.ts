@@ -57,7 +57,7 @@ describe('app:bank DomesticStandingOrderComponent', () => {
     fixture.detectChanges();
 
     expect(component.formSubmit.emit).toHaveBeenCalledWith({
-      decision: ConsentDecision.DENY,
+      decision: ConsentDecision.REJECTED,
       accountId: ''
     });
   });
@@ -71,7 +71,7 @@ describe('app:bank DomesticStandingOrderComponent', () => {
     fixture.detectChanges();
 
     expect(component.formSubmit.emit).toHaveBeenCalledWith({
-      decision: ConsentDecision.DENY,
+      decision: ConsentDecision.REJECTED,
       accountId: testValue
     });
   });
@@ -85,7 +85,7 @@ describe('app:bank DomesticStandingOrderComponent', () => {
     fixture.detectChanges();
 
     expect(component.formSubmit.emit).toHaveBeenCalledWith({
-      decision: ConsentDecision.APPROVED,
+      decision: ConsentDecision.AUTHORISED,
       accountId: testValue
     });
   });
