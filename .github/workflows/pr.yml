@@ -58,10 +58,13 @@ jobs:
         run: |
           cd securebanking-rcs-ui
           npm run test
-
-      - uses: google-github-actions/setup-gcloud@master
+      # https://github.com/google-github-actions/setup-gcloud#authorization
+      - uses: google-github-actions/auth@v0
         with:
-          service_account_key: ${{ secrets.GCR_KEY }}
+          credentials_json: ${{ secrets.GCR_KEY }}
+
+      - name: Set up Cloud SDK
+        uses: google-github-actions/setup-gcloud@v0
 
       - run: |
           gcloud auth configure-docker
@@ -80,10 +83,13 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: 14.x
-
-      - uses: google-github-actions/setup-gcloud@master
+      # https://github.com/google-github-actions/setup-gcloud#authorization
+      - uses: google-github-actions/auth@v0
         with:
-          service_account_key: ${{ secrets.GCR_KEY }}
+          credentials_json: ${{ secrets.GCR_KEY }}
+
+      - name: Set up Cloud SDK
+        uses: google-github-actions/setup-gcloud@v0
 
       - run: |
           gcloud auth configure-docker

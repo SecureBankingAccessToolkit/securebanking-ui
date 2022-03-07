@@ -17,8 +17,8 @@
     "paths": {
       "@tests": ["tests"],
       "@tests/*": ["tests/*"],
-      "bank": ["projects/rcs"],
-      "bank/*": ["projects/rcs/*"],
+      "rcs": ["projects/rcs"],
+      "rcs/*": ["projects/rcs/*"],
       "@utils": ["utils"],
       "@utils/*": ["utils/*"],
       "forgerock": ["projects/forgerock"],

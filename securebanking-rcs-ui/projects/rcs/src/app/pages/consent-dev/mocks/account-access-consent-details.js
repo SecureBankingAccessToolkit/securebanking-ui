@@ -1,0 +1,139 @@
+module.exports = {
+  type: "AccountsConsentDetails",
+  decisionApiUri: "/api/rcs/consent/decision/",
+  username: "psu",
+  userId: "b7b725b3-c471-4ef0-9704-732dd0cb2001",
+  logo: "https://forgerock.com",
+  clientId: "291e4e98-99fa-434a-9763-255b43380120",
+  accounts: [
+    {
+      id: "3e7a87b9-1e8a-432e-8230-203291f4b303",
+      userId: "b7b725b3-c471-4ef0-9704-732dd0cb2001",
+      account: {
+        accountId: "3e7a87b9-1e8a-432e-8230-203291f4b303",
+        status: "Enabled",
+        statusUpdateDateTime: "2022-03-04T06:08:19.235Z",
+        currency: "GBP",
+        accountType: "Personal",
+        accountSubType: "CurrentAccount",
+        nickname: "UK Bills",
+        openingDate: "2022-03-03T06:08:19.235Z",
+        maturityDate: "2022-03-05T06:08:19.236Z",
+        accounts: [
+          {
+            schemeName: "UK.OBIE.SortCodeAccountNumber",
+            identification: "42319068835356",
+            name: "b7b725b3-c471-4ef0-9704-732dd0cb2001",
+            secondaryIdentification: "57499149"
+          }
+        ]
+      },
+      latestStatementId: "f4b87c89-d375-4408-92fd-b3166166fdea",
+      created: "2022-03-04T06:08:19.219Z",
+      balances: [
+        {
+          accountId: "3e7a87b9-1e8a-432e-8230-203291f4b303",
+          creditDebitIndicator: "Debit",
+          type: "InterimAvailable",
+          dateTime: "2022-03-04T06:08:19.324Z",
+          amount: {
+            amount: "4048.76",
+            currency: "GBP"
+          }
+        }
+      ]
+    },
+    {
+      id: "2fbb9594-b7c3-4440-a9aa-de77ac714f1e",
+      userId: "b7b725b3-c471-4ef0-9704-732dd0cb2001",
+      account: {
+        accountId: "2fbb9594-b7c3-4440-a9aa-de77ac714f1e",
+        status: "Enabled",
+        statusUpdateDateTime: "2022-03-04T06:08:20.261Z",
+        currency: "EUR",
+        accountType: "Personal",
+        accountSubType: "CurrentAccount",
+        nickname: "FR Bills",
+        openingDate: "2022-03-03T06:08:20.261Z",
+        maturityDate: "2022-03-05T06:08:20.261Z",
+        accounts: [
+          {
+            schemeName: "UK.OBIE.SortCodeAccountNumber",
+            identification: "51865632692529",
+            name: "b7b725b3-c471-4ef0-9704-732dd0cb2001",
+            secondaryIdentification: "16497403"
+          }
+        ]
+      },
+      latestStatementId: "798bd57b-c517-4fe8-a32b-43917f48e3a5",
+      created: "2022-03-04T06:08:20.261Z",
+      balances: [
+        {
+          accountId: "2fbb9594-b7c3-4440-a9aa-de77ac714f1e",
+          creditDebitIndicator: "Debit",
+          type: "InterimAvailable",
+          dateTime: "2022-03-04T06:08:20.263Z",
+          amount: {
+            amount: "12800.38",
+            currency: "EUR"
+          }
+        }
+      ]
+    },
+    {
+      id: "fe3ecf81-4b5f-463a-97b5-19716e01c8b4",
+      userId: "b7b725b3-c471-4ef0-9704-732dd0cb2001",
+      account: {
+        accountId: "fe3ecf81-4b5f-463a-97b5-19716e01c8b4",
+        status: "Enabled",
+        statusUpdateDateTime: "2022-03-04T06:08:20.679Z",
+        currency: "GBP",
+        accountType: "Personal",
+        accountSubType: "CurrentAccount",
+        nickname: "Household",
+        openingDate: "2022-03-03T06:08:20.679Z",
+        maturityDate: "2022-03-05T06:08:20.679Z",
+        accounts: [
+          {
+            schemeName: "UK.OBIE.SortCodeAccountNumber",
+            identification: "56502323054715",
+            name: "b7b725b3-c471-4ef0-9704-732dd0cb2001"
+          }
+        ]
+      },
+      latestStatementId: "7e5b0ec6-8b94-4006-a7b4-56242936c3b0",
+      created: "2022-03-04T06:08:20.679Z",
+      balances: [
+        {
+          accountId: "fe3ecf81-4b5f-463a-97b5-19716e01c8b4",
+          creditDebitIndicator: "Debit",
+          type: "InterimAvailable",
+          dateTime: "2022-03-04T06:08:20.681Z",
+          amount: {
+            amount: "9689.98",
+            currency: "GBP"
+          }
+        }
+      ]
+    }
+  ],
+  permissions: [
+    "ReadAccountsDetail",
+    "ReadBalances",
+    "ReadTransactionsDetail",
+    "ReadTransactionsCredits",
+    "ReadBeneficiariesDetail",
+    "ReadDirectDebits",
+    "ReadStandingOrdersDetail",
+    "ReadProducts",
+    "ReadOffers",
+    "ReadParty",
+    "ReadScheduledPaymentsDetail",
+    "ReadStatementsDetail"
+  ],
+  fromTransaction: "2019-04-03T00:00:00.000Z",
+  toTransaction: "2019-08-01T00:00:00.000Z",
+  aispName: "Automating-testing",
+  expiredDate: "2019-08-01T00:00:00.000Z",
+  intentType: "ACCOUNT_ACCESS_CONSENT"
+};

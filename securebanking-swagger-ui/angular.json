@@ -62,8 +62,8 @@
             "host": "swagger.dev-ob.forgerock.financial",
             "ssl": false,
             "port": 4205,
-            "sslCert": "ssl/all.dev-ob.forgerock.financial.crt",
-            "sslKey": "ssl/k-all.dev-ob.forgerock.financial.key"
+            "sslCert": "ssl/wildcard.dev.forgerock.financial.crt",
+            "sslKey": "ssl/k-wildcard.dev.forgerock.financial.key"
           },
           "configurations": { "production": { "browserTarget": "swagger:build:production" } }
         },

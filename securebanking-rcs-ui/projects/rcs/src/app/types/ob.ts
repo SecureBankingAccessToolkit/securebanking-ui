@@ -8,15 +8,15 @@ export interface OBAccount2 {
 }
 
 export interface OBCashAccount3 {
-  schemeName: string;
-  identification: string;
-  name: string;
-  secondaryIdentification: string;
+  SchemeName: string;
+  Identification: string;
+  Name: string;
+  SecondaryIdentification: string;
 }
 
 export class OBActiveOrHistoricCurrencyAndAmount {
-  amount: number;
-  currency: string;
+  Amount: number;
+  Currency: string;
 }
 
 export interface OBCashBalance1 {

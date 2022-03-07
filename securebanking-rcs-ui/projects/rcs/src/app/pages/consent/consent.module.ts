@@ -27,6 +27,7 @@ import { AccountCheckboxModule } from './components/account-checkbox/account-che
 import { CancelComponent } from './components/cancel/cancel.component';
 import { AcceptComponent } from './components/accept/accept.component';
 import { RejectComponent } from './components/reject/reject.component';
+import { VrpPaymentComponent } from './vrp-payment/vrp-payment.component';
 
 @NgModule({
   imports: [
@@ -53,6 +54,7 @@ import { RejectComponent } from './components/reject/reject.component';
     InternationalStandingOrderComponent,
     FundsConfirmationComponent,
     FilePaymentComponent,
+    VrpPaymentComponent,
     DynamicComponent,
     PermissionsComponent,
     CancelComponent,
@@ -70,6 +72,7 @@ import { RejectComponent } from './components/reject/reject.component';
     InternationalStandingOrderComponent,
     FundsConfirmationComponent,
     FilePaymentComponent,
+    VrpPaymentComponent,
     CancelComponent,
     AcceptComponent,
     RejectComponent
@@ -86,6 +89,7 @@ import { RejectComponent } from './components/reject/reject.component';
     InternationalStandingOrderComponent,
     FundsConfirmationComponent,
     FilePaymentComponent,
+    VrpPaymentComponent,
     DynamicComponent,
     PermissionsComponent,
     CancelComponent,
