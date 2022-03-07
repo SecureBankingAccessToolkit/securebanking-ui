@@ -1,8 +1,5 @@
 <mat-card *ngIf="response">
   <forgerock-customer-logo></forgerock-customer-logo>
-
-  {{ _loading | json }}
-
   <form [formGroup]="form">
     <h1 [translate]="'CONSENT.ACCOUNT.TITLE'" [translateParams]="{ merchantName: response.aispName }"></h1>
     <div *ngIf="response.logo" class="merchant-logo">
@@ -45,8 +42,8 @@
     <app-submit-box
       [loading]="_loading"
       [form]="form"
-      [proceedLabel]="'CONSENT.ACCOUNT.PROCEED'"
-      [cancelLabel]="'CONSENT.ACCOUNT.CANCEL'"
+      [proceedLabel]="'COMPONENT.BUTTONS.PROCEED'"
+      [cancelLabel]="'COMPONENT.BUTTONS.CANCEL'"
       (accept)="submit(true)"
       (deny)="submit(false)"
     ></app-submit-box>

@@ -69,7 +69,7 @@ describe('app:bank ConsentComponent', () => {
     component.response = {
       account: undefined,
       accounts: [],
-      aispName: "",
+      pispName: "",
       clientId: "",
       clientName: "",
       intentType: undefined,

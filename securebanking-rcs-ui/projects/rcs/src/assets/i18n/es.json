@@ -1,12 +1,13 @@
 {
   "404": "Página no encontrada",
   "COMPONENT": {
+    "BUTTONS": {
+      "ACCEPT": "Aceptar",
+      "PROCEED": "Proceder",
+      "CANCEL": "Cancelar"
+    },
     "CANCEL": {
-      "OK": "Aceptar",
-      "REDIRECT_MESSAGE": "Su sesión será cerrada y será redireccionado a {{aispName}}",
-      "APPLICATION": "Solicitud de acceso de applicación",
       "CONFIRM": "¿Esta usted seguro de querer cancelar y rechazar el consentimiento?",
-      "CANCEL_CONFIRMATION": "Cancelado por el usuario {{username}}",
       "CONSENTS": {
         "ACCOUNT_ACCESS_CONSENT": "Cuentas compartidas",
         "PAYMENT_SINGLE_REQUEST": "Pago único",
@@ -42,6 +43,22 @@
       "CURRENCY_TO": "A divisa",
       "CHARGES": "Cargos"
     },
+    "VRP-PAYMENT": {
+      "TITLE": "{{merchantName}} necesita su permiso para realizar pagos VRP desde su cuenta destro de los limites de pago definidos a continuación.",
+      "PAYER_DETAILS": "Detalles del pagador",
+      "PAYEE_DETAILS": "Detalles del beneficiario",
+      "ACCOUNT_SORT_CODE": "Código de cuenta",
+      "ACCOUNT_NUMBER": "Número de cuenta",
+      "NAME": "Nombre",
+      "ASPSP_NAME": "Banco beneficiario",
+      "PAYEE_NAME": "Nombre del beneficiario",
+      "REFERENCE": "Referencia de consentimiento",
+      "DEBTOR_REF": "Referencia de deudor",
+      "MAX_AMOUNT_PERIOD_TYPE": "Pago máximo por {{periodType}}",
+      "MAX_AMOUNT_PER_PAYMENT": "Pago máximo por operación",
+      "EXPIRE": "Fecha de expiración",
+      "PROCEED_PAYMENT": "Pulse proceder para aceptar el pago VRP con la configuración definida"
+    },
     "ACCOUNT": {
       "TITLE": "Confirme compartir couenta con {{merchantName}}",
       "CHECK_DETAILS": "Por favor revise si los detalles son correctos.",
@@ -53,8 +70,6 @@
       "START": "Iniciar",
       "END": "Finalizar",
       "CONNECT": "Conectar {{client}}",
-      "PROCEED": "Proceder",
-      "CANCEL": "Cancelar",
       "ACCOUNTS": "Cuentas",
       "PROCEED_ACCOUNT": "Presiona 'Proceder' para compartir tus cuentas",
       "REVIEW_DATA": "Revise los datos que serán compartidos",

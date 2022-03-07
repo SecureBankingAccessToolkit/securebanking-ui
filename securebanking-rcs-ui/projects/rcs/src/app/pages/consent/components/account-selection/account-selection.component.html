@@ -7,9 +7,9 @@
           <div fxFlex>
             <div class="account Aligner">
               <div>
-                <div>{{ account.account?.Nickname }}</div>
-                <div class="secondary-text account-number" *ngIf="account.account?.Account">
-                  {{ (account.account?.Account)[0] | AccountNumberFormat }}
+                <div>{{ account.account?.nickname }}</div>
+                <div class="secondary-text account-number" *ngIf="account.account?.account">
+                  {{ (account.account?.account)[0] | AccountNumberFormat }}
                 </div>
                 <div *ngIf="account.balances">
                   <div class="balance" *ngFor="let balance of account.balances">{{ balance | BalanceFormat }}</div>

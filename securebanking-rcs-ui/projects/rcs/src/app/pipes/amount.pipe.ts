@@ -13,10 +13,10 @@ export class AmountFormatPipe implements PipeTransform {
     const local = this.translateService.getBrowserCultureLang() || 'en-UK';
     const formatter = new Intl.NumberFormat(local, {
       style: 'currency',
-      currency: amount.currency,
+      currency: amount.Currency,
       minimumFractionDigits: 2
     });
 
-    return formatter.format(amount.amount);
+    return formatter.format(amount.Amount);
   }
 }

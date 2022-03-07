@@ -1,0 +1,31 @@
+version: '3.8'
+services:
+  securebanking-config-server:
+    container_name: securebanking-config-server
+    hostname: securebanking-config-server
+    image: eu.gcr.io/sbat-gcr-develop/securebanking/securebanking-spring-config-server:latest
+    environment:
+      - CONFIG_GIT_IGNORE_LOCAL_SSH=true
+      - GIT_CONFIG_SSH_KEY=${GIT_SSH_KEY}
+      - SPRING_CLOUD_CONFIG_SERVER_GIT_URI=git@github.com:SecureBankingAccessToolkit/securebanking-openbanking-spring-config
+      - SPRING_CLOUD_CONFIG_SERVER_GIT_DEFAULT-LABEL=master
+    ports:
+      - 8888:8888
+
+  rcs-service:
+    container_name: rcs-service
+    hostname: rcs
+    image: eu.gcr.io/sbat-gcr-develop/securebanking/securebanking-openbanking-uk-rcs:latest
+    ports:
+      - 8080:8080
+      - 9095:9095
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+      - SPRING_CLOUD_CONFIG_URI=http://securebanking-config-server:8888
+      - JAVA_TOOL_OPTIONS=-agentlib:jdwp=transport=dt_socket,address=*:9095,server=y,suspend=n
+    command: /app/wait-for.sh securebanking-config-server:8888 -- java -jar securebanking-openbanking-uk-rcs.jar
+    restart: on-failure
+    depends_on:
+      - securebanking-config-server
+    links:
+      - securebanking-config-server

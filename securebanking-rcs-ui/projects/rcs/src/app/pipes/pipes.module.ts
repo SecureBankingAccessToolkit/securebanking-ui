@@ -5,11 +5,13 @@ import { BalanceFormatPipe } from '../../../src/app/pipes/balance.pipe';
 import { AmountFormatPipe } from '../../../src/app/pipes/amount.pipe';
 import { FrequencyFormatPipe } from '../../../src/app/pipes/frequency.pipe';
 import { TranslatePipe } from '@ngx-translate/core';
+import {AccountSortCodeFormatPipe} from "rcs/src/app/pipes/account-sort-code.pipe";
+import {AccountFormatPipe} from "rcs/src/app/pipes/account.pipe";
 
 @NgModule({
   imports: [CommonModule],
-  declarations: [AccountNumberFormatPipe, BalanceFormatPipe, AmountFormatPipe, FrequencyFormatPipe],
-  exports: [AccountNumberFormatPipe, BalanceFormatPipe, AmountFormatPipe, FrequencyFormatPipe],
+  declarations: [AccountFormatPipe, AccountNumberFormatPipe, AccountSortCodeFormatPipe, BalanceFormatPipe, AmountFormatPipe, FrequencyFormatPipe],
+  exports: [AccountFormatPipe, AccountSortCodeFormatPipe, AccountNumberFormatPipe, BalanceFormatPipe, AmountFormatPipe, FrequencyFormatPipe],
   providers: [AmountFormatPipe, TranslatePipe]
 })
 export class BankPipesModule {}

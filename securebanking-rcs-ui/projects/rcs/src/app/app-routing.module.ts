@@ -23,7 +23,23 @@ export const routes: Routes = [
     children: [
       {
         path: 'consent',
-        loadChildren: 'bank/src/app/pages/consent/consent.module#ConsentModule'
+        loadChildren: 'rcs/src/app/pages/consent/consent.module#ConsentModule'
+      },
+      {
+        path: 'dev/consent',
+        loadChildren: 'rcs/src/app/pages/consent-dev/consent-dev.module#ConsentDevModule'
+      },
+      {
+        path: '404',
+        pathMatch: 'full',
+        loadChildren: () =>
+          import('rcs/src/app/common-lazy-modules/not-found/not-found.module').then(m => m.NotFoundModule)
+      },
+      {
+        path: "dev/info",
+        pathMatch: "full",
+        loadChildren: () =>
+          import('rcs/src/app/common-lazy-modules/info/info.module').then(m => m.InfoModule)
       }
     ]
   },
@@ -50,24 +66,7 @@ const mainLayoutConfig: IForgerockMainLayoutConfig = {
   }
 };
 
-export const navigations: IForgerockMainLayoutNavigations = {
-  main: [
-    {
-      id: 'profile',
-      translate: 'NAV.PROFILE',
-      type: 'item',
-      icon: 'face',
-      url: '/profile/details'
-    },
-    {
-      id: 'security',
-      translate: 'NAV.SECURITY',
-      type: 'item',
-      icon: 'security',
-      url: '/profile/password'
-    }
-  ]
-};
+export const navigations: IForgerockMainLayoutNavigations = {main: []};
 
 @NgModule({
   imports: [

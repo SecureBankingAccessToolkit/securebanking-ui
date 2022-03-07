@@ -20,6 +20,9 @@ import { DynamicItemComponent } from './items/dynamic-item/dynamic-item.componen
 import { TransactionsPeriodItemComponent } from '../../../../../../src/app/pages/consent/components/consent-box/items/transactions-period-item/transactions-period-item.component';
 import { BankPipesModule } from '../../../../../../src/app/pipes/pipes.module';
 import { ForgerockPipesModule } from '@securebanking/securebanking-common-ui/pipes';
+import {
+  VrpAccountItemComponent
+} from "rcs/src/app/pages/consent/components/consent-box/items/vrp-account-item/vrp-account-item.component";
 
 @NgModule({
   imports: [
@@ -44,6 +47,7 @@ import { ForgerockPipesModule } from '@securebanking/securebanking-common-ui/pip
     RateAmountItemComponent,
     DynamicItemComponent,
     TransactionsPeriodItemComponent,
+    VrpAccountItemComponent,
     KeyValueItemComponent
   ],
   entryComponents: [
@@ -54,6 +58,7 @@ import { ForgerockPipesModule } from '@securebanking/securebanking-common-ui/pip
     NextPaymentItemComponent,
     FinalPaymentItemComponent,
     AccountNumberItemComponent,
+    VrpAccountItemComponent,
     ExchangeRateItemComponent,
     RateAmountItemComponent,
     DynamicItemComponent,

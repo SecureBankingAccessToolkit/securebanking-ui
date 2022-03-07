@@ -12,12 +12,20 @@ jobs:
       - name: Checkout Repo
         uses: actions/checkout@v2
         working-directory: ./securebanking-cli-ui
-      - name: Create .npmrc file
+
+      - name: Configure Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 14.x
+
+      - name: Add auth to token .npmrc file
         working-directory: ./securebanking-cli-ui
-        run: echo "//maven.forgerock.org/repo/api/npm/npm-local/:_auth=${{ secrets.FR_NPM_ACCESS_TOKEN }}" > .npmrc
+        run: echo "//maven.forgerock.org/artifactory/api/npm/npm-local/:_auth=${{ secrets.FR_NPM_ACCESS_TOKEN }}" >> .npmrc
+
       - name: Publish
         working-directory: ./securebanking-cli-ui
         run: npm publish
+
   publish-securebanking-common-ui:
     name: Publish securebanking common UI
     runs-on: ubuntu-latest
@@ -25,12 +33,20 @@ jobs:
       - name: Checkout Repo
         uses: actions/checkout@v2
         working-directory: ./securebanking-common-ui
-      - name: Create .npmrc file
+
+      - name: Configure Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 14.x
+
+      - name: Add auth token to .npmrc file
         working-directory: ./securebanking-common-ui
-        run: echo "//maven.forgerock.org/repo/api/npm/npm-local/:_auth=${{ secrets.FR_NPM_ACCESS_TOKEN }}" > .npmrc
+        run: echo "//maven.forgerock.org/artifactory/api/npm/npm-local/:_auth=${{ secrets.FR_NPM_ACCESS_TOKEN }}" >> .npmrc
+
       - name: build
         working-directory: ./securebanking-common-ui
         run: npm run build
+
       - name: Publish
         working-directory: ./securebanking-common-ui
         run: npm publish ./dist

@@ -17,7 +17,7 @@ import { AccountCheckboxModule } from '../components/account-checkbox/account-ch
 import { AccountComponent } from './account.component';
 import {ConsentDecision} from "../../../types/ConsentDecision";
 
-describe('app:bank AccountComponent', () => {
+describe('app:rcs AccountComponent', () => {
   let component: AccountComponent;
   let fixture: ComponentFixture<AccountComponent>;
 

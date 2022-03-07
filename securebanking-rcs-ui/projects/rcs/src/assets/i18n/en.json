@@ -1,12 +1,13 @@
 {
   "404": "Page not found",
   "COMPONENT": {
+    "BUTTONS": {
+      "ACCEPT": "Accept",
+      "PROCEED": "Proceed",
+      "CANCEL": "Cancel"
+    },
     "CANCEL": {
-      "OK": "Accept",
-      "REDIRECT_MESSAGE": "You will sign off and redirected to {{aispName}}",
-      "APPLICATION": "Application requesting access",
       "CONFIRM": "Are you sure you want to cancel and reject the consent?",
-      "CANCEL_CONFIRMATION": "Canceled by user {{username}}",
       "CONSENTS": {
         "ACCOUNT_ACCESS_CONSENT": "Account sharing",
         "PAYMENT_SINGLE_REQUEST": "Single payment",
@@ -17,7 +18,8 @@
         "PAYMENT_INTERNATIONAL_SCHEDULED_CONSENT": "International scheduled payment",
         "PAYMENT_INTERNATIONAL_STANDING_ORDERS_CONSENT": "International standing orders",
         "PAYMENT_FILE_CONSENT": "File payment",
-        "FUNDS_CONFIRMATION_CONSENT": "Funds confirmation"
+        "FUNDS_CONFIRMATION_CONSENT": "Funds confirmation",
+        "DOMESTIC_VRP_PAYMENTS": "Domestic VRP Payment"
       }
     },
     "ACCEPT": {
@@ -42,6 +44,22 @@
       "CURRENCY_TO": "To currency",
       "CHARGES": "Charges"
     },
+    "VRP-PAYMENT": {
+      "TITLE": "{{merchantName}} needs your permission to make VRP payment(s) from your account within the payment limits below.",
+      "PAYER_DETAILS": "Payer Details",
+      "PAYEE_DETAILS": "Payee Details",
+      "ACCOUNT_SORT_CODE": "Sort Code",
+      "ACCOUNT_NUMBER": "Account Number",
+      "NAME": "Name",
+      "ASPSP_NAME": "Payee Bank",
+      "PAYEE_NAME": "Payee Name",
+      "REFERENCE": "Consent Reference",
+      "DEBTOR_REF": "Debtor Reference",
+      "MAX_AMOUNT_PERIOD_TYPE": "Max amount per {{periodType}}",
+      "MAX_AMOUNT_PER_PAYMENT": "Max amount per payment",
+      "EXPIRE": "Expiry Date",
+      "PROCEED_PAYMENT": "Press Proceed to setup VRP"
+    },
     "ACCOUNT": {
       "TITLE": "Confirm account sharing with {{merchantName}}",
       "CHECK_DETAILS": "Please check the details below are correct.",
@@ -53,8 +71,6 @@
       "START": "Start",
       "END": "End",
       "CONNECT": "Connect {{client}}",
-      "PROCEED": "Proceed",
-      "CANCEL": "Cancel",
       "ACCOUNTS": "Accounts",
       "PROCEED_ACCOUNT": "Press Proceed to start sharing your account(s)",
       "REVIEW_DATA": "Review the data you will be sharing",

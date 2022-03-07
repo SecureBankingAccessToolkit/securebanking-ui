@@ -1,12 +1,17 @@
 {
   "name": "@securebanking/securebanking-cli-ui",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Tooling necessary to build Secure Banking apps",
   "author": "forgerock.com",
   "license": "Apache-2.0",
   "main": "index.js",
+  "engines": {
+    "node": ">=14 <16",
+    "npm": ">=6 <8"
+  },
+  "engineStrict": true,
   "publishConfig": {
-    "registry": "https://maven.forgerock.org/repo/api/npm/npm-local/"
+    "registry": "https://maven.forgerock.org/artifactory/api/npm/npm-local/"
   },
   "repository": {
     "type": "git",
