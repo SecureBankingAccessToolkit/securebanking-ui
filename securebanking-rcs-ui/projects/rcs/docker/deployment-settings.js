@@ -3,7 +3,7 @@ module.exports = {
     version: 'BUILD_VERSION',
     template: 'TEMPLATE'
   },
-  authorizationServer: 'AUTHORIZATION_SERVER',
-  remoteConsentServer: 'REMOTE_CONSENT_SERVER',
-  igServer: 'IG_SERVER'
+  authorizationServer: 'IDENTITY_PLATFORM_FQDN',
+  remoteConsentServer: 'RCS_FQDN',
+  igServer: 'IG_FQDN'
 };

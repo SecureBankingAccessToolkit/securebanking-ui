@@ -39,11 +39,20 @@ spec:
               value: {{ .Values.rcsUI.deployment.port | quote }}
             - name: TEMPLATE
               value: {{ .Values.rcsUI.deployment.templateName }}
-            - name: AUTHORIZATION_SERVER
-              value: {{ .Values.deployment.urls.authorization.server }}
-            - name: REMOTE_CONSENT_SERVER
-              value: {{ .Values.deployment.urls.rcs.server }}
-            - name: IG_SERVER
-              value: {{ .Values.deployment.urls.ig.server }}
+            - name: IDENTITY_PLATFORM_FQDN
+              valueFrom:
+                configMapKeyRef:
+                  name: securebanking-platform-config
+                  key: IDENTITY_PLATFORM_FQDN
+            - name: RCS_FQDN
+              valueFrom:
+                configMapKeyRef:
+                  name: securebanking-platform-config
+                  key: RCS_FQDN
+            - name: IG_FQDN
+              valueFrom:
+                configMapKeyRef:
+                  name: securebanking-platform-config
+                  key: IG_FQDN
           resources:
             {{- toYaml .Values.rcsUI.deployment.resources | nindent 12 }}

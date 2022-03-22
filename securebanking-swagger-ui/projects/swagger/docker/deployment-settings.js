@@ -4,6 +4,6 @@ module.exports = {
     template: 'TEMPLATE'
   },
   swaggerJSON: 'SWAGGER_JSON_URL',
-  authorizationServer: 'AUTHORIZATION_SERVER',
-  igServer: 'IG_SERVER'
+  authorizationServer: 'IDENTITY_PLATFORM_FQDN',
+  igServer: 'IG_FQDN'
 };
