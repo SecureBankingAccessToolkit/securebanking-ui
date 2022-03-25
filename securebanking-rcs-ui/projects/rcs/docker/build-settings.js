@@ -3,7 +3,7 @@ module.exports = {
     head: [
       {
         id: 'title',
-        tag: '<title>Forgerock Bank App</title>',
+        tag: '<title>Secure Banking Bank App</title>',
         order: 1
       }
       // {

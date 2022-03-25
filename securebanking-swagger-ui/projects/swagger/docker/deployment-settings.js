@@ -3,7 +3,7 @@ module.exports = {
     version: 'BUILD_VERSION',
     template: 'TEMPLATE'
   },
-  swaggerJSON: 'SWAGGER_JSON_URL',
-  authorizationServer: 'IDENTITY_PLATFORM_FQDN',
-  igServer: 'IG_FQDN'
+  swaggerJSON: 'https://SWAGGER_JSON_URL',
+  authorizationServer: 'https://IDENTITY_PLATFORM_FQDN',
+  igServer: 'https://IG_FQDN',
 };
