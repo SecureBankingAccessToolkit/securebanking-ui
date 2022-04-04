@@ -58,7 +58,7 @@ export class FundsConfirmationComponent implements OnInit {
         type: ItemType.ACCOUNT_NUMBER,
         payload: {
           label: 'CONSENT.FUNDS-CONFIRMATION.ACCOUNT_ID',
-          account: this.response.accounts[0].account.account[0],
+          account: this.response.accounts[0].account.accounts[0],
           cssClass: 'cof-account-id'
         }
       });

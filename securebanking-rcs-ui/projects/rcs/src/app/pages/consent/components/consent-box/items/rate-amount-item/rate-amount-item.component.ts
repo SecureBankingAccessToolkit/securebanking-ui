@@ -21,8 +21,8 @@ export class RateAmountItemComponent implements OnInit {
 
   amountInOtherCurrent(amount: OBActiveOrHistoricCurrencyAndAmount, rate: number, currencyOfTransfer: string) {
     const toOtherCurrencyAmount = new OBActiveOrHistoricCurrencyAndAmount();
-    toOtherCurrencyAmount.Currency = currencyOfTransfer;
-    toOtherCurrencyAmount.Amount = amount.Amount * rate;
+    toOtherCurrencyAmount.currency = currencyOfTransfer;
+    toOtherCurrencyAmount.amount = amount.amount * rate;
     return toOtherCurrencyAmount;
   }
 }

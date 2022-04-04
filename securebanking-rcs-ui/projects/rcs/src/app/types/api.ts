@@ -4,7 +4,7 @@ import {OBAccountPermissions} from '../../../src/app/types/OBAccountPermissions'
 
 export interface FRAccountWithBalance {
   id: string;
-  userID: string;
+  userId: string;
   updated: string;
   account: OBAccount2;
   balances: OBCashBalance1;
