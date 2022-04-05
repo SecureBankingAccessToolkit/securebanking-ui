@@ -58,35 +58,45 @@ describe('app:bank SinglePaymentComponent', () => {
 
     expect(component.formSubmit.emit).toHaveBeenCalledWith({
       decision: ConsentDecision.REJECTED,
-      accountId: ''
+      debtorAccount: ''
     });
   });
 
   it('should emit formSubmit decision deny', () => {
-    const testValue = 'test';
+    const debtorAccount = {
+      schemeName: "UK.OBIE.SortCodeAccountNumber",
+      identification: "79126738233670",
+      name: "7b78b560-6057-41c5-bf1f-1ed590b1c30b",
+      secondaryIdentification: "49704112"
+    };
     spyOn(component.formSubmit, 'emit');
-    component.form.controls['selectedAccount'].setValue(testValue);
+    component.form.controls['selectedAccount'].setValue(debtorAccount);
 
     component.submit(false);
     fixture.detectChanges();
 
     expect(component.formSubmit.emit).toHaveBeenCalledWith({
       decision: ConsentDecision.REJECTED,
-      accountId: testValue
+      debtorAccount: debtorAccount
     });
   });
 
   it('should emit formSubmit decision allow', () => {
-    const testValue = 'test';
+    const debtorAccount = {
+      schemeName: "UK.OBIE.SortCodeAccountNumber",
+      identification: "79126738233670",
+      name: "7b78b560-6057-41c5-bf1f-1ed590b1c30b",
+      secondaryIdentification: "49704112"
+    };
     spyOn(component.formSubmit, 'emit');
-    component.form.controls['selectedAccount'].setValue(testValue);
+    component.form.controls['selectedAccount'].setValue(debtorAccount);
 
     component.submit(true);
     fixture.detectChanges();
 
     expect(component.formSubmit.emit).toHaveBeenCalledWith({
       decision: ConsentDecision.AUTHORISED,
-      accountId: testValue
+      debtorAccount: debtorAccount
     });
   });
 });

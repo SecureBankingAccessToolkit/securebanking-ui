@@ -149,7 +149,7 @@ export class InternationalSchedulePaymentComponent implements OnInit {
   submit(allowing = false) {
     this.formSubmit.emit({
       decision: allowing ? ConsentDecision.AUTHORISED : ConsentDecision.REJECTED,
-      accountId: this.form.value.selectedAccount
+      debtorAccount: this.form.value.selectedAccount
     });
   }
 }

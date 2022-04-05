@@ -20,6 +20,7 @@ export class ConsentDevComponent implements OnInit {
   ngOnInit() {}
 
   onFormSubmit(values: IConsentEventEmitter) {
+    console.log(`Submitted values: ${values}`)
     this.loading = true;
     setTimeout(() => {
       this.loading = false;
