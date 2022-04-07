@@ -1,3 +1,5 @@
+import {OBCashAccount3} from "rcs/src/app/types/ob";
+
 export enum ItemType {
   STRING = 'STRING',
   RATE_AMOUNT = 'RATE_AMOUNT',
@@ -20,5 +22,5 @@ export interface Item {
 export interface IConsentEventEmitter {
   decision: string;
   sharedAccounts?: string[];
-  accountId?: string;
+  debtorAccount?: OBCashAccount3;
 }

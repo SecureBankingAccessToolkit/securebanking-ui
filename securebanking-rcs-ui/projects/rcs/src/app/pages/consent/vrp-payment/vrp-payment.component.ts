@@ -109,8 +109,8 @@ export class VrpPaymentComponent implements OnInit {
     }
     if (_get(this.response, 'controlParameters.periodicLimits[0]')) {
       const periodicLimitsInstructedAmount = {
-        Amount: this.response.controlParameters.periodicLimits[0].amount,
-        Currency: this.response.controlParameters.periodicLimits[0].currency
+        amount: this.response.controlParameters.periodicLimits[0].amount,
+        currency: this.response.controlParameters.periodicLimits[0].currency
       }
       this.controlItems.push({
         type: ItemType.INSTRUCTED_AMOUNT,

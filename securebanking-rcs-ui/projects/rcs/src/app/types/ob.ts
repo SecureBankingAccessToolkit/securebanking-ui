@@ -4,7 +4,7 @@ export interface OBAccount2 {
   accountId: string;
   currency: string;
   nickname: string;
-  account: OBCashAccount3[];
+  accounts: OBCashAccount3[];
 }
 
 export interface OBCashAccount3 {
@@ -15,8 +15,8 @@ export interface OBCashAccount3 {
 }
 
 export class OBActiveOrHistoricCurrencyAndAmount {
-  Amount: number;
-  Currency: string;
+  amount?: number;
+  currency?: string;
 }
 
 export interface OBCashBalance1 {
