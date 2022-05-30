@@ -102,3 +102,4 @@ dist
 .tern-port
 /securebanking-cli-ui/themes/
 .mongo
+.idea

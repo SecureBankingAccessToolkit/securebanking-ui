@@ -64,11 +64,18 @@ describe('app:bank FilePaymentComponent', () => {
 
   it('should emit formSubmit decision deny', () => {
     const debtorAccount = {
-      schemeName: "UK.OBIE.SortCodeAccountNumber",
-      identification: "79126738233670",
-      name: "7b78b560-6057-41c5-bf1f-1ed590b1c30b",
-      secondaryIdentification: "49704112"
-    }
+   "accountId":"a25606e1-00cc-4225-b662-f339229e3d59",
+   "currency":"GBP",
+   "nickname":"UK Bills",
+   "accounts":[
+      {
+         "schemeName":"UK.OBIE.SortCodeAccountNumber",
+         "identification":"4938761144202",
+         "name":"c417136f-91e4-4abe-985e-f757496e5458",
+         "secondaryIdentification":"17508172"
+      }
+   ]
+};
     spyOn(component.formSubmit, 'emit');
     component.form.controls['selectedAccount'].setValue(debtorAccount);
 
@@ -83,11 +90,18 @@ describe('app:bank FilePaymentComponent', () => {
 
   it('should emit formSubmit decision allow', () => {
     const debtorAccount = {
-      schemeName: "UK.OBIE.SortCodeAccountNumber",
-      identification: "79126738233670",
-      name: "7b78b560-6057-41c5-bf1f-1ed590b1c30b",
-      secondaryIdentification: "49704112"
-    };
+   "accountId":"a25606e1-00cc-4225-b662-f339229e3d59",
+   "currency":"GBP",
+   "nickname":"UK Bills",
+   "accounts":[
+      {
+         "schemeName":"UK.OBIE.SortCodeAccountNumber",
+         "identification":"4938761144202",
+         "name":"c417136f-91e4-4abe-985e-f757496e5458",
+         "secondaryIdentification":"17508172"
+      }
+   ]
+};;
     spyOn(component.formSubmit, 'emit');
     component.form.controls['selectedAccount'].setValue(debtorAccount);
 
