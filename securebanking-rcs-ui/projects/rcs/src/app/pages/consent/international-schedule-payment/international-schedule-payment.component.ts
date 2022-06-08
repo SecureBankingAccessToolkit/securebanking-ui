@@ -97,19 +97,19 @@ export class InternationalSchedulePaymentComponent implements OnInit {
         cssClass: 'international-schedule-payment-rate'
       }
     });
-    if (_get(this.response, 'scheduledPayment.ScheduledPaymentDateTime')) {
+    if (_get(this.response, 'paymentDate')) {
       this.basicItems.push({
         type: ItemType.DATE,
         payload: {
           label: 'CONSENT.INTERNATIONAL-SCHEDULE-PAYMENT.PAYMENT_DATE',
-          date: this.response.scheduledPayment.ScheduledPaymentDateTime,
+          date: this.response.paymentDate,
           cssClass: 'international-schedule-payment-rate'
         }
       });
     }
 
     if (
-      _get(this.response, 'scheduledPayment.InstructedAmount') &&
+      _get(this.response, 'instructedAmount') &&
       this.response.rate &&
       this.response.currencyOfTransfer
     ) {
@@ -117,7 +117,7 @@ export class InternationalSchedulePaymentComponent implements OnInit {
         type: ItemType.RATE_AMOUNT,
         payload: {
           label: 'CONSENT.PAYMENT.AMOUNT',
-          amount: this.response.scheduledPayment.InstructedAmount,
+          amount: this.response.instructedAmount,
           rate: this.response.rate,
           currencyOfTransfer: this.response.currencyOfTransfer,
           cssClass: 'international-schedule-payment-rate'
@@ -134,12 +134,12 @@ export class InternationalSchedulePaymentComponent implements OnInit {
         }
       });
     }
-    if (_get(this.response, 'scheduledPayment.InstructedAmount')) {
+    if (_get(this.response, 'instructedAmount')) {
       this.rateItems.push({
         type: ItemType.INSTRUCTED_AMOUNT,
         payload: {
           label: 'CONSENT.INTERNATIONAL-PAYMENT.AMOUNT_TO_PAY',
-          amount: this.response.scheduledPayment.InstructedAmount,
+          amount: this.response.instructedAmount,
           cssClass: 'international-schedule-payment-amount-to-pay'
         }
       });
