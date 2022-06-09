@@ -6,14 +6,14 @@ module.exports = {
   pispName: "Anonymous - 6220eca78f118300163d0e55",
   aspspName: "Forgerock Financial Sandbox",
   debtorAccount: {
-    SchemeName: "UK.OBIE.SortCodeAccountNumber",
-    Identification: "18837042784401",
-    Name: "Mr Tim Burgess"
+    schemeName: "UK.OBIE.SortCodeAccountNumber",
+    identification: "18837042784401",
+    name: "Mr Tim Burgess"
   },
   creditorAccount: {
-    SchemeName: "UK.OBIE.SortCodeAccountNumber",
-    Identification: "77473822735957",
-    Name: "myuser"
+    schemeName: "UK.OBIE.SortCodeAccountNumber",
+    identification: "77473822735957",
+    name: "myuser"
   },
   paymentReference: "FRESCO-037",
   debtorReference: "Internal ops code 5120103",

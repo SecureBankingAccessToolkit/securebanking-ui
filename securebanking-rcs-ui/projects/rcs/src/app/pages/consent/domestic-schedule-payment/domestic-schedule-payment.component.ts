@@ -44,35 +44,27 @@ export class DomesticSchedulePaymentComponent implements OnInit {
     this.items.push({
       type: ItemType.STRING,
       payload: {
-        label: 'CONSENT.PAYMENT.ACCOUNT',
-        value: this.response.account,
-        cssClass: 'domestic-schedule-payment-account'
-      }
-    });
-    this.items.push({
-      type: ItemType.STRING,
-      payload: {
         label: 'CONSENT.PAYMENT.PAYMENT_REFERENCE',
         value: this.response.paymentReference,
         cssClass: 'domestic-schedule-payment-paymentReference'
       }
     });
-    if (_get(this.response, 'scheduledPayment.InstructedAmount')) {
+    if (_get(this.response, 'instructedAmount')) {
       this.items.push({
         type: ItemType.INSTRUCTED_AMOUNT,
         payload: {
           label: 'CONSENT.PAYMENT.AMOUNT',
-          amount: this.response.scheduledPayment.InstructedAmount,
+          amount: this.response.instructedAmount,
           cssClass: 'domestic-schedule-payment-instructedAmount'
         }
       });
     }
-    if (_get(this.response, 'scheduledPayment.ScheduledPaymentDateTime')) {
+    if (_get(this.response, 'paymentDate')) {
       this.items.push({
         type: ItemType.DATE,
         payload: {
           label: 'CONSENT.DOMESTIC-SCHEDULE-PAYMENT.PAYMENT_DATE',
-          date: this.response.scheduledPayment.ScheduledPaymentDateTime,
+          date: this.response.paymentDate,
           cssClass: 'domestic-schedule-payment-ScheduledPaymentDateTime'
         }
       });

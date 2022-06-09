@@ -38,12 +38,12 @@ export class VrpPaymentComponent implements OnInit {
     }
     // PAYER ITEMS
     if (_get(this.response, 'debtorAccount')) {
-      if (_get(this.response, 'debtorAccount.Name')) {
+      if (_get(this.response, 'debtorAccount.name')) {
         this.payerItems.push({
           type: ItemType.STRING,
           payload: {
             label: 'CONSENT.VRP-PAYMENT.NAME',
-            value: this.response.debtorAccount.Name,
+            value: this.response.debtorAccount.name,
             cssClass: 'vrp-payment-debtorAccount-Name'
           }
         });

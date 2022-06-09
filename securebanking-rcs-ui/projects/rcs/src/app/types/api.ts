@@ -29,7 +29,6 @@ export module ApiResponses {
     expiredDate?: string;
     fromTransaction?: string;
     toTransaction?: string;
-    instructedAmount?: OBActiveOrHistoricCurrencyAndAmount;
     account: OBAccount2;
     debtorAccount?: OBCashAccount3; // vrp payment
     creditorAccount?: OBCashAccount3; // vrp payment
@@ -45,11 +44,8 @@ export module ApiResponses {
       FinalPaymentDateTime: string;
       FinalPaymentAmount: OBActiveOrHistoricCurrencyAndAmount;
     };
-    scheduledPayment?: {
-      Reference: string;
-      ScheduledPaymentDateTime: string;
-      InstructedAmount?: OBActiveOrHistoricCurrencyAndAmount;
-    };
+    paymentDate?: string; // domestic scheduled payment
+    instructedAmount?: OBActiveOrHistoricCurrencyAndAmount;
     rate?: Rate;
     numberOfTransactions?: string;
     totalAmount?: string;
