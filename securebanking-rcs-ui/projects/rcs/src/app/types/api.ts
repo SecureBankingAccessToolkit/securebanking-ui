@@ -35,14 +35,14 @@ export module ApiResponses {
     controlParameters?: ControlParameters; // vrp payment
     debtorReference?: string; // vrp payment
     standingOrder?: {
-      Frequency: string;
-      Reference: string;
-      FirstPaymentDateTime: string;
-      FirstPaymentAmount: OBActiveOrHistoricCurrencyAndAmount;
-      NextPaymentDateTime: string;
-      NextPaymentAmount: OBActiveOrHistoricCurrencyAndAmount;
-      FinalPaymentDateTime: string;
-      FinalPaymentAmount: OBActiveOrHistoricCurrencyAndAmount;
+      frequency: string;
+      reference: string;
+      firstPaymentDateTime: string;
+      firstPaymentAmount: OBActiveOrHistoricCurrencyAndAmount;
+      recurringPaymentDateTime: string;
+      recurringPaymentAmount: OBActiveOrHistoricCurrencyAndAmount;
+      finalPaymentDateTime: string;
+      finalPaymentAmount: OBActiveOrHistoricCurrencyAndAmount;
     };
     paymentDate?: string; // domestic scheduled payment
     instructedAmount?: OBActiveOrHistoricCurrencyAndAmount;

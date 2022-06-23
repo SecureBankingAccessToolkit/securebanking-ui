@@ -4,6 +4,7 @@ import mock1 from './mocks/account-access-consent-details';
 import mock2 from './mocks/vrp-payment-consent-details';
 import mock3 from './mocks/domestic-payment-consent-details';
 import mock4 from './mocks/domestic-scheduled-payment-response-details';
+import mock5 from './mocks/domestic-standing-order-response-details';
 
 import { IConsentEventEmitter } from '../../types/consentItem';
 
@@ -15,7 +16,7 @@ import { IConsentEventEmitter } from '../../types/consentItem';
 })
 export class ConsentDevComponent implements OnInit {
   loading = false;
-  mocks: any[] = [mock1, mock2, mock3, mock4];
+  mocks: any[] = [mock1, mock2, mock3, mock4, mock5];
 
   constructor(private cdr: ChangeDetectorRef) {}
 

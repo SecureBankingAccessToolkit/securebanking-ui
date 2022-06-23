@@ -58,8 +58,8 @@ export class DomesticStandingOrderComponent implements OnInit {
       }
     });
     if (
-      _get(this.response, 'standingOrder.FirstPaymentDateTime') &&
-      _get(this.response, 'standingOrder.FirstPaymentAmount')
+      _get(this.response, 'standingOrder.firstPaymentDateTime') &&
+      _get(this.response, 'standingOrder.firstPaymentAmount')
     ) {
       this.items.push({
         type: ItemType.FIRST_PAYMENT,
@@ -67,28 +67,28 @@ export class DomesticStandingOrderComponent implements OnInit {
           firstPaymentLabel: 'CONSENT.DOMESTIC-STANDING-ORDER.FIRST_PAYMENT',
           firstPaymentDateLabel: 'CONSENT.DOMESTIC-STANDING-ORDER.FIRST_PAYMENT_DATE',
           firstPaymentAmountLabel: 'CONSENT.DOMESTIC-STANDING-ORDER.FIRST_PAYMENT_AMOUNT',
-          firstPaymentDate: this.response.standingOrder.FirstPaymentDateTime,
-          firstPaymentAmount: this.response.standingOrder.FirstPaymentAmount,
+          firstPaymentDate: this.response.standingOrder.firstPaymentDateTime,
+          firstPaymentAmount: this.response.standingOrder.firstPaymentAmount,
           cssClass: 'domestic-standing-order-FirstPayment'
         }
       });
     }
-    if (_get(this.response, 'standingOrder.NextPaymentAmount') && _get(this.response, 'standingOrder.Frequency')) {
+    if (_get(this.response, 'standingOrder.recurringPaymentAmount') && _get(this.response, 'standingOrder.frequency')) {
       this.items.push({
         type: ItemType.NEXT_PAYMENT,
         payload: {
           nextPaymentLabel: 'CONSENT.DOMESTIC-STANDING-ORDER.RECURRING_PAYMENT',
           nextPaymentAmountLabel: 'CONSENT.DOMESTIC-STANDING-ORDER.RECURRING_PAYMENT_AMOUNT',
           frequencyLabel: 'CONSENT.DOMESTIC-STANDING-ORDER.FREQ',
-          nextPaymentAmount: this.response.standingOrder.NextPaymentAmount,
-          frequency: this.response.standingOrder.Frequency,
+          nextPaymentAmount: this.response.standingOrder.recurringPaymentAmount,
+          frequency: this.response.standingOrder.frequency,
           cssClass: 'domestic-standing-order-NextPayment'
         }
       });
     }
     if (
-      _get(this.response, 'standingOrder.FinalPaymentDateTime') &&
-      _get(this.response, 'standingOrder.FinalPaymentAmount')
+      _get(this.response, 'standingOrder.finalPaymentDateTime') &&
+      _get(this.response, 'standingOrder.finalPaymentAmount')
     ) {
       this.items.push({
         type: ItemType.FINAL_PAYMENT,
@@ -96,8 +96,8 @@ export class DomesticStandingOrderComponent implements OnInit {
           finalPaymentLabel: 'CONSENT.DOMESTIC-STANDING-ORDER.FINAL_PAYMENT',
           finalPaymentDateLabel: 'CONSENT.DOMESTIC-STANDING-ORDER.FINAL_PAYMENT_AMOUNT',
           finalPaymentAmountLabel: 'CONSENT.DOMESTIC-STANDING-ORDER.FINAL_PAYMENT_DATE',
-          finalPaymentDate: this.response.standingOrder.FinalPaymentDateTime,
-          finalPaymentAmount: this.response.standingOrder.FinalPaymentAmount,
+          finalPaymentDate: this.response.standingOrder.finalPaymentDateTime,
+          finalPaymentAmount: this.response.standingOrder.finalPaymentAmount,
           cssClass: 'domestic-standing-order-FinalPayment'
         }
       });
