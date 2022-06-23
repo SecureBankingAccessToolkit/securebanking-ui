@@ -76,7 +76,7 @@ export class InternationalStandingOrderComponent implements OnInit {
     }
     if (_get(this.response, 'standingOrder.recurringPaymentAmount') && _get(this.response, 'standingOrder.frequency')) {
       this.items.push({
-        type: ItemType.NEXT_PAYMENT,
+        type: ItemType.RECURRING_PAYMENT,
         payload: {
           nextPaymentLabel: 'CONSENT.DOMESTIC-STANDING-ORDER.RECURRING_PAYMENT',
           nextPaymentAmountLabel: 'CONSENT.DOMESTIC-STANDING-ORDER.RECURRING_PAYMENT_AMOUNT',

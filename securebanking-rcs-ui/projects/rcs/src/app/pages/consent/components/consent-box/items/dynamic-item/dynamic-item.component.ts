@@ -54,7 +54,7 @@ export class DynamicItemComponent implements OnInit, OnChanges {
       case ItemType.RATE_AMOUNT:
         componentInstance = RateAmountItemComponent;
         break;
-      case ItemType.NEXT_PAYMENT:
+      case ItemType.RECURRING_PAYMENT:
         componentInstance = NextPaymentItemComponent;
         break;
       case ItemType.INSTRUCTED_AMOUNT:
