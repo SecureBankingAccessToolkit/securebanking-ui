@@ -148,20 +148,20 @@ export const permissionMocks = {
   ReadStandingOrdersBasic: {
     AccountId: '22289',
     StandingOrderId: 'Ben3',
-    Frequency: 'EvryWorkgDay',
+    frequency: 'EvryWorkgDay',
     Reference: 'Towbar Club 2 - We Love Towbars',
-    FirstPaymentDateTime: '2017-08-12T00:00:00+00:00',
-    FirstPaymentAmount: {
+    firstPaymentDateTime: '2017-08-12T00:00:00+00:00',
+    firstPaymentAmount: {
       Amount: '0.57',
       Currency: 'GBP'
     },
     NextPaymentDateTime: '2017-08-13T00:00:00+00:00',
-    NextPaymentAmount: {
+    recurringPaymentAmount: {
       Amount: '0.56',
       Currency: 'GBP'
     },
-    FinalPaymentDateTime: '2027-08-12T00:00:00+00:00',
-    FinalPaymentAmount: {
+    finalPaymentDateTime: '2027-08-12T00:00:00+00:00',
+    finalPaymentAmount: {
       Amount: '0.56',
       Currency: 'GBP'
     },
@@ -170,20 +170,20 @@ export const permissionMocks = {
   ReadStandingOrdersDetail: {
     AccountId: '22289',
     StandingOrderId: 'Ben3',
-    Frequency: 'EvryWorkgDay',
+    frequency: 'EvryWorkgDay',
     Reference: 'Towbar Club 2 - We Love Towbars',
-    FirstPaymentDateTime: '2017-08-12T00:00:00+00:00',
-    FirstPaymentAmount: {
+    firstPaymentDateTime: '2017-08-12T00:00:00+00:00',
+    firstPaymentAmount: {
       Amount: '0.57',
       Currency: 'GBP'
     },
     NextPaymentDateTime: '2017-08-13T00:00:00+00:00',
-    NextPaymentAmount: {
+    recurringPaymentAmount: {
       Amount: '0.56',
       Currency: 'GBP'
     },
-    FinalPaymentDateTime: '2027-08-12T00:00:00+00:00',
-    FinalPaymentAmount: {
+    finalPaymentDateTime: '2027-08-12T00:00:00+00:00',
+    finalPaymentAmount: {
       Amount: '0.56',
       Currency: 'GBP'
     },

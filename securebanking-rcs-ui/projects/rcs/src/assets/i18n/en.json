@@ -140,7 +140,7 @@
       "FINAL_PAYMENT": "Final Payment",
       "FINAL_PAYMENT_DATE": "Date",
       "FINAL_PAYMENT_AMOUNT": "Amount",
-      "RECURRING_PAYMENT": "Regular payment",
+      "RECURRING_PAYMENT": "Recurring payment",
       "RECURRING_PAYMENT_AMOUNT": "Amount",
       "FREQ": "Frequency"
     },
