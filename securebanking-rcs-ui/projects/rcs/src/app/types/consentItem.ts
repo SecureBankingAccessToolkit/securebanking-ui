@@ -21,6 +21,6 @@ export interface Item {
 
 export interface IConsentEventEmitter {
   decision: string;
-  sharedAccounts?: string[];
+  accountIds?: string[];
   debtorAccount?: OBCashAccount3;
 }

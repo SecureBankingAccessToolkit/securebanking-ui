@@ -57,7 +57,7 @@ describe('app:rcs AccountComponent', () => {
 
     expect(component.formSubmit.emit).toHaveBeenCalledWith({
       decision: ConsentDecision.REJECTED,
-      sharedAccounts: []
+      accountIds: []
     });
   });
 
@@ -69,7 +69,7 @@ describe('app:rcs AccountComponent', () => {
 
     expect(component.formSubmit.emit).toHaveBeenCalledWith({
       decision: ConsentDecision.REJECTED,
-      sharedAccounts: []
+      accountIds: []
     });
   });
 
@@ -81,7 +81,7 @@ describe('app:rcs AccountComponent', () => {
 
     expect(component.formSubmit.emit).toHaveBeenCalledWith({
       decision: ConsentDecision.AUTHORISED,
-      sharedAccounts: []
+      accountIds: []
     });
   });
 });
