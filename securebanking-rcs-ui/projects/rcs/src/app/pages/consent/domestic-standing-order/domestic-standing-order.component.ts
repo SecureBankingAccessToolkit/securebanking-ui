@@ -94,8 +94,8 @@ export class DomesticStandingOrderComponent implements OnInit {
         type: ItemType.FINAL_PAYMENT,
         payload: {
           finalPaymentLabel: 'CONSENT.DOMESTIC-STANDING-ORDER.FINAL_PAYMENT',
-          finalPaymentDateLabel: 'CONSENT.DOMESTIC-STANDING-ORDER.FINAL_PAYMENT_AMOUNT',
-          finalPaymentAmountLabel: 'CONSENT.DOMESTIC-STANDING-ORDER.FINAL_PAYMENT_DATE',
+          finalPaymentDateLabel: 'CONSENT.DOMESTIC-STANDING-ORDER.FINAL_PAYMENT_DATE',
+          finalPaymentAmountLabel: 'CONSENT.DOMESTIC-STANDING-ORDER.FINAL_PAYMENT_AMOUNT',
           finalPaymentDate: this.response.standingOrder.finalPaymentDateTime,
           finalPaymentAmount: this.response.standingOrder.finalPaymentAmount,
           cssClass: 'domestic-standing-order-FinalPayment'
