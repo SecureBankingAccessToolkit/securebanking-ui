@@ -46,7 +46,7 @@ export module ApiResponses {
     };
     paymentDate?: string; // domestic scheduled payment
     instructedAmount?: OBActiveOrHistoricCurrencyAndAmount;
-    rate?: Rate;
+    exchangeRateInformation?: Rate;
     numberOfTransactions?: string;
     totalAmount?: string;
     paymentReference?: string;
@@ -74,10 +74,11 @@ export module ApiResponses {
 }
 
 export class Rate {
-  RateType: string;
-  UnitCurrency: string;
-  ExchangeRate: number;
-  ContractIdentification: string;
+  rateType: string;
+  unitCurrency: string;
+  exchangeRate: number;
+  contractIdentification: string;
+  expirationDateTime: string;
 }
 
 export class ControlParameters {

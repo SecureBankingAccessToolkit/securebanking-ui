@@ -70,7 +70,7 @@ export class InternationalSchedulePaymentComponent implements OnInit {
       type: ItemType.STRING,
       payload: {
         label: 'CONSENT.PAYMENT.CURRENCY_FROM',
-        value: this.response.rate.UnitCurrency,
+        value: this.response.exchangeRateInformation.unitCurrency,
         cssClass: 'international-schedule-payment-rate'
       }
     });
@@ -87,12 +87,12 @@ export class InternationalSchedulePaymentComponent implements OnInit {
       payload: {
         label: 'CONSENT.INTERNATIONAL-PAYMENT.EXCHANGE_RATE',
         value:
-          this.response.rate && this.response.currencyOfTransfer
-            ? `1.0 ${this.response.rate.UnitCurrency} = ${this.response.rate.ExchangeRate} ${
+          this.response.exchangeRateInformation && this.response.currencyOfTransfer
+            ? `1.0 ${this.response.exchangeRateInformation.unitCurrency} = ${this.response.exchangeRateInformation.exchangeRate} ${
                 this.response.currencyOfTransfer
               }`
             : '',
-        rate: this.response.rate,
+        rate: this.response.exchangeRateInformation,
         currencyOfTransfer: this.response.currencyOfTransfer,
         cssClass: 'international-schedule-payment-rate'
       }
@@ -110,7 +110,7 @@ export class InternationalSchedulePaymentComponent implements OnInit {
 
     if (
       _get(this.response, 'instructedAmount') &&
-      this.response.rate &&
+      this.response.exchangeRateInformation &&
       this.response.currencyOfTransfer
     ) {
       this.rateItems.push({
@@ -118,18 +118,18 @@ export class InternationalSchedulePaymentComponent implements OnInit {
         payload: {
           label: 'CONSENT.PAYMENT.AMOUNT',
           amount: this.response.instructedAmount,
-          rate: this.response.rate,
+          rate: this.response.exchangeRateInformation,
           currencyOfTransfer: this.response.currencyOfTransfer,
           cssClass: 'international-schedule-payment-rate'
         }
       });
     }
-    if (_get(this.response, 'rate.UnitCurrency')) {
+    if (_get(this.response, 'exchangeRateInformation.unitCurrency')) {
       this.rateItems.push({
         type: ItemType.STRING,
         payload: {
           label: 'CONSENT.PAYMENT.CHARGES',
-          value: '0.0 ' + this.response.rate.UnitCurrency,
+          value: '0.0 ' + this.response.exchangeRateInformation.unitCurrency,
           cssClass: 'international-schedule-payment-unit-currency'
         }
       });
