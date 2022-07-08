@@ -26,7 +26,6 @@ export class SwaggerService {
 
     return this.http
       .get(this.configService.get('swaggerJSON'), {
-        withCredentials: true,
         headers: new HttpHeaders({
           'Content-Type': 'application/json'
         })

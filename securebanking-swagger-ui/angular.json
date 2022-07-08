@@ -8,7 +8,11 @@
       "sourceRoot": "projects/swagger/src",
       "projectType": "application",
       "prefix": "app",
-      "schematics": { "@schematics/angular:component": { "styleext": "scss" } },
+      "schematics": {
+        "@schematics/angular:component": {
+          "styleext": "scss"
+        }
+      },
       "architect": {
         "build": {
           "builder": "ngx-build-plus:browser",
@@ -19,10 +23,23 @@
             "main": "projects/swagger/src/main.ts",
             "polyfills": "projects/swagger/src/polyfills.ts",
             "tsConfig": "projects/swagger/tsconfig.app.json",
-            "assets": ["projects/swagger/src/favicon.ico", "projects/swagger/src/assets"],
-            "styles": ["node_modules/cookieconsent/build/cookieconsent.min.css", "projects/swagger/src/styles.scss"],
-            "scripts": ["node_modules/cookieconsent/build/cookieconsent.min.js"],
-            "stylePreprocessorOptions": { "includePaths": ["utils/scss", "projects/swagger/src/scss"] },
+            "assets": [
+              "projects/swagger/src/favicon.ico",
+              "projects/swagger/src/assets"
+            ],
+            "styles": [
+              "node_modules/cookieconsent/build/cookieconsent.min.css",
+              "projects/swagger/src/styles.scss"
+            ],
+            "scripts": [
+              "node_modules/cookieconsent/build/cookieconsent.min.js"
+            ],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "utils/scss",
+                "projects/swagger/src/scss"
+              ]
+            },
             "es5BrowserSupport": true
           },
           "configurations": {
@@ -45,11 +62,11 @@
               "statsJson": true,
               "es5BrowserSupport": true
             },
-            "ui-integ": {
+            "ui-local": {
               "fileReplacements": [
                 {
                   "replace": "projects/swagger/src/environments/environment.ts",
-                  "with": "projects/swagger/src/environments/environment.ui-integ.ts"
+                  "with": "projects/swagger/src/environments/environment.local.ts"
                 }
               ]
             }
@@ -59,28 +76,54 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
             "browserTarget": "swagger:build",
-            "host": "swagger.dev-ob.forgerock.financial",
+            "host": "localhost",
             "ssl": false,
             "port": 4205,
             "sslCert": "ssl/wildcard.dev.forgerock.financial.crt",
-            "sslKey": "ssl/k-wildcard.dev.forgerock.financial.key"
+            "sslKey": "ssl/k-wildcard.dev.forgerock.financial.key",
+            "sourceMap": true
           },
-          "configurations": { "production": { "browserTarget": "swagger:build:production" } }
+          "configurations": {
+            "production": {
+              "browserTarget": "swagger:build:production"
+            },
+            "ui-local": {
+              "browserTarget": "swagger:build:ui-local"
+            }
+          }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
-          "options": { "browserTarget": "swagger:build" }
+          "options": {
+            "browserTarget": "swagger:build"
+          }
         },
-        "test": { "builder": "@angular-builders/jest:run", "options": { "no-cache": true, "reporters": ["default"] } },
+        "test": {
+          "builder": "@angular-builders/jest:run",
+          "options": {
+            "no-cache": true,
+            "reporters": [
+              "default"
+            ]
+          }
+        },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": ["projects/swagger/tsconfig.app.json", "projects/swagger/tsconfig.spec.json"],
-            "exclude": ["**/node_modules/**", "projects/@fuse/**", "**/*.spec.ts", "**/*.storybook.ts"]
+            "tsConfig": [
+              "projects/swagger/tsconfig.app.json",
+              "projects/swagger/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "projects/@fuse/**",
+              "**/*.spec.ts",
+              "**/*.storybook.ts"
+            ]
           }
         }
       }
     }
   },
-  "defaultProject": "forgerock-openbanking-ui"
+  "defaultProject": "securebanking-swagger-ui"
 }

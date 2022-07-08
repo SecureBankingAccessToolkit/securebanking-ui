@@ -39,11 +39,10 @@ spec:
               value: {{ .Values.swaggerUI.deployment.port | quote }}
             - name: TEMPLATE
               value: {{ .Values.swaggerUI.deployment.templateName }}
-            - name: AUTHORIZATION_SERVER
-              value: {{ .Values.deployment.urls.authorization.server }}
-            - name: IG_SERVER
-              value: {{ .Values.deployment.urls.ig.server }}
             - name: SWAGGER_JSON_URL
-              value: {{ .Values.swaggerUI.deployment.urls.swagger.json }}
+              valueFrom:
+                configMapKeyRef:
+                  name: securebanking-platform-config
+                  key: RS_FQDN
           resources:
             {{- toYaml .Values.swaggerUI.deployment.resources | nindent 12 }}

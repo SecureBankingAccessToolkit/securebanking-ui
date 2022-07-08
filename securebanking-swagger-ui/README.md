@@ -8,47 +8,32 @@ npm ci
 ```shell
 npm run build.swagger.themes
 ```
+
+> Update the environment values `./projects/swagger/src/environments/environment.local.ts`
+
 ```shell
-npm run serve.swagger
+npm run serve.swagger.local
 ```
 
-## Running docker image manually
+> Angular Live Development Server is listening on localhost:4205, open your browser on https://localhost:4205/
 
-**auth-ui** & **swagger-ui** are builds of the Auth & Swagger app with only the Forgerock theme.
-
-It is convenient to start the app in no time.
-
-- `<PORT>`: **REQUIRED** Port to use on your machine
-- `<DOMAIN>`: **REQUIRED** Domain to use. Will replace `DOMAIN` in the frontend [config](./forgerock-openbanking-ui/projects/auth/docker/deployment-settings.js) e.g: `https://analytics.DOMAIN`
-- `<TEMPLATE_NAME>`: Default value: `forgerock`.
-
-```bash
-docker run -it -p <PORT>:80 -e TEMPLATE=<TEMPLATE_NAME> -e DOMAIN=<DOMAIN> securebanking/securebanking-swagger-ui
-```
-
-## Run Docker compose
-The UI apps depend on services:
-- Reference implementation services
-    - AUTHENTICATION_URL: "https://am.DOMAIN"
-    - DIRECTORY_BACKEND_URL: "https://service.directory.DOMAIN/directory-services"
-    
-> Run first the reference implementation spring boot apps
-
-Working Directory: ./securebanking-swagger-ui
-```bash
-docker-compose up
-```
-```bash
-docker-compose -f [docker-compose-file] up
-```
 ## Building the app with your theme
 
 Create a new theme: <https://github.com/OpenBankingToolkit/openbanking-toolkit/wiki/Create-a-new-Theme>
 
 Then build the docker image
 
-## Building your own docker image
+## Swagger Docker image
+### Build
 ```bash
 # Build
-docker build -t <IMAGE_NAME> -f projects/swagger/docker/Dockerfile .
+# docker build -t <IMAGE_NAME> -f projects/swagger/docker/Dockerfile .
+docker build -t eu.gcr.io/sbat-gcr-develop/securebanking/ui/swagger:local -f projects/swagger/docker/Dockerfile .
 ```
+### Run
+> Update the values on `./projects/swagger/docker/local.env` if necessary before `docker run`
+```shell
+# docker run -p 80:80 --env-file ./projects/swagger/docker/local.env <IMAGE_NAME>
+docker run -p 80:80 --env-file ./projects/swagger/docker/local.env eu.gcr.io/sbat-gcr-develop/securebanking/ui/swagger:local
+```
+Open http://localhost
