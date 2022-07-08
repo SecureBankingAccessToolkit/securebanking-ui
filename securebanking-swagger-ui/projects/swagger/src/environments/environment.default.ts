@@ -3,8 +3,6 @@
 // The list of file replacements can be found in `angular.json`.
 export const environment = {
   production: false,
-  authorizationServer: 'https://iam.dev.forgerock.financial',
-  igServer: 'https://obdemo.dev.forgerock.financial',
   swaggerJSON: 'assets/mock.json',
   client: {
     name: 'Forgerock',

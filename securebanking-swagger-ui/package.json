@@ -29,6 +29,7 @@
     "=================SWAGGER APP=================": "",
     "bundleSize.swagger": "securebanking-cli-ui appSize --theme forgerock --project swagger",
     "serve.swagger": "ng serve swagger",
+    "serve.swagger.local": "ng serve swagger -c ui-local",
     "report.swagger": "npm run build.swagger.forgerock && webpack-bundle-analyzer dist/forgerock/stats.json",
     "build.swagger.forgerock": "ng build --project=swagger --prod --configuration=forgerock --output-path dist/forgerock --statsJson --extra-webpack-config webpack.extra.js",
     "build.swagger.themes": "securebanking-cli-ui buildThemes --project swagger"
