@@ -17,16 +17,22 @@ spec:
     http:
       paths:
       - backend:
-          serviceName: {{ .Chart.Name }}-{{ .Values.rcsUI.subdomain }}
-          servicePort: 8080
+          service:
+            name: {{ .Chart.Name }}-{{ .Values.rcsUI.subdomain }}
+            port:
+              number: 8080
         path: /
+        pathType: Prefix
   - host: {{ .Values.swaggerUI.subdomain }}.{{ .Values.ingress.domain }}
     http:
       paths:
       - backend:
-          serviceName: {{ .Chart.Name }}-{{ .Values.swaggerUI.subdomain }}
-          servicePort: 8080
+          service:
+            name: {{ .Chart.Name }}-{{ .Values.swaggerUI.subdomain }}
+            port:
+              number: 8080
         path: /
+        pathType: Prefix
   tls:
   - hosts:
     - "{{ .Values.ingress.tls.subdomain }}.{{ .Values.ingress.domain }}"
