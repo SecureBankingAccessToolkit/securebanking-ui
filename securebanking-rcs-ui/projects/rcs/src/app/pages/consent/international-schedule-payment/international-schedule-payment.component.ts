@@ -133,7 +133,7 @@ export class InternationalSchedulePaymentComponent implements OnInit {
           cssClass: 'international-scheduled-payment-charges'
         }
       });
-    } else {
+    } else if(_get(this.response, 'exchangeRateInformation.unitCurrency')){
       this.rateItems.push({
         type: ItemType.STRING,
         payload: {

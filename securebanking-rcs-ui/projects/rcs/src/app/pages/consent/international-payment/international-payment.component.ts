@@ -123,7 +123,7 @@ export class InternationalPaymentComponent implements OnInit {
           cssClass: 'international-payment-charges'
         }
       });
-    } else {
+    } else if(_get(this.response, 'exchangeRateInformation.unitCurrency')){
       this.rateItems.push({
         type: ItemType.STRING,
         payload: {
