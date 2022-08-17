@@ -47,6 +47,7 @@ export module ApiResponses {
     paymentDate?: string; // domestic scheduled payment
     instructedAmount?: OBActiveOrHistoricCurrencyAndAmount;
     exchangeRateInformation?: Rate;
+    charges?: Charges;
     numberOfTransactions?: string;
     totalAmount?: string;
     paymentReference?: string;
@@ -93,6 +94,11 @@ export class ControlParameters {
 export class PeriodicLimits {
   periodType?: string;
   periodAlignment?: string;
+  amount?: number;
+  currency?: string;
+}
+
+export class Charges {
   amount?: number;
   currency?: string;
 }

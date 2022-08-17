@@ -114,13 +114,22 @@ export class InternationalPaymentComponent implements OnInit {
       }
     });
 
-    if (_get(this.response, 'exchangeRateInformation.unitCurrency')) {
+    if (_get(this.response, 'charges.amount')) {
+      this.rateItems.push({
+        type: ItemType.STRING,
+        payload: {
+          label: 'CONSENT.PAYMENT.CHARGES',
+          value: this.response.charges.amount + ' ' + this.response.charges.currency,
+          cssClass: 'international-payment-charges'
+        }
+      });
+    } else {
       this.rateItems.push({
         type: ItemType.STRING,
         payload: {
           label: 'CONSENT.PAYMENT.CHARGES',
           value: '0.0 ' + this.response.exchangeRateInformation.unitCurrency,
-          cssClass: 'international-payment-unit-currency'
+          cssClass: 'international-payment-charges'
         }
       });
     }
