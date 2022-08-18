@@ -124,13 +124,22 @@ export class InternationalSchedulePaymentComponent implements OnInit {
         }
       });
     }
-    if (_get(this.response, 'exchangeRateInformation.unitCurrency')) {
+    if (_get(this.response, 'charges.amount')) {
+      this.rateItems.push({
+        type: ItemType.STRING,
+        payload: {
+          label: 'CONSENT.PAYMENT.CHARGES',
+          value: this.response.charges.amount + ' ' + this.response.charges.currency,
+          cssClass: 'international-scheduled-payment-charges'
+        }
+      });
+    } else if(_get(this.response, 'exchangeRateInformation.unitCurrency')){
       this.rateItems.push({
         type: ItemType.STRING,
         payload: {
           label: 'CONSENT.PAYMENT.CHARGES',
           value: '0.0 ' + this.response.exchangeRateInformation.unitCurrency,
-          cssClass: 'international-schedule-payment-unit-currency'
+          cssClass: 'international-scheduled-payment-charges'
         }
       });
     }
