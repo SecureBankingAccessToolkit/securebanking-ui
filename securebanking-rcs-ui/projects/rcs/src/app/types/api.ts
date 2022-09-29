@@ -44,6 +44,12 @@ export module ApiResponses {
       finalPaymentDateTime: string;
       finalPaymentAmount: OBActiveOrHistoricCurrencyAndAmount;
     };
+    internationalStandingOrder?: {
+      frequency: string;
+      firstPaymentDateTime: string;
+      instructedAmount: OBActiveOrHistoricCurrencyAndAmount;
+      finalPaymentDateTime: string;
+    };
     paymentDate?: string; // domestic scheduled payment
     instructedAmount?: OBActiveOrHistoricCurrencyAndAmount;
     exchangeRateInformation?: Rate;
