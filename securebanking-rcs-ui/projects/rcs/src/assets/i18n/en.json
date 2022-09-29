@@ -181,12 +181,15 @@
       "PAY_CONSENT": "By clicking 'Pay from' you consent to proceed with payment",
       "CANCEL": "Cancel and return to {{client}}",
       "REFERENCE": "Reference",
-      "FIRST_PAYMENT_DATE": "First Payment Date",
-      "FIRST_PAYMENT_AMOUNT": "First Payment Amount",
+      "FIRST_PAYMENT": "First Payment",
+      "DATE": "Date",
+      "AMOUNT": "Amount",
+      "FINAL_PAYMENT": "Final Payment",
       "FINAL_PAYMENT_DATE": "Final Payment Date",
       "FINAL_PAYMENT_AMOUNT": "Final Payment Amount",
+      "RECURRING_PAYMENT": "Regular payment",
       "RECURRING_PAYMENT_AMOUNT": "Regular payment amount",
-      "FREQ": "Payment frequency",
+      "FREQ": "Frequency",
       "CURRENCY_OF_TRANSFER": "Currency of transfer"
     },
     "FILE-PAYMENT": {
