@@ -52,7 +52,7 @@ export class FilePaymentComponent implements OnInit {
       type: ItemType.STRING,
       payload: {
         label: 'CONSENT.PAYMENT.PAYMENT_REFERENCE',
-        value: this.response.paymentReference,
+        value: this.response.filePayment.fileReference,
         cssClass: 'file-payment-paymentReference'
       }
     });
@@ -60,7 +60,7 @@ export class FilePaymentComponent implements OnInit {
       type: ItemType.STRING,
       payload: {
         label: 'CONSENT.FILE-PAYMENT.NO_OF_PAYEES',
-        value: this.response.numberOfTransactions,
+        value: this.response.filePayment.numberOfTransactions,
         cssClass: 'file-payment-numberOfTransactions'
       }
     });
@@ -68,7 +68,10 @@ export class FilePaymentComponent implements OnInit {
       type: ItemType.INSTRUCTED_AMOUNT,
       payload: {
         label: 'CONSENT.FILE-PAYMENT.TOTAL_AMOUNT',
-        amount: this.response.totalAmount,
+        amount: {
+          amount: this.response.filePayment.controlSum,
+          currency: "GBP"
+        },
         cssClass: 'file-payment-totalAmount'
       }
     });
@@ -76,7 +79,7 @@ export class FilePaymentComponent implements OnInit {
       type: ItemType.DATE,
       payload: {
         label: 'CONSENT.FILE-PAYMENT.PAYMENT_DATE',
-        date: this.response.requestedExecutionDateTime,
+        date: this.response.filePayment.requestedExecutionDateTime,
         cssClass: 'file-payment-requestedExecutionDateTime'
       }
     });

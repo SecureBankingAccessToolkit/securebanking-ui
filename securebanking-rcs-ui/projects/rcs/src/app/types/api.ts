@@ -50,15 +50,17 @@ export module ApiResponses {
       instructedAmount: OBActiveOrHistoricCurrencyAndAmount;
       finalPaymentDateTime: string;
     };
+    filePayment?: {
+      fileReference: string;
+      numberOfTransactions: string;
+      controlSum: number;
+      requestedExecutionDateTime: string;
+    }
     paymentDate?: string; // domestic scheduled payment
     instructedAmount?: OBActiveOrHistoricCurrencyAndAmount;
     exchangeRateInformation?: Rate;
     charges?: Charges;
-    numberOfTransactions?: string;
-    totalAmount?: string;
     paymentReference?: string;
-    fileReference?: string;
-    requestedExecutionDateTime?: string;
     currencyOfTransfer?: string;
     expirationDateTime?: string;
     // special ui treatment

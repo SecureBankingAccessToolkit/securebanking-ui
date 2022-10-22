@@ -8,6 +8,7 @@ import mock5 from './mocks/domestic-standing-order-response-details';
 import mock6 from './mocks/international-payment-consent-details';
 import mock7 from './mocks/international-scheduled-payment-consent-details';
 import mock8 from './mocks/international-standing-order-consent-details';
+import mock9 from './mocks/file-payment-consent-details';
 
 import { IConsentEventEmitter } from '../../types/consentItem';
 
@@ -19,14 +20,13 @@ import { IConsentEventEmitter } from '../../types/consentItem';
 })
 export class ConsentDevComponent implements OnInit {
   loading = false;
-  mocks: any[] = [mock1, mock2, mock3, mock4, mock5, mock6, mock7, mock8];
-
+  mocks: any[] = [mock1, mock2, mock3, mock4, mock5, mock6, mock7, mock8, mock9];
   constructor(private cdr: ChangeDetectorRef) {}
 
   ngOnInit() {}
 
   onFormSubmit(values: IConsentEventEmitter) {
-    console.log(`Submitted values: ${values}`)
+    console.log(`Submitted values: ${JSON.stringify(values)}`)
     this.loading = true;
     setTimeout(() => {
       this.loading = false;

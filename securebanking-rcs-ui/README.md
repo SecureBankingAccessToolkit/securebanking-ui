@@ -22,6 +22,17 @@ npm run serve.rcs.local
 | `/dev/consent` | consent mock list view      | src/app/pages/consent-dev | Mock files: src/app/pages/consent-dev/mocks |
 | `/dev/info`    | application properties view | It is a app route         | N/A                                         |
 
+## Test RCS ui app
+This task must be mandatory before push any change to avoid get failures from git actions.
+```shell
+npm ci # (only if necessary)
+```
+```shell
+npm run lint
+```
+```shell
+npm run test
+```
 ## RCS Docker image
 ### Build
 ```bash
