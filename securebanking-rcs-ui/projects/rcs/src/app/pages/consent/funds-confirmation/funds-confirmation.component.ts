@@ -31,12 +31,12 @@ export class FundsConfirmationComponent implements OnInit {
       return;
     }
 
-    if (this.response.merchantName) {
+    if (this.response.clientName) {
       this.items.push({
         type: ItemType.STRING,
         payload: {
           label: 'CONSENT.FUNDS-CONFIRMATION.APPLICATION',
-          value: this.response.merchantName,
+          value: this.response.clientName,
           cssClass: 'cof-merchantName'
         }
       });

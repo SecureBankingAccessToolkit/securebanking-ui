@@ -1,18 +1,26 @@
 <mat-card *ngIf="response">
   <forgerock-customer-logo></forgerock-customer-logo>
   <form [formGroup]="form">
-    <p [translate]="'CONSENT.VRP-PAYMENT.TITLE'" [translateParams]="{ merchantName: response.merchantName }"></p>
+    <span [translate]="'CONSENT.VRP-PAYMENT.TITLE'"></span>
+    <div class="divider"></div>
+    <p [translate]="'CONSENT.VRP-PAYMENT.SUBTITLE'" [translateParams]="{ clientName: response.clientName }"></p>
     <div *ngIf="response.logo" class="merchant-logo">
       <img src="{{ response.logo }}" onerror="this.style.display='none'" />
     </div>
     <div class="divider"></div>
 
-    <span [translate]="'CONSENT.VRP-PAYMENT.PAYER_DETAILS'"></span>
-    <app-consent-box [items]="payerItems"></app-consent-box>
     <span [translate]="'CONSENT.VRP-PAYMENT.PAYEE_DETAILS'"></span>
     <app-consent-box [items]="payeeItems"></app-consent-box>
-    <div class="divider"></div>
-    <app-consent-box [items]="controlItems"></app-consent-box>
+    <span [translate]="'CONSENT.VRP-PAYMENT.PAYMENT_RULES'"></span>
+    <app-consent-box [items]="paymentRulesItems"></app-consent-box>
+    <span *ngIf="isDebtorAccount" [translate]="'CONSENT.VRP-PAYMENT.FROM'"></span>
+    <app-consent-box *ngIf="isDebtorAccount" [items]="payerItems"></app-consent-box>
+
+    <app-account-selection *ngIf="!isDebtorAccount"
+      [form]="form"
+      [accounts]="response.accounts"
+      [label]="'CONSENT.PAYMENT.SELECT_ACCOUNT'"
+    ></app-account-selection>
 
     <app-submit-box
       [loading]="_loading"

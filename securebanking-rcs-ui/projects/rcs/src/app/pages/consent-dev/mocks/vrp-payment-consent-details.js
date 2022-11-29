@@ -1,47 +1,53 @@
 module.exports = {
   type: "DomesticVrpPaymentConsentDetails",
-  username: "jsanchez",
-  clientId: "448b84ba-d4a0-493b-8adb-6b9c17acdcac",
-  merchantName: "Anonymous - 6220eca78f118300163d0e55",
-  pispName: "Anonymous - 6220eca78f118300163d0e55",
-  aspspName: "Forgerock Financial Sandbox",
-  debtorAccount: {
-    schemeName: "UK.OBIE.SortCodeAccountNumber",
-    identification: "18837042784401",
-    name: "Mr Tim Burgess"
-  },
-  creditorAccount: {
-    schemeName: "UK.OBIE.SortCodeAccountNumber",
-    identification: "77473822735957",
-    name: "myuser"
-  },
-  paymentReference: "FRESCO-037",
-  debtorReference: "Internal ops code 5120103",
-  controlParameters: {
-    vrpType: [
-      "UK.OBIE.VRPType.Sweeping"
-    ],
-    psuAuthenticationMethods: [
-      "UK.OBIE.SCA"
-    ],
-    validFromDateTime: "2021-12-03T15:18:48.429Z",
-    validToDateTime: "2021-12-13T15:18:48.429Z",
-    maximumIndividualAmount: {
-      amount: "10.01",
-      currency: "GBP"
+  decisionApiUri: "/api/rcs/consent/decision/",
+  username: "testUserName",
+  userId: "c7303aee-2ff1-44b5-b21f-a7a3aaf39271",
+  logo: "https://www.vhv.rs/dpng/d/455-4556963_warner-bros-logo-warner-brothers-logo-png-transparent.png",
+  clientId: "8c57af60-39ef-4eec-8309-d17d026843ac",
+  clientName: "TPP Test application",
+  serviceProviderName: "Forgerock Bank simulation config",
+  initiation: {
+    type: "FRWriteDomesticVRPDataInitiation",
+    debtorAccount: {
+      schemeName: "UK.OBIE.SortCodeAccountNumber",
+      identification: "09090021325555",
+      name: "ACME Inc",
+      secondaryIdentification: "0002"
     },
-    periodicLimits: [
-      {
-        amount: "100.01",
-        currency: "GBP",
-        periodType: "Month",
-        periodAlignment: "Calendar"
-      }
-    ],
-    supplementaryData: {
-      data: "{\"data\:\"{}\"}"
+    creditorAccount: {
+      schemeName: "UK.OBIE.SortCodeAccountNumber",
+      identification: "08080021325698",
+      name: "ACME Inc",
+      secondaryIdentification: "0002"
+    },
+    remittanceInformation: {
+      unstructured: "Internal ops code 5120101",
+      reference: "FRESCO-101"
     }
   },
-  intentType: "DOMESTIC_VRP_PAYMENT_CONSENT",
-  decisionAPIUri: "/api/rcs/consent/decision/"
+  accounts: [],
+  controlParameters: {
+    ValidFromDateTime: "2022-11-28T11:35:30.510Z",
+    ValidToDateTime: "2022-11-28T11:35:30.510Z",
+    MaximumIndividualAmount: {
+      Amount: "10.01",
+      Currency: "GBP"
+    },
+    PeriodicLimits: [
+      {
+        PeriodType: "Month",
+        PeriodAlignment: "Calendar",
+        Amount: "10.01",
+        Currency: "GBP"
+      }
+    ],
+    VRPType: [
+      "UK.OBIE.VRPType.Sweeping"
+    ],
+    PSUAuthenticationMethods: [
+      "UK.OBIE.SCANotRequired"
+    ]
+  },
+  intentType: "DOMESTIC_VRP_PAYMENT_CONSENT"
 }

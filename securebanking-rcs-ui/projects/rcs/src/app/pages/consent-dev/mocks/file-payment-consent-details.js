@@ -5,6 +5,8 @@ module.exports = {
   "userId": "c7303aee-2ff1-44b5-b21f-a7a3aaf39271",
   "logo": "https://www.vhv.rs/dpng/d/455-4556963_warner-bros-logo-warner-brothers-logo-png-transparent.png",
   "clientId": "3bce98ec-755f-42f6-9f82-0a120a6db559",
+  "clientName": "TPP Test application",
+  "serviceProviderName": "Forgerock Bank simulation config",
   "filePayment": {
     "fileReference": "XmlExample",
     "numberOfTransactions": "3",
@@ -59,6 +61,5 @@ module.exports = {
     "amount": "21.11",
     "currency": "GBP"
   },
-  "merchantName": "PISP Name",
   "intentType": "PAYMENT_FILE_CONSENT"
 };

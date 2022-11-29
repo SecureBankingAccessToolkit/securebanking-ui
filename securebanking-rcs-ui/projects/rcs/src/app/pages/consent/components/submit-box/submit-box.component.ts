@@ -23,6 +23,7 @@ export class SubmitBoxComponent implements OnInit {
 
   ngOnInit() {
     console.log("submit-box")
+    console.log(this.form)
   }
 
   cancel(e: Event) {

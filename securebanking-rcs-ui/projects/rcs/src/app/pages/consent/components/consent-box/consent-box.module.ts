@@ -9,6 +9,7 @@ import { ConsentBoxComponent } from './consent-box.component';
 import { StringItemComponent } from './items/string-item/string-item.component';
 import { DateItemComponent } from './items/date-item/date-item.component';
 import { InstructedAmountItemComponent } from './items/instructed-amount-item/instructed-amount-item.component';
+import { MaximumIndividualAmountItemComponent } from "./items/maximum-individual-amount-item/maximum-individual-amount-item.component";
 import { FirstPaymentItemComponent } from './items/first-payment-item/first-payment-item.component';
 import { NextPaymentItemComponent } from './items/next-payment-item/next-payment-item.component';
 import { FinalPaymentItemComponent } from './items/final-payment-item/final-payment-item.component';
@@ -39,6 +40,7 @@ import {
     StringItemComponent,
     DateItemComponent,
     InstructedAmountItemComponent,
+    MaximumIndividualAmountItemComponent,
     FirstPaymentItemComponent,
     NextPaymentItemComponent,
     FinalPaymentItemComponent,
@@ -54,6 +56,7 @@ import {
     StringItemComponent,
     DateItemComponent,
     InstructedAmountItemComponent,
+    MaximumIndividualAmountItemComponent,
     FirstPaymentItemComponent,
     NextPaymentItemComponent,
     FinalPaymentItemComponent,

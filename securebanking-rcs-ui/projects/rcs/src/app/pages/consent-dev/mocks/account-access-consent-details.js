@@ -5,6 +5,8 @@ module.exports = {
     "userId": "fc99f546-8507-428b-88f2-1d78860a0881",
     "logo": "https://forgerock.com",
     "clientId": "225ca346-85b0-43cf-91e5-e59c67619c65",
+    "clientName": "TPP Test application",
+    "serviceProviderName": "Forgerock Bank simulation config",
     "permissions": [
         "ReadAccountsDetail",
         "ReadBalances",
@@ -150,7 +152,6 @@ module.exports = {
     ],
     "fromTransaction": "2019-04-03T00:00:00.000Z",
     "toTransaction": "2019-08-01T00:00:00.000Z",
-    "aispName": "Automating-testing",
     "expiredDate": "2019-08-01T00:00:00.000Z",
     "intentType": "ACCOUNT_ACCESS_CONSENT"
 };

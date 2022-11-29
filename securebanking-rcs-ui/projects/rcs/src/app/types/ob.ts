@@ -19,6 +19,11 @@ export class OBActiveOrHistoricCurrencyAndAmount {
   currency?: string;
 }
 
+export class MaximumIndividualAmount {
+  Amount?: number;
+  Currency?: string;
+}
+
 export interface OBCashBalance1 {
   creditDebitIndicator: OBCreditDebitCode;
   type: OBBalanceType1Code;

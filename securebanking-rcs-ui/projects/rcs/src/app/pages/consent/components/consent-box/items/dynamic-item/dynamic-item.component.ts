@@ -22,6 +22,9 @@ import { TransactionsPeriodItemComponent } from '../../../../../../../../src/app
 import {
   VrpAccountItemComponent
 } from "rcs/src/app/pages/consent/components/consent-box/items/vrp-account-item/vrp-account-item.component";
+import {
+  MaximumIndividualAmountItemComponent
+} from "rcs/src/app/pages/consent/components/consent-box/items/maximum-individual-amount-item/maximum-individual-amount-item.component";
 
 @Component({
   selector: 'app-dynamic-item',
@@ -59,6 +62,9 @@ export class DynamicItemComponent implements OnInit, OnChanges {
         break;
       case ItemType.INSTRUCTED_AMOUNT:
         componentInstance = InstructedAmountItemComponent;
+        break;
+      case ItemType.MAXIMUM_INDIVIDUAL_AMOUNT:
+        componentInstance = MaximumIndividualAmountItemComponent;
         break;
       case ItemType.FIRST_PAYMENT:
         componentInstance = FirstPaymentItemComponent;

@@ -5,7 +5,7 @@ import {IConsentEventEmitter, Item, ItemType} from 'rcs/src/app/types/consentIte
 import {ConsentDecision} from "rcs/src/app/types/ConsentDecision";
 import {TranslateService} from "@ngx-translate/core";
 import _get from 'lodash-es/get';
-import {FormGroup} from "@angular/forms";
+import {FormControl, FormGroup, Validators} from "@angular/forms";
 
 @Component({
   selector: 'app-vrp-payment',
@@ -17,7 +17,9 @@ export class VrpPaymentComponent implements OnInit {
   constructor(private translate: TranslateService) {
   }
 
-  form: FormGroup = new FormGroup({});
+  form: FormGroup = new FormGroup({
+    selectedAccount: new FormControl('', Validators.required)
+  });
 
   @Input() response: ApiResponses.ConsentDetailsResponse;
   _loading = false;
@@ -29,7 +31,8 @@ export class VrpPaymentComponent implements OnInit {
   @Output() formSubmit = new EventEmitter<IConsentEventEmitter>();
   payerItems: Item[] = [];
   payeeItems: Item[] = [];
-  controlItems: Item[] = [];
+  paymentRulesItems: Item[] = [];
+  isDebtorAccount = false;
 
   ngOnInit() {
     console.log("vrp payment component")
@@ -37,13 +40,16 @@ export class VrpPaymentComponent implements OnInit {
       return;
     }
     // PAYER ITEMS
-    if (_get(this.response, 'debtorAccount')) {
-      if (_get(this.response, 'debtorAccount.name')) {
+    if (_get(this.response.initiation, 'debtorAccount')) {
+      this.isDebtorAccount = true;
+      // remove form control to enable it when not need select an account
+      this.form.removeControl('selectedAccount');
+      if (_get(this.response.initiation, 'debtorAccount.name')) {
         this.payerItems.push({
           type: ItemType.STRING,
           payload: {
             label: 'CONSENT.VRP-PAYMENT.NAME',
-            value: this.response.debtorAccount.name,
+            value: this.response.initiation.debtorAccount.name,
             cssClass: 'vrp-payment-debtorAccount-Name'
           }
         });
@@ -53,92 +59,102 @@ export class VrpPaymentComponent implements OnInit {
         payload: {
           sortCodeLabel: 'CONSENT.VRP-PAYMENT.ACCOUNT_SORT_CODE',
           accountNumberLabel: 'CONSENT.VRP-PAYMENT.ACCOUNT_NUMBER',
-          account: this.response.debtorAccount,
+          account: this.response.initiation.debtorAccount,
           cssClass: 'vrp-payment-payer-account'
         }
       });
     }
     // PAYEE ITEMS
-    if (_get(this.response, 'aspspName')) {
+    // payment to
+    if (_get(this.response.initiation, 'creditorAccount')) {
       this.payeeItems.push({
         type: ItemType.STRING,
         payload: {
-          label: 'CONSENT.VRP-PAYMENT.ASPSP_NAME',
-          value: this.response.aspspName,
-          cssClass: 'vrp-payment-aspspName'
+          label: 'CONSENT.VRP-PAYMENT.PAYMENT_TO',
+          value: this.response.initiation.creditorAccount.name,
+          cssClass: 'vrp-payment-payment_to'
         }
       });
     }
-    this.payeeItems.push({
-      type: ItemType.STRING,
-      payload: {
-        label: 'CONSENT.VRP-PAYMENT.PAYEE_NAME',
-        value: this.response.pispName,
-        cssClass: 'vrp-payment-psipName'
-      }
-    });
-    if (_get(this.response, 'creditorAccount')) {
+    // account provider
+    if (_get(this.response, 'serviceProviderName')) {
+      this.payeeItems.push({
+        type: ItemType.STRING,
+        payload: {
+          label: 'CONSENT.VRP-PAYMENT.ACCOUNT_PROVIDER',
+          value: this.response.serviceProviderName,
+          cssClass: 'vrp-payment-account_provider'
+        }
+      });
+    }
+    // payee account
+    if (_get(this.response.initiation, 'creditorAccount')) {
       this.payeeItems.push({
         type: ItemType.VRP_ACCOUNT_NUMBER,
         payload: {
           sortCodeLabel: 'CONSENT.VRP-PAYMENT.ACCOUNT_SORT_CODE',
           accountNumberLabel: 'CONSENT.VRP-PAYMENT.ACCOUNT_NUMBER',
-          account: this.response.creditorAccount,
-          cssClass: 'vrp-payment-payee-account'
+          account: this.response.initiation.creditorAccount,
+          cssClass: 'vrp-payment-creditor-account'
         }
       });
     }
-    // Control parameter items
-    if (_get(this.response, 'paymentReference')) {
-      this.controlItems.push({
+    // reference
+    if (_get(this.response.initiation.remittanceInformation, 'reference')) {
+      this.payeeItems.push({
         type: ItemType.STRING,
         payload: {
           label: 'CONSENT.VRP-PAYMENT.REFERENCE',
-          value: this.response.paymentReference,
-          cssClass: 'vrp-payment-payee-identification'
-        }
-      });
-      this.controlItems.push({
-        type: ItemType.STRING,
-        payload: {
-          label: 'CONSENT.VRP-PAYMENT.DEBTOR_REF',
-          value: this.response.debtorReference,
-          cssClass: 'vrp-payment-payee-identification'
+          value: this.response.initiation.remittanceInformation.reference,
+          cssClass: 'vrp-payment-payee-identification-reference'
         }
       });
     }
-    if (_get(this.response, 'controlParameters.periodicLimits[0]')) {
+    if (_get(this.response.initiation.remittanceInformation, 'unstructured')) {
+      this.payeeItems.push({
+        type: ItemType.STRING,
+        payload: {
+          label: 'CONSENT.VRP-PAYMENT.DEBTOR_REF',
+          value: this.response.initiation.remittanceInformation.unstructured,
+          cssClass: 'vrp-payment-payee-identification-unstructured'
+        }
+      });
+    }
+
+
+    // Payment rules (Control parameter items)
+    if (_get(this.response.controlParameters, 'PeriodicLimits[0]')) {
       const periodicLimitsInstructedAmount = {
-        amount: this.response.controlParameters.periodicLimits[0].amount,
-        currency: this.response.controlParameters.periodicLimits[0].currency
+        amount: this.response.controlParameters.PeriodicLimits[0].Amount,
+        currency: this.response.controlParameters.PeriodicLimits[0].Currency
       }
-      this.controlItems.push({
+      this.paymentRulesItems.push({
         type: ItemType.INSTRUCTED_AMOUNT,
         payload: {
           label: this.translate.instant('CONSENT.VRP-PAYMENT.MAX_AMOUNT_PERIOD_TYPE', {
-            periodType: this.response.controlParameters.periodicLimits[0].periodType
+            periodType: this.response.controlParameters.PeriodicLimits[0].PeriodType
           }),
           amount: periodicLimitsInstructedAmount,
           cssClass: 'vrp-payment-maxAmountPeriod'
         }
       });
     }
-    if (_get(this.response, 'controlParameters.maximumIndividualAmount')) {
-      this.controlItems.push({
-        type: ItemType.INSTRUCTED_AMOUNT,
+    if (_get(this.response.controlParameters, 'MaximumIndividualAmount')) {
+      this.paymentRulesItems.push({
+        type: ItemType.MAXIMUM_INDIVIDUAL_AMOUNT,
         payload: {
           label: 'CONSENT.VRP-PAYMENT.MAX_AMOUNT_PER_PAYMENT',
-          amount: this.response.controlParameters.maximumIndividualAmount,
+          amount: this.response.controlParameters.MaximumIndividualAmount,
           cssClass: 'vrp-payment-maxAmountPerPayment'
         }
       });
     }
-    if (_get(this.response, 'controlParameters.validToDateTime')) {
-      this.controlItems.push({
+    if (_get(this.response.controlParameters, 'ValidToDateTime')) {
+      this.paymentRulesItems.push({
         type: ItemType.DATE,
         payload: {
           label: 'CONSENT.VRP-PAYMENT.EXPIRE',
-          date: this.response.controlParameters.validToDateTime,
+          date: this.response.controlParameters.ValidToDateTime,
           cssClass: 'vrp-payment-validToDateTime'
         }
       });
@@ -147,7 +163,8 @@ export class VrpPaymentComponent implements OnInit {
 
   submit(allowing = false) {
     this.formSubmit.emit({
-      decision: allowing ? ConsentDecision.AUTHORISED : ConsentDecision.REJECTED
+      decision: allowing ? ConsentDecision.AUTHORISED : ConsentDecision.REJECTED,
+      debtorAccount: this.isDebtorAccount ? this.response.initiation.debtorAccount : this.form.value.selectedAccount
     });
   }
 

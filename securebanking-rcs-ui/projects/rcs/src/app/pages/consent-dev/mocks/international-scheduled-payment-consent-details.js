@@ -5,6 +5,8 @@ module.exports = {
   "userId": "86228a9d-812d-4a15-a2f7-6a45488e593b",
   "logo": "https://forgerock.com",
   "clientId": "ec0a5142-ea7c-4b82-8ff0-f24e3a526a9c",
+  "clientName": "TPP Test application",
+  "serviceProviderName": "Forgerock Bank simulation config",
   "instructedAmount": {
     "amount": "10.01",
     "currency": "GBP"
@@ -19,7 +21,6 @@ module.exports = {
     "rateType": "AGREED",
     "contractIdentification": "/tbill/2018/T102993"
   },
-  "merchantName": "Automating-testing",
   "paymentDate": "2022-09-21T08:46:53.000Z",
   "currencyOfTransfer": "EUR",
   "paymentReference": "FRESCO-037",
