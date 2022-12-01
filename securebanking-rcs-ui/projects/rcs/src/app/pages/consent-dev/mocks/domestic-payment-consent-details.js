@@ -5,11 +5,12 @@ module.exports = {
   userId: "7b78b560-6057-41c5-bf1f-1ed590b1c30b",
   logo: "https://forgerock.com",
   clientId: "b437c832-e79c-4479-84b0-56e8ec403232",
+  clientName: "TPP Test application",
+  serviceProviderName: "Forgerock Bank simulation config",
   instructedAmount: {
     amount: "165.88",
     currency: "GBP"
   },
-  merchantName: "Automating-testing",
   accounts: [
     {
       id: "cdb062f6-daed-479a-8843-00f842926ef7",

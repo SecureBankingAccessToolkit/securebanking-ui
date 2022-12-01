@@ -44,23 +44,26 @@
       "CHARGES": "Cargos"
     },
     "VRP-PAYMENT": {
-      "TITLE": "{{merchantName}} necesita su permiso para realizar pagos VRP desde su cuenta destro de los limites de pago definidos a continuación.",
-      "PAYER_DETAILS": "Detalles del pagador",
-      "PAYEE_DETAILS": "Detalles del beneficiario",
+      "TITLE": "Variable Recurring Payment",
+      "SUBTITLE": "{{clientName}} necesita su permiso para realizar pago(s) desde su cuenta dentro de las reglas de pago definidas a continuación.",
+      "PAYEE_DETAILS": "A quien pagas",
+      "PAYMENT_TO": "Pago a",
+      "ACCOUNT_PROVIDER": "Proveedor de cuenta",
       "ACCOUNT_SORT_CODE": "Código de cuenta",
       "ACCOUNT_NUMBER": "Número de cuenta",
       "NAME": "Nombre",
-      "ASPSP_NAME": "Banco beneficiario",
-      "PAYEE_NAME": "Nombre del beneficiario",
-      "REFERENCE": "Referencia de consentimiento",
+      "REFERENCE": "Referencia",
       "DEBTOR_REF": "Referencia de deudor",
+      "PAYMENT_RULES": "Reglas de pago",
       "MAX_AMOUNT_PERIOD_TYPE": "Pago máximo por {{periodType}}",
       "MAX_AMOUNT_PER_PAYMENT": "Pago máximo por operación",
       "EXPIRE": "Fecha de expiración",
-      "PROCEED_PAYMENT": "Pulse proceder para aceptar el pago VRP con la configuración definida"
+      "FROM": "Desde la cuenta",
+      "CURRENT_ACCOUNT": "Cuenta actual",
+      "PROCEED_PAYMENT": "Pulse proceder para aceptar el pago Variable Recurring Payment con la configuración definida"
     },
     "ACCOUNT": {
-      "TITLE": "Confirme compartir couenta con {{merchantName}}",
+      "TITLE": "Confirme compartir couenta con {{clientName}}",
       "CHECK_DETAILS": "Por favor revise si los detalles son correctos.",
       "SELECT_ACCOUNT": "Please select and confirm account(s) to share information:",
       "CANCEL": "Cancelar y volver a {{client}}",
@@ -100,7 +103,7 @@
       }
     },
     "SINGLE-PAYMENT": {
-      "TITLE": "Confirmar pago único a {{merchantName}}",
+      "TITLE": "Confirmar pago único a {{clientName}}",
       "PAY": "Pagar",
       "PAY_FROM": "Pagar desde",
       "PAY_NOW": "Pagar ahora",
@@ -108,7 +111,7 @@
       "CANCEL": "Cancelar y volver a {{client}}"
     },
     "DOMESTIC-PAYMENT": {
-      "TITLE": "Confirmar pago nacional a {{merchantName}}",
+      "TITLE": "Confirmar pago nacional a {{clientName}}",
       "PAY": "Pagar",
       "PAY_FROM": "Pagar desde",
       "PAY_NOW": "Pagar ahora",
@@ -117,7 +120,7 @@
       "ALLOW": "Permitir"
     },
     "DOMESTIC-SCHEDULE-PAYMENT": {
-      "TITLE": "Confirmar pago programado nacional a {{merchantName}}",
+      "TITLE": "Confirmar pago programado nacional a {{clientName}}",
       "PAY": "Pagar",
       "PAYMENT_DATE": "Fecha de pago",
       "ALLOW": "Permitir",
@@ -126,7 +129,7 @@
       "REFERENCE": "Referencia"
     },
     "DOMESTIC-STANDING-ORDER": {
-      "TITLE": "Confirmar domiciliación bancaria para {{merchantName}}",
+      "TITLE": "Confirmar domiciliación bancaria para {{clientName}}",
       "PAY": "Pagar",
       "PAY_FROM": "Pagar desde cuenta: ",
       "ALLOW": "Permitir",
@@ -144,7 +147,7 @@
       "FREQ": "Frecuencia"
     },
     "INTERNATIONAL-PAYMENT": {
-      "TITLE": "Confirmar pago internacional a {{merchantName}}",
+      "TITLE": "Confirmar pago internacional a {{clientName}}",
       "PAY": "Pagar",
       "PAY_FROM": "Pagar desde",
       "ALLOW": "Permitir",
@@ -158,7 +161,7 @@
       "REFRESH_RATE_INFO": "Este índice de cambio es válido durante los siguientes 5 minutes, si abandona esta página el índice de cambio podría variar."
     },
     "INTERNATIONAL-SCHEDULE-PAYMENT": {
-      "TITLE": "Confirmar pago internacional programado para {{merchantName}}",
+      "TITLE": "Confirmar pago internacional programado para {{clientName}}",
       "PAY": "Pagar",
       "PAY_FROM": "Pagar desde",
       "ALLOW": "Permitir",
@@ -173,7 +176,7 @@
       "ON_PAYMENT_DATE": "en la fecha de pago"
     },
     "INTERNATIONAL-STANDING-ORDER": {
-      "TITLE": "Confirmar domiciliación bancaria internacional para {{merchantName}}",
+      "TITLE": "Confirmar domiciliación bancaria internacional para {{clientName}}",
       "PAY": "Pagar",
       "PAY_FROM": "Pagar desde cuenta: ",
       "ALLOW": "Permitir",
@@ -189,7 +192,7 @@
       "CURRENCY_OF_TRANSFER": "Divisa"
     },
     "FILE-PAYMENT": {
-      "TITLE": "Confirmar pago por archivo a {{merchantName}}",
+      "TITLE": "Confirmar pago por archivo a {{clientName}}",
       "PAY_FROM": "Pagar desde",
       "ALLOW": "Permitir",
       "NO_OF_PAYEES": "Número de beneficiarios",
@@ -202,7 +205,7 @@
       "CANCEL": "Cancelar y volver a {{client}}"
     },
     "FUNDS-CONFIRMATION": {
-      "TITLE": "Disponibilidad de fondos solicitada por {{merchantName}}",
+      "TITLE": "Disponibilidad de fondos solicitada por {{clientName}}",
       "APPLICATION": "Solicitud de acceso",
       "ACCOUNT": "Hemos recibido una solicitud del emisor de la tarjeta para confirmar los fondos de la siguiente cuenta.",
       "ACCOUNT_TITLE": "Cuenta",

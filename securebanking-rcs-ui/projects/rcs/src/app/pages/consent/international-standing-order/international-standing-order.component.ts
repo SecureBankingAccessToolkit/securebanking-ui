@@ -37,7 +37,7 @@ export class InternationalStandingOrderComponent implements OnInit {
       type: ItemType.STRING,
       payload: {
         label: 'CONSENT.PAYMENT.PAYEE_NAME',
-        value: this.response.merchantName,
+        value: this.response.clientName,
         cssClass: 'file-payment-merchantName'
       }
     });

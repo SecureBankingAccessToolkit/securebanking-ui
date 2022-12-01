@@ -1,7 +1,7 @@
 <mat-card *ngIf="response">
   <forgerock-customer-logo></forgerock-customer-logo>
   <form [formGroup]="form">
-    <h1 [translate]="'CONSENT.ACCOUNT.TITLE'" [translateParams]="{ merchantName: response.aispName }"></h1>
+    <h1 [translate]="'CONSENT.ACCOUNT.TITLE'" [translateParams]="{ clientName: response.clientName }"></h1>
     <div *ngIf="response.logo" class="merchant-logo">
       <img src="{{ response.logo }}" onerror="this.style.display='none'" />
     </div>
@@ -34,7 +34,7 @@
       <span
         class="title"
         [translate]="'CONSENT.ACCOUNT.EXPIRE'"
-        [translateParams]="{ client: response.aispName }"
+        [translateParams]="{ client: response.clientName }"
       ></span>
       {{ response.expiredDate | forgerockDateFormat: 'dddd do MMMM, yyyy, HH:mm:ss' }}
     </div>

@@ -45,23 +45,26 @@
       "CHARGES": "Charges"
     },
     "VRP-PAYMENT": {
-      "TITLE": "{{merchantName}} needs your permission to make VRP payment(s) from your account within the payment limits below.",
-      "PAYER_DETAILS": "Payer Details",
-      "PAYEE_DETAILS": "Payee Details",
+      "TITLE": "Variable Recurring Payment",
+      "SUBTITLE": "{{clientName}} needs your permission to make payment(s) from your account within the payment rules below",
+      "PAYEE_DETAILS": "Who you're paying",
+      "PAYMENT_TO": "Payment to",
+      "ACCOUNT_PROVIDER": "Account Provider",
       "ACCOUNT_SORT_CODE": "Sort Code",
       "ACCOUNT_NUMBER": "Account Number",
       "NAME": "Name",
-      "ASPSP_NAME": "Payee Bank",
-      "PAYEE_NAME": "Payee Name",
-      "REFERENCE": "Consent Reference",
+      "REFERENCE": "Reference",
       "DEBTOR_REF": "Debtor Reference",
+      "PAYMENT_RULES": "Payment Rules",
       "MAX_AMOUNT_PERIOD_TYPE": "Max amount per {{periodType}}",
       "MAX_AMOUNT_PER_PAYMENT": "Max amount per payment",
       "EXPIRE": "Expiry Date",
-      "PROCEED_PAYMENT": "Press Proceed to setup VRP"
+      "FROM": "From account",
+      "CURRENT_ACCOUNT": "Current Account",
+      "PROCEED_PAYMENT": "Press Proceed to setup a Variable Recurring Payment"
     },
     "ACCOUNT": {
-      "TITLE": "Confirm account sharing with {{merchantName}}",
+      "TITLE": "Confirm account sharing with {{clientName}}",
       "CHECK_DETAILS": "Please check the details below are correct.",
       "SELECT_ACCOUNT": "Please select and confirm account(s) to share information:",
       "CANCEL": "Cancel and return to {{client}}",
@@ -101,7 +104,7 @@
       }
     },
     "SINGLE-PAYMENT": {
-      "TITLE": "Confirm single payment to {{merchantName}}",
+      "TITLE": "Confirm single payment to {{clientName}}",
       "PAY": "Pay",
       "PAY_FROM": "Pay from",
       "PAY_NOW": "Pay now",
@@ -109,7 +112,7 @@
       "CANCEL": "Cancel and return to {{client}}"
     },
     "DOMESTIC-PAYMENT": {
-      "TITLE": "Confirm domestic payment to {{merchantName}}",
+      "TITLE": "Confirm domestic payment to {{clientName}}",
       "PAY": "Pay",
       "PAY_FROM": "Pay from",
       "ALLOW": "Allow",
@@ -118,7 +121,7 @@
       "CANCEL": "Cancel and return to {{client}}"
     },
     "DOMESTIC-SCHEDULE-PAYMENT": {
-      "TITLE": "Confirm domestic schedule payment to {{merchantName}}",
+      "TITLE": "Confirm domestic schedule payment to {{clientName}}",
       "PAY": "Pay",
       "PAYMENT_DATE": "Payment date",
       "ALLOW": "Allow",
@@ -127,7 +130,7 @@
       "REFERENCE": "Reference"
     },
     "DOMESTIC-STANDING-ORDER": {
-      "TITLE": "Confirm domestic standing order to {{merchantName}}",
+      "TITLE": "Confirm domestic standing order to {{clientName}}",
       "PAY": "Pay",
       "PAY_FROM": "Pay from account: ",
       "ALLOW": "Allow",
@@ -145,7 +148,7 @@
       "FREQ": "Frequency"
     },
     "INTERNATIONAL-PAYMENT": {
-      "TITLE": "Confirm international payment to {{merchantName}}",
+      "TITLE": "Confirm international payment to {{clientName}}",
       "PAY": "Pay",
       "PAY_FROM": "Pay from",
       "ALLOW": "Allow",
@@ -159,7 +162,7 @@
       "REFRESH_RATE_INFO": "This rate is valid for the next 5 minutes, if you navigate away from this page now the rate we’ve quoted you may change"
     },
     "INTERNATIONAL-SCHEDULE-PAYMENT": {
-      "TITLE": "Confirm international schedule payment to {{merchantName}}",
+      "TITLE": "Confirm international schedule payment to {{clientName}}",
       "PAY": "Pay",
       "PAY_FROM": "Pay from",
       "ALLOW": "Allow",
@@ -174,7 +177,7 @@
       "ON_PAYMENT_DATE": "on payment date"
     },
     "INTERNATIONAL-STANDING-ORDER": {
-      "TITLE": "Confirm international standing order to {{merchantName}}",
+      "TITLE": "Confirm international standing order to {{clientName}}",
       "PAY": "Pay",
       "PAY_FROM": "Pay from account: ",
       "ALLOW": "Allow",
@@ -193,7 +196,7 @@
       "CURRENCY_OF_TRANSFER": "Currency of transfer"
     },
     "FILE-PAYMENT": {
-      "TITLE": "Confirm bulk payments to {{merchantName}}",
+      "TITLE": "Confirm bulk payments to {{clientName}}",
       "PAY_FROM": "Pay from",
       "ALLOW": "Allow",
       "NO_OF_PAYEES": "Number of payees",
@@ -206,7 +209,7 @@
       "CANCEL": "Cancel and return to {{client}}"
     },
     "FUNDS-CONFIRMATION": {
-      "TITLE": "Funds Availability requested by {{merchantName}}",
+      "TITLE": "Funds Availability requested by {{clientName}}",
       "APPLICATION": "Application requesting access",
       "ACCOUNT": "We have received a request from card issuer to provide a confirmation of sufficient funds from the following account.",
       "ACCOUNT_TITLE": "Account",

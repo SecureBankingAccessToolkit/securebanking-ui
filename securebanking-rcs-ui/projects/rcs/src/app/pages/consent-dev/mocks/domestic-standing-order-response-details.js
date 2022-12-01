@@ -5,6 +5,8 @@ module.exports = {
   "userId": "42edfd13-a642-47c1-b76c-684efe4e6449",
   "logo": "https://forgerock.com",
   "clientId": "63bce7d3-0c74-4188-9d24-88e3a69d3c80",
+  "clientName": "TPP Test application",
+  "serviceProviderName": "Forgerock Bank simulation config",
   "standingOrder": {
       "type": "FRWriteDomesticStandingOrderDataInitiation",
       "frequency": "Paid on the 25th March, 24th June, 29th September and 25th December.",
@@ -152,7 +154,6 @@ module.exports = {
           ]
       }
   ],
-  "merchantName": "Automating-testing",
   "paymentReference": "Reference text",
   "intentType": "PAYMENT_DOMESTIC_STANDING_ORDERS_CONSENT"
 };

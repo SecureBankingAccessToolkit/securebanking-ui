@@ -18,22 +18,17 @@ export module ApiResponses {
     accounts: FRAccountWithBalance[];
     username: string;
     logo: string;
-    clientId: string;
-    clientName: string;
-    merchantName: string;
-    aispName?: string;
-    pispName?: string;
-    aspspName?: string;
+    clientId: string; // tpp id
+    clientName: string; // tpp name
+    serviceProviderName: string; // aisp, aspsp
     // optional
     permissions?: OBAccountPermissions[];
     expiredDate?: string;
     fromTransaction?: string;
     toTransaction?: string;
     account: OBAccount2;
-    debtorAccount?: OBCashAccount3; // vrp payment
-    creditorAccount?: OBCashAccount3; // vrp payment
+    initiation: Initiation; // VRP payment
     controlParameters?: ControlParameters; // vrp payment
-    debtorReference?: string; // vrp payment
     standingOrder?: {
       frequency: string;
       reference: string;
@@ -91,22 +86,34 @@ export class Rate {
 }
 
 export class ControlParameters {
-  validFromDateTime?: string;
-  validToDateTime?: string;
-  maximumIndividualAmount?:OBActiveOrHistoricCurrencyAndAmount;
-  periodicLimits?: PeriodicLimits;
-  vrpType: string;
-  psuAuthenticationMethods: string[]
+  ValidFromDateTime?: string;
+  ValidToDateTime?: string;
+  MaximumIndividualAmount?:OBActiveOrHistoricCurrencyAndAmount;
+  PeriodicLimits?: PeriodicLimits;
+  VRPType: string[];
+  PSUAuthenticationMethods: string[];
 }
 
 export class PeriodicLimits {
-  periodType?: string;
-  periodAlignment?: string;
-  amount?: number;
-  currency?: string;
+  PeriodType?: string;
+  PeriodAlignment?: string;
+  Amount?: number;
+  Currency?: string;
 }
 
 export class Charges {
   amount?: number;
   currency?: string;
+}
+
+// VRP
+export class Initiation {
+  debtorAccount?: OBCashAccount3;
+  creditorAccount?: OBCashAccount3;
+  remittanceInformation?: RemittanceInformation;
+}
+
+export class RemittanceInformation {
+  unstructured?: string;
+  reference?: string;
 }
