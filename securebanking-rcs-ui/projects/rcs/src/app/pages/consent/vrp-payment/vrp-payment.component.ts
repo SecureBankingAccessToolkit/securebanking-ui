@@ -164,7 +164,7 @@ export class VrpPaymentComponent implements OnInit {
   submit(allowing = false) {
     this.formSubmit.emit({
       decision: allowing ? ConsentDecision.AUTHORISED : ConsentDecision.REJECTED,
-      debtorAccount: this.isDebtorAccount ? this.response.initiation.debtorAccount : this.form.value.selectedAccount
+      debtorAccount: this.isDebtorAccount ? this.response.accounts[0].account : this.form.value.selectedAccount
     });
   }
 
