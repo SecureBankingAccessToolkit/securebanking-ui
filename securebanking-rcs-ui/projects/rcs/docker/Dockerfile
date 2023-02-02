@@ -11,7 +11,7 @@ ADD . /src
 RUN npm run build.rcs.themes
 
 # Stage 2 - the production environment
-FROM nginx:1.13.9-alpine
+FROM nginx:1.23.3
 
 EXPOSE 80
 
