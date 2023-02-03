@@ -25,6 +25,7 @@ module.exports = async function run() {
 
     await exec({ silent: true }, "ng", [
       "build",
+      "--base-href /rcs/",
       "--project",
       project,
       "--configuration",
