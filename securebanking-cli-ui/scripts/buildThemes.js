@@ -70,6 +70,7 @@ async function build(project, customer) {
   try {
     await exec({ silent: true }, "ng", [
       "build",
+      "--base-href /rcs/",
       "--project",
       project,
       "--configuration",

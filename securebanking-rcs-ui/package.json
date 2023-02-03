@@ -32,7 +32,7 @@
     "serve.rcs.dev": "ng serve rcs -c ui-dev",
     "serve.rcs.local": "ng serve rcs -c ui-local",
     "report.rcs": "npm run build.rcs.forgerock && webpack-bundle-analyzer dist/rcs/stats.json",
-    "build.rcs.forgerock": "ng build --project=rcs --prod --configuration=forgerock --output-path dist/forgerock --statsJson --extra-webpack-config webpack.extra.js",
+    "build.rcs.forgerock": "ng build --base-href /rcs/ --project=rcs --prod --configuration=forgerock --output-path dist/forgerock --statsJson --extra-webpack-config webpack.extra.js",
     "build.rcs.themes": "securebanking-cli-ui buildThemes --project rcs"
   },
   "private": true,
