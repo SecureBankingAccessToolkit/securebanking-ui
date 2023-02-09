@@ -3,7 +3,7 @@ module.exports = {
     head: [
       {
         id: 'title',
-        tag: '<title>Secure API gateway Resource Consent Service App</title>',
+        tag: '<title>Secure API Gateway Consent Service App</title>',
         order: 1
       },
       {
