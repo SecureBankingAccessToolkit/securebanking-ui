@@ -13,16 +13,6 @@ metadata:
   name: {{ .Chart.Name }}
 spec:
   rules:
-  - host: {{ .Values.rcsUI.subdomain }}.{{ .Values.ingress.domain }}
-    http:
-      paths:
-      - backend:
-          service:
-            name: {{ .Chart.Name }}-{{ .Values.rcsUI.subdomain }}
-            port:
-              number: 8080
-        path: /
-        pathType: Prefix
   - host: {{ .Values.swaggerUI.subdomain }}.{{ .Values.ingress.domain }}
     http:
       paths:
