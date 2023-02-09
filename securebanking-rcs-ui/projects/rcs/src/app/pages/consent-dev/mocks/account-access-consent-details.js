@@ -1,6 +1,6 @@
 module.exports = {
     "type": "AccountsConsentDetails",
-    "decisionApiUri": "/api/rcs/consent/decision/",
+    "decisionApiUri": "/rcs/api/consent/decision/",
     "username": "psu4test",
     "userId": "fc99f546-8507-428b-88f2-1d78860a0881",
     "logo": "https://forgerock.com",
