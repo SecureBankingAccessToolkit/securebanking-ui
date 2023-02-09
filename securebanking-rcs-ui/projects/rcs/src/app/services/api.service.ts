@@ -11,7 +11,7 @@ export class ApiService {
   }
 
   getConsentDetails(consentRequest: string) {
-    return this.http.post(`${this.configService.get('remoteConsentServer')}/api/rcs/consent/details/`, consentRequest, {
+    return this.http.post(`${this.configService.get('remoteConsentServer')}/rcs/api/consent/details/`, consentRequest, {
       withCredentials: true,
       headers: new HttpHeaders({
         'Content-Type': 'application/jwt'

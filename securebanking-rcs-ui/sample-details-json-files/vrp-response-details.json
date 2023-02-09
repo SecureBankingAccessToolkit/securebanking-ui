@@ -43,5 +43,5 @@
     }
   },
   "intentType": "DOMESTIC_VRP_PAYMENT_CONSENT",
-  "decisionAPIUri": "/api/rcs/consent/decision/"
+  "decisionAPIUri": "/rcs/api/consent/decision/"
 }
