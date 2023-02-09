@@ -3,14 +3,14 @@ module.exports = {
     head: [
       {
         id: 'title',
-        tag: '<title>Secure Banking Bank App</title>',
+        tag: '<title>Secure API Gateway Consent Service App</title>',
         order: 1
-      }
-      // {
-      //   id: 'description',
-      //   tag: '<meta name="description" content="">',
-      //   order: 2
-      // }
+      },
+      {
+        id: "base",
+        tag: '<base href="/rcs/ui/" />',
+        order: 2,
+      },
     ],
     body: {}
   }
