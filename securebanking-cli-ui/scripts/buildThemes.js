@@ -72,8 +72,6 @@ async function build(project, customer) {
       "build",
       "--project",
       project,
-      "--base-href",
-      "/rcs/ui/",
       "--configuration",
       customer,
       "--output-path",
