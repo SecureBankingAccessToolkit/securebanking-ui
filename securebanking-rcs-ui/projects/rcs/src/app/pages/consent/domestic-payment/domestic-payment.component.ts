@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormGroup, Validators, FormControl } from '@angular/forms';
+import _get from 'lodash-es/get';
 
 import { ApiResponses } from '../../../../../src/app/types/api';
 import { Item, ItemType, IConsentEventEmitter } from '../../../../../src/app/types/consentItem';
@@ -32,14 +33,16 @@ export class DomesticPaymentComponent implements OnInit {
       return;
     }
 
-    this.items.push({
-      type: ItemType.STRING,
-      payload: {
-        label: 'CONSENT.PAYMENT.PAYEE_NAME',
-        value: this.response.clientName,
-        cssClass: 'domestic-single-payment-merchantName'
-      }
-    });
+    if (_get(this.response.initiation, 'creditorAccount')) {
+      this.items.push({
+        type: ItemType.STRING,
+        payload: {
+          label: 'CONSENT.PAYMENT.PAYEE_NAME',
+          value: this.response.initiation.creditorAccount.name,
+          cssClass: 'domestic-single-payment-merchantName'
+        }
+      });
+    }
     this.items.push({
       type: ItemType.STRING,
       payload: {

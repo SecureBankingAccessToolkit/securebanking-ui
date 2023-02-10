@@ -7,6 +7,20 @@ module.exports = {
   "clientId": "63bce7d3-0c74-4188-9d24-88e3a69d3c80",
   "clientName": "TPP Test application",
   "serviceProviderName": "Forgerock Bank simulation config",
+  initiation: {
+    debtorAccount: {
+      schemeName: "UK.OBIE.SortCodeAccountNumber",
+      identification: "09090021325555",
+      name: "ACME Inc",
+      secondaryIdentification: "0002"
+    },
+    creditorAccount: {
+      schemeName: "UK.OBIE.SortCodeAccountNumber",
+      identification: "08080021325698",
+      name: "ACME Inc",
+      secondaryIdentification: "0002"
+    },
+  },
   "standingOrder": {
       "type": "FRWriteDomesticStandingOrderDataInitiation",
       "frequency": "Paid on the 25th March, 24th June, 29th September and 25th December.",

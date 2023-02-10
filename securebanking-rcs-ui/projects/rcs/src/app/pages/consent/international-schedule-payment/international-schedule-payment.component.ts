@@ -34,14 +34,16 @@ export class InternationalSchedulePaymentComponent implements OnInit {
       return;
     }
 
-    this.basicItems.push({
-      type: ItemType.STRING,
-      payload: {
-        label: 'CONSENT.PAYMENT.PAYEE_NAME',
-        value: this.response.clientName,
-        cssClass: 'international-schedule-payment-merchantName'
-      }
-    });
+    if (_get(this.response.initiation, 'creditorAccount')) {
+      this.basicItems.push({
+        type: ItemType.STRING,
+        payload: {
+          label: 'CONSENT.PAYMENT.PAYEE_NAME',
+          value: this.response.initiation.creditorAccount.name,
+          cssClass: 'international-schedule-payment-merchantName'
+        }
+      });
+    }
     this.basicItems.push({
       type: ItemType.STRING,
       payload: {
