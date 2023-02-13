@@ -8,21 +8,11 @@ module.exports = {
   clientName: "TPP Test application",
   serviceProviderName: "Forgerock Bank simulation config",
   initiation: {
-    debtorAccount: {
-      schemeName: "UK.OBIE.SortCodeAccountNumber",
-      identification: "09090021325555",
-      name: "ACME Inc",
-      secondaryIdentification: "0002"
-    },
     creditorAccount: {
       schemeName: "UK.OBIE.SortCodeAccountNumber",
       identification: "08080021325698",
       name: "ACME Inc",
       secondaryIdentification: "0002"
-    },
-    remittanceInformation: {
-      unstructured: "Internal ops code 5120101",
-      reference: "FRESCO-101"
     }
   },
   instructedAmount: {
