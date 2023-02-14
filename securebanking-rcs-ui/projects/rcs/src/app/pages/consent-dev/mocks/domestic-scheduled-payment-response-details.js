@@ -7,6 +7,14 @@ module.exports = {
   "clientId": "5d649549-bfea-4f23-b071-618fcb74e37f",
   "clientName": "TPP Test application",
   "serviceProviderName": "Forgerock Bank simulation config",
+  initiation: {
+    creditorAccount: {
+      schemeName: "UK.OBIE.SortCodeAccountNumber",
+      identification: "08080021325698",
+      name: "ACME Inc",
+      secondaryIdentification: "0002"
+    }
+  },
   "instructedAmount": {
     "amount": "10.01",
     "currency": "GBP"

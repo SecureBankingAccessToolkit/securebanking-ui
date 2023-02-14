@@ -35,14 +35,6 @@ export class FilePaymentComponent implements OnInit {
     this.items.push({
       type: ItemType.STRING,
       payload: {
-        label: 'CONSENT.PAYMENT.PAYEE_NAME',
-        value: this.response.clientName,
-        cssClass: 'file-payment-merchantName'
-      }
-    });
-    this.items.push({
-      type: ItemType.STRING,
-      payload: {
         label: 'CONSENT.PAYMENT.ACCOUNT',
         value: this.response.account,
         cssClass: 'file-payment-account'

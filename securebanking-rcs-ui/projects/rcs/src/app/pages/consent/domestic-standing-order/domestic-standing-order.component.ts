@@ -33,14 +33,16 @@ export class DomesticStandingOrderComponent implements OnInit {
       return;
     }
 
-    this.items.push({
-      type: ItemType.STRING,
-      payload: {
-        label: 'CONSENT.PAYMENT.PAYEE_NAME',
-        value: this.response.clientName,
-        cssClass: 'domestic-standing-order-merchantName'
-      }
-    });
+    if (_get(this.response.initiation, 'creditorAccount')) {
+      this.items.push({
+        type: ItemType.STRING,
+        payload: {
+          label: 'CONSENT.PAYMENT.PAYEE_NAME',
+          value: this.response.initiation.creditorAccount.name,
+          cssClass: 'domestic-standing-order-merchantName'
+        }
+      });
+    }
     this.items.push({
       type: ItemType.STRING,
       payload: {
