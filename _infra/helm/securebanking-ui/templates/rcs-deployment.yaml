@@ -33,8 +33,6 @@ spec:
             - name: http-server
               containerPort: {{ .Values.rcsUI.deployment.port }}
           env:
-            - name: DOMAIN
-              value: {{ .Values.ingress.domain }}
             - name: PORT
               value: {{ .Values.rcsUI.deployment.port | quote }}
             - name: TEMPLATE
