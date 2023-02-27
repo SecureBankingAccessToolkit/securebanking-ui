@@ -16,7 +16,8 @@ endif
 docker:
 # Check service to build
 ifndef service
-	$(error A service must be supplied, one of auth, swagger or rcs, Eg. make docker service=auth)
+	$(error No service supplied, rcs assumed, supply service with make docker service=rcs)
+	$(eval service=rcs)
 endif
 ifndef tag
 	$(warning No tag supplied, latest assumed. supply tag with make docker tag=x.x.x service=...)
@@ -46,8 +47,10 @@ endif
 # test target
 test:
 ifndef service
-	$(error A service must be supplied, one of auth, swagger or rcs, Eg. make docker service=auth)
+	$(error No service supplied, rcs assumed, supply service with make docker service=rcs)
+  $(eval service=rcs)
 endif
+
 	cd securebanking-${service}-ui && \
 	npm ci
 	npm run test
@@ -55,7 +58,9 @@ endif
 # version target (get the version from npm env var npm_package_version, match with the version from package.json)
 version:
 ifndef service
-	$(error A service must be supplied, one of auth, swagger or rcs, Eg. make docker service=auth)
+	$(error No service supplied, rcs assumed, supply service with make docker service=rcs)
+  $(eval service=rcs)
 endif
+
 	cd securebanking-${service}-ui && \
 	npm -s run env echo '$$npm_package_version'
