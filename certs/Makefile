@@ -48,7 +48,7 @@ KEYSTORE_CERTS="${FOLDER_CERTS}/keystore.jks"
 # HOSTNAME
 #
 HOSTNAME_RCS_UI=rcs-ui.${DOMAIN}
-HOSTNAME_SWAGGER_UI=swagger.${DOMAIN}
+HOSTNAME_RCS_UI=rcs-ui.${DOMAIN}
 HOSTNAME_LOCALHOST=localhost
 HOSTNAME_CERT_WILDCARD=wildcard.${DOMAIN}
 
@@ -92,7 +92,6 @@ create-keystore:
 
 create-certs:
 		$(eval SAN=dns:$(HOSTNAME_RCS_UI))
-		$(eval SAN=$(SAN),dns:$(HOSTNAME_SWAGGER_UI))
 		$(eval SAN=$(SAN),dns:$(HOSTNAME_LOCALHOST))
 
 		$(call generate_secure-banking-ui-certs,$(HOSTNAME_CERT_WILDCARD),$(DNAME_CERT_WILDCART),\

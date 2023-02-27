@@ -12,26 +12,26 @@
 
 > Scope @Securebanking that allows you to seamlessly use a mix of packages from the public npm registry and one or more private registries
 
-| Package                          | cli-ui   | common-ui        | rcs-ui        | swagger-ui    |
-|----------------------------------|----------|------------------|---------------|---------------|
-| @angular-devkit/architect        | 0.803.20 | 0.900.1          | 0.900.1       | 0.900.2       |
-| @angular-devkit/build-angular    | .        | 0.900.1          | 0.900.1       | 0.900.2       |
-| @angular-devkit/build-ng-packagr | .        | 0.900.1          | 0.900.1       | .             |
-| @angular-devkit/build-optimizer  | .        | 0.900.1          | 0.900.1       | 0.900.2       |
-| @angular-devkit/build-webpack    | .        | 0.900.1          | 0.900.1       | 0.900.2       |
-| @angular-devkit/core             | 8.3.20   | 9.0.1            | 8.0.0         | 8.0.0         |
-| @angular-devkit/schematics       | 8.3.20   | 9.0.1            | 8.0.0         | 8.0.0         |
-| @angular/cli                     | 8.3.20   | 9.0.1            | 9.0.1         | 9.0.1         |
-| @angular/flex-layout             | .        | 7.0.0-beta.19    | 7.0.0-beta.19 | 7.0.0-beta.19 |
-| @ngtools/webpack                 | .        | 9.0.1            | 9.0.1         | 9.0.1         |
-| @nguniversal/common              | .        | .                | 9.0.0         | 9.0.0         |
-| @nguniversal/express-engine      | .        | 7.1.1            | 9.0.0         | 9.0.0         |
-| @schematics/angular              | 8.3.20   | 9.0.1            | 8.0.0         | 8.0.0         |
-| @schematics/update               | 0.803.20 | 0.900.1          | 0.900.1       | 0.900.1       |
-| ng-packagr                       | .        | 9.0.0            | 9.0.0         | 9.0.0         |
-| rxjs                             | 6.4.0    | 6.3.3            | 6.5.4         | 6.5.4         |
-| typescript                       | .        | 3.7.5            | 3.7.5         | 3.7.5         |
-| webpack                          | .        | 4.41.2           | 4.41.2        | 4.41.2        |
+| Package                          | cli-ui   | common-ui        | rcs-ui        |
+|----------------------------------|----------|------------------|---------------|
+| @angular-devkit/architect        | 0.803.20 | 0.900.1          | 0.900.1       |
+| @angular-devkit/build-angular    | .        | 0.900.1          | 0.900.1       |
+| @angular-devkit/build-ng-packagr | .        | 0.900.1          | 0.900.1       |
+| @angular-devkit/build-optimizer  | .        | 0.900.1          | 0.900.1       |
+| @angular-devkit/build-webpack    | .        | 0.900.1          | 0.900.1       |
+| @angular-devkit/core             | 8.3.20   | 9.0.1            | 8.0.0         |
+| @angular-devkit/schematics       | 8.3.20   | 9.0.1            | 8.0.0         |
+| @angular/cli                     | 8.3.20   | 9.0.1            | 9.0.1         |
+| @angular/flex-layout             | .        | 7.0.0-beta.19    | 7.0.0-beta.19 |
+| @ngtools/webpack                 | .        | 9.0.1            | 9.0.1         |
+| @nguniversal/common              | .        | .                | 9.0.0         |
+| @nguniversal/express-engine      | .        | 7.1.1            | 9.0.0         |
+| @schematics/angular              | 8.3.20   | 9.0.1            | 8.0.0         |
+| @schematics/update               | 0.803.20 | 0.900.1          | 0.900.1       |
+| ng-packagr                       | .        | 9.0.0            | 9.0.0         |
+| rxjs                             | 6.4.0    | 6.3.3            | 6.5.4         |
+| typescript                       | .        | 3.7.5            | 3.7.5         |
+| webpack                          | .        | 4.41.2           | 4.41.2        |
 
 # securebanking-ui
 
@@ -52,12 +52,6 @@ Secure banking User interfaces
 - Bank simulation (Resource Consent Service)
 
 [securebanking-rcs-ui readme](securebanking-rcs-ui/README.md)
-
-### Secure Banking Swagger UI application
-
-- API documentation
-
-[securebanking-swagger-ui readme](securebanking-swagger-ui/README.md)
 
 ## Publish npm package manually
 

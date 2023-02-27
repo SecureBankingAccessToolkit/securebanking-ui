@@ -54,7 +54,7 @@
     "component-selector": [
       true,
       "element",
-      ["app", "forgerock", "analytics", "register", "swagger", "auth", "bank", "tpp"],
+      ["app", "forgerock", "analytics", "register", "auth", "bank", "tpp"],
       "kebab-case"
     ],
     "directive-class-suffix": true
