@@ -1,0 +1,12 @@
+{
+<<<<<<<< Updated upstream:secure-api-gateway-ob-uk-ui-common/projects/authentication/package.json
+  "name": "@secureapigateway/secure-api-gateway-ob-uk-ui-common/authentication",
+========
+  "name": "@secureapigateway/secure-api-gateway-ob-uk-ui-common/oidc",
+>>>>>>>> Stashed changes:secure-api-gateway-ob-uk-ui-common/projects/oidc/package.json
+  "version": "0.0.1",
+  "peerDependencies": {
+    "@angular/common": "^8.0.0",
+    "@angular/core": "^8.0.0"
+  }
+}

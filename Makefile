@@ -30,7 +30,7 @@ else
 	$(info The service=${service} image WILL NOT BE PUSHED to repository eu.gcr.io/${gcr-repo}/securebanking/ui/${service}:${tag})
 endif
 # build section
-	cd securebanking-${service}-ui && \
+	cd secure-api-gateway-ob-uk-ui-${service} && \
 	docker build -t eu.gcr.io/${gcr-repo}/securebanking/ui/${service}:${tag} -f projects/${service}/docker/Dockerfile .
 # push section with condition (default true)
 ifeq ($(shouldBePushed), true)
