@@ -50,13 +50,13 @@ jobs:
 
       - name: lint
         run: |
-          cd securebanking-rcs-ui
+          cd secure-api-gateway-ob-uk-ui-rcs
           npm ci
           npm run lint
 
       - name: test
         run: |
-          cd securebanking-rcs-ui
+          cd secure-api-gateway-ob-uk-ui-rcs
           npm run test
       # https://github.com/google-github-actions/setup-gcloud#authorization
       - uses: google-github-actions/auth@v0
