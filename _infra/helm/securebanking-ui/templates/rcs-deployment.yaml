@@ -1,9 +1,9 @@
 apiVersion: {{ .Values.apiVersion.deployment }}
 kind: Deployment
 metadata:
-  name: {{ .Chart.Name }}-{{ .Values.rcsUI.subdomain }}
+  name: {{ .Chart.Name }}
   labels:
-    app: {{ .Chart.Name }}-{{ .Values.rcsUI.subdomain }}
+    app: {{ .Chart.Name }}
 spec:
   replicas: {{ .Values.rcsUI.deployment.replicas }}
   strategy:
