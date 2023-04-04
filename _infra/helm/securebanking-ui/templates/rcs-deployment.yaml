@@ -40,12 +40,12 @@ spec:
             - name: IDENTITY_PLATFORM_FQDN
               valueFrom:
                 configMapKeyRef:
-                  name: securebanking-platform-config
+                  name: deployment-config
                   key: IDENTITY_PLATFORM_FQDN
             - name: IG_FQDN
               valueFrom:
                 configMapKeyRef:
-                  name: securebanking-platform-config
+                  name: deployment-config
                   key: IG_FQDN
           resources:
             {{- toYaml .Values.rcsUI.deployment.resources | nindent 12 }}
