@@ -1,4 +1,26 @@
+# Remote Consent Service UIs
+
+This project provides the consent UIs for the UK Open Banking edition of the [Secure API Gateway](https://github.com/SecureAPIGateway) project.
+The UK Open Banking specifications require that the resource owner (the bank account holder) must give consent
+for the resource server (the bank) to share their date with the third party service provider (e.g. the fintec application).
+These UIs are based on the [Open Banking Customer Experience Guidelines](https://standards.openbanking.org.uk/customer-experience-guidelines/latest/)
+and may be used in conjunction with the [Open Banking Test Facility Bank](https://github.com/SecureApiGateway/secure-api-gateway-ob-uk-rs)
+and the [Open Banking Remote Consent Service](https://github.com/SecureApiGateway/secure-api-gateway-ob-uk-rcs)
+to provide a full set of Open Banking compliant consent journeys.
+
+## Warning
+
+**These UIs are currently functional, but they rely on old versions of 3rd party libraries.
+They are provided as is for use with test facilities in which there is no sensitive data stored, or as a basis for writing your own UIs.
+Those wishing to use the Secure API Gateway to protect a production Open Banking system should write their own consent UIs
+or use the existing consent management system already in place at your organisation.**
+
+The UIs maybe updated at some point depending on interest from the community and how important users feel this is. 
+
+Dependabot security alerts may be seen for the project [here](https://github.com/SecureApiGateway/secure-api-gateway-ob-uk-ui/security/dependabot).
+
 # Tools
+
 - https://github.com/nvm-sh/nvm (.nvmrc) Node Version Manager
 
 # Stack tech versions
@@ -41,7 +63,7 @@ Secure API Gateway User interfaces
 
 ### Secure API Gateway cli UI package
 
-[secure-api-gateway-ob-uk-ui-cli readme]secure-api-gateway-ob-uk-ui-cli/README.md)
+[secure-api-gateway-ob-uk-ui-cli readme](secure-api-gateway-ob-uk-ui-cli/README.md)
 
 ### Secure API Gateway common UI package
 
@@ -61,7 +83,8 @@ Secure API Gateway User interfaces
 
 ## Publish npm package manually
 
-The npm securebanking packages are published in the private forgerock repository, you will need the proper settings per-user config to publish a npm package.
+The npm securebanking packages are published in the private forgerock repository,
+you will need the proper settings per-user config to publish a npm package.
 
 > log on in https://maven.forgerock.org/ to get from your profile the `encrypted password` (base64password)
 
@@ -91,15 +114,17 @@ We need publish only those packages that we need use like as dependencies in oth
   npm ci
   npm publish
   ```
-  > check the published package: [Forgerock npm](https://maven.forgerock.org/repo/webapp/#/artifacts/browse/tree/General/npm-local/@secureapigateway/secure-api-gateway-ob-uk-ui-cli/-/@secureapigateway)
-- `secure-api-gateway-ob-uk-ui-common`:first change the version in package.json
+  > check the published package:
+  [Forgerock npm](https://maven.forgerock.org/repo/webapp/#/artifacts/browse/tree/General/npm-local/@secureapigateway/secure-api-gateway-ob-uk-ui-cli/-/@secureapigateway)
+- `secure-api-gateway-ob-uk-ui-common`: first change the version in package.json
   ```shell
   cd secure-api-gateway-ob-uk-ui-common
   npm ci
   npm build
   npm publish ./dist
   ```
-  > check the published package: [Forgerock npm](https://maven.forgerock.org/repo/webapp/#/artifacts/browse/tree/General/npm-local/@secureapigateway/secure-api-gateway-ob-uk-ui-common/-/@secureapigateway)
+  > check the published package:
+  [Forgerock npm](https://maven.forgerock.org/repo/webapp/#/artifacts/browse/tree/General/npm-local/@secureapigateway/secure-api-gateway-ob-uk-ui-common/-/@secureapigateway)
 
 ## Troubleshooting 
 
