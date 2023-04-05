@@ -10,7 +10,6 @@ deployment:
       server: localhost
 
 rcsUI:
-  subdomain: rcs-ui
   deployment:
     port: 80
     replicas: 1

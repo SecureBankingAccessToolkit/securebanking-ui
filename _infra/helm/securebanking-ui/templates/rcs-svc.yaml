@@ -1,7 +1,7 @@
 apiVersion: {{ .Values.apiVersion.service }}
 kind: Service
 metadata:
-  name: {{ .Chart.Name }}-{{ .Values.rcsUI.subdomain }}
+  name: {{ .Chart.Name }}
 spec:
   type: ClusterIP
   ports:
@@ -9,4 +9,4 @@ spec:
     targetPort: {{ .Values.rcsUI.deployment.port }}
     protocol: TCP
   selector:
-    app: {{ .Chart.Name }}-{{ .Values.rcsUI.subdomain }}
+    app: {{ .Chart.Name }}
