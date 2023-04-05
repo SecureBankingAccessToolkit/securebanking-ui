@@ -44,7 +44,7 @@ jobs:
       - name: 'Deploy Service'
         uses: codefresh-io/codefresh-pipeline-runner@master
         with:
-          args: '-v SERVICE_NAME=remote-consent-ui-sapig'
+          args: '-v SERVICE_NAME=remote-consent-ui'
         env:
           PIPELINE_NAME: 'ForgeCloud/sbat-infra/service-build'
           CF_API_KEY: ${{ secrets.CF_API_KEY }}
