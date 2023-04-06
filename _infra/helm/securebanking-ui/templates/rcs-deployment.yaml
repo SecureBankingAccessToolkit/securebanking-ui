@@ -13,16 +13,16 @@ spec:
     type: RollingUpdate
   selector:
     matchLabels:
-      app: {{ .Chart.Name }}-{{ .Values.rcsUI.subdomain }}
+      app: {{ .Chart.Name }}
   template:
     metadata:
       labels:
-        app: {{ .Chart.Name }}-{{ .Values.rcsUI.subdomain }}
+        app: {{ .Chart.Name }}
         appVersion: {{ .Chart.AppVersion }}
         helmVersion: {{ .Chart.Version }}
     spec:
       containers:
-        - name: {{ .Chart.Name }}-{{ .Values.rcsUI.subdomain }}
+        - name: {{ .Chart.Name }}
           {{- if .Values.rcsUI.deployment.imageOverride.enabled }}
           image: "{{ .Values.rcsUI.deployment.imageOverride.repo }}:{{ .Values.rcsUI.deployment.imageOverride.tag }}"
           {{- else }}
