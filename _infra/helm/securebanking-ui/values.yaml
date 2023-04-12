@@ -1,34 +1,16 @@
 deployment:
-  urls:
-    ig:
-      server: localhost
-    authorization:
-      server: localhost
-    rcs:
-      server: localhost
-    rs:
-      server: localhost
+  apiVersion: apps/v1
+  image:
+    # repo: 
+    # tag:
+    pullPolicy: Always
+  port: 80
+  replicas: 1
+  resources: {}
+  rollingUpdate:
+    maxSurge: 50%
+    maxUnavailable: 25%
+  templateName: forgerock
 
-rcsUI:
-  deployment:
-    port: 80
-    replicas: 1
-
-    templateName: forgerock
-
-    rollingUpdate:
-      maxSurge: 50%
-      maxUnavailable: 25%
-
-    imagePullPolicy: Always
-
-    imageOverride:
-      enabled: true
-      repo: eu.gcr.io/sbat-gcr-develop/securebanking/ui/rcs
-      tag: latest
-
-    resources: {}
-
-apiVersion:
-  service: v1
-  deployment: apps/v1
+service:
+  apiVersion: v1

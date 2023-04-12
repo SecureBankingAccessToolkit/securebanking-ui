@@ -1,0 +1,47 @@
+apiVersion: {{ .Values.deployment.apiVersion }}
+kind: Deployment
+metadata:
+  name: {{ .Chart.Name }}
+  labels:
+    app: {{ .Chart.Name }}
+spec:
+  replicas: {{ .Values.deployment.replicas }}
+  strategy:
+    rollingUpdate:
+      maxSurge: {{ .Values.deployment.rollingUpdate.maxSurge }}
+      maxUnavailable: {{ .Values.deployment.rollingUpdate.maxUnavailable }}
+    type: RollingUpdate
+  selector:
+    matchLabels:
+      app: {{ .Chart.Name }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Chart.Name }}
+        appVersion: {{ .Chart.AppVersion }}
+        helmVersion: {{ .Chart.Version }}
+    spec:
+      containers:
+        - name: {{ .Chart.Name }}
+          image: "{{ .Values.deployment.image.repo }}:{{ default .Chart.AppVersion .Values.deployment.image.tag }}"
+          imagePullPolicy: {{ .Values.deployment.image.pullPolicy }}
+          ports:
+            - name: http-server
+              containerPort: {{ .Values.deployment.port }}
+          env:
+            - name: PORT
+              value: {{ .Values.deployment.port | quote }}
+            - name: TEMPLATE
+              value: {{ .Values.deployment.templateName }}
+            - name: IDENTITY_PLATFORM_FQDN
+              valueFrom:
+                configMapKeyRef:
+                  name: deployment-config
+                  key: IDENTITY_PLATFORM_FQDN
+            - name: IG_FQDN
+              valueFrom:
+                configMapKeyRef:
+                  name: deployment-config
+                  key: IG_FQDN
+          resources:
+            {{- toYaml .Values.deployment.resources | nindent 12 }}
