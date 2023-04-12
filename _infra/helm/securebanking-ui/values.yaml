@@ -10,7 +10,9 @@ deployment:
   rollingUpdate:
     maxSurge: 50%
     maxUnavailable: 25%
+  strategyType: RollingUpdate
   templateName: forgerock
 
 service:
+  port: 80
   apiVersion: v1

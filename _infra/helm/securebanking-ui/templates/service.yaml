@@ -6,7 +6,7 @@ spec:
   type: ClusterIP
   ports:
   - port: 8080
-    targetPort: {{ .Values.deployment.port }}
+    targetPort: {{ .Values.service.port }}
     protocol: TCP
   selector:
     app: {{ .Chart.Name }}

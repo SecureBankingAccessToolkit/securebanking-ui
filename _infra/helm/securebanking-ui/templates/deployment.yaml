@@ -7,10 +7,12 @@ metadata:
 spec:
   replicas: {{ .Values.deployment.replicas }}
   strategy:
+    type: {{ .Values.deployment.strategyType}}
+    {{ if .Values.deployment.strategyType "RollingUpdate" }}
     rollingUpdate:
       maxSurge: {{ .Values.deployment.rollingUpdate.maxSurge }}
       maxUnavailable: {{ .Values.deployment.rollingUpdate.maxUnavailable }}
-    type: RollingUpdate
+    {{ end }}
   selector:
     matchLabels:
       app: {{ .Chart.Name }}
