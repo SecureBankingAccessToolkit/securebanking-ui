@@ -6,7 +6,13 @@ deployment:
     # tag:
     imagePullPolicy: Always
   replicas: 1
-  resources: {}
+  resources:
+    requests:
+      cpu: 0.5
+      memory: 512Mi
+    limits:
+      cpu: 0.5
+      memory: 512Mi
   rollingUpdate:
     maxSurge: 50%
     maxUnavailable: 25%
