@@ -1,10 +1,10 @@
 deployment:
   apiVersion: apps/v1
+  containerPort: 8080
   image:
     # repo: 
     # tag:
-    pullPolicy: Always
-  port: 80
+    imagePullPolicy: Always
   replicas: 1
   resources: {}
   rollingUpdate:
@@ -16,4 +16,6 @@ deployment:
 service:
   apiVersion: v1
   port: 8080
+  protocol: TCP
   targetPort: 80
+  type: ClusterIP

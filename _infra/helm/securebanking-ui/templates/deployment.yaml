@@ -26,13 +26,13 @@ spec:
       containers:
         - name: {{ .Chart.Name }}
           image: "{{ .Values.deployment.image.repo }}:{{ default .Chart.AppVersion .Values.deployment.image.tag }}"
-          imagePullPolicy: {{ .Values.deployment.image.pullPolicy }}
+          imagePullPolicy: {{ .Values.deployment.image.imagePullPolicy }}
           ports:
             - name: http-server
-              containerPort: {{ .Values.deployment.port }}
+              containerPort: {{ .Values.deployment.containerPort }}
           env:
             - name: PORT
-              value: {{ .Values.deployment.port | quote }}
+              value: {{ .Values.deployment.containerPort | quote }}
             - name: TEMPLATE
               value: {{ .Values.deployment.templateName }}
             - name: IDENTITY_PLATFORM_FQDN
