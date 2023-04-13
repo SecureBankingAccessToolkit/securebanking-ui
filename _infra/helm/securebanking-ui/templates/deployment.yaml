@@ -8,7 +8,7 @@ spec:
   replicas: {{ .Values.deployment.replicas }}
   strategy:
     type: {{ .Values.deployment.strategyType}}
-    {{ if .Values.deployment.strategyType "RollingUpdate" }}
+    {{ if eq .Values.deployment.strategyType "RollingUpdate" }}
     rollingUpdate:
       maxSurge: {{ .Values.deployment.rollingUpdate.maxSurge }}
       maxUnavailable: {{ .Values.deployment.rollingUpdate.maxUnavailable }}
