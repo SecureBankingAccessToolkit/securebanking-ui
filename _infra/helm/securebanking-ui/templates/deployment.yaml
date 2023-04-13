@@ -1,3 +1,4 @@
+---
 apiVersion: {{ .Values.deployment.apiVersion }}
 kind: Deployment
 metadata:
