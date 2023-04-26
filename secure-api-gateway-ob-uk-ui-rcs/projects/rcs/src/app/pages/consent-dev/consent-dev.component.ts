@@ -9,6 +9,15 @@ import mock6 from './mocks/international-payment-consent-details';
 import mock7 from './mocks/international-scheduled-payment-consent-details';
 import mock8 from './mocks/international-standing-order-consent-details';
 import mock9 from './mocks/file-payment-consent-details';
+// debtor account mocks
+import mock30 from './mocks/debtorAccountProvided/vrp-payment-consent-details';
+import mock31 from './mocks/debtorAccountProvided/domestic-payment-consent-details';
+import mock32 from './mocks/debtorAccountProvided/domestic-scheduled-payment-response-details';
+import mock33 from './mocks/debtorAccountProvided/domestic-standing-order-response-details';
+import mock34 from './mocks/debtorAccountProvided/international-payment-consent-details';
+import mock35 from './mocks/debtorAccountProvided/international-scheduled-payment-consent-details';
+import mock36 from './mocks/debtorAccountProvided/international-standing-order-consent-details';
+import mock37 from './mocks/debtorAccountProvided/file-payment-consent-details';
 
 import { IConsentEventEmitter } from '../../types/consentItem';
 
@@ -21,6 +30,7 @@ import { IConsentEventEmitter } from '../../types/consentItem';
 export class ConsentDevComponent implements OnInit {
   loading = false;
   mocks: any[] = [mock1, mock2, mock3, mock4, mock5, mock6, mock7, mock8, mock9];
+  mocksDebtorAccount: any[] = [mock30,mock31,mock32,mock33,mock34,mock35,mock36,mock37];
   constructor(private cdr: ChangeDetectorRef) {}
 
   ngOnInit() {}

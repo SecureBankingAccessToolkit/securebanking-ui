@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import _get from 'lodash-es/get';
 
 import { ApiResponses } from '../../../../../src/app/types/api';
 import { Item, ItemType, IConsentEventEmitter } from '../../../../../src/app/types/consentItem';
@@ -26,10 +27,35 @@ export class SinglePaymentComponent implements OnInit {
   }
   @Output() formSubmit = new EventEmitter<IConsentEventEmitter>();
   items: Item[] = [];
+  payerItems: Item[] = [];
 
   ngOnInit() {
     if (!this.response) {
       return;
+    }
+
+    if (_get(this.response.initiation, 'debtorAccount')) {
+      // remove form control to enable it when not need select an account
+      this.form.removeControl('selectedAccount');
+      if (_get(this.response.initiation, 'debtorAccount.name')) {
+        this.payerItems.push({
+          type: ItemType.STRING,
+          payload: {
+            label: 'CONSENT.PAYMENT.NAME',
+            value: this.response.initiation.debtorAccount.name,
+            cssClass: 'domestic-single-payment-debtorAccount-Name'
+          }
+        });
+      }
+      this.payerItems.push({
+        type: ItemType.VRP_ACCOUNT_NUMBER,
+        payload: {
+          sortCodeLabel: 'CONSENT.PAYMENT.ACCOUNT_SORT_CODE',
+          accountNumberLabel: 'CONSENT.PAYMENT.ACCOUNT_NUMBER',
+          account: this.response.initiation.debtorAccount,
+          cssClass: 'domestic-single-payment-payer-account'
+        }
+      });
     }
 
     this.items.push({
@@ -69,7 +95,7 @@ export class SinglePaymentComponent implements OnInit {
   submit(allowing = false) {
     this.formSubmit.emit({
       decision: allowing ? ConsentDecision.AUTHORISED : ConsentDecision.REJECTED,
-      debtorAccount: this.form.value.selectedAccount
+      debtorAccount: this.response.initiation.debtorAccount ? this.response.accounts[0].account : this.form.value.selectedAccount
     });
   }
 }

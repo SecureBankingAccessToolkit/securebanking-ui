@@ -89,7 +89,7 @@ describe('app:bank FundsConfirmationComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(FundsConfirmationComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
+
   });
 
   it('should create', () => {
@@ -100,7 +100,7 @@ describe('app:bank FundsConfirmationComponent', () => {
     spyOn(component.formSubmit, 'emit');
 
     component.submit();
-    fixture.detectChanges();
+
 
     expect(component.formSubmit.emit).toHaveBeenCalledWith({
       decision: ConsentDecision.REJECTED,
@@ -115,7 +115,7 @@ describe('app:bank FundsConfirmationComponent', () => {
     component.response = responseObject
 
     component.submit(false);
-    fixture.detectChanges();
+
 
     expect(component.formSubmit.emit).toHaveBeenCalledWith({
       decision: ConsentDecision.REJECTED,
@@ -130,7 +130,7 @@ describe('app:bank FundsConfirmationComponent', () => {
     component.response = responseObject
 
     component.submit(true);
-    fixture.detectChanges();
+
 
     expect(component.formSubmit.emit).toHaveBeenCalledWith({
       decision: ConsentDecision.AUTHORISED,

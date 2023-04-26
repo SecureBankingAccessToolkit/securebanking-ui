@@ -43,7 +43,20 @@ describe('app:bank InternationalStandingOrderComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(InternationalStandingOrderComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
+    component.response = {
+      account: undefined,
+      accounts: [],
+      clientId: "",
+      clientName: "",
+      decisionApiUri: "",
+      initiation: {},
+      intentType: undefined,
+      logo: "",
+      redirectUri: "",
+      serviceProviderName: "",
+      username: ""
+    };
+
   });
 
   it('should create', () => {
@@ -54,7 +67,7 @@ describe('app:bank InternationalStandingOrderComponent', () => {
     spyOn(component.formSubmit, 'emit');
 
     component.submit();
-    fixture.detectChanges();
+
 
     expect(component.formSubmit.emit).toHaveBeenCalledWith({
       decision: ConsentDecision.REJECTED,
@@ -80,7 +93,7 @@ describe('app:bank InternationalStandingOrderComponent', () => {
     component.form.controls['selectedAccount'].setValue(debtorAccount);
 
     component.submit(false);
-    fixture.detectChanges();
+
 
     expect(component.formSubmit.emit).toHaveBeenCalledWith({
       decision: ConsentDecision.REJECTED,
@@ -106,7 +119,7 @@ describe('app:bank InternationalStandingOrderComponent', () => {
     component.form.controls['selectedAccount'].setValue(debtorAccount);
 
     component.submit(true);
-    fixture.detectChanges();
+
 
     expect(component.formSubmit.emit).toHaveBeenCalledWith({
       decision: ConsentDecision.AUTHORISED,

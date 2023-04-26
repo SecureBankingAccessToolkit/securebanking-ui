@@ -13,10 +13,10 @@
     <app-consent-box [items]="payeeItems"></app-consent-box>
     <span [translate]="'CONSENT.VRP-PAYMENT.PAYMENT_RULES'"></span>
     <app-consent-box [items]="paymentRulesItems"></app-consent-box>
-    <span *ngIf="isDebtorAccount" [translate]="'CONSENT.VRP-PAYMENT.FROM'"></span>
-    <app-consent-box *ngIf="isDebtorAccount" [items]="payerItems"></app-consent-box>
+    <span *ngIf="response.initiation.debtorAccount" [translate]="'CONSENT.VRP-PAYMENT.FROM'"></span>
+    <app-consent-box *ngIf="response.initiation.debtorAccount" [items]="payerItems"></app-consent-box>
 
-    <app-account-selection *ngIf="!isDebtorAccount"
+    <app-account-selection *ngIf="!response.initiation.debtorAccount"
       [form]="form"
       [accounts]="response.accounts"
       [label]="'CONSENT.PAYMENT.SELECT_ACCOUNT'"

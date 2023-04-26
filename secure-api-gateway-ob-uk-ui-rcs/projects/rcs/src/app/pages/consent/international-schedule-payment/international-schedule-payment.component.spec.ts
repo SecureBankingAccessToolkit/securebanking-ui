@@ -43,7 +43,19 @@ describe('app:bank InternationalSchedulePaymentComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(InternationalSchedulePaymentComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
+    component.response = {
+      account: undefined,
+      accounts: [],
+      clientId: "",
+      clientName: "",
+      decisionApiUri: "",
+      initiation: {},
+      intentType: undefined,
+      logo: "",
+      redirectUri: "",
+      serviceProviderName: "",
+      username: ""
+    };
   });
 
   it('should create', () => {
@@ -54,7 +66,7 @@ describe('app:bank InternationalSchedulePaymentComponent', () => {
     spyOn(component.formSubmit, 'emit');
 
     component.submit();
-    fixture.detectChanges();
+
 
     expect(component.formSubmit.emit).toHaveBeenCalledWith({
       decision: ConsentDecision.REJECTED,
@@ -80,7 +92,7 @@ describe('app:bank InternationalSchedulePaymentComponent', () => {
     component.form.controls['selectedAccount'].setValue(debtorAccount);
 
     component.submit(false);
-    fixture.detectChanges();
+
 
     expect(component.formSubmit.emit).toHaveBeenCalledWith({
       decision: ConsentDecision.REJECTED,
@@ -106,7 +118,6 @@ describe('app:bank InternationalSchedulePaymentComponent', () => {
     component.form.controls['selectedAccount'].setValue(debtorAccount);
 
     component.submit(true);
-    fixture.detectChanges();
 
     expect(component.formSubmit.emit).toHaveBeenCalledWith({
       decision: ConsentDecision.AUTHORISED,

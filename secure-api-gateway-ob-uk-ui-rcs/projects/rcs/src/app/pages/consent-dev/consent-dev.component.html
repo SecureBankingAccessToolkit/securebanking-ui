@@ -1,4 +1,18 @@
-<div *ngFor="let mock of mocks">
-  <h1>{{ mock.type }}</h1>
-  <app-consent-dynamic [response]="mock" [loading]="loading" (formSubmit)="onFormSubmit($event)"></app-consent-dynamic>
+<div class="consent-box">
+  <div>
+    <h1>Consents (no debtor Account provided)</h1>
+    <div *ngFor="let mock of mocks">
+      <h2>{{ mock.type }}</h2>
+      <app-consent-dynamic [response]="mock" [loading]="loading"
+                           (formSubmit)="onFormSubmit($event)"></app-consent-dynamic>
+    </div>
+  </div>
+  <div>
+    <h1>Consents (with debtor account provided)</h1>
+    <div *ngFor="let mockDebtorAccount of mocksDebtorAccount">
+      <h2>{{ mockDebtorAccount.type }}</h2>
+      <app-consent-dynamic [response]="mockDebtorAccount" [loading]="loading"
+                           (formSubmit)="onFormSubmit($event)"></app-consent-dynamic>
+    </div>
+  </div>
 </div>

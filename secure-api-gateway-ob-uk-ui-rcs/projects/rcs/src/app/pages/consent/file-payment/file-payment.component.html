@@ -11,7 +11,10 @@
 
     <app-consent-box [items]="items"></app-consent-box>
 
-    <app-account-selection
+    <span *ngIf="response.filePayment.debtorAccount" [translate]="'CONSENT.PAYMENT.ACCOUNT_PRE_SELECTED'"></span>
+    <app-consent-box *ngIf="response.filePayment.debtorAccount" [items]="payerItems"></app-consent-box>
+
+    <app-account-selection *ngIf="!response.filePayment.debtorAccount"
       [form]="form"
       [accounts]="response.accounts"
       [label]="'CONSENT.PAYMENT.SELECT_ACCOUNT'"

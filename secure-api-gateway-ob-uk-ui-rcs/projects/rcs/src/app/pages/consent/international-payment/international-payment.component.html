@@ -17,8 +17,10 @@
     <div class="title">{{ 'CONSENT.INTERNATIONAL-PAYMENT.REFRESH_RATE_INFO' | translate }}</div>
 
     <app-consent-box [items]="rateItems"></app-consent-box>
+    <span *ngIf="response.initiation.debtorAccount" [translate]="'CONSENT.PAYMENT.ACCOUNT_PRE_SELECTED'"></span>
+    <app-consent-box *ngIf="response.initiation.debtorAccount" [items]="payerItems"></app-consent-box>
 
-    <app-account-selection
+    <app-account-selection *ngIf="!response.initiation.debtorAccount"
       [form]="form"
       [accounts]="response.accounts"
       [label]="'CONSENT.PAYMENT.SELECT_ACCOUNT'"

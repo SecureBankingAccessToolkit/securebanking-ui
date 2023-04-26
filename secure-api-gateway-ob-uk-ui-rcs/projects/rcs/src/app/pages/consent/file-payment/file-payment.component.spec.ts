@@ -43,7 +43,26 @@ describe('app:bank FilePaymentComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(FilePaymentComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
+    component.response = {
+      initiation: {},
+      account: undefined,
+      accounts: [],
+      clientId: "",
+      clientName: "",
+      decisionApiUri: "",
+      filePayment: {
+        fileReference: "XmlExample",
+        numberOfTransactions: "3",
+        controlSum: 11500000,
+        requestedExecutionDateTime: "2023-09-27T13:03:06.000Z"
+      },
+      intentType: undefined,
+      logo: "",
+      redirectUri: "",
+      serviceProviderName: "",
+      username: ""
+    };
+
   });
 
   it('should create', () => {
@@ -54,7 +73,7 @@ describe('app:bank FilePaymentComponent', () => {
     spyOn(component.formSubmit, 'emit');
 
     component.submit();
-    fixture.detectChanges();
+
 
     expect(component.formSubmit.emit).toHaveBeenCalledWith({
       decision: ConsentDecision.REJECTED,
@@ -80,7 +99,7 @@ describe('app:bank FilePaymentComponent', () => {
     component.form.controls['selectedAccount'].setValue(debtorAccount);
 
     component.submit(false);
-    fixture.detectChanges();
+
 
     expect(component.formSubmit.emit).toHaveBeenCalledWith({
       decision: ConsentDecision.REJECTED,
@@ -106,7 +125,7 @@ describe('app:bank FilePaymentComponent', () => {
     component.form.controls['selectedAccount'].setValue(debtorAccount);
 
     component.submit(true);
-    fixture.detectChanges();
+
 
     expect(component.formSubmit.emit).toHaveBeenCalledWith({
       decision: ConsentDecision.AUTHORISED,
