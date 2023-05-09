@@ -43,7 +43,19 @@ describe('app:bank DomesticSchedulePaymentComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(DomesticSchedulePaymentComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
+    component.response = {
+      account: undefined,
+      accounts: [],
+      clientId: "",
+      clientName: "",
+      decisionApiUri: "",
+      initiation: {},
+      intentType: undefined,
+      logo: "",
+      redirectUri: "",
+      serviceProviderName: "",
+      username: ""
+    };
   });
 
   it('should create', () => {
@@ -54,7 +66,6 @@ describe('app:bank DomesticSchedulePaymentComponent', () => {
     spyOn(component.formSubmit, 'emit');
 
     component.submit();
-    fixture.detectChanges();
 
     expect(component.formSubmit.emit).toHaveBeenCalledWith({
       decision: ConsentDecision.REJECTED,
@@ -80,7 +91,6 @@ describe('app:bank DomesticSchedulePaymentComponent', () => {
     component.form.controls['selectedAccount'].setValue(debtorAccount);
 
     component.submit(false);
-    fixture.detectChanges();
 
     expect(component.formSubmit.emit).toHaveBeenCalledWith({
       decision: ConsentDecision.REJECTED,
@@ -106,7 +116,6 @@ describe('app:bank DomesticSchedulePaymentComponent', () => {
     component.form.controls['selectedAccount'].setValue(debtorAccount);
 
     component.submit(true);
-    fixture.detectChanges();
 
     expect(component.formSubmit.emit).toHaveBeenCalledWith({
       decision: ConsentDecision.AUTHORISED,

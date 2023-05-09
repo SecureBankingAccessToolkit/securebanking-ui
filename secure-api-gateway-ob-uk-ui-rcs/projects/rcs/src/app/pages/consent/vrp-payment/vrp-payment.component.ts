@@ -32,7 +32,6 @@ export class VrpPaymentComponent implements OnInit {
   payerItems: Item[] = [];
   payeeItems: Item[] = [];
   paymentRulesItems: Item[] = [];
-  isDebtorAccount = false;
 
   ngOnInit() {
     console.log("vrp payment component")
@@ -41,7 +40,6 @@ export class VrpPaymentComponent implements OnInit {
     }
     // PAYER ITEMS
     if (_get(this.response.initiation, 'debtorAccount')) {
-      this.isDebtorAccount = true;
       // remove form control to enable it when not need select an account
       this.form.removeControl('selectedAccount');
       if (_get(this.response.initiation, 'debtorAccount.name')) {
@@ -164,7 +162,7 @@ export class VrpPaymentComponent implements OnInit {
   submit(allowing = false) {
     this.formSubmit.emit({
       decision: allowing ? ConsentDecision.AUTHORISED : ConsentDecision.REJECTED,
-      debtorAccount: this.isDebtorAccount ? this.response.accounts[0].account : this.form.value.selectedAccount
+      debtorAccount: this.response.initiation.debtorAccount ? this.response.accounts[0].account : this.form.value.selectedAccount
     });
   }
 

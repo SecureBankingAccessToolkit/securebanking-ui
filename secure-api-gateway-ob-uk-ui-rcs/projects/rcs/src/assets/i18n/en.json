@@ -42,7 +42,10 @@
       "CURRENCY": "Currency",
       "CURRENCY_FROM": "From currency",
       "CURRENCY_TO": "To currency",
-      "CHARGES": "Charges"
+      "CHARGES": "Charges",
+      "NAME": "Name",
+      "ACCOUNT_NUMBER": "Account Number",
+      "ACCOUNT_SORT_CODE": "Sort Code"
     },
     "VRP-PAYMENT": {
       "TITLE": "Variable Recurring Payment",

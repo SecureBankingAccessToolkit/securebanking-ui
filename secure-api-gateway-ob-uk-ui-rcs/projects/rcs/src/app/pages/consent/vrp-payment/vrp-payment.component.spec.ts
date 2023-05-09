@@ -43,7 +43,6 @@ describe('VrpPaymentComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(VrpPaymentComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
   });
 
   it('should create', () => {

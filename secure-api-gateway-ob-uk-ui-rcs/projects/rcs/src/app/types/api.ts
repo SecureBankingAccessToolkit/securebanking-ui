@@ -27,7 +27,7 @@ export module ApiResponses {
     fromTransaction?: string;
     toTransaction?: string;
     account: OBAccount2;
-    initiation: Initiation; // VRP payment
+    initiation: Initiation;
     controlParameters?: ControlParameters; // vrp payment
     standingOrder?: {
       frequency: string;
@@ -50,6 +50,7 @@ export module ApiResponses {
       numberOfTransactions: string;
       controlSum: number;
       requestedExecutionDateTime: string;
+      debtorAccount?: OBCashAccount3;
     }
     paymentDate?: string; // domestic scheduled payment
     instructedAmount?: OBActiveOrHistoricCurrencyAndAmount;

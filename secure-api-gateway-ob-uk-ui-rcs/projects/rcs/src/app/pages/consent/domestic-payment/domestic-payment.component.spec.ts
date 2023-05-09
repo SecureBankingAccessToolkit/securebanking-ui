@@ -1,20 +1,22 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { CommonModule } from '@angular/common';
-import { StoreModule } from '@ngrx/store';
-import { TranslateModule } from '@ngx-translate/core';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
+import {CommonModule} from '@angular/common';
+import {StoreModule} from '@ngrx/store';
+import {TranslateModule} from '@ngx-translate/core';
 
 import rootReducer from '../../../../../src/store';
-import { MatSharedModule } from '../../../../../src/app/mat-shared.module';
-import { TranslateSharedModule } from '../../../../../src/app/translate-shared.module';
-import { ForgerockSharedModule } from '@secureapigateway/secure-api-gateway-ob-uk-ui-common/shared';
-import { ForgerockCustomerLogoModule } from '@secureapigateway/secure-api-gateway-ob-uk-ui-common/components/forgerock-customer-logo';
-import { PermissionsComponent } from '../permissions/permissions.component';
-import { ConsentBoxComponentModule } from '../components/consent-box/consent-box.module';
-import { SubmitBoxComponentModule } from '../components/submit-box/submit-box.module';
-import { AccountCheckboxModule } from '../components/account-checkbox/account-checkbox.module';
-import { AccountSelectionComponentModule } from '../components/account-selection/account-selection.module';
+import {MatSharedModule} from '../../../../../src/app/mat-shared.module';
+import {TranslateSharedModule} from '../../../../../src/app/translate-shared.module';
+import {ForgerockSharedModule} from '@secureapigateway/secure-api-gateway-ob-uk-ui-common/shared';
+import {
+  ForgerockCustomerLogoModule
+} from '@secureapigateway/secure-api-gateway-ob-uk-ui-common/components/forgerock-customer-logo';
+import {PermissionsComponent} from '../permissions/permissions.component';
+import {ConsentBoxComponentModule} from '../components/consent-box/consent-box.module';
+import {SubmitBoxComponentModule} from '../components/submit-box/submit-box.module';
+import {AccountCheckboxModule} from '../components/account-checkbox/account-checkbox.module';
+import {AccountSelectionComponentModule} from '../components/account-selection/account-selection.module';
 
-import { DomesticPaymentComponent } from './domestic-payment.component';
+import {DomesticPaymentComponent} from './domestic-payment.component';
 import {ConsentDecision} from "../../../types/ConsentDecision";
 
 describe('app:bank DomesticPaymentComponent', () => {
@@ -35,7 +37,7 @@ describe('app:bank DomesticPaymentComponent', () => {
         SubmitBoxComponentModule,
         ConsentBoxComponentModule,
         AccountCheckboxModule,
-        AccountSelectionComponentModule
+        AccountSelectionComponentModule,
       ]
     }).compileComponents();
   }));
@@ -43,7 +45,19 @@ describe('app:bank DomesticPaymentComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(DomesticPaymentComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
+    component.response = {
+      account: undefined,
+      accounts: [],
+      clientId: "",
+      clientName: "",
+      decisionApiUri: "",
+      initiation: {},
+      intentType: undefined,
+      logo: "",
+      redirectUri: "",
+      serviceProviderName: "",
+      username: ""
+    };
   });
 
   it('should create', () => {
@@ -54,7 +68,6 @@ describe('app:bank DomesticPaymentComponent', () => {
     spyOn(component.formSubmit, 'emit');
 
     component.submit();
-    fixture.detectChanges();
 
     expect(component.formSubmit.emit).toHaveBeenCalledWith({
       decision: ConsentDecision.REJECTED,
@@ -64,15 +77,15 @@ describe('app:bank DomesticPaymentComponent', () => {
 
   it('should emit formSubmit decision deny', () => {
     const debtorAccount = {
-      "accountId":"a25606e1-00cc-4225-b662-f339229e3d59",
-      "currency":"GBP",
-      "nickname":"UK Bills",
-      "accounts":[
+      "accountId": "a25606e1-00cc-4225-b662-f339229e3d59",
+      "currency": "GBP",
+      "nickname": "UK Bills",
+      "accounts": [
         {
-          "schemeName":"UK.OBIE.SortCodeAccountNumber",
-          "identification":"4938761144202",
-          "name":"c417136f-91e4-4abe-985e-f757496e5458",
-          "secondaryIdentification":"17508172"
+          "schemeName": "UK.OBIE.SortCodeAccountNumber",
+          "identification": "4938761144202",
+          "name": "c417136f-91e4-4abe-985e-f757496e5458",
+          "secondaryIdentification": "17508172"
         }
       ]
     };
@@ -80,7 +93,6 @@ describe('app:bank DomesticPaymentComponent', () => {
     component.form.controls['selectedAccount'].setValue(debtorAccount);
 
     component.submit(false);
-    fixture.detectChanges();
 
     expect(component.formSubmit.emit).toHaveBeenCalledWith({
       decision: ConsentDecision.REJECTED,
@@ -90,15 +102,15 @@ describe('app:bank DomesticPaymentComponent', () => {
 
   it('should emit formSubmit decision allow', () => {
     const debtorAccount = {
-      "accountId":"a25606e1-00cc-4225-b662-f339229e3d59",
-      "currency":"GBP",
-      "nickname":"UK Bills",
-      "accounts":[
+      "accountId": "a25606e1-00cc-4225-b662-f339229e3d59",
+      "currency": "GBP",
+      "nickname": "UK Bills",
+      "accounts": [
         {
-          "schemeName":"UK.OBIE.SortCodeAccountNumber",
-          "identification":"4938761144202",
-          "name":"c417136f-91e4-4abe-985e-f757496e5458",
-          "secondaryIdentification":"17508172"
+          "schemeName": "UK.OBIE.SortCodeAccountNumber",
+          "identification": "4938761144202",
+          "name": "c417136f-91e4-4abe-985e-f757496e5458",
+          "secondaryIdentification": "17508172"
         }
       ]
     };
@@ -106,7 +118,6 @@ describe('app:bank DomesticPaymentComponent', () => {
     component.form.controls['selectedAccount'].setValue(debtorAccount);
 
     component.submit(true);
-    fixture.detectChanges();
 
     expect(component.formSubmit.emit).toHaveBeenCalledWith({
       decision: ConsentDecision.AUTHORISED,

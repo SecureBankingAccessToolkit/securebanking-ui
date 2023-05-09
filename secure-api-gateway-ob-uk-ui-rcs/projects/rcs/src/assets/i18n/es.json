@@ -35,13 +35,16 @@
       "ACCOUNT_PRE_SELECTED": "De la cuenta",
       "SELECT_ACCOUNT": "Por favor seleccione la cuenta de pago:",
       "AVAILABLE": "Disponible",
-      "PROCEED_PAYMENT": "Presione proceeder para realizar el pago",
+      "PROCEED_PAYMENT": "Presione proceder para realizar el pago",
       "PROCEED": "Proceder",
       "CANCEL": "Cancelar",
       "CURRENCY": "Divisa",
       "CURRENCY_FROM": "De divisa",
       "CURRENCY_TO": "A divisa",
-      "CHARGES": "Cargos"
+      "CHARGES": "Cargos",
+      "NAME": "Nombre",
+      "ACCOUNT_NUMBER": "Número de cuenta",
+      "ACCOUNT_SORT_CODE": "Código de clasificación"
     },
     "VRP-PAYMENT": {
       "TITLE": "Variable Recurring Payment",
