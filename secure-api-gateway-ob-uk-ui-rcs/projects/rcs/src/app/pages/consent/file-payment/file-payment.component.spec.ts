@@ -77,7 +77,7 @@ describe('app:bank FilePaymentComponent', () => {
 
     expect(component.formSubmit.emit).toHaveBeenCalledWith({
       decision: ConsentDecision.REJECTED,
-      debtorAccount: ''
+      debtorAccount: null
     });
   });
 
@@ -103,7 +103,7 @@ describe('app:bank FilePaymentComponent', () => {
 
     expect(component.formSubmit.emit).toHaveBeenCalledWith({
       decision: ConsentDecision.REJECTED,
-      debtorAccount: debtorAccount
+      debtorAccount: null
     });
   });
 

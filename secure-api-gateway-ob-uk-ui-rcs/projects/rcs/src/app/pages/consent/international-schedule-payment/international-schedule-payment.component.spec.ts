@@ -70,7 +70,7 @@ describe('app:bank InternationalSchedulePaymentComponent', () => {
 
     expect(component.formSubmit.emit).toHaveBeenCalledWith({
       decision: ConsentDecision.REJECTED,
-      debtorAccount: ''
+      debtorAccount: null
     });
   });
 
@@ -96,7 +96,7 @@ describe('app:bank InternationalSchedulePaymentComponent', () => {
 
     expect(component.formSubmit.emit).toHaveBeenCalledWith({
       decision: ConsentDecision.REJECTED,
-      debtorAccount: debtorAccount
+      debtorAccount: null
     });
   });
 
