@@ -77,10 +77,10 @@ export class FundsConfirmationComponent implements OnInit {
   }
 
   submit(allowing = false) {
+    const debtorAccountValue = allowing ? _get(this.response, 'accounts[0].account.accounts[0]') : null
     this.formSubmit.emit({
       decision: allowing ? ConsentDecision.AUTHORISED : ConsentDecision.REJECTED,
-      // debtorAccount: _get(this.response, 'accounts[0].id', '')
-      debtorAccount: _get(this.response, 'accounts[0].account.accounts[0]', '')
+      debtorAccount: debtorAccountValue
     });
   }
 }

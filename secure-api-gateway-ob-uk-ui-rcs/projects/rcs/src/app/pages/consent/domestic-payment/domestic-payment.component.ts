@@ -1,9 +1,9 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { FormGroup, Validators, FormControl } from '@angular/forms';
+import {ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
 import _get from 'lodash-es/get';
 
-import { ApiResponses } from '../../../../../src/app/types/api';
-import { Item, ItemType, IConsentEventEmitter } from '../../../../../src/app/types/consentItem';
+import {ApiResponses} from '../../../../../src/app/types/api';
+import {IConsentEventEmitter, Item, ItemType} from '../../../../../src/app/types/consentItem';
 import {ConsentDecision} from "../../../../../src/app/types/ConsentDecision";
 
 @Component({
@@ -13,7 +13,8 @@ import {ConsentDecision} from "../../../../../src/app/types/ConsentDecision";
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DomesticPaymentComponent implements OnInit {
-  constructor() {}
+  constructor() {
+  }
 
   form: FormGroup = new FormGroup({
     selectedAccount: new FormControl('', Validators.required)
@@ -25,6 +26,7 @@ export class DomesticPaymentComponent implements OnInit {
     this.form[isLoading ? 'disable' : 'enable']();
     this._loading = isLoading;
   }
+
   @Output() formSubmit = new EventEmitter<IConsentEventEmitter>();
   items: Item[] = [];
   payerItems: Item[] = [];
@@ -95,9 +97,12 @@ export class DomesticPaymentComponent implements OnInit {
   }
 
   submit(allowing = false) {
+    const debtorAccountValue = allowing ?
+      (this.response.initiation.debtorAccount ? this.response.accounts[0].account : this.form.value.selectedAccount) :
+      null
     this.formSubmit.emit({
       decision: allowing ? ConsentDecision.AUTHORISED : ConsentDecision.REJECTED,
-      debtorAccount: this.response.initiation.debtorAccount ? this.response.accounts[0].account : this.form.value.selectedAccount
+      debtorAccount: debtorAccountValue
     });
   }
 }

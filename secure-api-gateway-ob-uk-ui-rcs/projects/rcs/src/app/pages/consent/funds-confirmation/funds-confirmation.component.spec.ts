@@ -104,7 +104,7 @@ describe('app:bank FundsConfirmationComponent', () => {
 
     expect(component.formSubmit.emit).toHaveBeenCalledWith({
       decision: ConsentDecision.REJECTED,
-      debtorAccount: ''
+      debtorAccount: null
     });
   });
 
@@ -119,7 +119,7 @@ describe('app:bank FundsConfirmationComponent', () => {
 
     expect(component.formSubmit.emit).toHaveBeenCalledWith({
       decision: ConsentDecision.REJECTED,
-      debtorAccount: debtorAccountObject
+      debtorAccount: null
     });
   });
 

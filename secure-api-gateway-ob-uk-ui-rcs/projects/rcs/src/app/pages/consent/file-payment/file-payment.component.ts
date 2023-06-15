@@ -104,9 +104,12 @@ export class FilePaymentComponent implements OnInit {
   }
 
   submit(allowing = false) {
+    const debtorAccountValue = allowing ?
+      (this.response.filePayment.debtorAccount ? this.response.accounts[0].account : this.form.value.selectedAccount) :
+      null
     this.formSubmit.emit({
       decision: allowing ? ConsentDecision.AUTHORISED : ConsentDecision.REJECTED,
-      debtorAccount: this.response.filePayment.debtorAccount ? this.response.accounts[0].account : this.form.value.selectedAccount
+      debtorAccount: debtorAccountValue
     });
   }
 }
