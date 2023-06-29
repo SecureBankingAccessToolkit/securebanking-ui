@@ -20,8 +20,8 @@ export class OBActiveOrHistoricCurrencyAndAmount {
 }
 
 export class MaximumIndividualAmount {
-  Amount?: number;
-  Currency?: string;
+  amount?: number;
+  currency?: string;
 }
 
 export interface OBCashBalance1 {

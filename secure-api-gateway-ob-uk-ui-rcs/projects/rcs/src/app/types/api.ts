@@ -1,4 +1,10 @@
-import {OBAccount2, OBActiveOrHistoricCurrencyAndAmount, OBCashAccount3, OBCashBalance1} from './ob';
+import {
+  MaximumIndividualAmount,
+  OBAccount2,
+  OBActiveOrHistoricCurrencyAndAmount,
+  OBCashAccount3,
+  OBCashBalance1
+} from './ob';
 import {IntentType} from '../../../src/app/types/IntentType';
 import {OBAccountPermissions} from '../../../src/app/types/OBAccountPermissions';
 
@@ -87,19 +93,19 @@ export class Rate {
 }
 
 export class ControlParameters {
-  ValidFromDateTime?: string;
-  ValidToDateTime?: string;
-  MaximumIndividualAmount?:OBActiveOrHistoricCurrencyAndAmount;
-  PeriodicLimits?: PeriodicLimits;
-  VRPType: string[];
-  PSUAuthenticationMethods: string[];
+  validFromDateTime?: string;
+  validToDateTime?: string;
+  maximumIndividualAmount?:MaximumIndividualAmount;
+  periodicLimits?: PeriodicLimits;
+  vrpType: string[];
+  psuAuthenticationMethods: string[];
 }
 
 export class PeriodicLimits {
-  PeriodType?: string;
-  PeriodAlignment?: string;
-  Amount?: number;
-  Currency?: string;
+  periodType?: string;
+  periodAlignment?: string;
+  amount?: number;
+  currency?: string;
 }
 
 export class Charges {
