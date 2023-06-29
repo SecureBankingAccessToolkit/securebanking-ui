@@ -62,24 +62,24 @@ module.exports = {
     }
   ],
   controlParameters: {
-    ValidFromDateTime: "2022-11-28T11:35:30.510Z",
-    ValidToDateTime: "2022-11-28T11:35:30.510Z",
-    MaximumIndividualAmount: {
-      Amount: "10.01",
-      Currency: "GBP"
+    validFromDateTime: "2022-11-28T11:35:30.510Z",
+    validToDateTime: "2022-11-28T11:35:30.510Z",
+    maximumIndividualAmount: {
+      amount: "10.01",
+      currency: "GBP"
     },
-    PeriodicLimits: [
+    periodicLimits: [
       {
-        PeriodType: "Month",
-        PeriodAlignment: "Calendar",
-        Amount: "10.01",
-        Currency: "GBP"
+        periodType: "Month",
+        periodAlignment: "Calendar",
+        amount: "10.01",
+        currency: "GBP"
       }
     ],
-    VRPType: [
+    vrpType: [
       "UK.OBIE.VRPType.Sweeping"
     ],
-    PSUAuthenticationMethods: [
+    psuAuthenticationMethods: [
       "UK.OBIE.SCANotRequired"
     ]
   },

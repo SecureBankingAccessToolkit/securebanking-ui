@@ -121,38 +121,38 @@ export class VrpPaymentComponent implements OnInit {
 
 
     // Payment rules (Control parameter items)
-    if (_get(this.response.controlParameters, 'PeriodicLimits[0]')) {
+    if (_get(this.response.controlParameters, 'periodicLimits[0]')) {
       const periodicLimitsInstructedAmount = {
-        amount: this.response.controlParameters.PeriodicLimits[0].Amount,
-        currency: this.response.controlParameters.PeriodicLimits[0].Currency
+        amount: this.response.controlParameters.periodicLimits[0].amount,
+        currency: this.response.controlParameters.periodicLimits[0].currency
       }
       this.paymentRulesItems.push({
         type: ItemType.INSTRUCTED_AMOUNT,
         payload: {
           label: this.translate.instant('CONSENT.VRP-PAYMENT.MAX_AMOUNT_PERIOD_TYPE', {
-            periodType: this.response.controlParameters.PeriodicLimits[0].PeriodType
+            periodType: this.response.controlParameters.periodicLimits[0].periodType
           }),
           amount: periodicLimitsInstructedAmount,
           cssClass: 'vrp-payment-maxAmountPeriod'
         }
       });
     }
-    if (_get(this.response.controlParameters, 'MaximumIndividualAmount')) {
+    if (_get(this.response.controlParameters, 'maximumIndividualAmount')) {
       this.paymentRulesItems.push({
         type: ItemType.MAXIMUM_INDIVIDUAL_AMOUNT,
         payload: {
           label: 'CONSENT.VRP-PAYMENT.MAX_AMOUNT_PER_PAYMENT',
-          amount: this.response.controlParameters.MaximumIndividualAmount,
+          amount: this.response.controlParameters.maximumIndividualAmount,
           cssClass: 'vrp-payment-maxAmountPerPayment'
         }
       });
     }
-    if (_get(this.response.controlParameters, 'ValidToDateTime')) {
+    if (_get(this.response.controlParameters, 'validToDateTime')) {
       this.paymentRulesItems.push({
         type: ItemType.DATE,
         payload: {
           label: 'CONSENT.VRP-PAYMENT.EXPIRE',
-          date: this.response.controlParameters.ValidToDateTime,
+          date: this.response.controlParameters.validToDateTime,
           cssClass: 'vrp-payment-validToDateTime'
         }
       });
