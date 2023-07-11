@@ -1,18 +1,21 @@
 <div class="consent-box">
-  <div>
+  <div *ngIf="mocks?.length > 0">
     <h1>Consents (no debtor Account provided)</h1>
     <div *ngFor="let mock of mocks">
       <h2>{{ mock.type }}</h2>
       <app-consent-dynamic [response]="mock" [loading]="loading"
-                           (formSubmit)="onFormSubmit($event)"></app-consent-dynamic>
+      (formSubmit)="onFormSubmit($event)"></app-consent-dynamic>
     </div>
   </div>
-  <div>
+  <div *ngIf="mocksDebtorAccount?.length > 0">
     <h1>Consents (with debtor account provided)</h1>
     <div *ngFor="let mockDebtorAccount of mocksDebtorAccount">
       <h2>{{ mockDebtorAccount.type }}</h2>
       <app-consent-dynamic [response]="mockDebtorAccount" [loading]="loading"
-                           (formSubmit)="onFormSubmit($event)"></app-consent-dynamic>
+      (formSubmit)="onFormSubmit($event)"></app-consent-dynamic>
     </div>
   </div>
+    <div *ngIf="mocksDebtorAccount?.length <= 0 && mocks?.length <= 0">
+      <h1>No consent to display</h1>
+    </div>
 </div>

@@ -24,6 +24,7 @@ import { ForgerockPipesModule } from '@secureapigateway/secure-api-gateway-ob-uk
 import {
   VrpAccountItemComponent
 } from "rcs/src/app/pages/consent/components/consent-box/items/vrp-account-item/vrp-account-item.component";
+import {AddressItemComponent} from "rcs/src/app/pages/consent/components/consent-box/items/adress-item/address-item.component";
 
 @NgModule({
   imports: [
@@ -50,7 +51,8 @@ import {
     DynamicItemComponent,
     TransactionsPeriodItemComponent,
     VrpAccountItemComponent,
-    KeyValueItemComponent
+    KeyValueItemComponent,
+    AddressItemComponent
   ],
   entryComponents: [
     StringItemComponent,
@@ -65,7 +67,8 @@ import {
     ExchangeRateItemComponent,
     RateAmountItemComponent,
     DynamicItemComponent,
-    TransactionsPeriodItemComponent
+    TransactionsPeriodItemComponent,
+    AddressItemComponent
   ],
   exports: [ConsentBoxComponent]
 })

@@ -21,10 +21,13 @@ import { AccountNumberItemComponent } from '../../../../../../../../src/app/page
 import { TransactionsPeriodItemComponent } from '../../../../../../../../src/app/pages/consent/components/consent-box/items/transactions-period-item/transactions-period-item.component';
 import {
   VrpAccountItemComponent
-} from "rcs/src/app/pages/consent/components/consent-box/items/vrp-account-item/vrp-account-item.component";
+} from '../../../../../../../../src/app/pages/consent/components/consent-box/items/vrp-account-item/vrp-account-item.component';
 import {
   MaximumIndividualAmountItemComponent
-} from "rcs/src/app/pages/consent/components/consent-box/items/maximum-individual-amount-item/maximum-individual-amount-item.component";
+} from '../../../../../../../../src/app/pages/consent/components/consent-box/items/maximum-individual-amount-item/maximum-individual-amount-item.component';
+import {
+  AddressItemComponent
+} from '../../../../../../../../src/app/pages/consent/components/consent-box/items/adress-item/address-item.component';
 
 @Component({
   selector: 'app-dynamic-item',
@@ -86,6 +89,9 @@ export class DynamicItemComponent implements OnInit, OnChanges {
         break;
       case ItemType.VRP_ACCOUNT_NUMBER:
         componentInstance = VrpAccountItemComponent;
+        break;
+      case ItemType.ADDRESS:
+        componentInstance = AddressItemComponent;
         break;
       default:
         console.error(`"${item.type}" consent type is not implemented yet`);

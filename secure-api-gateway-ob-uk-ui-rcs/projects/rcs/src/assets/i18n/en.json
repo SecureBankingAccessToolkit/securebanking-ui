@@ -223,6 +223,19 @@
       "DISCLAIMER": "Please note that the card issuer will never see your account balance. We will only provide a 'yes' or 'no' answer to the card issuer when you use your card.",
       "ALLOW": "Confirm",
       "CANCEL": "Cancel and return to {{client}}"
+    },
+    "CUSTOMER-INFO": {
+      "TITLE": "Sharing your details",
+      "SUBTITLE": "You're about to share your details with {{clientName}}",
+      "CONFIRM": "I confirm these details are accurate and consent to sharing them",
+      "NAME": "Name",
+      "ADDRESS": "Address",
+      "EMAIL": "Email",
+      "PHONE": "Phone",
+      "BIRTHDATE": "Date of birth",
+      "CANCEL": "Cancel",
+      "PROCEED": "Continue >",
+      "SUBMIT-LABEL": ""
     }
   },
   "FREQUENCY": {
