@@ -28,6 +28,7 @@ import { CancelComponent } from './components/cancel/cancel.component';
 import { AcceptComponent } from './components/accept/accept.component';
 import { RejectComponent } from './components/reject/reject.component';
 import { VrpPaymentComponent } from './vrp-payment/vrp-payment.component';
+import {CustomerInfoComponent} from './customer-info/customer-info.component';
 
 @NgModule({
   imports: [
@@ -59,7 +60,8 @@ import { VrpPaymentComponent } from './vrp-payment/vrp-payment.component';
     PermissionsComponent,
     CancelComponent,
     AcceptComponent,
-    RejectComponent
+    RejectComponent,
+    CustomerInfoComponent,
   ],
   entryComponents: [
     SinglePaymentComponent,
@@ -75,7 +77,8 @@ import { VrpPaymentComponent } from './vrp-payment/vrp-payment.component';
     VrpPaymentComponent,
     CancelComponent,
     AcceptComponent,
-    RejectComponent
+    RejectComponent,
+    CustomerInfoComponent,
   ],
   exports: [
     ConsentComponent,
@@ -94,7 +97,8 @@ import { VrpPaymentComponent } from './vrp-payment/vrp-payment.component';
     PermissionsComponent,
     CancelComponent,
     AcceptComponent,
-    RejectComponent
+    RejectComponent,
+    CustomerInfoComponent,
   ]
 })
 export class ConsentModule {}

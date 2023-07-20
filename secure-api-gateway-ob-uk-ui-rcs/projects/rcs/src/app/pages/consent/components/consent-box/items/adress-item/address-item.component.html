@@ -1,0 +1,9 @@
+<div *ngIf="items?.length > 0">
+  <span *ngIf="label" class="key title">{{ label }}</span>
+  <div *ngFor="let item of items">
+    <div class="string-consent-box-item {{ item.payload.cssClass }}">
+      <span fxFlex></span>
+      <span class="value">{{ item.payload.value }}</span>
+    </div>
+  </div>
+</div>

@@ -7,6 +7,7 @@ import {
 } from './ob';
 import {IntentType} from '../../../src/app/types/IntentType';
 import {OBAccountPermissions} from '../../../src/app/types/OBAccountPermissions';
+import {CustomerInfo} from '../../../src/app/types/CustomerInfo';
 
 export interface FRAccountWithBalance {
   id: string;
@@ -68,6 +69,8 @@ export module ApiResponses {
     // special ui treatment
     userActions?: UserActions
     decisionResponse?: ConsentDecisionResponse
+    // customer info details
+    customerInfo?:CustomerInfo;
   }
 
   export interface ConsentDecisionResponse {

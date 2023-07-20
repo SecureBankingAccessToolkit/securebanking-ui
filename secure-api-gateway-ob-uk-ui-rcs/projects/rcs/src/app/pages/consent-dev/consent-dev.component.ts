@@ -9,6 +9,7 @@ import mock6 from './mocks/international-payment-consent-details';
 import mock7 from './mocks/international-scheduled-payment-consent-details';
 import mock8 from './mocks/international-standing-order-consent-details';
 import mock9 from './mocks/file-payment-consent-details';
+import mock10 from './mocks/customer-info-details';
 // debtor account mocks
 import mock30 from './mocks/debtorAccountProvided/vrp-payment-consent-details';
 import mock31 from './mocks/debtorAccountProvided/domestic-payment-consent-details';
@@ -29,8 +30,8 @@ import { IConsentEventEmitter } from '../../types/consentItem';
 })
 export class ConsentDevComponent implements OnInit {
   loading = false;
-  mocks: any[] = [mock1, mock2, mock3, mock4, mock5, mock6, mock7, mock8, mock9];
-  mocksDebtorAccount: any[] = [mock30,mock31,mock32,mock33,mock34,mock35,mock36,mock37];
+  mocks: any[] = [mock1, mock2, mock3, mock4, mock5, mock6, mock7, mock8, mock9, mock10];
+  mocksDebtorAccount: any[] = [mock30, mock31,mock32,mock33,mock34,mock35,mock36,mock37];
   constructor(private cdr: ChangeDetectorRef) {}
 
   ngOnInit() {}

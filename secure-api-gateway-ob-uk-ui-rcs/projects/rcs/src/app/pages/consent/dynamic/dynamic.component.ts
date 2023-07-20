@@ -31,6 +31,7 @@ import {CancelComponent} from "../../../../../src/app/pages/consent/components/c
 import {AcceptComponent} from "../../../../../src/app/pages/consent/components/accept/accept.component";
 import {RejectComponent} from "../../../../../src/app/pages/consent/components/reject/reject.component";
 import {VrpPaymentComponent} from "rcs/src/app/pages/consent/vrp-payment/vrp-payment.component";
+import {CustomerInfoComponent} from "rcs/src/app/pages/consent/customer-info/customer-info.component";
 
 const log = debug('consent:DynamicComponent');
 
@@ -110,6 +111,9 @@ export class DynamicComponent implements OnInit, OnChanges {
         break;
       case IntentType.DOMESTIC_VRP_PAYMENT_CONSENT:
         componentInstance = VrpPaymentComponent;
+        break;
+      case IntentType.CUSTOMER_INFO_CONSENT:
+        componentInstance = CustomerInfoComponent;
         break;
       default:
         log(`"${response.requestType}" consent type is not implemented yet`);

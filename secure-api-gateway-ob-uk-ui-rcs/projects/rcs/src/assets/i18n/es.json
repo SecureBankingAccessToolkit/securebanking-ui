@@ -219,6 +219,19 @@
       "DISCLAIMER": "Por favor recuerda que el emisor de la tarjeta nunca podrá acceder al balance de tu cuenta. Solo se proveerá un 'si/yes' o 'no' cuando la tarjeta sea usada.",
       "ALLOW": "Confirmar",
       "CANCEL": "Cancelar y volver a {{client}}"
+    },
+    "CUSTOMER-INFO": {
+      "TITLE": "Compartir información",
+      "SUBTITLE": "Vas a compartir tus detalles con {{clientName}}",
+      "CONFIRM": "Yo confirmo que los detalles son correctos y consiento compartirlos",
+      "NAME": "Nombre",
+      "ADDRESS": "Dirección",
+      "EMAIL": "Email",
+      "PHONE": "Teléfono",
+      "BIRTHDATE": "Fecha de nacimiento",
+      "CANCEL": "Cancelar",
+      "PROCEED": "Continuar >",
+      "SUBMIT-LABEL": ""
     }
   },
   "FREQUENCY": {
