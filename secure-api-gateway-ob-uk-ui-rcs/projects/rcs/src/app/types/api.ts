@@ -34,6 +34,7 @@ export module ApiResponses {
     fromTransaction?: string;
     toTransaction?: string;
     account: OBAccount2;
+    debtorAccount?: OBCashAccount3; // funds confirmation
     initiation: Initiation;
     controlParameters?: ControlParameters; // vrp payment
     standingOrder?: {

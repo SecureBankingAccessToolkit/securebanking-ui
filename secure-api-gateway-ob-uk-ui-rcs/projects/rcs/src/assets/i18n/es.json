@@ -208,9 +208,10 @@
       "CANCEL": "Cancelar y volver a {{client}}"
     },
     "FUNDS-CONFIRMATION": {
-      "TITLE": "Disponibilidad de fondos solicitada por {{clientName}}",
+      "TITLE": "Disponibilidad de fondos",
       "APPLICATION": "Solicitud de acceso",
       "ACCOUNT": "Hemos recibido una solicitud del emisor de la tarjeta para confirmar los fondos de la siguiente cuenta.",
+      "ACCOUNT_DETAILS": "Detalles de la cuenta",
       "ACCOUNT_TITLE": "Cuenta",
       "ACCOUNT_NAME": "Nombre de cuenta",
       "ACCOUNT_ID": "Identificador de cuenta",

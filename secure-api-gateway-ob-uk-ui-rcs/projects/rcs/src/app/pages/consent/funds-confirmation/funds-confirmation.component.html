@@ -3,7 +3,6 @@
   <form [formGroup]="form">
     <h1
       [translate]="'CONSENT.FUNDS-CONFIRMATION.TITLE'"
-      [translateParams]="{ merchantName: response.clientName }"
     ></h1>
     <div *ngIf="response.logo" class="merchant-logo">
       <img src="{{ response.logo }}" onerror="this.style.display='none'" />
@@ -11,7 +10,8 @@
     <div class="divider"></div>
 
     <span [translate]="'CONSENT.FUNDS-CONFIRMATION.ACCOUNT'"></span>
-
+    <div class="divider"></div>
+    <p [translate]="'CONSENT.FUNDS-CONFIRMATION.ACCOUNT_DETAILS'"></p>
     <app-consent-box [items]="items"></app-consent-box>
 
     <div fxLayout="row">

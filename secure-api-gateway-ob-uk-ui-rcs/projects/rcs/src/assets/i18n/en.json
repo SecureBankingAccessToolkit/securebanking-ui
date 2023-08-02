@@ -212,11 +212,14 @@
       "CANCEL": "Cancel and return to {{client}}"
     },
     "FUNDS-CONFIRMATION": {
-      "TITLE": "Funds Availability requested by {{clientName}}",
+      "TITLE": "Funds Availability",
       "APPLICATION": "Application requesting access",
-      "ACCOUNT": "We have received a request from card issuer to provide a confirmation of sufficient funds from the following account.",
+      "ACCOUNT": "We have received a request from card issuer to provide a confirmation of sufficient funds from the following account:",
+      "ACCOUNT_DETAILS": "Account Details",
       "ACCOUNT_TITLE": "Account",
       "ACCOUNT_NAME": "Account name",
+      "ACCOUNT_SORT_CODE": "Sort Code",
+      "ACCOUNT_NUMBER": "Account Number",
       "ACCOUNT_ID": "Account identifier",
       "EXPIRATION": "Expiration:",
       "CONFIRM_TEXT": "Please confirm that you would like us to respond to future confirmation of funds requests from the card issuer.",
