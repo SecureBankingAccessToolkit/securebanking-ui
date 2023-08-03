@@ -21,32 +21,6 @@ import {ConsentDecision} from "../../../types/ConsentDecision";
 describe('app:bank FundsConfirmationComponent', () => {
   let component: FundsConfirmationComponent;
   let fixture: ComponentFixture<FundsConfirmationComponent>;
-  // const debtorAccountObject = {
-  //   "accountId": "a25606e1-00cc-4225-b662-f339229e3d59",
-  //   "currency": "GBP",
-  //   "nickname": "UK Bills",
-  //   "accounts": [
-  //     {
-  //       "schemeName": "UK.OBIE.SortCodeAccountNumber",
-  //       "identification": "4938761144202",
-  //       "name": "c417136f-91e4-4abe-985e-f757496e5458",
-  //       "secondaryIdentification": "17508172"
-  //     }
-  //   ]
-  // }
-  // const responseObject = {
-  //   "accountId": "a25606e1-00cc-4225-b662-f339229e3d59",
-  //   "currency": "GBP",
-  //   "nickname": "UK Bills",
-  //   "accounts": [
-  //     {
-  //       "schemeName": "UK.OBIE.SortCodeAccountNumber",
-  //       "identification": "4938761144202",
-  //       "name": "c417136f-91e4-4abe-985e-f757496e5458",
-  //       "secondaryIdentification": "17508172"
-  //     }
-  //   ]
-  // }
   const responseObject = {
     "type": "FundsConfirmationConsentDetails",
     "consentId": "FCC_67e60d61-2cd4-4e9c-a473-8680b8e7c309",
