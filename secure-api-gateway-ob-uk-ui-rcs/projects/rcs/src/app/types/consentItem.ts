@@ -1,4 +1,4 @@
-import {OBCashAccount3} from "rcs/src/app/types/ob";
+import {OBAccount2, OBCashAccount3} from "rcs/src/app/types/ob";
 
 export enum ItemType {
   STRING = 'STRING',
@@ -24,5 +24,5 @@ export interface Item {
 export interface IConsentEventEmitter {
   decision: string;
   accountIds?: string[];
-  debtorAccount?: OBCashAccount3;
+  debtorAccount?: OBCashAccount3 | OBAccount2;
 }
