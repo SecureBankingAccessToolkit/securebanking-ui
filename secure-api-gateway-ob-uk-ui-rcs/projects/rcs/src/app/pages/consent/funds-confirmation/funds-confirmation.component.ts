@@ -1,10 +1,10 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import {ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {FormGroup} from '@angular/forms';
 import _get from 'lodash-es/get';
 
-import { ApiResponses } from '../../../../../src/app/types/api';
-import { Item, ItemType, IConsentEventEmitter } from '../../../../../src/app/types/consentItem';
-import { ConsentDecision } from '../../../../../src/app/types/ConsentDecision';
+import {ApiResponses} from '../../../../../src/app/types/api';
+import {IConsentEventEmitter, Item, ItemType} from '../../../../../src/app/types/consentItem';
+import {ConsentDecision} from '../../../../../src/app/types/ConsentDecision';
 
 @Component({
   selector: 'app-consent-funds-confirmation',
@@ -13,7 +13,8 @@ import { ConsentDecision } from '../../../../../src/app/types/ConsentDecision';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class FundsConfirmationComponent implements OnInit {
-  constructor() {}
+  constructor() {
+  }
 
   form: FormGroup = new FormGroup({});
 
@@ -24,44 +25,38 @@ export class FundsConfirmationComponent implements OnInit {
     this.form[isLoading ? 'disable' : 'enable']();
     this._loading = isLoading;
   }
+
   @Output() formSubmit = new EventEmitter<IConsentEventEmitter>();
 
   ngOnInit() {
     if (!this.response) {
       return;
     }
+    //  console.log(`${JSON.stringify(this.response)}`)
+    if (_get(this.response, 'accounts[0].account.accounts[0]')) {
+      const account = this.response.accounts[0].account.accounts[0]
+      if (_get(account, 'name')) {
+        this.items.push({
+          type: ItemType.STRING,
+          payload: {
+            label: 'CONSENT.FUNDS-CONFIRMATION.ACCOUNT_NAME',
+            value: account.name,
+            cssClass: 'cof-account-title'
+          }
+        });
+      }
 
-    if (this.response.clientName) {
-      this.items.push({
-        type: ItemType.STRING,
-        payload: {
-          label: 'CONSENT.FUNDS-CONFIRMATION.APPLICATION',
-          value: this.response.clientName,
-          cssClass: 'cof-merchantName'
-        }
-      });
-    }
-
-    if (_get(this.response, 'accounts[0].account.Nickname')) {
-      this.items.push({
-        type: ItemType.STRING,
-        payload: {
-          label: 'CONSENT.FUNDS-CONFIRMATION.ACCOUNT_TITLE',
-          value: this.response.accounts[0].account.nickname,
-          cssClass: 'cof-account-title'
-        }
-      });
-    }
-
-    if (_get(this.response, 'accounts[0].account.Account[0]')) {
-      this.items.push({
-        type: ItemType.ACCOUNT_NUMBER,
-        payload: {
-          label: 'CONSENT.FUNDS-CONFIRMATION.ACCOUNT_ID',
-          account: this.response.accounts[0].account.accounts[0],
-          cssClass: 'cof-account-id'
-        }
-      });
+      if (_get(account, 'identification')) {
+        this.items.push({
+          type: ItemType.VRP_ACCOUNT_NUMBER,
+          payload: {
+            sortCodeLabel: 'CONSENT.FUNDS-CONFIRMATION.ACCOUNT_SORT_CODE',
+            accountNumberLabel: 'CONSENT.FUNDS-CONFIRMATION.ACCOUNT_NUMBER',
+            account: account,
+            cssClass: 'cof-account-id'
+          }
+        });
+      }
     }
 
     if (this.response.expirationDateTime) {
@@ -77,7 +72,8 @@ export class FundsConfirmationComponent implements OnInit {
   }
 
   submit(allowing = false) {
-    const debtorAccountValue = allowing ? _get(this.response, 'accounts[0].account.accounts[0]') : null
+    const debtorAccountValue = allowing ? this.response.accounts[0].account : null
+
     this.formSubmit.emit({
       decision: allowing ? ConsentDecision.AUTHORISED : ConsentDecision.REJECTED,
       debtorAccount: debtorAccountValue
