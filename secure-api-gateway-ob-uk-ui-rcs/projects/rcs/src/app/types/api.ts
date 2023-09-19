@@ -36,22 +36,6 @@ export module ApiResponses {
     account: OBAccount2;
     initiation: Initiation;
     controlParameters?: ControlParameters; // vrp payment
-    standingOrder?: {
-      frequency: string;
-      reference: string;
-      firstPaymentDateTime: string;
-      firstPaymentAmount: OBActiveOrHistoricCurrencyAndAmount;
-      recurringPaymentDateTime: string;
-      recurringPaymentAmount: OBActiveOrHistoricCurrencyAndAmount;
-      finalPaymentDateTime: string;
-      finalPaymentAmount: OBActiveOrHistoricCurrencyAndAmount;
-    };
-    internationalStandingOrder?: {
-      frequency: string;
-      firstPaymentDateTime: string;
-      instructedAmount: OBActiveOrHistoricCurrencyAndAmount;
-      finalPaymentDateTime: string;
-    };
     filePayment?: {
       fileReference: string;
       numberOfTransactions: string;
