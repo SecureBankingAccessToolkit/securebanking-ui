@@ -121,6 +121,15 @@ export class Initiation {
   debtorAccount?: OBCashAccount3;
   creditorAccount?: OBCashAccount3;
   remittanceInformation?: RemittanceInformation;
+  frequency?: string;
+  reference?: string;
+  firstPaymentDateTime?: string;
+  firstPaymentAmount?: OBActiveOrHistoricCurrencyAndAmount;
+  recurringPaymentDateTime?: string;
+  recurringPaymentAmount?: OBActiveOrHistoricCurrencyAndAmount;
+  finalPaymentDateTime?: string;
+  finalPaymentAmount?: OBActiveOrHistoricCurrencyAndAmount;
+  instructedAmount?: OBActiveOrHistoricCurrencyAndAmount;
 }
 
 export class RemittanceInformation {

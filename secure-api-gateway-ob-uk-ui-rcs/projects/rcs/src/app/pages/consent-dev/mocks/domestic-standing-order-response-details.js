@@ -1,167 +1,155 @@
 module.exports = {
-  "type": "DomesticStandingOrderConsentDetails",
-  "decisionApiUri": "/rcs/api/consent/decision/",
-  "username": "psu4test",
-  "userId": "42edfd13-a642-47c1-b76c-684efe4e6449",
-  "logo": "https://forgerock.com",
-  "clientId": "63bce7d3-0c74-4188-9d24-88e3a69d3c80",
-  "clientName": "TPP Test application",
-  "serviceProviderName": "Forgerock Bank simulation config",
-  initiation: {
-    creditorAccount: {
-      schemeName: "UK.OBIE.SortCodeAccountNumber",
-      identification: "08080021325698",
-      name: "ACME Inc",
-      secondaryIdentification: "0002"
-    }
-  },
-  "standingOrder": {
-      "type": "FRWriteDomesticStandingOrderDataInitiation",
-      "frequency": "Paid on the 25th March, 24th June, 29th September and 25th December.",
-      "firstPaymentDateTime": "2022-06-21T06:06:06.000Z",
-      "finalPaymentDateTime": "2023-03-20T06:06:06.000Z",
-      "firstPaymentAmount": {
-          "amount": "165.88",
-          "currency": "GBP"
-      },
-      "recurringPaymentAmount": {
-          "amount": "165.88",
-          "currency": "GBP"
-      },
-      "finalPaymentAmount": {
-          "amount": "165.88",
-          "currency": "GBP"
-      }
-  },
-  "accounts": [
-      {
-          "id": "34974c6f-af48-44a6-beca-b8c31f978f63",
-          "userId": "42edfd13-a642-47c1-b76c-684efe4e6449",
-          "account": {
-              "accountId": "34974c6f-af48-44a6-beca-b8c31f978f63",
-              "status": "Enabled",
-              "statusUpdateDateTime": "2022-06-23T06:40:10.299Z",
-              "currency": "GBP",
-              "accountType": "Personal",
-              "accountSubType": "CurrentAccount",
-              "nickname": "UK Bills",
-              "openingDate": "2022-06-22T06:40:10.299Z",
-              "maturityDate": "2022-06-24T06:40:10.300Z",
-              "accounts": [
-                  {
-                      "schemeName": "UK.OBIE.SortCodeAccountNumber",
-                      "identification": "94737646552564",
-                      "name": "42edfd13-a642-47c1-b76c-684efe4e6449",
-                      "secondaryIdentification": "66809442"
-                  }
-              ],
-              "firstAccount": {
-                  "schemeName": "UK.OBIE.SortCodeAccountNumber",
-                  "identification": "94737646552564",
-                  "name": "42edfd13-a642-47c1-b76c-684efe4e6449",
-                  "secondaryIdentification": "66809442"
-              }
-          },
-          "latestStatementId": "fc3989e2-7b3f-4180-9989-e7647c254b8e",
-          "created": "2022-06-23T06:40:10.283Z",
-          "balances": [
-              {
-                  "accountId": "34974c6f-af48-44a6-beca-b8c31f978f63",
-                  "creditDebitIndicator": "Debit",
-                  "type": "InterimAvailable",
-                  "dateTime": "2022-06-23T06:40:10.512Z",
-                  "amount": {
-                      "amount": "10894.83",
-                      "currency": "GBP"
-                  }
-              }
-          ]
-      },
-      {
-          "id": "c5c827a2-56c1-4aa8-ae82-5dc27b04c4a8",
-          "userId": "42edfd13-a642-47c1-b76c-684efe4e6449",
-          "account": {
-              "accountId": "c5c827a2-56c1-4aa8-ae82-5dc27b04c4a8",
-              "status": "Enabled",
-              "statusUpdateDateTime": "2022-06-23T06:40:12.313Z",
-              "currency": "EUR",
-              "accountType": "Personal",
-              "accountSubType": "CurrentAccount",
-              "nickname": "FR Bills",
-              "openingDate": "2022-06-22T06:40:12.313Z",
-              "maturityDate": "2022-06-24T06:40:12.313Z",
-              "accounts": [
-                  {
-                      "schemeName": "UK.OBIE.SortCodeAccountNumber",
-                      "identification": "40359693847335",
-                      "name": "42edfd13-a642-47c1-b76c-684efe4e6449",
-                      "secondaryIdentification": "75177497"
-                  }
-              ],
-              "firstAccount": {
-                  "schemeName": "UK.OBIE.SortCodeAccountNumber",
-                  "identification": "40359693847335",
-                  "name": "42edfd13-a642-47c1-b76c-684efe4e6449",
-                  "secondaryIdentification": "75177497"
-              }
-          },
-          "latestStatementId": "7ca14403-ea56-4234-ae4f-c8aed3a066aa",
-          "created": "2022-06-23T06:40:12.313Z",
-          "balances": [
-              {
-                  "accountId": "c5c827a2-56c1-4aa8-ae82-5dc27b04c4a8",
-                  "creditDebitIndicator": "Debit",
-                  "type": "InterimAvailable",
-                  "dateTime": "2022-06-23T06:40:12.316Z",
-                  "amount": {
-                      "amount": "9098.35",
-                      "currency": "EUR"
-                  }
-              }
-          ]
-      },
-      {
-          "id": "dc2e014f-7b53-43ed-99fe-b8a656973162",
-          "userId": "42edfd13-a642-47c1-b76c-684efe4e6449",
-          "account": {
-              "accountId": "dc2e014f-7b53-43ed-99fe-b8a656973162",
-              "status": "Enabled",
-              "statusUpdateDateTime": "2022-06-23T06:40:13.496Z",
-              "currency": "GBP",
-              "accountType": "Personal",
-              "accountSubType": "CurrentAccount",
-              "nickname": "Household",
-              "openingDate": "2022-06-22T06:40:13.496Z",
-              "maturityDate": "2022-06-24T06:40:13.496Z",
-              "accounts": [
-                  {
-                      "schemeName": "UK.OBIE.SortCodeAccountNumber",
-                      "identification": "56542170356249",
-                      "name": "42edfd13-a642-47c1-b76c-684efe4e6449"
-                  }
-              ],
-              "firstAccount": {
-                  "schemeName": "UK.OBIE.SortCodeAccountNumber",
-                  "identification": "56542170356249",
-                  "name": "42edfd13-a642-47c1-b76c-684efe4e6449"
-              }
-          },
-          "latestStatementId": "16130bd0-2989-4aa9-b4e3-16c4350012d7",
-          "created": "2022-06-23T06:40:13.496Z",
-          "balances": [
-              {
-                  "accountId": "dc2e014f-7b53-43ed-99fe-b8a656973162",
-                  "creditDebitIndicator": "Debit",
-                  "type": "InterimAvailable",
-                  "dateTime": "2022-06-23T06:40:13.498Z",
-                  "amount": {
-                      "amount": "1074.87",
-                      "currency": "GBP"
-                  }
-              }
-          ]
-      }
-  ],
-  "paymentReference": "Reference text",
-  "intentType": "PAYMENT_DOMESTIC_STANDING_ORDERS_CONSENT"
+    "type": "DomesticStandingOrderConsentDetails",
+    "consentId": "PDSOC_d0f51320-9ba5-4f56-9949-f89afbc23d",
+    "decisionApiUri": "/rcs/api/consent/decision/",
+    "username": "psu4test",
+    "userId": "4737f9f9-fa0a-4159-bc61-7da31542e624",
+    "clientId": "88ca3111-fa9f-4ff3-a61d-6cd9961606c5",
+    "clientName": "SAPIG automating-testing",
+    "serviceProviderName": "Test Bank",
+    "accounts": [
+        {
+            "id": "01233243245676",
+            "userId": "4737f9f9-fa0a-4159-bc61-7da31542e624",
+            "account": {
+                "accountId": "01233243245676",
+                "status": "Enabled",
+                "statusUpdateDateTime": "2023-09-19T05:48:03.210Z",
+                "currency": "GBP",
+                "accountType": "Personal",
+                "accountSubType": "CurrentAccount",
+                "nickname": "UK Bills",
+                "openingDate": "2023-09-18T05:48:03.210Z",
+                "maturityDate": "2023-09-20T05:48:03.211Z",
+                "accounts": [
+                    {
+                        "schemeName": "UK.OBIE.SortCodeAccountNumber",
+                        "identification": "01233243245676",
+                        "name": "psu4test",
+                        "secondaryIdentification": "34277610"
+                    }
+                ]
+            },
+            "latestStatementId": "998aca23-f2f8-4a42-8e82-48fa571b50b3",
+            "created": "2023-09-19T05:48:03.128Z",
+            "updated": "2023-09-19T05:48:07.762Z",
+            "balances": [
+                {
+                    "accountId": "01233243245676",
+                    "creditDebitIndicator": "Debit",
+                    "type": "InterimAvailable",
+                    "dateTime": "2023-09-19T05:48:03.565Z",
+                    "amount": {
+                        "amount": "4713.45",
+                        "currency": "GBP"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "01233254312390",
+            "userId": "4737f9f9-fa0a-4159-bc61-7da31542e624",
+            "account": {
+                "accountId": "01233254312390",
+                "status": "Enabled",
+                "statusUpdateDateTime": "2023-09-19T05:48:07.963Z",
+                "currency": "EUR",
+                "accountType": "Personal",
+                "accountSubType": "CurrentAccount",
+                "nickname": "FR Bills",
+                "openingDate": "2023-09-18T05:48:07.963Z",
+                "maturityDate": "2023-09-20T05:48:07.963Z",
+                "accounts": [
+                    {
+                        "schemeName": "UK.OBIE.SortCodeAccountNumber",
+                        "identification": "01233254312390",
+                        "name": "psu4test",
+                        "secondaryIdentification": "44398363"
+                    }
+                ]
+            },
+            "latestStatementId": "e5a0fdd1-b885-4e9e-94f9-648027faa7e6",
+            "created": "2023-09-19T05:48:07.963Z",
+            "updated": "2023-09-19T05:48:10.140Z",
+            "balances": [
+                {
+                    "accountId": "01233254312390",
+                    "creditDebitIndicator": "Debit",
+                    "type": "InterimAvailable",
+                    "dateTime": "2023-09-19T05:48:07.965Z",
+                    "amount": {
+                        "amount": "1391.86",
+                        "currency": "EUR"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "33441230187862",
+            "userId": "4737f9f9-fa0a-4159-bc61-7da31542e624",
+            "account": {
+                "accountId": "33441230187862",
+                "status": "Enabled",
+                "statusUpdateDateTime": "2023-09-19T05:48:10.168Z",
+                "currency": "GBP",
+                "accountType": "Personal",
+                "accountSubType": "CurrentAccount",
+                "nickname": "Household",
+                "openingDate": "2023-09-18T05:48:10.168Z",
+                "maturityDate": "2023-09-20T05:48:10.168Z",
+                "accounts": [
+                    {
+                        "schemeName": "UK.OBIE.SortCodeAccountNumber",
+                        "identification": "33441230187862",
+                        "name": "psu4test"
+                    }
+                ]
+            },
+            "latestStatementId": "2179c1eb-cf73-4171-89b5-8dd7d6916141",
+            "created": "2023-09-19T05:48:10.168Z",
+            "updated": "2023-09-19T05:48:11.493Z",
+            "balances": [
+                {
+                    "accountId": "33441230187862",
+                    "creditDebitIndicator": "Debit",
+                    "type": "InterimAvailable",
+                    "dateTime": "2023-09-19T05:48:10.182Z",
+                    "amount": {
+                        "amount": "15087.65",
+                        "currency": "GBP"
+                    }
+                }
+            ]
+        }
+    ],
+    "initiation": {
+        "type": "FRWriteDomesticStandingOrderDataInitiation",
+        "frequency": "Paid on the 25th March, 24th June, 29th September and 25th December.",
+        "reference": "Reference text",
+        "firstPaymentDateTime": "2022-06-21T06:06:06.000Z",
+        "finalPaymentDateTime": "2023-03-20T06:06:06.000Z",
+        "firstPaymentAmount": {
+            "amount": "165.88",
+            "currency": "GBP"
+        },
+        "recurringPaymentAmount": {
+            "amount": "65",
+            "currency": "GBP"
+        },
+        "finalPaymentAmount": {
+            "amount": "525.83",
+            "currency": "GBP"
+        },
+        "creditorAccount": {
+            "schemeName": "UK.OBIE.SortCodeAccountNumber",
+            "identification": "08080021325698",
+            "name": "ACME Inc",
+            "secondaryIdentification": "0002"
+        }
+    },
+    "paymentReference": "Reference text",
+    "charges": {
+        "amount": "0"
+    },
+    "intentType": "PAYMENT_DOMESTIC_STANDING_ORDERS_CONSENT"
 };
