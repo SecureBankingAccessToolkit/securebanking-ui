@@ -1,6 +1,6 @@
 {
   "name": "secure-api-gateway-ob-uk-ui-rcs",
-  "version": "2.0.1",
+  "version": "2.1.0",
   "description": "Bank simulation to get account/payment consent",
   "author": "forgerock.com",
   "license": "Apache-2.0",
