@@ -48,10 +48,10 @@ export class FundsConfirmationComponent implements OnInit {
 
       if (_get(account, 'identification')) {
         this.items.push({
-          type: ItemType.VRP_ACCOUNT_NUMBER,
+          type: ItemType.SORT_CODE_AND_ACCOUNT_NUMBER,
           payload: {
-            sortCodeLabel: 'CONSENT.FUNDS-CONFIRMATION.ACCOUNT_SORT_CODE',
-            accountNumberLabel: 'CONSENT.FUNDS-CONFIRMATION.ACCOUNT_NUMBER',
+            sortCodeLabel: 'CONSENT.PAYMENT.ACCOUNT_SORT_CODE',
+            accountNumberLabel: 'CONSENT.PAYMENT.ACCOUNT_NUMBER',
             account: account,
             cssClass: 'cof-account-id'
           }

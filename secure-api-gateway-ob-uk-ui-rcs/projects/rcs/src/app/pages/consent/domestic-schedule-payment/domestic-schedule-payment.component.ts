@@ -48,7 +48,7 @@ export class DomesticSchedulePaymentComponent implements OnInit {
         });
       }
       this.payerItems.push({
-        type: ItemType.VRP_ACCOUNT_NUMBER,
+        type: ItemType.SORT_CODE_AND_ACCOUNT_NUMBER,
         payload: {
           sortCodeLabel: 'CONSENT.PAYMENT.ACCOUNT_SORT_CODE',
           accountNumberLabel: 'CONSENT.PAYMENT.ACCOUNT_NUMBER',
@@ -58,6 +58,16 @@ export class DomesticSchedulePaymentComponent implements OnInit {
       });
     }
 
+    if (_get(this.response, 'instructedAmount')) {
+      this.items.push({
+        type: ItemType.INSTRUCTED_AMOUNT,
+        payload: {
+          label: 'CONSENT.PAYMENT.AMOUNT',
+          amount: this.response.instructedAmount,
+          cssClass: 'domestic-schedule-payment-instructedAmount'
+        }
+      });
+    }
     if (_get(this.response.initiation, 'creditorAccount')) {
       this.items.push({
         type: ItemType.STRING,
@@ -65,6 +75,15 @@ export class DomesticSchedulePaymentComponent implements OnInit {
           label: 'CONSENT.PAYMENT.PAYEE_NAME',
           value: this.response.initiation.creditorAccount.name,
           cssClass: 'domestic-schedule-payment-merchantName'
+        }
+      });
+      this.items.push({
+        type: ItemType.SORT_CODE_AND_ACCOUNT_NUMBER,
+        payload: {
+          sortCodeLabel: 'CONSENT.PAYMENT.ACCOUNT_SORT_CODE',
+          accountNumberLabel: 'CONSENT.PAYMENT.ACCOUNT_NUMBER',
+          account: this.response.initiation.creditorAccount,
+          cssClass: 'domestic-payment-payer-account'
         }
       });
     }
@@ -76,16 +95,6 @@ export class DomesticSchedulePaymentComponent implements OnInit {
         cssClass: 'domestic-schedule-payment-paymentReference'
       }
     });
-    if (_get(this.response, 'instructedAmount')) {
-      this.items.push({
-        type: ItemType.INSTRUCTED_AMOUNT,
-        payload: {
-          label: 'CONSENT.PAYMENT.AMOUNT',
-          amount: this.response.instructedAmount,
-          cssClass: 'domestic-schedule-payment-instructedAmount'
-        }
-      });
-    }
     if (_get(this.response, 'paymentDate')) {
       this.items.push({
         type: ItemType.DATE,

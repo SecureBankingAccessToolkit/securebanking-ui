@@ -1,81 +1,106 @@
 module.exports = {
-  type: "DomesticVrpPaymentConsentDetails",
-  decisionApiUri: "/rcs/api/consent/decision/",
-  username: "testUserName",
-  userId: "c7303aee-2ff1-44b5-b21f-a7a3aaf39271",
-  logo: "https://www.vhv.rs/dpng/d/455-4556963_warner-bros-logo-warner-brothers-logo-png-transparent.png",
-  clientId: "8c57af60-39ef-4eec-8309-d17d026843ac",
-  clientName: "TPP Test application",
-  serviceProviderName: "Forgerock Bank simulation config",
-  initiation: {
-    type: "FRWriteDomesticVRPDataInitiation",
-    creditorAccount: {
-      schemeName: "UK.OBIE.SortCodeAccountNumber",
-      identification: "08080021325698",
-      name: "ACME Inc",
-      secondaryIdentification: "0002"
-    }
-  },
-  accounts: [
+  "type": "DomesticVrpPaymentConsentDetails",
+  "consentId": "DVRP_9dd1fd32-0152-4250-a91f-462520d69b9",
+  "decisionApiUri": "/rcs/api/consent/decision/",
+  "username": "psu4test",
+  "userId": "4737f9f9-fa0a-4159-bc61-7da31542e624",
+  "clientId": "c4bc928e-f316-4191-8616-a89fbc3677c8",
+  "clientName": "SAPIG automating-testing",
+  "serviceProviderName": "Test Bank",
+  "accounts": [
     {
-      id: "8614e6bf-2ba3-40eb-9fd4-5a4d77785f50",
-      userId: "3ee885ee-ae0b-45a5-b061-8c19fdaab76f",
-      account: {
-        accountId: "8614e6bf-2ba3-40eb-9fd4-5a4d77785f50",
-        status: "Enabled",
-        statusUpdateDateTime: "2023-01-11T07:00:05.000Z",
-        currency: "GBP",
-        accountType: "Personal",
-        accountSubType: "CurrentAccount",
-        nickname: "UK Bills",
-        openingDate: "2023-01-10T07:00:05.000Z",
-        maturityDate: "2023-01-12T07:00:05.000Z",
-        accounts: [
+      "id": "01233243245676",
+      "userId": "4737f9f9-fa0a-4159-bc61-7da31542e624",
+      "account": {
+        "accountId": "01233243245676",
+        "status": "Enabled",
+        "statusUpdateDateTime": "2023-11-16T06:00:09.173Z",
+        "currency": "GBP",
+        "accountType": "Personal",
+        "accountSubType": "CurrentAccount",
+        "nickname": "UK Bills",
+        "openingDate": "2023-11-15T06:00:09.173Z",
+        "maturityDate": "2023-11-17T06:00:09.174Z",
+        "accounts": [
           {
-            schemeName: "UK.OBIE.SortCodeAccountNumber",
-            identification: "38988076757714",
-            name: "3ee885ee-ae0b-45a5-b061-8c19fdaab76f",
-            secondaryIdentification: "16282771"
+            "schemeName": "UK.OBIE.SortCodeAccountNumber",
+            "identification": "01233243245676",
+            "name": "psu4test",
+            "secondaryIdentification": "86898014"
           }
         ]
       },
-      latestStatementId: "f9ad6fe2-7a2e-4f44-ad58-d87c4f6e110c",
-      created: "2023-01-11T07:00:05.000Z",
-      balances: [
+      "latestStatementId": "6da2ce77-e518-410f-9bfb-49ae8c093973",
+      "created": "2023-11-16T06:00:09.157Z",
+      "updated": "2023-11-16T06:00:12.623Z",
+      "balances": [
         {
-          accountId: "8614e6bf-2ba3-40eb-9fd4-5a4d77785f50",
-          creditDebitIndicator: "Debit",
-          type: "InterimAvailable",
-          dateTime: "2023-01-11T07:00:06.000Z",
-          amount: {
-            amount: "7853.64",
-            currency: "GBP"
+          "accountId": "01233243245676",
+          "creditDebitIndicator": "Debit",
+          "type": "InterimAvailable",
+          "dateTime": "2023-11-16T06:00:09.897Z",
+          "amount": {
+            "amount": "2605.96",
+            "currency": "GBP"
           }
         }
       ]
     }
   ],
-  controlParameters: {
-    ValidFromDateTime: "2022-11-28T11:35:30.510Z",
-    ValidToDateTime: "2022-11-28T11:35:30.510Z",
-    MaximumIndividualAmount: {
-      Amount: "10.01",
-      Currency: "GBP"
+  "initiation": {
+    "type": "FRWriteDomesticVRPDataInitiation",
+    "debtorAccount": {
+      "schemeName": "UK.OBIE.SortCodeAccountNumber",
+      "identification": "01233243245676",
+      "name": "psu4test",
+      "accountId": "01233243245676"
     },
-    PeriodicLimits: [
-      {
-        PeriodType: "Month",
-        PeriodAlignment: "Calendar",
-        Amount: "10.01",
-        Currency: "GBP"
-      }
-    ],
-    VRPType: [
+    "creditorAccount": {
+      "schemeName": "UK.OBIE.SortCodeAccountNumber",
+      "identification": "08080021325698",
+      "name": "Mr Tim Burgess",
+      "secondaryIdentification": "11"
+    },
+    "creditorPostalAddress": {
+      "addressType": "RESIDENTIAL",
+      "streetName": "The Mall",
+      "buildingNumber": "1",
+      "postCode": "WC1 1AB",
+      "townName": "London",
+      "country": "UK"
+    },
+    "remittanceInformation": {
+      "unstructured": "Internal ops code 5120103",
+      "reference": "FRESCO-037"
+    }
+  },
+  "controlParameters": {
+    "vrpType": [
       "UK.OBIE.VRPType.Sweeping"
     ],
-    PSUAuthenticationMethods: [
+    "psuAuthenticationMethods": [
       "UK.OBIE.SCANotRequired"
+    ],
+    "validFromDateTime": "2022-11-09T08:17:08.000Z",
+    "validToDateTime": "2022-11-19T08:17:08.000Z",
+    "maximumIndividualAmount": {
+      "amount": "10.01",
+      "currency": "GBP"
+    },
+    "periodicLimits": [
+      {
+        "amount": "10.01",
+        "currency": "GBP",
+        "periodType": "Month",
+        "periodAlignment": "Calendar"
+      }
+    ],
+    "supplementaryData": {
+      "data": "{}"
+    },
+    "psUInteractionTypes": [
+      "InSession"
     ]
   },
-  intentType: "DOMESTIC_VRP_PAYMENT_CONSENT"
+  "intentType": "DOMESTIC_VRP_PAYMENT_CONSENT"
 }

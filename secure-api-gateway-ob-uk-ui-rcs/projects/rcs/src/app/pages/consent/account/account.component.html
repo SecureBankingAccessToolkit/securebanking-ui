@@ -1,20 +1,15 @@
 <mat-card *ngIf="response">
   <forgerock-customer-logo></forgerock-customer-logo>
   <form [formGroup]="form">
-    <h1 [translate]="'CONSENT.ACCOUNT.TITLE'" [translateParams]="{ clientName: response.clientName }"></h1>
     <div *ngIf="response.logo" class="merchant-logo">
       <img src="{{ response.logo }}" onerror="this.style.display='none'" />
     </div>
     <div class="divider"></div>
 
-    <span [translate]="'CONSENT.ACCOUNT.CHECK_DETAILS'"></span>
-
-    <app-consent-box [items]="items"></app-consent-box>
-
     <app-account-checkbox
       [form]="form"
       [accounts]="response.accounts"
-      [label]="'CONSENT.ACCOUNT.SELECT_ACCOUNT'"
+      [label]="'CONSENT.ACCOUNT.SELECT_ACCOUNT' | translate: { clientName: response.clientName }"
     ></app-account-checkbox>
 
     <div class="review-permissions">

@@ -12,11 +12,11 @@
 
     <span [translate]="'CONSENT.PAYMENT.CHECK_DETAILS'"></span>
 
-    <app-consent-box [items]="basicItems"></app-consent-box>
+    <app-consent-box [items]="paymentItems"></app-consent-box>
 
     <div class="title">{{ 'CONSENT.INTERNATIONAL-PAYMENT.REFRESH_RATE_INFO' | translate }}</div>
 
-    <app-consent-box [items]="rateItems"></app-consent-box>
+    <app-consent-box [items]="payeeItems"></app-consent-box>
     <span *ngIf="response.initiation.debtorAccount" [translate]="'CONSENT.PAYMENT.ACCOUNT_PRE_SELECTED'"></span>
     <app-consent-box *ngIf="response.initiation.debtorAccount" [items]="payerItems"></app-consent-box>
 

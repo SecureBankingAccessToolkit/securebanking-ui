@@ -50,7 +50,7 @@ export class DomesticPaymentComponent implements OnInit {
         });
       }
       this.payerItems.push({
-        type: ItemType.VRP_ACCOUNT_NUMBER,
+        type: ItemType.SORT_CODE_AND_ACCOUNT_NUMBER,
         payload: {
           sortCodeLabel: 'CONSENT.PAYMENT.ACCOUNT_SORT_CODE',
           accountNumberLabel: 'CONSENT.PAYMENT.ACCOUNT_NUMBER',
@@ -60,6 +60,14 @@ export class DomesticPaymentComponent implements OnInit {
       });
     }
 
+    this.items.push({
+      type: ItemType.INSTRUCTED_AMOUNT,
+      payload: {
+        label: 'CONSENT.PAYMENT.AMOUNT',
+        amount: this.response.instructedAmount,
+        cssClass: 'domestic-single-payment-instructedAmount'
+      }
+    });
     if (_get(this.response.initiation, 'creditorAccount')) {
       this.items.push({
         type: ItemType.STRING,
@@ -67,6 +75,15 @@ export class DomesticPaymentComponent implements OnInit {
           label: 'CONSENT.PAYMENT.PAYEE_NAME',
           value: this.response.initiation.creditorAccount.name,
           cssClass: 'domestic-single-payment-merchantName'
+        }
+      });
+      this.items.push({
+        type: ItemType.SORT_CODE_AND_ACCOUNT_NUMBER,
+        payload: {
+          sortCodeLabel: 'CONSENT.PAYMENT.ACCOUNT_SORT_CODE',
+          accountNumberLabel: 'CONSENT.PAYMENT.ACCOUNT_NUMBER',
+          account: this.response.initiation.creditorAccount,
+          cssClass: 'domestic-payment-payer-account'
         }
       });
     }
@@ -86,14 +103,7 @@ export class DomesticPaymentComponent implements OnInit {
         cssClass: 'domestic-single-payment-paymentReference'
       }
     });
-    this.items.push({
-      type: ItemType.INSTRUCTED_AMOUNT,
-      payload: {
-        label: 'CONSENT.PAYMENT.AMOUNT',
-        amount: this.response.instructedAmount,
-        cssClass: 'domestic-single-payment-instructedAmount'
-      }
-    });
+
   }
 
   submit(allowing = false) {

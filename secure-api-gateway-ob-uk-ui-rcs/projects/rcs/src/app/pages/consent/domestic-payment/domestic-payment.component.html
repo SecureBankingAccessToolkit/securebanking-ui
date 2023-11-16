@@ -1,7 +1,7 @@
 <mat-card *ngIf="response">
   <forgerock-customer-logo></forgerock-customer-logo>
   <form [formGroup]="form">
-    <h1 [translate]="'CONSENT.DOMESTIC-PAYMENT.TITLE'" [translateParams]="{ clientName: response.clientName }"></h1>
+    <h1 [translate]="'CONSENT.DOMESTIC-PAYMENT.TITLE'"></h1>
     <div *ngIf="response.logo" class="merchant-logo">
       <img src="{{ response.logo }}" onerror="this.style.display='none'" />
     </div>

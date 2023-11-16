@@ -16,12 +16,12 @@ module.exports = {
     }
   },
   "instructedAmount": {
-    "amount": "10.01",
-    "currency": "GBP"
+    "amount": "10.02",
+    "currency": "EUR"
   },
   "exchangeRateInformation": {
-    "unitCurrency": "EUR",
-    "exchangeRate": 10,
+    "unitCurrency": "GBP",
+    "exchangeRate": 0.58,
     "rateType": "AGREED",
     "contractIdentification": "/tbill/2018/T102993"
   },

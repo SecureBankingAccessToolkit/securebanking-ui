@@ -20,14 +20,14 @@ import { DateItemComponent } from '../../../../../../../../src/app/pages/consent
 import { AccountNumberItemComponent } from '../../../../../../../../src/app/pages/consent/components/consent-box/items/account-number-item/account-number-item.component';
 import { TransactionsPeriodItemComponent } from '../../../../../../../../src/app/pages/consent/components/consent-box/items/transactions-period-item/transactions-period-item.component';
 import {
-  VrpAccountItemComponent
-} from '../../../../../../../../src/app/pages/consent/components/consent-box/items/vrp-account-item/vrp-account-item.component';
-import {
   MaximumIndividualAmountItemComponent
 } from '../../../../../../../../src/app/pages/consent/components/consent-box/items/maximum-individual-amount-item/maximum-individual-amount-item.component';
 import {
   AddressItemComponent
 } from '../../../../../../../../src/app/pages/consent/components/consent-box/items/adress-item/address-item.component';
+import {
+  SortCodeAndAccountNumberItemComponent
+} from "../../../../../../../../src/app/pages/consent/components/consent-box/items/sort-code-and-account-number-item/sort-code-and-account-number-item";
 
 @Component({
   selector: 'app-dynamic-item',
@@ -87,8 +87,8 @@ export class DynamicItemComponent implements OnInit, OnChanges {
       case ItemType.TRANSACTION_PERIOD:
         componentInstance = TransactionsPeriodItemComponent;
         break;
-      case ItemType.VRP_ACCOUNT_NUMBER:
-        componentInstance = VrpAccountItemComponent;
+      case ItemType.SORT_CODE_AND_ACCOUNT_NUMBER:
+        componentInstance = SortCodeAndAccountNumberItemComponent;
         break;
       case ItemType.ADDRESS:
         componentInstance = AddressItemComponent;

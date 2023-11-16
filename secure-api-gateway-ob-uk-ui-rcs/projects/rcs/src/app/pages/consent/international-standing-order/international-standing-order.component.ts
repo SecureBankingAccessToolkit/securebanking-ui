@@ -48,7 +48,7 @@ export class InternationalStandingOrderComponent implements OnInit {
         });
       }
       this.payerItems.push({
-        type: ItemType.VRP_ACCOUNT_NUMBER,
+        type: ItemType.SORT_CODE_AND_ACCOUNT_NUMBER,
         payload: {
           sortCodeLabel: 'CONSENT.PAYMENT.ACCOUNT_SORT_CODE',
           accountNumberLabel: 'CONSENT.PAYMENT.ACCOUNT_NUMBER',
@@ -65,6 +65,15 @@ export class InternationalStandingOrderComponent implements OnInit {
           label: 'CONSENT.PAYMENT.PAYEE_NAME',
           value: this.response.initiation.creditorAccount.name,
           cssClass: 'file-payment-merchantName'
+        }
+      });
+      this.items.push({
+        type: ItemType.SORT_CODE_AND_ACCOUNT_NUMBER,
+        payload: {
+          sortCodeLabel: 'CONSENT.PAYMENT.ACCOUNT_SORT_CODE',
+          accountNumberLabel: 'CONSENT.PAYMENT.ACCOUNT_NUMBER',
+          account: this.response.initiation.creditorAccount,
+          cssClass: 'domestic-payment-payer-account'
         }
       });
     }
