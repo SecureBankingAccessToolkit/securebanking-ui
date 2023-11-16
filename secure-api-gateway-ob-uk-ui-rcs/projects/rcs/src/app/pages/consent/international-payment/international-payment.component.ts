@@ -2,7 +2,7 @@ import {ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output}
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import _get from 'lodash-es/get';
 
-import {ApiResponses, Charges, Rate} from '../../../../../src/app/types/api';
+import {ApiResponses} from '../../../../../src/app/types/api';
 import {IConsentEventEmitter, Item, ItemType} from '../../../../../src/app/types/consentItem';
 import {ConsentDecision} from '../../../../../src/app/types/ConsentDecision';
 import {OBActiveOrHistoricCurrencyAndAmount} from "rcs/src/app/types/ob";

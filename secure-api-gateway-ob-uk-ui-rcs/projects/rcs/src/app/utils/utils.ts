@@ -11,7 +11,7 @@ International payments util functions
  * @param instructedAmount
  */
 export function isExchangeCurrency(rate: Rate, currencyOfTransfer: string, instructedAmount: OBActiveOrHistoricCurrencyAndAmount): boolean {
-    if((instructedAmount.currency == currencyOfTransfer) && (currencyOfTransfer != rate.unitCurrency)) {
+    if((instructedAmount.currency === currencyOfTransfer) && (currencyOfTransfer !== rate.unitCurrency)) {
         return true
     }
     return false
