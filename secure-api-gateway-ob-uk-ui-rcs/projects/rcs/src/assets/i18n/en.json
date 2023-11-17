@@ -28,6 +28,7 @@
   },
   "CONSENT": {
     "PAYMENT": {
+      "TITLE": "Confirm payment account",
       "CHECK_DETAILS": "Please check the details below are correct.",
       "PAYEE_NAME": "Payee name",
       "ACCOUNT": "Account",
@@ -36,7 +37,7 @@
       "ACCOUNT_PRE_SELECTED": "From account",
       "SELECT_ACCOUNT": "Please select the account to pay from:",
       "AVAILABLE": "Available",
-      "PROCEED_PAYMENT": "Press Proceed to make payment",
+      "PROCEED_PAYMENT": "Proceed to make payment",
       "PROCEED": "Proceed",
       "CANCEL": "Cancel",
       "CURRENCY": "Currency",
@@ -67,9 +68,9 @@
       "PROCEED_PAYMENT": "Press Proceed to setup a Variable Recurring Payment"
     },
     "ACCOUNT": {
-      "TITLE": "Confirm account sharing with {{clientName}}",
+      "TITLE": "Select account(s) to share information with {{clientName}}",
       "CHECK_DETAILS": "Please check the details below are correct.",
-      "SELECT_ACCOUNT": "Please select and confirm account(s) to share information:",
+      "SELECT_ACCOUNT": "Please select account(s) to share information with {{clientName}}",
       "CANCEL": "Cancel and return to {{client}}",
       "APPLICATION": "Application requesting access",
       "TRANSACTION_PERIOD": "Transactions period requested",
@@ -79,7 +80,7 @@
       "CONNECT": "Connect {{client}}",
       "ACCOUNTS": "Accounts",
       "PROCEED_ACCOUNT": "Press Proceed to start sharing your account(s)",
-      "REVIEW_DATA": "Review the data you will be sharing",
+      "REVIEW_DATA": "Review the information you will be sharing",
       "ACCESS.PERIOD": "The application has requested access to your transactions from {{from}} to {{to}}",
       "PERMISSIONS": {
         "TITLE": "Requested Permissions",
@@ -115,7 +116,7 @@
       "CANCEL": "Cancel and return to {{client}}"
     },
     "DOMESTIC-PAYMENT": {
-      "TITLE": "Confirm domestic payment to {{clientName}}",
+      "TITLE": "Confirm payment account",
       "PAY": "Pay",
       "PAY_FROM": "Pay from",
       "ALLOW": "Allow",
@@ -124,7 +125,7 @@
       "CANCEL": "Cancel and return to {{client}}"
     },
     "DOMESTIC-SCHEDULE-PAYMENT": {
-      "TITLE": "Confirm domestic schedule payment to {{clientName}}",
+      "TITLE": "Confirm to make payment",
       "PAY": "Pay",
       "PAYMENT_DATE": "Payment date",
       "ALLOW": "Allow",
@@ -133,7 +134,7 @@
       "REFERENCE": "Reference"
     },
     "DOMESTIC-STANDING-ORDER": {
-      "TITLE": "Confirm domestic standing order to {{clientName}}",
+      "TITLE": "Confirm to make payment(s)",
       "PAY": "Pay",
       "PAY_FROM": "Pay from account: ",
       "ALLOW": "Allow",
@@ -151,21 +152,23 @@
       "FREQ": "Frequency"
     },
     "INTERNATIONAL-PAYMENT": {
-      "TITLE": "Confirm international payment to {{clientName}}",
+      "TITLE": "Confirm payment details",
       "PAY": "Pay",
       "PAY_FROM": "Pay from",
       "ALLOW": "Allow",
       "PAY_NOW": "Pay now",
       "PAY_CONSENT": "By clicking 'Pay from' you consent to proceed with payment",
       "CANCEL": "Cancel and return to {{client}}",
-      "AMOUNT_TO_PAY": "Amount to pay",
+      "TOTAL_AMOUNT": "Total amount",
+      "AMOUNT_CONVERTED": "Amount Converted",
       "EXCHANGE_RATE": "Exchange Rate",
       "EXCHANGE_RATE_FROM": "Exchange from",
       "EXCHANGE_RATE_TYPE": "Type",
-      "REFRESH_RATE_INFO": "This rate is valid for the next 5 minutes, if you navigate away from this page now the rate we’ve quoted you may change"
+      "REFRESH_RATE_INFO": "This rate is valid for the next 5 minutes, if you navigate away from this page now the rate we’ve quoted you may change",
+      "TO_ACCOUNT": "To account"
     },
     "INTERNATIONAL-SCHEDULE-PAYMENT": {
-      "TITLE": "Confirm international schedule payment to {{clientName}}",
+      "TITLE": "Confirm to make payment",
       "PAY": "Pay",
       "PAY_FROM": "Pay from",
       "ALLOW": "Allow",
@@ -180,7 +183,7 @@
       "ON_PAYMENT_DATE": "on payment date"
     },
     "INTERNATIONAL-STANDING-ORDER": {
-      "TITLE": "Confirm international standing order to {{clientName}}",
+      "TITLE": "Confirm to make payment(s)",
       "PAY": "Pay",
       "PAY_FROM": "Pay from account: ",
       "ALLOW": "Allow",
@@ -199,7 +202,7 @@
       "CURRENCY_OF_TRANSFER": "Currency of transfer"
     },
     "FILE-PAYMENT": {
-      "TITLE": "Confirm bulk payments to {{clientName}}",
+      "TITLE": "Confirm to make payment(s)",
       "PAY_FROM": "Pay from",
       "ALLOW": "Allow",
       "NO_OF_PAYEES": "Number of payees",

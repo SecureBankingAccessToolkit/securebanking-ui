@@ -23,10 +23,10 @@ module.exports = {
   },
   instructedAmount: {
     amount: "10.01",
-    currency: "GBP"
+    currency: "EUR"
   },
   exchangeRateInformation: {
-    unitCurrency: "EUR",
+    unitCurrency: "GBP",
     exchangeRate: 10,
     rateType: "AGREED",
     contractIdentification: "/tbill/2018/T102993"

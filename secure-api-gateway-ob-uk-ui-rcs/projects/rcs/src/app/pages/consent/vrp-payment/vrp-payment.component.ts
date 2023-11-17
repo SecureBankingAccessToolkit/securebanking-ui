@@ -53,10 +53,10 @@ export class VrpPaymentComponent implements OnInit {
         });
       }
       this.payerItems.push({
-        type: ItemType.VRP_ACCOUNT_NUMBER,
+        type: ItemType.SORT_CODE_AND_ACCOUNT_NUMBER,
         payload: {
-          sortCodeLabel: 'CONSENT.VRP-PAYMENT.ACCOUNT_SORT_CODE',
-          accountNumberLabel: 'CONSENT.VRP-PAYMENT.ACCOUNT_NUMBER',
+          sortCodeLabel: 'CONSENT.PAYMENT.ACCOUNT_SORT_CODE',
+          accountNumberLabel: 'CONSENT.PAYMENT.ACCOUNT_NUMBER',
           account: this.response.initiation.debtorAccount,
           cssClass: 'vrp-payment-payer-account'
         }
@@ -88,10 +88,10 @@ export class VrpPaymentComponent implements OnInit {
     // payee account
     if (_get(this.response.initiation, 'creditorAccount')) {
       this.payeeItems.push({
-        type: ItemType.VRP_ACCOUNT_NUMBER,
+        type: ItemType.SORT_CODE_AND_ACCOUNT_NUMBER,
         payload: {
-          sortCodeLabel: 'CONSENT.VRP-PAYMENT.ACCOUNT_SORT_CODE',
-          accountNumberLabel: 'CONSENT.VRP-PAYMENT.ACCOUNT_NUMBER',
+          sortCodeLabel: 'CONSENT.PAYMENT.ACCOUNT_SORT_CODE',
+          accountNumberLabel: 'CONSENT.PAYMENT.ACCOUNT_NUMBER',
           account: this.response.initiation.creditorAccount,
           cssClass: 'vrp-payment-creditor-account'
         }

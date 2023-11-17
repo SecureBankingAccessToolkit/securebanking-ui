@@ -43,17 +43,17 @@ export class InternationalStandingOrderComponent implements OnInit {
           payload: {
             label: 'CONSENT.PAYMENT.NAME',
             value: this.response.initiation.debtorAccount.name,
-            cssClass: 'domestic-single-payment-debtorAccount-Name'
+            cssClass: 'international-standing-order-debtorAccount-Name'
           }
         });
       }
       this.payerItems.push({
-        type: ItemType.VRP_ACCOUNT_NUMBER,
+        type: ItemType.SORT_CODE_AND_ACCOUNT_NUMBER,
         payload: {
           sortCodeLabel: 'CONSENT.PAYMENT.ACCOUNT_SORT_CODE',
           accountNumberLabel: 'CONSENT.PAYMENT.ACCOUNT_NUMBER',
           account: this.response.initiation.debtorAccount,
-          cssClass: 'domestic-single-payment-payer-account'
+          cssClass: 'international-standing-order-payer-account'
         }
       });
     }
@@ -64,7 +64,16 @@ export class InternationalStandingOrderComponent implements OnInit {
         payload: {
           label: 'CONSENT.PAYMENT.PAYEE_NAME',
           value: this.response.initiation.creditorAccount.name,
-          cssClass: 'file-payment-merchantName'
+          cssClass: 'international-standing-order-merchantName'
+        }
+      });
+      this.items.push({
+        type: ItemType.SORT_CODE_AND_ACCOUNT_NUMBER,
+        payload: {
+          sortCodeLabel: 'CONSENT.PAYMENT.ACCOUNT_SORT_CODE',
+          accountNumberLabel: 'CONSENT.PAYMENT.ACCOUNT_NUMBER',
+          account: this.response.initiation.creditorAccount,
+          cssClass: 'international-standing-order-payer-account'
         }
       });
     }
@@ -73,7 +82,7 @@ export class InternationalStandingOrderComponent implements OnInit {
       payload: {
         label: 'CONSENT.PAYMENT.ACCOUNT',
         value: this.response.account,
-        cssClass: 'file-payment-account'
+        cssClass: 'international-standing-order-account'
       }
     });
     this.items.push({
@@ -81,7 +90,7 @@ export class InternationalStandingOrderComponent implements OnInit {
       payload: {
         label: 'CONSENT.PAYMENT.PAYMENT_REFERENCE',
         value: this.response.paymentReference,
-        cssClass: 'file-payment-paymentReference'
+        cssClass: 'international-standing-order-paymentReference'
       }
     });
 
@@ -97,7 +106,7 @@ export class InternationalStandingOrderComponent implements OnInit {
           firstPaymentAmountLabel: 'CONSENT.INTERNATIONAL-STANDING-ORDER.AMOUNT',
           firstPaymentDate: this.response.initiation.firstPaymentDateTime,
           firstPaymentAmount: this.response.initiation.instructedAmount,
-          cssClass: 'file-payment-FirstPayment'
+          cssClass: 'international-standing-order-FirstPayment'
         }
       });
     }
@@ -111,7 +120,7 @@ export class InternationalStandingOrderComponent implements OnInit {
           frequencyLabel: 'CONSENT.INTERNATIONAL-STANDING-ORDER.FREQ',
           nextPaymentAmount: this.response.initiation.instructedAmount,
           frequency: this.response.initiation.frequency,
-          cssClass: 'file-payment-NextPayment'
+          cssClass: 'international-standing-order-NextPayment'
         }
       });
     }
@@ -127,7 +136,7 @@ export class InternationalStandingOrderComponent implements OnInit {
           finalPaymentAmountLabel: 'CONSENT.INTERNATIONAL-STANDING-ORDER.AMOUNT',
           finalPaymentDate: this.response.initiation.finalPaymentDateTime,
           finalPaymentAmount: this.response.initiation.instructedAmount,
-          cssClass: 'file-payment-FinalPayment'
+          cssClass: 'international-standing-order-FinalPayment'
         }
       });
     }

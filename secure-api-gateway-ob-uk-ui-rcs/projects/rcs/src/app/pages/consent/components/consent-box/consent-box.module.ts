@@ -21,10 +21,10 @@ import { DynamicItemComponent } from './items/dynamic-item/dynamic-item.componen
 import { TransactionsPeriodItemComponent } from '../../../../../../src/app/pages/consent/components/consent-box/items/transactions-period-item/transactions-period-item.component';
 import { BankPipesModule } from '../../../../../../src/app/pipes/pipes.module';
 import { ForgerockPipesModule } from '@secureapigateway/secure-api-gateway-ob-uk-ui-common/pipes';
-import {
-  VrpAccountItemComponent
-} from "rcs/src/app/pages/consent/components/consent-box/items/vrp-account-item/vrp-account-item.component";
 import {AddressItemComponent} from "rcs/src/app/pages/consent/components/consent-box/items/adress-item/address-item.component";
+import {
+  SortCodeAndAccountNumberItemComponent
+} from "./items/sort-code-and-account-number-item/sort-code-and-account-number-item";
 
 @NgModule({
   imports: [
@@ -50,9 +50,9 @@ import {AddressItemComponent} from "rcs/src/app/pages/consent/components/consent
     RateAmountItemComponent,
     DynamicItemComponent,
     TransactionsPeriodItemComponent,
-    VrpAccountItemComponent,
     KeyValueItemComponent,
-    AddressItemComponent
+    AddressItemComponent,
+    SortCodeAndAccountNumberItemComponent
   ],
   entryComponents: [
     StringItemComponent,
@@ -63,12 +63,12 @@ import {AddressItemComponent} from "rcs/src/app/pages/consent/components/consent
     NextPaymentItemComponent,
     FinalPaymentItemComponent,
     AccountNumberItemComponent,
-    VrpAccountItemComponent,
     ExchangeRateItemComponent,
     RateAmountItemComponent,
     DynamicItemComponent,
     TransactionsPeriodItemComponent,
-    AddressItemComponent
+    AddressItemComponent,
+    SortCodeAndAccountNumberItemComponent
   ],
   exports: [ConsentBoxComponent]
 })
