@@ -69,26 +69,26 @@ export class InternationalSchedulePaymentComponent implements OnInit {
       type: ItemType.INSTRUCTED_AMOUNT,
       payload: {
         label: 'CONSENT.PAYMENT.AMOUNT',
-        amount: this.response.instructedAmount,
-        cssClass: 'international-payment-instructedAmount'
+        amount: this.response.initiation.instructedAmount,
+        cssClass: 'international-scheduled-payment-instructedAmount'
       }
     });
 
     if(_get(this.response, "exchangeRateInformation")) {
-      this.amountConverted = calculateAmountConversion(this.response.exchangeRateInformation, this.response.currencyOfTransfer, this.response.instructedAmount)
-      if(this.amountConverted) {
+      this.amountConverted = calculateAmountConversion(this.response.exchangeRateInformation, this.response.currencyOfTransfer, this.response.initiation.instructedAmount)
+      if(this.amountConverted !== undefined) {
         this.paymentItems.push({
           type: ItemType.INSTRUCTED_AMOUNT,
           payload: {
             label: 'CONSENT.INTERNATIONAL-PAYMENT.AMOUNT_CONVERTED',
             amount: this.amountConverted,
-            cssClass: 'international-payment-AMOUNT_CONVERTED'
+            cssClass: 'international-scheduled-payment-AMOUNT_CONVERTED'
           }
         })
       }
     }
-    if(_get(this.response, "exchangeRateInformation") && _get(this.response, "currencyOfTransfer") && _get(this.response, "instructedAmount")) {
-      if (isExchangeCurrency(this.response.exchangeRateInformation, this.response.currencyOfTransfer, this.response.instructedAmount)) {
+    if(_get(this.response, "exchangeRateInformation") && _get(this.response, "currencyOfTransfer") && _get(this.response.initiation, "instructedAmount")) {
+      if (isExchangeCurrency(this.response.exchangeRateInformation, this.response.currencyOfTransfer, this.response.initiation.instructedAmount)) {
         this.paymentItems.push({
           type: ItemType.EXCHANGE_RATE,
           payload: {
@@ -101,7 +101,7 @@ export class InternationalSchedulePaymentComponent implements OnInit {
                     : '',
             rate: this.response.exchangeRateInformation,
             currencyOfTransfer: this.response.currencyOfTransfer,
-            cssClass: 'international-payment-rate'
+            cssClass: 'international-scheduled-payment-rate'
           }
         });
       }
@@ -113,7 +113,7 @@ export class InternationalSchedulePaymentComponent implements OnInit {
         payload: {
           label: 'CONSENT.PAYMENT.PAYEE_NAME',
           value: this.response.initiation.creditorAccount.name,
-          cssClass: 'international-payment-merchantName'
+          cssClass: 'international-scheduled-payment-merchantName'
         }
       });
       this.payeeItems.push({
@@ -122,7 +122,7 @@ export class InternationalSchedulePaymentComponent implements OnInit {
           sortCodeLabel: 'CONSENT.PAYMENT.ACCOUNT_SORT_CODE',
           accountNumberLabel: 'CONSENT.PAYMENT.ACCOUNT_NUMBER',
           account: this.response.initiation.creditorAccount,
-          cssClass: 'international-payment-payer-account'
+          cssClass: 'international-scheduled-payment-payer-account'
         }
       });
     }
@@ -132,8 +132,8 @@ export class InternationalSchedulePaymentComponent implements OnInit {
         type: ItemType.STRING,
         payload: {
           label: 'CONSENT.PAYMENT.CHARGES',
-          value: this.response.charges.amount + ' ' + this.response.charges.currency,
-          cssClass: 'international-payment-charges'
+          value: this.response.charges.amount + ' ' + (this.response.charges.currency === undefined ? 'GBP' : this.response.charges.currency),
+          cssClass: 'international-scheduled-payment-charges'
         }
       });
     } else if (_get(this.response, 'exchangeRateInformation.unitCurrency')) {
@@ -142,17 +142,17 @@ export class InternationalSchedulePaymentComponent implements OnInit {
         payload: {
           label: 'CONSENT.PAYMENT.CHARGES',
           value: '0.0 ' + this.response.exchangeRateInformation.unitCurrency,
-          cssClass: 'international-payment-charges'
+          cssClass: 'international-scheduled-payment-charges'
         }
       });
     }
 
-    if(this.amountConverted) {
+    if(this.amountConverted !== undefined) {
       this.totalAmount = calculateTotalAmount(this.response.charges, this.amountConverted)
     } else {
       this.totalAmount = {
-        amount: (Number(this.response.instructedAmount.amount) + Number(this.response.charges.amount)),
-        currency: this.response.instructedAmount.currency
+        amount: (Number(this.response.initiation.instructedAmount.amount) + Number(this.response.charges.amount)),
+        currency: this.response.initiation.instructedAmount.currency
       }
     }
 
@@ -161,7 +161,7 @@ export class InternationalSchedulePaymentComponent implements OnInit {
       payload: {
         label: 'CONSENT.INTERNATIONAL-PAYMENT.TOTAL_AMOUNT',
         amount: this.totalAmount,
-        cssClass: 'international-payment-amount-to-pay'
+        cssClass: 'international-scheduled-payment-amount-to-pay'
       }
     });
     this.paymentItems.push({
@@ -169,7 +169,7 @@ export class InternationalSchedulePaymentComponent implements OnInit {
       payload: {
         label: 'CONSENT.PAYMENT.PAYMENT_REFERENCE',
         value: this.response.paymentReference,
-        cssClass: 'international-payment-paymentReference'
+        cssClass: 'international-scheduled-payment-paymentReference'
       }
     });
   }

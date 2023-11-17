@@ -24,7 +24,6 @@ export function isExchangeCurrency(rate: Rate, currencyOfTransfer: string, instr
  * @param instructedAmount
  */
 export function calculateAmountConversion(rate: Rate, currencyOfTransfer: string, instructedAmount: OBActiveOrHistoricCurrencyAndAmount): OBActiveOrHistoricCurrencyAndAmount {
-    console.log(`instructed currency ${rate.unitCurrency}, currency of transfer ${currencyOfTransfer}`)
     if(isExchangeCurrency(rate, currencyOfTransfer, instructedAmount)) {
         return {
             amount: (Number(instructedAmount.amount) * Number(rate.exchangeRate)),
@@ -39,7 +38,7 @@ export function calculateAmountConversion(rate: Rate, currencyOfTransfer: string
  * @param amountConverted
  */
 export function calculateTotalAmount(charges: Charges, amountConverted: OBActiveOrHistoricCurrencyAndAmount): OBActiveOrHistoricCurrencyAndAmount {
-    if(amountConverted) {
+    if(amountConverted !== undefined) {
         return {
             amount: (Number(amountConverted.amount) + Number(charges.amount)),
             currency: amountConverted.currency

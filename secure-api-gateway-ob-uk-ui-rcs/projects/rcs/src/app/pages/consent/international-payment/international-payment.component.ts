@@ -33,8 +33,8 @@ export class InternationalPaymentComponent implements OnInit {
     paymentItems: Item[] = [];
     payerItems: Item[] = [];
     payeeItems: Item[] = [];
-    amountConverted: OBActiveOrHistoricCurrencyAndAmount;
-    totalAmount: OBActiveOrHistoricCurrencyAndAmount;
+    amountConverted: OBActiveOrHistoricCurrencyAndAmount | undefined;
+    totalAmount: OBActiveOrHistoricCurrencyAndAmount | undefined;
 
     ngOnInit() {
         if (!this.response) {
@@ -69,14 +69,14 @@ export class InternationalPaymentComponent implements OnInit {
             type: ItemType.INSTRUCTED_AMOUNT,
             payload: {
                 label: 'CONSENT.PAYMENT.AMOUNT',
-                amount: this.response.instructedAmount,
+                amount: this.response.initiation.instructedAmount,
                 cssClass: 'international-payment-instructedAmount'
             }
         });
 
         if(_get(this.response, "exchangeRateInformation")) {
-            this.amountConverted = calculateAmountConversion(this.response.exchangeRateInformation, this.response.currencyOfTransfer, this.response.instructedAmount)
-            if(this.amountConverted) {
+            this.amountConverted = calculateAmountConversion(this.response.exchangeRateInformation, this.response.currencyOfTransfer, this.response.initiation.instructedAmount)
+            if(this.amountConverted !== undefined) {
                 this.paymentItems.push({
                     type: ItemType.INSTRUCTED_AMOUNT,
                     payload: {
@@ -87,8 +87,8 @@ export class InternationalPaymentComponent implements OnInit {
                 })
             }
         }
-        if(_get(this.response, "exchangeRateInformation") && _get(this.response, "currencyOfTransfer") && _get(this.response, "instructedAmount")) {
-            if (isExchangeCurrency(this.response.exchangeRateInformation, this.response.currencyOfTransfer, this.response.instructedAmount)) {
+        if(_get(this.response, "exchangeRateInformation") && _get(this.response, "currencyOfTransfer") && _get(this.response.initiation, "instructedAmount")) {
+            if (isExchangeCurrency(this.response.exchangeRateInformation, this.response.currencyOfTransfer, this.response.initiation.instructedAmount)) {
                 this.paymentItems.push({
                     type: ItemType.EXCHANGE_RATE,
                     payload: {
@@ -132,7 +132,7 @@ export class InternationalPaymentComponent implements OnInit {
                 type: ItemType.STRING,
                 payload: {
                     label: 'CONSENT.PAYMENT.CHARGES',
-                    value: this.response.charges.amount + ' ' + this.response.charges.currency,
+                    value: this.response.charges.amount + ' ' + (this.response.charges.currency === undefined ? 'GBP' : this.response.charges.currency),
                     cssClass: 'international-payment-charges'
                 }
             });
@@ -147,12 +147,12 @@ export class InternationalPaymentComponent implements OnInit {
             });
         }
 
-        if(this.amountConverted) {
+        if(this.amountConverted !== undefined) {
             this.totalAmount = calculateTotalAmount(this.response.charges, this.amountConverted)
         } else {
             this.totalAmount = {
-                amount: (Number(this.response.instructedAmount.amount) + Number(this.response.charges.amount)),
-                currency: this.response.instructedAmount.currency
+                amount: (Number(this.response.initiation.instructedAmount.amount) + Number(this.response.charges.amount)),
+                currency: this.response.initiation.instructedAmount.currency
             }
         }
 
