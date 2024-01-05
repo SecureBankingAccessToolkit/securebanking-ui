@@ -1,6 +1,6 @@
 name := securebanking-ui
 service := rcs
-repo := sbat-gcr-develop
+repo := europe-west4-docker.pkg.dev/sbat-gcr-develop/sapig-docker-artifact
 tag  := latest
 helm_repo := forgerock-helm/secure-api-gateway/securebanking-ui/
 shouldBePushed = true
@@ -24,16 +24,16 @@ update_versions:
 docker:
 # info section
 ifeq ($(shouldBePushed), true)
-	$(info The service=${service} image WILL BE PUSHED to repository eu.gcr.io/${repo}/securebanking/ui/${service}:${tag})
+	$(info The service=${service} image WILL BE PUSHED to repository ${repo}/securebanking/ui/${service}:${tag})
 else
-	$(info The service=${service} image WILL NOT BE PUSHED to repository eu.gcr.io/${repo}/securebanking/ui/${service}:${tag})
+	$(info The service=${service} image WILL NOT BE PUSHED to repository ${repo}/securebanking/ui/${service}:${tag})
 endif
 # build section
 	cd secure-api-gateway-ob-uk-ui-${service} && \
-	docker build -t eu.gcr.io/${repo}/securebanking/ui/${service}:${tag} -f projects/${service}/docker/Dockerfile .
+	docker build -t ${repo}/securebanking/ui/${service}:${tag} -f projects/${service}/docker/Dockerfile .
 # push section with condition (default true)
 ifeq ($(shouldBePushed), true)
-	docker push eu.gcr.io/${repo}/securebanking/ui/${service}:${tag}
+	docker push ${repo}/securebanking/ui/${service}:${tag}
 endif
 
 # Helm target
