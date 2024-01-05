@@ -37,11 +37,11 @@ npm run test
 ### Build
 ```bash
 # Build
-docker build -t eu.gcr.io/sbat-gcr-develop/securebanking/ui/rcs:local -f projects/rcs/docker/Dockerfile .
+docker build -t europe-west4-docker.pkg.dev/sbat-gcr-develop/sapig-docker-artifact/securebanking/ui/rcs:local -f projects/rcs/docker/Dockerfile .
 ```
 ### Run
 > Update the values on `./projects/rcs/docker/local.env` if necessary before `docker run`
 ```shell
-docker run -p 80:80 --env-file ./projects/rcs/docker/local.env eu.gcr.io/sbat-gcr-develop/securebanking/ui/rcs:local
+docker run -p 80:80 --env-file ./projects/rcs/docker/local.env europe-west4-docker.pkg.dev/sbat-gcr-develop/sapig-docker-artifact/securebanking/ui/rcs:local
 ```
 Open http://localhost
