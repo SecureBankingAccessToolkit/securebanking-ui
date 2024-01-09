@@ -1,4 +1,4 @@
-name: pull-request
+name: Pull Request - Build and Deploy
 run-name: Pull request
 on:
   pull_request:
@@ -70,7 +70,7 @@ jobs:
         run: |
           make docker tag=${{ env.PR_NUMBER }}
 
-  tests:
+  deploy:
     runs-on: ubuntu-latest
     name: Check PR integrity
     needs: [rcs]
@@ -90,6 +90,7 @@ jobs:
 
       - name: 'Deploy Service'
         uses: codefresh-io/codefresh-pipeline-runner@master
+        if: github.actor != 'dependabot[bot]'
         with:
           args: '-v TAG=${{ env.PR_NUMBER }} -v ARGO_VALUES_PREFIX=remoteConsentServiceUserInterface -v SERVICE_NAME=remote-consent-ui -v ENVIRONMENT=${{ env.GITHUB_USER }} -v BRANCH=${{ github.head_ref }}'
         env:
