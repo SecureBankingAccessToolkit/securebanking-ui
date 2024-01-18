@@ -1,7 +1,7 @@
 module.exports = {
     "type": "InternationalScheduledPaymentConsentDetails",
     "consentId": "PISC_24f3d6b2-764b-4d58-91d2-ea40c35264e",
-    "decisionApiUri": "/rcs/api/consent/decision/",
+    "decisionApiUri": "/rcs/api/consent/decision",
     "username": "psu4test",
     "userId": "4737f9f9-fa0a-4159-bc61-7da31542e624",
     "clientId": "71ca6faf-08a6-4db8-a70a-0a086900f606",

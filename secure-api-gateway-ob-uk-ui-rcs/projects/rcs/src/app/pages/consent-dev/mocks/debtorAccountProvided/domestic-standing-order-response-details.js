@@ -1,6 +1,6 @@
 module.exports = {
     type: "DomesticStandingOrderConsentDetails",
-    decisionApiUri: "/rcs/api/consent/decision/",
+    decisionApiUri: "/rcs/api/consent/decision",
     username: "psu4test",
     userId: "42edfd13-a642-47c1-b76c-684efe4e6449",
     logo: "https://forgerock.com",

@@ -1,6 +1,6 @@
 module.exports = {
   type: "DomesticPaymentsConsentDetails",
-  decisionApiUri: "/rcs/api/consent/decision/",
+  decisionApiUri: "/rcs/api/consent/decision",
   username: "psu4test",
   userId: "7b78b560-6057-41c5-bf1f-1ed590b1c30b",
   logo: "https://forgerock.com",

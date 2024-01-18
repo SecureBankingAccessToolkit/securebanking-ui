@@ -24,7 +24,7 @@ describe('app:bank FundsConfirmationComponent', () => {
   const responseObject = {
     "type": "FundsConfirmationConsentDetails",
     "consentId": "FCC_67e60d61-2cd4-4e9c-a473-8680b8e7c309",
-    "decisionApiUri": "/rcs/api/consent/decision/",
+    "decisionApiUri": "/rcs/api/consent/decision",
     "username": "psu4test",
     "userId": "4737f9f9-fa0a-4159-bc61-7da31542e624",
     "clientId": "ce058417-bedc-444e-ba3d-fb793423ad27",

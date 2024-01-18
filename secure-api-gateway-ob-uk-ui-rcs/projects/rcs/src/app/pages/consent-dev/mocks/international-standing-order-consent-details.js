@@ -1,7 +1,7 @@
 module.exports = {
   "type": "InternationalStandingOrderConsentDetails",
   "consentId": "PISOC_8f28f27e-5a19-4fa7-951d-9fd3ff5f24",
-  "decisionApiUri": "/rcs/api/consent/decision/",
+  "decisionApiUri": "/rcs/api/consent/decision",
   "username": "psu4test",
   "userId": "4737f9f9-fa0a-4159-bc61-7da31542e624",
   "clientId": "88ca3111-fa9f-4ff3-a61d-6cd9961606c5",
