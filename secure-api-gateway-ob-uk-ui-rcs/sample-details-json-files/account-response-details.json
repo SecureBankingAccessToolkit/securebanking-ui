@@ -1,6 +1,6 @@
 {
   "type": "AccountsConsentDetails",
-  "decisionApiUri": "/rcs/api/consent/decision/",
+  "decisionApiUri": "/rcs/api/consent/decision",
   "username": "psu",
   "userId": "b7b725b3-c471-4ef0-9704-732dd0cb2001",
   "logo": "https://forgerock.com",

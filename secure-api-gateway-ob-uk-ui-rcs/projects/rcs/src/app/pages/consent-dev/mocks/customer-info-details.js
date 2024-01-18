@@ -1,7 +1,7 @@
 module.exports = {
   type: "CustomerInfoConsentDetails",
   "consentId": "CIC_a337e1a0-53ab-478b-b59a-1d68d5f07244",
-  decisionApiUri: "/rcs/api/consent/decision/",
+  decisionApiUri: "/rcs/api/consent/decision",
   username: "bab001",
   userId: "61d9f601-4003-44b6-ab47-5b5eb83f85fb",
   clientId: "5f996ff6-1b44-47a3-9651-0cc5946aeca7",

@@ -1,6 +1,6 @@
 module.exports = {
   "type": "FilePaymentConsentDetails",
-  "decisionApiUri": "/rcs/api/consent/decision/",
+  "decisionApiUri": "/rcs/api/consent/decision",
   "username": "testUserName",
   "userId": "c7303aee-2ff1-44b5-b21f-a7a3aaf39271",
   "logo": "https://www.vhv.rs/dpng/d/455-4556963_warner-bros-logo-warner-brothers-logo-png-transparent.png",

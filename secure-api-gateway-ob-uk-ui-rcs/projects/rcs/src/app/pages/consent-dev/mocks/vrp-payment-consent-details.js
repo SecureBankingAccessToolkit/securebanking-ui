@@ -1,7 +1,7 @@
 module.exports = {
   "type": "DomesticVrpPaymentConsentDetails",
   "consentId": "DVRP_9dd1fd32-0152-4250-a91f-462520d69b9",
-  "decisionApiUri": "/rcs/api/consent/decision/",
+  "decisionApiUri": "/rcs/api/consent/decision",
   "username": "psu4test",
   "userId": "4737f9f9-fa0a-4159-bc61-7da31542e624",
   "clientId": "c4bc928e-f316-4191-8616-a89fbc3677c8",

@@ -1,6 +1,6 @@
 module.exports = {
   type: "InternationalPaymentConsentDetails",
-  decisionApiUri: "/rcs/api/consent/decision/",
+  decisionApiUri: "/rcs/api/consent/decision",
   username: "psu4test",
   userId: "86228a9d-812d-4a15-a2f7-6a45488e593b",
   logo: "https://forgerock.com",
