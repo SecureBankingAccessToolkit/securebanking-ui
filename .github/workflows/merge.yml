@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     name: Build rcs image
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - name: Auth to GCP  
         uses: google-github-actions/auth@v2
@@ -41,7 +41,7 @@ jobs:
     name: Synchronise dev cluster.
     needs: [buildRcs]
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - name: 'Deploy Service'
         uses: codefresh-io/codefresh-pipeline-runner@master

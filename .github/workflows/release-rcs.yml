@@ -61,7 +61,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       # https://github.com/actions/checkout
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         id: checkout_branch
         name: checkout release branch
         with:
