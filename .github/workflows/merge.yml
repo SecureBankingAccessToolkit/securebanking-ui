@@ -48,6 +48,6 @@ jobs:
         with:
           args: '-v SERVICE_NAME=remote-consent-ui'
         env:
-          PIPELINE_NAME: 'ForgeCloud/sbat-infra/dev-ob-service-build'
+          PIPELINE_NAME: 'SAPIG-devenv/dev-ob-service-build'
           CF_API_KEY: ${{ secrets.CF_API_KEY }}
         id: run-pipeline
