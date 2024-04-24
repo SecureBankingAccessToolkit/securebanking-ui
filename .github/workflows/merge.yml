@@ -1,5 +1,4 @@
-name: merge-master
-run-name: Merge master
+name: Merge - Build and Deploy
 on:
   push:
     branches:
@@ -17,7 +16,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Auth to GCP  
+      - name: Auth to GCP
         uses: google-github-actions/auth@v2
         with:
           credentials_json: ${{ secrets.DEV_GAR_KEY }}

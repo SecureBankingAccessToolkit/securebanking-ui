@@ -1,5 +1,4 @@
-name: Pull Request - Build and Deploy
-run-name: Pull request
+name: PR - Build and Deploy
 on:
   pull_request:
     branches:
@@ -54,7 +53,7 @@ jobs:
         run: |
           npm run test
       # https://github.com/google-github-actions/setup-gcloud#authorization
-      - name: Auth to GCP  
+      - name: Auth to GCP
         uses: google-github-actions/auth@v2
         with:
           credentials_json: ${{ secrets.DEV_GAR_KEY }}
@@ -84,9 +83,9 @@ jobs:
       - name: Create lowercase Github Username
         id: toLowerCase
         run: echo "GITHUB_USER=$(echo ${{github.actor}} | tr '[:upper:]' '[:lower:]')" >> ${GITHUB_ENV}
-      
+
       - name: Output GITHUB_USER env
-        run: echo "GITHUB_USER set to ${{ env.GITHUB_USER }}"          
+        run: echo "GITHUB_USER set to ${{ env.GITHUB_USER }}"
 
       - name: 'Deploy Service'
         uses: codefresh-io/codefresh-pipeline-runner@master
