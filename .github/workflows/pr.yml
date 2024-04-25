@@ -4,95 +4,14 @@ on:
     branches:
       - master
     paths-ignore:
-      - README.md
-
-env:
-  HELM_DIRECTORY: _infra/helm/
-  SERVICE_NAME: securebanking-ui
-  PR_NUMBER: pr-${{ github.event.number }}
+      - '**/README.md'
+      - '_infra/helm/**'
 
 jobs:
-  pr:
-    runs-on: ubuntu-latest
-    name: Create pr docker tag
-    outputs:
-      prTag: ${{ steps.tag.outputs.pr_number }}
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: pr docker tag
-        id: tag
-        run: |
-          PR=$(echo "$GITHUB_REF" | awk -F / '{print $3}')
-          echo "$PR"
-          echo ::set-output name=pr_number::pr-"$PR"
-
-  rcs:
-    runs-on: ubuntu-latest
-    name: test and package rcs ui
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-
-      - name: Configure Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: 14
-          cache: 'npm'
-          cache-dependency-path: secure-api-gateway-ob-uk-ui-rcs/package-lock.json
-
-      - name: lint
-        working-directory: ./secure-api-gateway-ob-uk-ui-rcs
-        run: |
-          npm ci
-          npm run lint
-
-      - name: test
-        working-directory: ./secure-api-gateway-ob-uk-ui-rcs
-        run: |
-          npm run test
-      # https://github.com/google-github-actions/setup-gcloud#authorization
-      - name: Auth to GCP
-        uses: google-github-actions/auth@v2
-        with:
-          credentials_json: ${{ secrets.DEV_GAR_KEY }}
-
-      - name: Set up Cloud SDK
-        uses: google-github-actions/setup-gcloud@v1.1.1
-
-      - name: Auth Docker
-        run: |
-          gcloud auth configure-docker europe-west4-docker.pkg.dev
-
-      - name: Build Docker Image
-        run: |
-          make docker tag=${{ env.PR_NUMBER }}
-
-  deploy:
-    runs-on: ubuntu-latest
-    name: Check PR integrity
-    needs: [rcs]
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: template helm
-        run: |
-          helm template $HELM_DIRECTORY/$SERVICE_NAME
-
-      - name: Create lowercase Github Username
-        id: toLowerCase
-        run: echo "GITHUB_USER=$(echo ${{github.actor}} | tr '[:upper:]' '[:lower:]')" >> ${GITHUB_ENV}
-
-      - name: Output GITHUB_USER env
-        run: echo "GITHUB_USER set to ${{ env.GITHUB_USER }}"
-
-      - name: 'Deploy Service'
-        uses: codefresh-io/codefresh-pipeline-runner@master
-        if: github.actor != 'dependabot[bot]'
-        with:
-          args: '-v TAG=${{ env.PR_NUMBER }} -v ARGO_VALUES_PREFIX=remoteConsentServiceUserInterface -v SERVICE_NAME=remote-consent-ui -v ENVIRONMENT=${{ env.GITHUB_USER }}-ob -v NEWBRANCH=${{ github.head_ref }}'
-        env:
-          PIPELINE_NAME: 'SAPIG-devenv/dev-ob-service-build'
-          CF_API_KEY: ${{ secrets.CF_API_KEY }}
-        id: run-pipeline
+  run_pr-template:
+    name: PR - Build and Deploy
+    uses: SecureApiGateway/secure-api-gateway-ci/.github/workflows/reusable-pr.yml@1389-standard-steps-for-workflows
+    secrets: inherit
+    with:
+      componentName: secure-api-gateway-ob-uk-ui
+      dockerTag: pr-${{ github.event.number }}

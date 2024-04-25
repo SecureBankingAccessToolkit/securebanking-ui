@@ -1,9 +1,7 @@
 name := securebanking-ui
 service := rcs
 repo := europe-west4-docker.pkg.dev/sbat-gcr-develop/sapig-docker-artifact
-tag  := latest
 helm_repo := forgerock-helm/secure-api-gateway/securebanking-ui/
-shouldBePushed = true
 
 update_cli:
 	cd secure-api-gateway-ob-uk-ui-cli
@@ -22,20 +20,23 @@ update_versions:
 
 # docker target
 docker:
-# info section
-ifeq ($(shouldBePushed), true)
-	$(info The service=${service} image WILL BE PUSHED to repository ${repo}/securebanking/ui/${service}:${tag})
-else
-	$(info The service=${service} image WILL NOT BE PUSHED to repository ${repo}/securebanking/ui/${service}:${tag})
+ifndef tag
+	$(warning No tag supplied, latest assumed. supply tag with make docker tag=x.x.x service=...)
+	$(eval tag=latest)
 endif
-# build section
-	cd secure-api-gateway-ob-uk-ui-${service} && \
-	docker build -t ${repo}/securebanking/ui/${service}:${tag} -f projects/${service}/docker/Dockerfile .
-# push section with condition (default true)
-ifeq ($(shouldBePushed), true)
-	docker push ${repo}/securebanking/ui/${service}:${tag}
+ifndef setlatest
+	$(warning no setlatest true|false supplied; false assumed)
+	$(eval setlatest=false)
 endif
-
+	if [ "${setlatest}" = "true" ]; then \
+		cd secure-api-gateway-ob-uk-ui-${service} && \
+		docker build -f projects/${service}/docker/Dockerfile -t ${repo}/securebanking/ui/${service}:${tag} -t ${repo}/securebanking/ui/${service}:latest. ; \
+		docker push ${repo}/securebanking/ui/${service} --all-tags; \
+	else \
+		cd secure-api-gateway-ob-uk-ui-${service} && \
+  	docker build -t ${repo}/securebanking/ui/${service}:${tag} -f projects/${service}/docker/Dockerfile . ; \
+  	docker push ${repo}/securebanking/ui/${service}:${tag}; \
+	fi;
 # Helm target
 package_helm:
 ifndef version
