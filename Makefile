@@ -30,7 +30,7 @@ ifndef setlatest
 endif
 	if [ "${setlatest}" = "true" ]; then \
 		cd secure-api-gateway-ob-uk-ui-${service} && \
-		docker build -f projects/${service}/docker/Dockerfile -t ${repo}/securebanking/ui/${service}:${tag} -t ${repo}/securebanking/ui/${service}:latest. ; \
+		docker build -f projects/${service}/docker/Dockerfile -t ${repo}/securebanking/ui/${service}:${tag} -t ${repo}/securebanking/ui/${service}:latest . ; \
 		docker push ${repo}/securebanking/ui/${service} --all-tags; \
 	else \
 		cd secure-api-gateway-ob-uk-ui-${service} && \
