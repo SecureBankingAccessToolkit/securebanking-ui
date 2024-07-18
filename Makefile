@@ -2,6 +2,7 @@ name := securebanking-ui
 service := rcs
 repo := europe-west4-docker.pkg.dev/sbat-gcr-develop/sapig-docker-artifact
 helm_repo := forgerock-helm/secure-api-gateway/securebanking-ui/
+latesttagversion := latest
 
 update_cli:
 	cd secure-api-gateway-ob-uk-ui-cli
@@ -32,7 +33,7 @@ ifndef setlatest
 endif
 	@if [ "${setlatest}" = "true" ]; then \
 		cd secure-api-gateway-ob-uk-ui-${service} && \
-		docker build -f projects/${service}/docker/Dockerfile -t ${repo}/securebanking/ui/${service}:${tag} -t ${repo}/securebanking/ui/${service}:latest . ; \
+		docker build -f projects/${service}/docker/Dockerfile -t ${repo}/securebanking/ui/${service}:${tag} -t ${repo}/securebanking/ui/${service}:${latesttagversion} . ; \
 		docker push ${repo}/securebanking/ui/${service} --all-tags; \
 	else \
 		cd secure-api-gateway-ob-uk-ui-${service} && \
