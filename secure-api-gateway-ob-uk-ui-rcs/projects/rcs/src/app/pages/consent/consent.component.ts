@@ -48,12 +48,29 @@ export class ConsentComponent implements OnInit {
       this.cdr.detectChanges();
       return;
     } else {
-      const consentApprovalRedirectUri = jwtDecode(this.consentRequest)["consentApprovalRedirectUri"];
-      const m = consentApprovalRedirectUri.match("redirect_uri=([^&]+).*$");
-      if (m.length > 0) {
-        redirect_uri = m[1];
-        console.log("redirect_uri = " + redirect_uri);
+      const decodedConsentRequestJwt = jwtDecode(this.consentRequest)
+      const consentApprovalRedirectUri = decodedConsentRequestJwt["consentApprovalRedirectUri"];
+      if(typeof consentApprovalRedirectUri === 'undefined' || !consentApprovalRedirectUri) {
+        this.error = new Error("consent_request JWT does not contain consentApprovalRedirectUri claim")
+        this.cdr.detectChanges();
+        return;
       }
+      const authRequestJwt = consentApprovalRedirectUri.match("request=([^&]+).*$")[1];
+      if(typeof authRequestJwt === 'undefined' || !authRequestJwt){
+        this.error = new Error("consent_request JWT's consentApprovalRedirectUri does not have a request parameter " +
+          "containing the authorize requestJWT.")
+        this.cdr.detectChanges();
+        return;
+      }
+      const decodedAuthRequestJwt = jwtDecode(authRequestJwt)
+      redirect_uri = decodedAuthRequestJwt["redirect_uri"]  //consentApprovalRedirectUri.match("redirect_uri=([^&]+).*$");
+      if(typeof redirect_uri === 'undefined' || !redirect_uri){
+        this.error = new Error("consent_request JWT's consentApprovalRedirectUri does not have redirect_uri defined " +
+          "in it's request parameter jwt.")
+        this.cdr.detectChanges();
+        return;
+      }
+      console.log("redirect_uri = " + redirect_uri);
     }
 
     this.api
